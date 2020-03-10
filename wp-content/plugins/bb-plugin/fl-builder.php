@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Beaver Builder Plugin (Standard Version)
+ * Plugin Name: Beaver Builder Plugin (Pro Version)
  * Plugin URI: https://www.wpbeaverbuilder.com/?utm_medium=bb&utm_source=plugins-admin-page&utm_campaign=plugins-admin-uri
  * Description: A drag and drop frontend WordPress page builder plugin that works with almost any theme!
  * Version: 2.3.2.2
