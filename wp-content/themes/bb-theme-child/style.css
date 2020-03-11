@@ -15,10 +15,16 @@ h1.fl-heading {
 	margin: 0 auto;  
 }
 
+/*** custom footer styles ***/
+
 ul#menu-footer-nav li{
 	display: inline-block; 
 	padding: 0 10px;
 	
+}
+
+ul#menu-footer-nav {
+	text-align: left;
 }
 
 ul#menu-footer-nav li a {
@@ -31,6 +37,49 @@ ul#menu-footer-nav li a {
 h4.fl-widget-title {
 	display: none; 
 }
+
+ul#menu-social-media-nav {
+	text-align: right;
+}
+
+ul#menu-social-media-nav li{
+	display: inline-block; 
+	padding: 0 5px;
+}
+
+ul#menu-social-media-nav i:hover{
+	color: #aaccbb;
+}
+
+.fab {
+	font-size: 1.25em; 
+	background-color: #80a694;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px; 
+	padding-top: 10px;
+	text-align: center;
+	
+	 }
+	 
+ .menu-image-title-before.menu-image-title {
+	 padding-right: 0;
+ }
+	 
+	 
+@media (min-width: 300px)  {
+
+	
+	ul#menu-social-media-nav li{
+		float: none;
+	}	
+	footer ul.menu {
+		text-align: center;
+		
+	}
+}	 
+
+
 
 /***** 404 page *****/
 
