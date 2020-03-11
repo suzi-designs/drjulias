@@ -31,3 +31,40 @@ ul#menu-footer-nav li a {
 h4.fl-widget-title {
 	display: none; 
 }
+
+/***** 404 page *****/
+
+div.wrong-page {
+	text-align: center; 
+	height: auto;
+	padding-bottom: 20px;
+}
+
+div.wrong-page h2 {
+	color: #80a694;
+	letter-spacing: none; 
+	font-weight: 200;
+	font-size: 1,5em; 
+	
+}
+
+div.wrong-page a.button {
+	color: #fff;
+	background-color: #ff5d4c;
+	padding: 10px; 
+	width: 300px;
+	display: inline-block;
+}
+
+div.wrong-page a.button:hover, div.wrong-page a.button:active {
+	background-color: #d95252;
+	
+
+}
+
+div.wrong-page h3 {
+	color: #80a694;
+	font-weight: 200; 
+	size: 1em; 
+	text-transform: none; 
+}
