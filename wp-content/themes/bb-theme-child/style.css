@@ -15,6 +15,10 @@ h1.fl-heading {
 	margin: 0 auto;  
 }
 
+h2 {
+	letter-spacing: -1px;
+}
+
 /*** custom footer styles ***/
 
 ul#menu-footer-nav li{
