@@ -81,7 +81,49 @@ ul#menu-social-media-nav i:hover{
 		text-align: center;
 		
 	}
-}	 
+}	
+
+
+/*****  exosome page *****/
+
+div.header-container {
+	 background: url("img/coral-flower-bkgd.jpg") no-repeat scroll right center / cover rgba(0, 0, 0, 0);
+	 width: 100%;
+	 max-width: 1200px;
+	 margin: 0 auto; 
+	 padding: 0;
+}
+
+div.header-container h3 {
+	text-align: right; 
+	color: #910811;
+	padding: 20px 20px 0 0; 
+	margin: 0;
+}
+
+div.intro-container {
+	width: 100%; 
+	background-color: rgba(217, 82, 82, .65);
+	margin-top: 20px; 
+	
+}
+
+div.header-container h4.intro {
+	width: 80%; 
+	max-width: 900px; 
+	padding: 20px 0 20px 10px;
+	margin: 10px 0 0 0;  
+}
+
+div.info-container {
+	width: 90%; 
+	max-width: 700px; 
+	border: red dotted 1px;
+}
+
+artical.info h3 {
+	color: #d95252;
+}
 
 
 
