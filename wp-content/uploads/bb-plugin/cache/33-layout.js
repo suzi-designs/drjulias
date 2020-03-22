@@ -1355,6 +1355,18 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 /* End Global JS */
 
+jQuery(function($) {
+	
+		$(function() {
+		$( '.fl-node-5e77ecd73ce4f .fl-photo-img' )
+			.on( 'mouseenter', function( e ) {
+				$( this ).data( 'title', $( this ).attr( 'title' ) ).removeAttr( 'title' );
+			} )
+			.on( 'mouseleave', function( e ){
+				$( this ).attr( 'title', $( this ).data( 'title' ) ).data( 'title', null );
+			} );
+	});
+	});
 
 /* Start Global Node Custom JS */
 
