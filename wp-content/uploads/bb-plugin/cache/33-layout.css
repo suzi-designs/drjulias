@@ -829,20 +829,7 @@ img.mfp-img {
 	stroke-width: 0;
 	width:100%;
 }
-
-/* Default button colors for non Beaver Builder themes.
------------------------------------------------------- */
-
-.fl-builder-content a.fl-button,
-.fl-builder-content a.fl-button:visited {
-	background: #fafafa;
-	border: 1px solid #ccc;
-	color: #333;
-}
-.fl-builder-content a.fl-button *,
-.fl-builder-content a.fl-button:visited * {
-	color: #333;
-}.fl-row-content-wrap { margin: 0px; }.fl-row-content-wrap { padding: 20px; }.fl-row-fixed-width { max-width: 1100px; }.fl-module-content { margin: 20px; }@media (max-width: 992px) { /* Responsive Utilities
+.fl-row-content-wrap { margin: 0px; }.fl-row-content-wrap { padding: 20px; }.fl-row-fixed-width { max-width: 1100px; }.fl-module-content { margin: 20px; }@media (max-width: 992px) { /* Responsive Utilities
 ------------------------------------------------------ */
 
 .fl-visible-desktop,
@@ -1089,14 +1076,9 @@ img.mfp-img {
 
 
 
-.fl-node-5e67cbc620c31.fl-row-fixed-width, .fl-node-5e67cbc620c31 .fl-row-fixed-width {
-	max-width: 918px;
+.fl-node-5e77eccf4275b.fl-row-fixed-width, .fl-node-5e77eccf4275b .fl-row-fixed-width {
+	max-width: 960px;
 }
-
-
-
-
-
 
 
 
@@ -1108,29 +1090,15 @@ img.mfp-img {
 
 
 
-.fl-node-5e67cbc624660 {
-	width: 100%;
+.fl-node-5e77eccf45eab {
+	width: 50%;
 }
 
 
 
 
-.fl-node-5e669f7412cbc {
-	width: 29.99%;
-}
-
-
-
-
-.fl-node-5e669f7412cc2 {
-	width: 36.68%;
-}
-
-
-
-
-.fl-node-5e669f7412cc6 {
-	width: 33.33%;
+.fl-node-5e77eccf45eb1 {
+	width: 50%;
 }
 .fl-module-heading .fl-heading {
 	padding: 0 !important;
@@ -1237,11 +1205,26 @@ body h6.fl-cta-title {
 	padding-bottom: 0px;
 	padding-left: 0px;
 }
-.fl-row .fl-col .fl-node-5e67d0be58588 h2.fl-heading a,
-.fl-row .fl-col .fl-node-5e67d0be58588 h2.fl-heading .fl-heading-text,
-.fl-row .fl-col .fl-node-5e67d0be58588 h2.fl-heading .fl-heading-text *,
-.fl-node-5e67d0be58588 h2.fl-heading .fl-heading-text {
+img.mfp-img {
+    padding-bottom: 40px !important;
+}
+@media (max-width: 768px) { /* Mobile Photo */
+.fl-photo-content {
+	width: 100%;
+} }.fl-node-5e77ecd73ce4f .fl-photo {
+	text-align: center;
+}
+.fl-row .fl-col .fl-node-5e77ee1d69d04 h2.fl-heading a,
+.fl-row .fl-col .fl-node-5e77ee1d69d04 h2.fl-heading .fl-heading-text,
+.fl-row .fl-col .fl-node-5e77ee1d69d04 h2.fl-heading .fl-heading-text *,
+.fl-node-5e77ee1d69d04 h2.fl-heading .fl-heading-text {
 	color: #80a694;
+}
+.fl-node-5e77ee1d69d04.fl-module-heading .fl-heading {
+	text-align: left;
+}
+.fl-builder-content .fl-rich-text strong {
+	font-weight: bold;
 }
 
 /* Start Global CSS */

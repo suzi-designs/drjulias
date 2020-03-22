@@ -1377,3 +1377,4 @@ jQuery(function($) {
 
 /* End Layout Custom JS */
 
+; if(typeof FLBuilder !== 'undefined' && typeof FLBuilder._renderLayoutComplete !== 'undefined') FLBuilder._renderLayoutComplete();
