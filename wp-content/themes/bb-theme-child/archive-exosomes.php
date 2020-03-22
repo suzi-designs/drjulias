@@ -44,7 +44,7 @@ One simple office procedure that generates months of positive, permanent effects
 					
 						<div class="exosome-images">
 							<?php if($image) {
-								echo wp_get_attachment_image( $image, $size);
+								echo wp_get_attachment_image($image, $size);
 							} ?>	
 						</div>
 
@@ -71,7 +71,7 @@ One simple office procedure that generates months of positive, permanent effects
 				
 			<?php endif; ?>
 			
-			<h3 class="exosome-headline">Contact us to schedule your discovery  call today. </h3>
+			<h3 class="exosome-headline">Contact us to schedule your discovery call today. </h3>
 		</artical>
 
 		

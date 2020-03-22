@@ -21,7 +21,7 @@ Template Name: Single Exosomes
 					$exosome_testimonial = get_field('exosome_testimonial');
 					$question = get_field('question');
 					$answer = get_field('answer');	
-					$image = get_field($image);	
+					$image = get_field('image');	
 					$size = "full";		
 					 ?>
 				
