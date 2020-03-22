@@ -1049,44 +1049,35 @@ img.mfp-img {
 
 
 
-
-
-
-
-
-
-
-
-
-
-.fl-node-5e6a7a7759754 {
+.fl-node-5e73f137bceab {
 	width: 100%;
 }
-
-
-
-
-.fl-node-5e6a7b043d13f {
-	width: 50%;
+.fl-embed-video iframe {
+	max-width: 100%;
 }
-
-
-
-
-.fl-node-5e6a7b043d145 {
-	width: 50%;
+.fl-wp-video {
+	position: relative;
+	height: 0; 
+	overflow: hidden;
+	padding: 0 0 56.25%;
 }
-
-
-
-
-.fl-node-5e6a7b2f36fc8 {
-	width: 100%;
+.fl-wp-video .wp-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
 }
-.fl-module-heading .fl-heading {
-	padding: 0 !important;
-	margin: 0 !important;
-}.fl-animated.fl-bounce-down {
+.fl-wp-video .wp-video .mejs-container,
+.fl-wp-video .wp-video .mejs-inner,
+.fl-wp-video .wp-video .mejs-layers,
+.fl-wp-video .wp-video .mejs-layer,
+.fl-wp-video .wp-video-shortcode,
+.fl-wp-video .me-plugin,
+.fl-wp-video .me-plugin * {
+	width: 100% !important;
+	height: 100% !important;
+}@media (max-width: 768px) {  }.fl-animated.fl-bounce-down {
 	animation: fl-bounce-down 1s ease;
 	-webkit-animation: fl-bounce-down 1s ease;
 }
