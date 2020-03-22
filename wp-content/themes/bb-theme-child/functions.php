@@ -11,17 +11,34 @@ require_once 'classes/class-fl-child-theme.php';
 add_action( 'wp_enqueue_scripts', 'FLChildTheme::enqueue_scripts', 1000 );
 
 function create_custom_post_types() {
-    register_post_type( 'exosome',
+    register_post_type( 'exosomes',
         array(
             'labels' => array(
-                'name' => __( 'exosome' ),
-                'singular_name' => __( 'Exosome' )
+                'name' => __( 'Exosomes' ),
+                'singular_name' => __( 'Exosomes' )
             ),
             'public' => true,
             'has_archive' => true,
             'rewrite' => array( 'slug' => 'exosomes' ),
         )
     );
+    
+     register_post_type( 'exosomes_faq',
+        array(
+            'labels' => array(
+                'name' => __( 'Exosomes FAQ' ),
+                'singular_name' => __( 'Exosome FAQ' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array( 'slug' => 'exosomes-faq' ),
+        )
+    );
+
+    
 }
+
 add_action( 'init', 'create_custom_post_types' );
+
+
 
