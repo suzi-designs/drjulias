@@ -15,7 +15,7 @@ function create_custom_post_types() {
         array(
             'labels' => array(
                 'name' => __( 'Exosomes' ),
-                'singular_name' => __( 'Exosomes' )
+                'singular_name' => __( 'Exosome' )
             ),
             'public' => true,
             'has_archive' => true,

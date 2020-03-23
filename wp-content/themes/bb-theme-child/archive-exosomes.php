@@ -1,7 +1,7 @@
 <?php 
 
 /*
-	Template name: Archive Exosomes
+	The template is for displaying exosomes archive
 */
 
 ?>
@@ -34,8 +34,7 @@ One simple office procedure that generates months of positive, permanent effects
 					$answer = get_field('answer');
 					$image = get_field('image');	
 					$size = "medium";				
-					
-					 ?>
+					?>
 					 <div class="info-column">
 						<h3><?php echo $headline ?></h3>
 						<p><?php echo $paragraph ?></p>

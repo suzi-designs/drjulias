@@ -38,7 +38,7 @@ Template Name: Single Exosomes
 					
 						<div class="exosome-images">
 						<?php if($image) {
-							echo wp_get_attachment_image( $image, $size);
+							echo wp_get_attachment_image($image, $size);
 						} ?>	
 
 				</div>			
