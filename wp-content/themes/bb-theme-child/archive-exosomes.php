@@ -1,7 +1,7 @@
 <?php 
 
 /*
-	The template is for displaying exosomes archive
+	The template is for displaying Exosomes Archive
 */
 
 ?>
