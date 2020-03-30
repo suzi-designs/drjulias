@@ -10,9 +10,6 @@
 	background-attachment: scroll;
 	background-size: cover;
 }
-.fl-node-5e669f6c3d0df.fl-row-fixed-width, .fl-node-5e669f6c3d0df .fl-row-fixed-width {
-	max-width: 1200px;
-}
 @media(max-width: 992px) {
 	.fl-node-5e669f6c3d0df > .fl-row-content-wrap {
 		background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/03/Screen-Shot-2020-02-28-at-11.03.48-AM-copy-2.png);
@@ -34,6 +31,21 @@
 
 
 
+.fl-node-5e7fc812b7c56 > .fl-row-content-wrap {
+	background-color: rgba(242,210,193,0.81);
+}
+.fl-node-5e7fc812b7c56 .fl-row-content {
+	max-width: 1136px;
+}
+ .fl-node-5e7fc812b7c56 > .fl-row-content-wrap {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+
+
+
+
 .fl-node-5e77eccf4275b.fl-row-fixed-width, .fl-node-5e77eccf4275b .fl-row-fixed-width {
 	max-width: 960px;
 }
@@ -43,6 +55,27 @@
 
 .fl-node-5e669f6c3f3eb {
 	width: 100%;
+}
+
+
+
+
+.fl-node-5e7fc812bd3c9 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5e7fcb846c554 {
+	width: 50%;
+}
+
+
+
+
+.fl-node-5e7fcb846c55b {
+	width: 50%;
 }
 
 
@@ -59,12 +92,16 @@
 	width: 50%;
 }
  .fl-node-5e67d02add6f6 > .fl-module-content {
-	margin-top:20px;
+	margin-top:30px;
 	margin-right:0px;
 	margin-bottom:20px;
 	margin-left:0px;
 }
-
+@media (max-width: 768px) { .fl-node-5e67d02add6f6 > .fl-module-content { margin-top:20px; } } .fl-node-5e7fcba8ad823 > .fl-module-content {
+	margin-top:30px;
+	margin-right:0px;
+}
+@media (max-width: 768px) { .fl-node-5e7fcba8ad823 > .fl-module-content { margin-top:20px; } }
 /* Start Global Nodes CSS */
 
 /* End Global Nodes CSS */

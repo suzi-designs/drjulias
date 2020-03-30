@@ -10,22 +10,7 @@ require_once 'classes/class-fl-child-theme.php';
 // Actions
 add_action( 'wp_enqueue_scripts', 'FLChildTheme::enqueue_scripts', 1000 );
 
-function create_custom_post_types() {
-    register_post_type( 'exosomes',
-        array(
-            'labels' => array(
-                'name' => __( 'Exosomes' ),
-                'singular_name' => __( 'Exosomes' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-            'rewrite' => array( 'slug' => 'exosomes' ),
-        )
-    );
-    
-}
 
-add_action( 'init', 'create_custom_post_types' );
 
 
 

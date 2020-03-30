@@ -172,7 +172,27 @@ h3.exosome-headline {
 	text-align: center;
 }
 
+/*****  new exsome page *****/ 
 
+.exosome-info{
+	border: 1px red dotted;
+	
+}
+
+.exosome-info ul {
+	list-style: none; 
+	font-weight: 500;
+}
+
+.exosome-info ul li {
+	padding-left: 0px; 
+}
+
+.testimonial-name {
+	color: green;
+	display: inline-block;
+	text-align: right; 
+}
 
 /***** 404 page *****/
 
