@@ -1,0 +1,122 @@
+.fl-node-5e84ed35b22a5 {
+	color: #80a694;
+}
+.fl-builder-content .fl-node-5e84ed35b22a5 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
+	color: inherit;
+}
+
+.fl-builder-content .fl-node-5e84ed35b22a5 a {
+	color: #80a694;
+}
+
+.fl-builder-content .fl-node-5e84ed35b22a5 a:hover {
+	color: #80a694;
+}
+
+.fl-builder-content .fl-node-5e84ed35b22a5 h1,
+.fl-builder-content .fl-node-5e84ed35b22a5 h2,
+.fl-builder-content .fl-node-5e84ed35b22a5 h3,
+.fl-builder-content .fl-node-5e84ed35b22a5 h4,
+.fl-builder-content .fl-node-5e84ed35b22a5 h5,
+.fl-builder-content .fl-node-5e84ed35b22a5 h6,
+.fl-builder-content .fl-node-5e84ed35b22a5 h1 a,
+.fl-builder-content .fl-node-5e84ed35b22a5 h2 a,
+.fl-builder-content .fl-node-5e84ed35b22a5 h3 a,
+.fl-builder-content .fl-node-5e84ed35b22a5 h4 a,
+.fl-builder-content .fl-node-5e84ed35b22a5 h5 a,
+.fl-builder-content .fl-node-5e84ed35b22a5 h6 a {
+	color: #80a694;
+}
+
+
+.fl-node-5e84ed35b22a5 > .fl-row-content-wrap {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/03/teal-flower-bkgd.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	border-style: solid;
+	border-width: 0;
+	background-clip: border-box;
+	border-color: #80a694;
+	border-bottom-width: 2px;
+}
+
+
+
+
+
+
+
+
+
+.fl-node-5e84ed35b6230 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5e83c9fa790ea {
+	width: 100%;
+}
+
+/* Start Global Nodes CSS */
+
+/* End Global Nodes CSS */
+
+
+/* Start Layout CSS */
+
+/* End Layout CSS */
+
+.fl-node-5e83cc3128fef .fl-post-grid-post {
+  font-size: 14px;
+}
+.fl-node-5e83cc3128fef .fl-post-text {
+  padding: 20px;
+}
+.fl-node-5e83cc3128fef .fl-post-title {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0 0 5px;
+}
+.fl-node-5e83cc3128fef .fl-post-meta {
+  padding: 0 0 15px;
+}
+.fl-node-5e83cc3128fef div.container {
+  border: 0;
+}
+.fl-node-5e83cc3128fef div.testimonial-container {
+  border: none;
+}
+.fl-node-5e83cc3128fef div.center-quote-container {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.fl-node-5e83cc3128fef i.testmonial-quote-center {
+  display: inline-block;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #aacabb;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  padding-top: 12px;
+  border-radius: 50%;
+}
+.fl-node-5e83cc3128fef div.testimonial-container blockquote {
+  font-style: italic;
+  color: #634f39;
+  border-left: none;
+  margin: 0;
+}
+.fl-node-5e83cc3128fef div.testimonal-name {
+  text-align: right;
+  font-weight: 500;
+  color: #80a694;
+  font-size: 16px;
+  border-bottom: 1px #aacabb solid;
+}
