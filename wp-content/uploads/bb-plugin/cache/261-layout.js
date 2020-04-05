@@ -1610,8 +1610,8 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 	$(function() {
 
 		new FLBuilderPostGrid({
-			id: '5e83cc3128fef',
-			layout: 'columns',
+			id: '5e8a473e0d2c1',
+			layout: 'feed',
 			pagination: 'numbers',
 			postSpacing: '30',
 			postWidth: '300',
@@ -1635,4 +1635,3 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 /* End Layout Custom JS */
 
-; if(typeof FLBuilder !== 'undefined' && typeof FLBuilder._renderLayoutComplete !== 'undefined') FLBuilder._renderLayoutComplete();

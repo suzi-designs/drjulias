@@ -1,16 +1,16 @@
 .fl-node-5e7fb21f901f0 {
-	color: #80a694;
+	color: #396c70;
 }
 .fl-builder-content .fl-node-5e7fb21f901f0 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
 	color: inherit;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 a {
-	color: #80a694;
+	color: #396c70;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 a:hover {
-	color: #80a694;
+	color: #396c70;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 h1,
@@ -25,12 +25,12 @@
 .fl-builder-content .fl-node-5e7fb21f901f0 h4 a,
 .fl-builder-content .fl-node-5e7fb21f901f0 h5 a,
 .fl-builder-content .fl-node-5e7fb21f901f0 h6 a {
-	color: #80a694;
+	color: #396c70;
 }
 
 
 .fl-node-5e7fb21f901f0 > .fl-row-content-wrap {
-	background-color: rgba(177,202,191,0.51);
+	background-color: rgba(174,207,206,0.4);
 	border-top-width: 1px;
 	border-right-width: 0px;
 	border-bottom-width: 1px;
@@ -38,21 +38,6 @@
 }
 .fl-node-5e7fb21f901f0 .fl-row-content {
 	max-width: 798px;
-}
-.fl-node-5e7fb21f901f0 .fl-builder-top-edge-layer {
-	top: -6px;
-}
-.fl-node-5e7fb21f901f0 .fl-builder-top-edge-layer > * {
-	width: 1860px;
-	left: calc( 50% - 930px );
-	right: auto;
-	height: 80px;
-	top: 0;
-	bottom: auto;
-	transform: scaleX(1.3) scaleY(1);
-}
-.fl-node-5e7fb21f901f0 .fl-builder-top-edge-layer .fl-shape-content .fl-shape {
-	fill: #ffffff;
 }
  .fl-node-5e7fb21f901f0 > .fl-row-content-wrap {
 	padding-top:40px;
@@ -90,10 +75,13 @@
 
 
 .fl-node-5e7fb21f901e5 > .fl-row-content-wrap {
-	background-color: rgba(141,180,162,0.74);
-	border-top-width: 1px;
+	background-color: rgba(56,107,110,0.62);
+	border-style: solid;
+	border-width: 0;
+	background-clip: border-box;
+	border-top-width: 2px;
 	border-right-width: 0px;
-	border-bottom-width: 1px;
+	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
 .fl-node-5e7fb21f901e5 .fl-row-content {
@@ -150,21 +138,24 @@
 .fl-node-5e7fb74d1b7a6 {
 	width: 50%;
 }
-.fl-row .fl-col .fl-node-5e7fb21f90200 h3.fl-heading a,
-.fl-row .fl-col .fl-node-5e7fb21f90200 h3.fl-heading .fl-heading-text,
-.fl-row .fl-col .fl-node-5e7fb21f90200 h3.fl-heading .fl-heading-text *,
-.fl-node-5e7fb21f90200 h3.fl-heading .fl-heading-text {
-	color: #9b0000;
+.fl-row .fl-col .fl-node-5e7fb21f90200 h5.fl-heading a,
+.fl-row .fl-col .fl-node-5e7fb21f90200 h5.fl-heading .fl-heading-text,
+.fl-row .fl-col .fl-node-5e7fb21f90200 h5.fl-heading .fl-heading-text *,
+.fl-node-5e7fb21f90200 h5.fl-heading .fl-heading-text {
+	color: #396c70;
 }
 .fl-node-5e7fb21f90200.fl-module-heading .fl-heading {
 	text-align: left;
+}
+ .fl-node-5e7fb21f90200 > .fl-module-content {
+	margin-bottom:5px;
 }
 @media (max-width: 768px) { .fl-module-icon {
 	text-align: center;
 }
  }.fl-node-5e7fb21f901fa .fl-module-content .fl-icon i,
 .fl-node-5e7fb21f901fa .fl-module-content .fl-icon i:before {
-	color: #80a694;
+	color: #3d6e6e;
 }
 
 
@@ -195,7 +186,7 @@
 }
 .fl-node-5e7fb21f901f8 .fl-module-content .fl-icon i,
 .fl-node-5e7fb21f901f8 .fl-module-content .fl-icon i:before {
-	color: #80a694;
+	color: #3d6e6e;
 }
 
 
@@ -250,17 +241,17 @@
  .fl-node-5e7fb21f901f9 > .fl-module-content {
 	margin-top:0px;
 }
-.fl-row .fl-col .fl-node-5e7fb21f901fb h3.fl-heading a,
-.fl-row .fl-col .fl-node-5e7fb21f901fb h3.fl-heading .fl-heading-text,
-.fl-row .fl-col .fl-node-5e7fb21f901fb h3.fl-heading .fl-heading-text *,
-.fl-node-5e7fb21f901fb h3.fl-heading .fl-heading-text {
-	color: #9b0000;
+.fl-row .fl-col .fl-node-5e7fb21f901fb h5.fl-heading a,
+.fl-row .fl-col .fl-node-5e7fb21f901fb h5.fl-heading .fl-heading-text,
+.fl-row .fl-col .fl-node-5e7fb21f901fb h5.fl-heading .fl-heading-text *,
+.fl-node-5e7fb21f901fb h5.fl-heading .fl-heading-text {
+	color: #396c70;
 }
 .fl-node-5e7fb21f901fb.fl-module-heading .fl-heading {
 	text-align: left;
 }
  .fl-node-5e7fb21f901fb > .fl-module-content {
-	margin-bottom:0px;
+	margin-bottom:5px;
 }
 .fl-builder-content .fl-rich-text strong {
 	font-weight: bold;
@@ -268,13 +259,26 @@
 .fl-node-5e7fb21f901fc .fl-rich-text, .fl-node-5e7fb21f901fc .fl-rich-text * {
 	text-align: left;
 }
+ .fl-node-5e7fb21f901fc > .fl-module-content {
+	margin-top:0px;
+}
+.fl-row .fl-col .fl-node-5e7fb77929789 h6.fl-heading a,
+.fl-row .fl-col .fl-node-5e7fb77929789 h6.fl-heading .fl-heading-text,
+.fl-row .fl-col .fl-node-5e7fb77929789 h6.fl-heading .fl-heading-text *,
+.fl-node-5e7fb77929789 h6.fl-heading .fl-heading-text {
+	color: #ffffff;
+}
 .fl-node-5e7fb77929789.fl-module-heading .fl-heading {
 	font-family: Montserrat, sans-serif;
 	font-weight: 400;
 	font-size: 16px;
 	font-style: normal;
 }
-.fl-menu ul,
+ .fl-node-5e7fb77929789 > .fl-module-content {
+	margin-top:10px;
+	margin-bottom:23px;
+}
+@media (max-width: 768px) { .fl-node-5e7fb77929789 > .fl-module-content { margin-bottom:20px; } }.fl-menu ul,
 .fl-menu li{
 	list-style: none;
 	margin: 0;
@@ -470,12 +474,25 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
 	padding-bottom: 5px;
 }
 
+.fl-builder-content .fl-node-5e7fb7ce0bbb0 .menu > li > a,
+.fl-builder-content .fl-node-5e7fb7ce0bbb0 .menu > li > .fl-has-submenu-container > a,
+.fl-builder-content .fl-node-5e7fb7ce0bbb0 .sub-menu > li > a,
+.fl-builder-content .fl-node-5e7fb7ce0bbb0 .sub-menu > li > .fl-has-submenu-container > a{
+	color: #ffffff;
+	}
 
+	
+				.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-arrows .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-none .fl-menu-toggle:before {
+			border-color: #ffffff;
+		}
+		
+	
 	.fl-node-5e7fb7ce0bbb0 .menu .fl-has-submenu .sub-menu{
 		display: none;
 	}
 	.fl-node-5e7fb7ce0bbb0 .fl-menu .sub-menu {
-	background-color: #ffffff;-webkit-box-shadow: 0 1px 20px rgba(0,0,0,0.1);-ms-box-shadow: 0 1px 20px rgba(0,0,0,0.1);box-shadow: 0 1px 20px rgba(0,0,0,0.1);}
+	background-color: #ffffff;}
 		.fl-node-5e7fb7ce0bbb0 .fl-menu-horizontal.fl-toggle-arrows .fl-has-submenu-container a{
 		padding-right: 19px;
 	}
@@ -598,7 +615,7 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
 	
 	}
 	.fl-node-5e7fb7ce0bbb0 ul.fl-menu-horizontal li.mega-menu > ul.sub-menu > li > .fl-has-submenu-container a:hover {
-	color: ;
+	color: #ffffff;
 }
 .fl-node-5e7fb7ce0bbb0 .fl-menu .menu, .fl-node-5e7fb7ce0bbb0 .fl-menu .menu > li {
 	font-size: 16px;
