@@ -2,7 +2,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://wpackagist.org",
+            "url": "http://wpackagist.org"
         }
         ],
    }
