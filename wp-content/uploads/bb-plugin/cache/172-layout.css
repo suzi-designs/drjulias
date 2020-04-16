@@ -1040,7 +1040,7 @@ img.mfp-img {
 	padding-left: 0;
 	padding-right: 0;
 }
- }.fl-node-5e7fb21f901f0 {
+ }.page .fl-post-header, .single-fl-builder-template .fl-post-header { display:none; }.fl-node-5e7fb21f901f0 {
 	color: #396c70;
 }
 .fl-builder-content .fl-node-5e7fb21f901f0 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
