@@ -1099,7 +1099,16 @@ img.mfp-img {
 .fl-module-heading .fl-heading {
 	padding: 0 !important;
 	margin: 0 !important;
-}.fl-input-group {
+}.fl-node-5e8b87a03f89a.fl-module-heading .fl-heading {
+	text-align: left;
+}
+ .fl-node-5e8b87a03f89a > .fl-module-content {
+	margin-top:10px;
+	margin-right:0px;
+	margin-bottom:10px;
+	margin-left:0px;
+}
+.fl-input-group {
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -1201,6 +1210,12 @@ img.mfp-img {
 	float: right;
 }
 
+ .fl-node-5e8b8642bd791 > .fl-module-content {
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+	margin-left:10px;
+}
 .fl-node-5e8b931f5471b.fl-module-heading .fl-heading {
 	text-align: center;
 }
