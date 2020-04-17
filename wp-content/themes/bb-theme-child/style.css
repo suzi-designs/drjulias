@@ -218,3 +218,43 @@ div.wrong-page h3 {
 	size: 1em; 
 	text-transform: none; 
 }
+
+/****** Contact Form Styles ******/
+
+.contact-form {
+    background: #eee;
+    padding: 30px;
+    margin: 0 20px 20px 0; 
+    border-radius: 5px;
+}
+.contact-form .fl-input-group input,
+.contact-form .fl-input-group textarea {
+    border-radius: 0;
+    padding: 12px;
+    height: auto;
+    background: #fff;
+    color: #80b0a0;
+    border-bottom: 2px solid #80b0a0;
+}
+
+.contact-form .fl-input-group input::-webkit-input-placeholder {
+    color: #e0a486;
+}
+.contact-form .fl-input-group textarea::-webkit-input-placeholder {
+    color: #e0a486;
+}
+
+.contact-form .fl-input-group input:focus,
+.contact-form .fl-input-group textarea:focus {
+    border: 1px solid #80b0a0;
+}
+
+.contact-form .fl-input-group {
+    margin-bottom: 20px;
+}
+.contact-form label {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
