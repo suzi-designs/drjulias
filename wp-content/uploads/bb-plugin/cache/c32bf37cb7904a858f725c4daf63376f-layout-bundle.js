@@ -607,6 +607,26 @@
 	$(function() {
 
 		new FLBuilderMenu({
+			id: '5e9f6a9ba7ea0',
+			type: 'horizontal',
+			mobile: 'expanded',
+			mobileBelowRow: false,
+			mobileFlyout: false,
+			breakPoints: {
+				medium: 992,
+				small: 768			},
+			mobileBreakpoint: 'mobile'
+		});
+
+	});
+
+})(jQuery);
+
+(function($) {
+
+	$(function() {
+
+		new FLBuilderMenu({
 			id: '5e7fb7ce0bbb0',
 			type: 'horizontal',
 			mobile: 'expanded',
@@ -631,4 +651,3 @@
 
 /* End Layout Custom JS */
 
-; if(typeof FLBuilder !== 'undefined' && typeof FLBuilder._renderLayoutComplete !== 'undefined') FLBuilder._renderLayoutComplete();

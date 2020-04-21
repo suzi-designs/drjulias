@@ -63,16 +63,16 @@ ul#menu-social-media-nav {
 
 ul#menu-social-media-nav li{
 	display: inline-block; 
-	padding: 0 5px;
+	padding: 0 2px;
 }
 
 ul#menu-social-media-nav i:hover{
 	color: #aaccbb;
 }
 
-.fab {
-	font-size: 1.25em; 
-	background-color: #80a694;
+ul#menu-social-media-nav i.fab, ul#menu-social-media-nav i.fas {
+	font-size: 1.1em; 
+	background-color: #157172;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px; 
