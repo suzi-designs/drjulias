@@ -45,6 +45,71 @@ Appearance > Theme Settings > Code or create a child theme.
 		line-height: @medium-h6-line-height;
 		letter-spacing: @medium-h6-letter-spacing;
 	}
+
+	/* Gutenberg Buttons */
+	.wp-block-button .wp-block-button__link {
+		font-size: @medium-button-font-size;
+		line-height: @medium-button-line-height;
+	}
+
+	/* HTML Buttons */
+	.fl-page button,
+	.fl-page input[type=button],
+	.fl-page input[type=submit] {
+		font-size: @medium-button-font-size;
+		line-height: @medium-button-line-height;
+	}
+
+	/* Builder Buttons */
+	a.fl-button,
+	a.fl-button:visited, 
+	.fl-page a.fl-button, 
+	.fl-page a.fl-button:visited {
+		font-size: @medium-button-font-size;
+		line-height: @medium-button-line-height;
+	}
+
+	a.fl-button:hover {
+		font-size: @medium-button-font-size;
+		line-height: @medium-button-line-height;
+	}
+	
+	/* WooCommerce Buttons from non-WooCommerce Page */
+	.fl-page .woocommerce,
+	.fl-page .fl-page-content .woocommerce {
+		a.button,
+		button.button,
+		input.button,
+		button.button:disabled,
+		button.button:disabled[disabled],
+		button[type=button],
+		button[type=submit],
+		input[type=submit],
+		#respond input#submit,
+		#content input.button {
+			font-size: @medium-button-font-size;
+			line-height: @medium-button-line-height;
+		}
+	}
+
+	/* WooCommerce Buttons from WooCommerce Page */
+	.woocommerce-page, 
+	.woocommerce-page .fl-page,
+	.woocommerce-page .fl-page .fl-page-content {
+		a.button,
+		button.button,
+		input.button,
+		button.button:disabled,
+		button.button:disabled[disabled],
+		button[type=button],
+		button[type=submit],
+		input[type=submit],
+		#respond input#submit,
+		#content input.button {
+			font-size: @medium-button-font-size;
+			line-height: @medium-button-line-height;
+		}
+	}
 }
 
 /* Media Query - mobile devices
@@ -89,4 +154,64 @@ Appearance > Theme Settings > Code or create a child theme.
 		line-height: @mobile-h6-line-height;
 		letter-spacing: @mobile-h6-letter-spacing;
 	}
+
+	/* Gutenberg Buttons */
+	.wp-block-button .wp-block-button__link {
+		font-size: @mobile-button-font-size;
+		line-height: @mobile-button-line-height;
+	}
+
+	/* HTML Buttons */
+	.fl-page button,
+	.fl-page input[type=button],
+	.fl-page input[type=submit] {
+		font-size: @mobile-button-font-size;
+		line-height: @mobile-button-line-height;
+	}
+
+	/* Builder Buttons */
+	a.fl-button,
+	a.fl-button:visited, 
+	.fl-page a.fl-button, 
+	.fl-page a.fl-button:visited {
+		font-size: @mobile-button-font-size;
+		line-height: @mobile-button-line-height;
+	}
+
+	/* WooCommerce Buttons from non-WooCommerce Page */
+	.fl-page .woocommerce,
+	.fl-page .fl-page-content .woocommerce {
+		a.button,
+		button.button,
+		input.button,
+		button.button:disabled,
+		button.button:disabled[disabled],
+		button[type=button],
+		button[type=submit],
+		input[type=submit],
+		#respond input#submit,
+		#content input.button {
+			font-size: @mobile-button-font-size;
+			line-height: @mobile-button-line-height;
+		}
+	}
+
+	/* WooCommerce Buttons from WooCommerce Page */
+	.woocommerce-page, 
+	.woocommerce-page .fl-page,
+	.woocommerce-page .fl-page .fl-page-content	{
+		a.button,
+		button.button,
+		button.button:disabled,
+		button.button:disabled[disabled],
+		input.button,
+		button[type=button],
+		button[type=submit],
+		#respond input#submit,
+		#content input.button {
+			font-size: @mobile-button-font-size;
+			line-height: @mobile-button-line-height;
+		}
+	}
+
 }

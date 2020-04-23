@@ -82,7 +82,7 @@ Nav Toggle - Hamburger Icon
 It's being used in the theme.less for media queries when enabled in the customizer.
 ------------------------------------------------------------------------------------ */
 
-.fl-nav-icon-toggled() {
+.fl-nav-icon-toggled( @hamburger-icon-top-pos: 24px ) {
 
 	/* Page Nav Toggle Common mixin
 	----------------------------------------------------------- */
@@ -115,7 +115,7 @@ It's being used in the theme.less for media queries when enabled in the customiz
 		padding: 6px 8px;
 		position: absolute;
 		right: 20px;
-		top: ceil(@header-padding - 6);
+		top: @hamburger-icon-top-pos;
 		width: auto;
 		&:hover,
 		&:focus {
@@ -125,6 +125,12 @@ It's being used in the theme.less for media queries when enabled in the customiz
 		* {
 			color: @mobile-nav-fg-link-color;
 		}
+	}
+}
+
+.fl-hamburger-icon-position( @hamburger-icon-top-pos : 24px ){
+	.fl-page-nav .navbar-toggle {
+		top: @hamburger-icon-top-pos;
 	}
 }
 
@@ -218,15 +224,19 @@ It's being used in the theme.less for media queries when enabled in the customiz
 					color: @mobile-nav-fg-hover-color;
 				}
 			}
-			> li.current-menu-item ~ li.current-menu-item > a {
-				color: @mobile-nav-fg-link-color;
-			}
 		}
-		ul.sub-menu li {
-			border-color: @mobile-nav-btn-color;
-			a {
-				color: @mobile-nav-fg-link-color;
-				&:hover {
+		ul.sub-menu {
+			li {
+				border-color: @mobile-nav-btn-color;
+				a {
+					color: @mobile-nav-fg-link-color;
+					&:hover {
+						color: @mobile-nav-fg-hover-color;
+					}
+				}
+			}
+			li.current-menu-item {
+				a {
 					color: @mobile-nav-fg-hover-color;
 				}
 			}
@@ -584,7 +594,7 @@ when not( @bg-image = none ) {
 		}
 	}
 	.navbar-nav li.current-menu-item ~ li.current-menu-item > a {
-		color: @fg-color;
+		color: @fg-hover-color;
 	}
 }
 
