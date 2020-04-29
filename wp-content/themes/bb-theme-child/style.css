@@ -261,6 +261,16 @@ div.wrong-page h3 {
 
 /****** Clean living archive page ******/
 
+a.pdfprnt-button-print {
+	background-color: #e69572; 
+	color: #fefbcd;
+	border-radius: 5px; 
+}
+
+a.pdfprnt-button-print:active, a.pdfprnt-button-print:hover {
+	background-color: #d85f5d;
+}
+
 
 	
 

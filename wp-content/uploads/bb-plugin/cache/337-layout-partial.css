@@ -38,11 +38,10 @@
 	border-style: solid;
 	border-width: 0;
 	background-clip: border-box;
-	border-color: #aecfce;
 	border-top-width: 0px;
-	border-right-width: 1px;
+	border-right-width: 0px;
 	border-bottom-width: 0px;
-	border-left-width: 1px;
+	border-left-width: 0px;
 }
  .fl-node-5ea39bf3d57e5 > .fl-row-content-wrap {
 	padding-top:0px;
@@ -384,13 +383,13 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 }
  }
 .fl-node-5ea39eb04502a .fl-post-grid {
-	margin-left: -30px;
-	margin-right: -30px;
+	margin-left: -15px;
+	margin-right: -15px;
 }
 .fl-node-5ea39eb04502a .fl-post-column {
-	padding-bottom: 60px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-bottom: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
 	width: 50%;
 }
 .fl-node-5ea39eb04502a .fl-post-column:nth-child(2n + 1) {
@@ -421,11 +420,12 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 
 .fl-node-5ea39eb04502a .fl-post-grid-post {
 
+		background-color: #eeeeee;
 	
 	}
 
 .fl-node-5ea39eb04502a .fl-post-grid-text {
-	padding: 20px;
+	padding: 30px;
 }
 
 .fl-node-5ea39eb04502a h2.fl-post-grid-title a {
@@ -511,15 +511,14 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 
 
 /* Start Layout CSS */
-.post-archive h2 {
-    display: block; 
-	border-bottom: #aecfce solid 1px; 
-   
-
-}
-
 .post-archive a {
     font-weight: 500; 
+}
+
+.post-archive .sfsi_shortcode_container {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 5px;
 }
 /* End Layout CSS */
 

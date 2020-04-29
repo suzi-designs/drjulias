@@ -141,11 +141,11 @@
 	margin-bottom:10px;
 	margin-left:100px;
 }
-@media (max-width: 768px) { .fl-node-5ea0af25d624a > .fl-module-content { margin-left:20px;margin-right:20px; } } .fl-node-5ea0af7aac7a4 > .fl-module-content {
-	margin-top:10px;
-	margin-right:0px;
-	margin-bottom:10px;
-	margin-left:0px;
+@media (max-width: 768px) { .fl-node-5ea0af25d624a > .fl-module-content { margin-left:20px;margin-right:20px; } } .fl-node-5ea74f742e1f0 > .fl-module-content {
+	margin-top:0px;
+	margin-right:15px;
+	margin-bottom:0px;
+	margin-left:15px;
 }
  .fl-node-5e9f44695cd5c > .fl-module-content {
 	margin-top:20px;

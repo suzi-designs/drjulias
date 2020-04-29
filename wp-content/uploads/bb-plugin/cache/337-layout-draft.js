@@ -1613,7 +1613,7 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 			id: '5ea39eb04502a',
 			layout: 'columns',
 			pagination: 'load_more',
-			postSpacing: '60',
+			postSpacing: '30',
 			postWidth: '300',
 			matchHeight: {
 				default	   : '1',
