@@ -1073,9 +1073,13 @@ img.mfp-img {
 
 .fl-node-5e7fb21f901f0 > .fl-row-content-wrap {
 	background-color: rgba(174,207,206,0.4);
-	border-top-width: 1px;
+	border-style: solid;
+	border-width: 0;
+	background-clip: border-box;
+	border-color: #80a694;
+	border-top-width: 2px;
 	border-right-width: 0px;
-	border-bottom-width: 1px;
+	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
 .fl-node-5e7fb21f901f0 .fl-row-content {
@@ -1767,6 +1771,11 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
  .fl-node-5e7fb7ce0bbb0 > .fl-module-content {
 	margin-top:0px;
 	margin-bottom:0px;
+}
+@media ( max-width: 768px ) {
+ .fl-node-5e7fb7ce0bbb0.fl-module > .fl-module-content {
+	margin-bottom:20px;
+}
 }
 .fl-builder-content .fl-rich-text strong {
 	font-weight: bold;

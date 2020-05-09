@@ -1046,7 +1046,7 @@ img.mfp-img {
 
 
 .fl-node-5ea39bf3d57f0 > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/03/Screen-Shot-2020-02-28-at-11.03.48-AM-copy-2.png);
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/04/bamboo-bamboo-whisk-board-bowls-461428-scaled.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: scroll;
@@ -1066,9 +1066,9 @@ img.mfp-img {
 	margin-left:0px;
 }
  .fl-node-5ea39bf3d57f0 > .fl-row-content-wrap {
-	padding-top:0px;
+	padding-top:50px;
 	padding-right:0px;
-	padding-bottom:0px;
+	padding-bottom:50px;
 	padding-left:0px;
 }
 
@@ -1109,21 +1109,19 @@ img.mfp-img {
 .fl-row .fl-col .fl-node-5ea39bf3d57ef h1.fl-heading .fl-heading-text,
 .fl-row .fl-col .fl-node-5ea39bf3d57ef h1.fl-heading .fl-heading-text *,
 .fl-node-5ea39bf3d57ef h1.fl-heading .fl-heading-text {
-	color: #157172;
+	color: #eeeeee;
 }
 .fl-node-5ea39bf3d57ef.fl-module-heading .fl-heading {
-	text-align: center;
+	text-align: right;
+	text-shadow: 2px 2px 3px rgba(124,37,34,0.86);
 }
  .fl-node-5ea39bf3d57ef > .fl-module-content {
-	margin-top:50px;
-	margin-bottom:0px;
+	margin-top:20px;
+	margin-right:40px;
+	margin-bottom:20px;
+	margin-left:0px;
 }
-@media (max-width: 768px) { .fl-node-5ea39bf3d57ef > .fl-module-content { margin-top:20px; } }.fl-node-5ea39bf3d57f3 .fl-separator {
-	border-top:1px solid #eaeaea;
-	max-width: 100%;
-	margin: auto;
-}
-/* Generic Styles */
+@media (max-width: 768px) { .fl-node-5ea39bf3d57ef > .fl-module-content { margin-right:20px; } }/* Generic Styles */
 .fl-module-post-grid .fl-sep {
 	display: inline-block;
 	margin: 0 2px;
