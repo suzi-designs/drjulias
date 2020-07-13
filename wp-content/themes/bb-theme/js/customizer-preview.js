@@ -145,8 +145,8 @@
 			// Bind custom callbacks.
 			this._bind( 'fl-css-code', this._cssCodeChanged );
 
+			// Setup Button Styles Preview
 			if ( 'custom' === api( 'fl-button-style' ).get()  ){
-				// Setup Button Styles Preview
 				this._initButtonStyles();
 			}
 			
@@ -280,8 +280,7 @@
 
 		_initButtonStyles: function() {
 			
-			var mainSelector =  		'.fl-page button:not(.customize-partial-edit-shortcut-button),' +
-										'.fl-page button:visited,' +
+			var mainSelector =  		'.fl-page button:visited,' +
 										'.fl-page input[type=button],' +
 										'.fl-page input[type=submit],' +
 										'.fl-page a.fl-button,' +
@@ -301,19 +300,20 @@
 										'.fl-page a.bc-btn, ' +
 										'.fl-page .woocommerce a.button,' +
 										'.fl-page .woocommerce a.button:visited,' +
-										'.woocommerce-page .fl-page .products a.button,' +
-										'.woocommerce-page .fl-page .products a.button:visited,' +
-										'.woocommerce-page .fl-page .fl-page-content button,' +
-										'.woocommerce-page .fl-page .fl-page-content a.button,' +
-										'.woocommerce-page .fl-page .fl-page-content button.button,' +
-										'.woocommerce-page .fl-page .fl-page-content button.button:disabled[disabled],' +
-										'.woocommerce-page .fl-page .fl-page-content button[type=button],' +
-										'.woocommerce-page .fl-page .fl-page-content button[type=submit],' +
-										'.fl-page .woocommerce .products a.button,' +
-										'.fl-page .woocommerce .proudcts a.button:visited';
-
-			var mainInsideSelector =    '.fl-page button:not(.customize-partial-edit-shortcut-button) *,' +
-										'.fl-page button:visited *,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page a.button,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page a.button:visited,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .product a.button,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page .product a.button:visited,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .product button.button,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page .product button.button:visited,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .woocommerce button.button,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page .woocommerce button.button:visited,'+
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-module-woocommerce a.button,' +
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-module-woocommerce a.button:visited,' + 
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-post-module-woo-button a.button,' +
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-post-module-woo-button a.button:visited';
+      
+			var mainInsideSelector =    '.fl-page button:visited *,' +
 										'.fl-page input[type=button] *,' +
 										'.fl-page input[type=submit] *,' +
 										'.fl-page a.fl-button *,' +
@@ -333,8 +333,7 @@
 										'.fl-page .woocommerce a.button *,' +
 										'.fl-page .woocommerce a.button:visited *';
 
-			var hoverSelector = 		'.fl-page button:not(.customize-partial-edit-shortcut-button):hover,' +
-										'.fl-page input[type=button]:hover,' +
+			var hoverSelector = 		'.fl-page input[type=button]:hover,' +
 										'.fl-page input[type=submit]:hover,' +
 										'.fl-page a.fl-button:hover,' +
 										'.fl-responsive-preview-content button:hover,' +
@@ -348,10 +347,15 @@
 										'.fl-page button.bc-btn[disabled]:hover,' +
 										'.fl-page button.bc-link:hover,' +
 										'.fl-page a.bc-btn:hover,' +
-										'.fl-page .woocommerce a.button:hover';
+										'.fl-page .woocommerce a.button:hover,' +
+										'body.theme-bb-theme.woocommerce-page .fl-page a.button:hover,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .product button.button:hover,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .product a.button:hover,'+
+										'body.theme-bb-theme.woocommerce-page .fl-page .woocommerce button.button:hover,'+
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-module-woocommerce a.button:hover,' + 
+										'body.theme-bb-theme:not(.woocommerce-page) .fl-page .fl-post-module-woo-button a.button:hover';
 
-			var hoverInsideSelector = 	'.fl-page button:not(.customize-partial-edit-shortcut-button):hover *,' +
-										'.fl-page input[type=button]:hover *,' +
+			var hoverInsideSelector = 	'.fl-page input[type=button]:hover *,' +
 										'.fl-page input[type=submit]:hover *,' +
 										'.fl-page a.fl-button:hover *,' +
 										'.fl-responsive-preview-content button:hover *,' +

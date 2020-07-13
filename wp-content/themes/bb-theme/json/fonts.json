@@ -1490,7 +1490,7 @@
  }
 }, {
  "Exo": {
-  "variants": ["100", "100italic", "200", "200italic", "300", "300italic", "regular", "italic", "500", "500italic", "600", "600italic", "700", "700italic", "800", "800italic", "900", "900italic"],
+  "variants": ["100", "200", "300", "regular", "500", "600", "700", "800", "900", "100italic", "200italic", "300italic", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
   "fallback": "sans-serif"
  }
 }, {
@@ -2100,7 +2100,7 @@
  }
 }, {
  "Inconsolata": {
-  "variants": ["regular", "700"],
+  "variants": ["200", "300", "regular", "500", "600", "700", "800", "900"],
   "fallback": "monospace"
  }
 }, {
@@ -2212,6 +2212,11 @@
  "Josefin Slab": {
   "variants": ["100", "100italic", "300", "300italic", "regular", "italic", "600", "600italic", "700", "700italic"],
   "fallback": "serif"
+ }
+}, {
+ "Jost": {
+  "variants": ["100", "200", "300", "regular", "500", "600", "700", "800", "900", "100italic", "200italic", "300italic", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
+  "fallback": "sans-serif"
  }
 }, {
  "Joti One": {

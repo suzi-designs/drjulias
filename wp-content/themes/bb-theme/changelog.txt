@@ -1,3 +1,12 @@
+<h4>1.7.6.2 05/05/2020</h4>
+<p><strong>Hot Fix</strong></p>
+<ul>
+	<li>Fixed Menu Link in Customizer Affected by Custom Button Style.</li>
+	<li>Fixed custom button styles overriding button module styles on Themer layouts.</li>
+	<li>Fixed WooCommerce disable styles not fully working.</li>
+	<li>Fixed Menu Module styles being overridden by Custom Button Styles.</li>
+</ul>
+
 <h4>1.7.6.1 04/16/2020</h4>
 <p><strong>Hot Fix</strong></p>
 <ul>

@@ -62,8 +62,8 @@ Appearance > Theme Settings > Code or create a child theme.
 
 	/* Builder Buttons */
 	a.fl-button,
-	a.fl-button:visited, 
-	.fl-page a.fl-button, 
+	a.fl-button:visited,
+	.fl-page a.fl-button,
 	.fl-page a.fl-button:visited {
 		font-size: @medium-button-font-size;
 		line-height: @medium-button-line-height;
@@ -73,43 +73,18 @@ Appearance > Theme Settings > Code or create a child theme.
 		font-size: @medium-button-font-size;
 		line-height: @medium-button-line-height;
 	}
-	
-	/* WooCommerce Buttons from non-WooCommerce Page */
-	.fl-page .woocommerce,
-	.fl-page .fl-page-content .woocommerce {
+
+    .fl-page .fl-module-woocommerce,
+    .fl-page .fl-post-module-woo-button {
 		a.button,
-		button.button,
-		input.button,
-		button.button:disabled,
-		button.button:disabled[disabled],
+		a.button:visited,
 		button[type=button],
-		button[type=submit],
-		input[type=submit],
-		#respond input#submit,
-		#content input.button {
+		button[type=submit] {
 			font-size: @medium-button-font-size;
 			line-height: @medium-button-line-height;
 		}
 	}
 
-	/* WooCommerce Buttons from WooCommerce Page */
-	.woocommerce-page, 
-	.woocommerce-page .fl-page,
-	.woocommerce-page .fl-page .fl-page-content {
-		a.button,
-		button.button,
-		input.button,
-		button.button:disabled,
-		button.button:disabled[disabled],
-		button[type=button],
-		button[type=submit],
-		input[type=submit],
-		#respond input#submit,
-		#content input.button {
-			font-size: @medium-button-font-size;
-			line-height: @medium-button-line-height;
-		}
-	}
 }
 
 /* Media Query - mobile devices
@@ -171,47 +146,23 @@ Appearance > Theme Settings > Code or create a child theme.
 
 	/* Builder Buttons */
 	a.fl-button,
-	a.fl-button:visited, 
-	.fl-page a.fl-button, 
+	a.fl-button:visited,
+	.fl-page a.fl-button,
 	.fl-page a.fl-button:visited {
 		font-size: @mobile-button-font-size;
 		line-height: @mobile-button-line-height;
 	}
 
-	/* WooCommerce Buttons from non-WooCommerce Page */
-	.fl-page .woocommerce,
-	.fl-page .fl-page-content .woocommerce {
+	/* WooCommerce Buttons */
+    .fl-page .fl-module-woocommerce,
+    .fl-page .fl-post-module-woo-button {
 		a.button,
-		button.button,
-		input.button,
-		button.button:disabled,
-		button.button:disabled[disabled],
+		a.button:visited,
 		button[type=button],
-		button[type=submit],
-		input[type=submit],
-		#respond input#submit,
-		#content input.button {
+		button[type=submit] {
 			font-size: @mobile-button-font-size;
 			line-height: @mobile-button-line-height;
 		}
 	}
-
-	/* WooCommerce Buttons from WooCommerce Page */
-	.woocommerce-page, 
-	.woocommerce-page .fl-page,
-	.woocommerce-page .fl-page .fl-page-content	{
-		a.button,
-		button.button,
-		button.button:disabled,
-		button.button:disabled[disabled],
-		input.button,
-		button[type=button],
-		button[type=submit],
-		#respond input#submit,
-		#content input.button {
-			font-size: @mobile-button-font-size;
-			line-height: @mobile-button-line-height;
-		}
-	}
-
+    
 }
