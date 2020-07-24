@@ -1,16 +1,16 @@
 .fl-node-5e7fb21f901f0 {
-	color: #396c70;
+	color: #ffffff;
 }
 .fl-builder-content .fl-node-5e7fb21f901f0 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
 	color: inherit;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 a {
-	color: #396c70;
+	color: #ffffff;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 a:hover {
-	color: #396c70;
+	color: #ffffff;
 }
 
 .fl-builder-content .fl-node-5e7fb21f901f0 h1,
@@ -25,74 +25,22 @@
 .fl-builder-content .fl-node-5e7fb21f901f0 h4 a,
 .fl-builder-content .fl-node-5e7fb21f901f0 h5 a,
 .fl-builder-content .fl-node-5e7fb21f901f0 h6 a {
-	color: #396c70;
+	color: #ffffff;
 }
 
 
 .fl-node-5e7fb21f901f0 > .fl-row-content-wrap {
-	background-color: rgba(174,207,206,0.4);
-	border-style: solid;
+	background-color: #478ba2;
+	border-style: none;
 	border-width: 0;
 	background-clip: border-box;
-	border-color: #80a694;
 	border-top-width: 2px;
 	border-right-width: 0px;
 	border-bottom-width: 0px;
 	border-left-width: 0px;
-}
-.fl-node-5e7fb21f901f0 .fl-row-content {
-	max-width: 798px;
 }
  .fl-node-5e7fb21f901f0 > .fl-row-content-wrap {
-	padding-top:40px;
-	padding-bottom:40px;
-}
-.fl-node-5e7fb21f901e5 {
-	color: #ffffff;
-}
-.fl-builder-content .fl-node-5e7fb21f901e5 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
-	color: inherit;
-}
-
-.fl-builder-content .fl-node-5e7fb21f901e5 a {
-	color: #ffffff;
-}
-
-.fl-builder-content .fl-node-5e7fb21f901e5 a:hover {
-	color: #ffffff;
-}
-
-.fl-builder-content .fl-node-5e7fb21f901e5 h1,
-.fl-builder-content .fl-node-5e7fb21f901e5 h2,
-.fl-builder-content .fl-node-5e7fb21f901e5 h3,
-.fl-builder-content .fl-node-5e7fb21f901e5 h4,
-.fl-builder-content .fl-node-5e7fb21f901e5 h5,
-.fl-builder-content .fl-node-5e7fb21f901e5 h6,
-.fl-builder-content .fl-node-5e7fb21f901e5 h1 a,
-.fl-builder-content .fl-node-5e7fb21f901e5 h2 a,
-.fl-builder-content .fl-node-5e7fb21f901e5 h3 a,
-.fl-builder-content .fl-node-5e7fb21f901e5 h4 a,
-.fl-builder-content .fl-node-5e7fb21f901e5 h5 a,
-.fl-builder-content .fl-node-5e7fb21f901e5 h6 a {
-	color: #ffffff;
-}
-
-
-.fl-node-5e7fb21f901e5 > .fl-row-content-wrap {
-	background-color: rgba(56,107,110,0.62);
-	border-style: solid;
-	border-width: 0;
-	background-clip: border-box;
-	border-top-width: 2px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
-.fl-node-5e7fb21f901e5 .fl-row-content {
-	max-width: 2304px;
-}
- .fl-node-5e7fb21f901e5 > .fl-row-content-wrap {
-	padding-top:13px;
+	padding-top:10px;
 	padding-bottom:0px;
 }
 
@@ -112,28 +60,40 @@
 
 
 
-.fl-node-5e7fb7084bb27 {
+.fl-node-5f19f6ce8b352 {
 	width: 100%;
 }
 
 
 
 
-.fl-node-5e7fb74d1b7a0 {
+.fl-node-5f19f705ca065 {
 	width: 50%;
 }
 
 
 
 
-.fl-node-5e7fb74d1b7a6 {
+.fl-node-5f19f705ca06b {
 	width: 50%;
+}
+img.mfp-img {
+    padding-bottom: 40px !important;
+}
+@media (max-width: 768px) { /* Mobile Photo */
+.fl-photo-content {
+	width: 100%;
+} }.fl-node-5f19f281e0432 .fl-photo {
+	text-align: center;
+}
+.fl-node-5f19f281e0432 .fl-photo-img, .fl-node-5f19f281e0432 .fl-photo-content {
+	width: 100px;
 }
 .fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading a,
 .fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text,
 .fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text *,
 .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text {
-	color: #396c70;
+	color: #ffffff;
 }
 .fl-node-5e7fb21f90200.fl-module-heading .fl-heading {
 	text-align: center;
@@ -523,7 +483,7 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
 }
 .fl-node-5e7fb77929789.fl-module-heading .fl-heading {
 	font-family: Montserrat, sans-serif;
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 16px;
 	font-style: normal;
 }
@@ -695,6 +655,7 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
 	color: #ffffff;
 }
 .fl-node-5e7fb7ce0bbb0 .fl-menu .menu, .fl-node-5e7fb7ce0bbb0 .fl-menu .menu > li {
+	font-weight: 500;
 	font-size: 16px;
 }
 .fl-node-5e7fb7ce0bbb0 .fl-menu {
@@ -731,10 +692,6 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
  .fl-node-5e7fb7ce0bbb0.fl-module > .fl-module-content {
 	margin-bottom:20px;
 }
-}
- .fl-node-5e7fbfc0aee30 > .fl-module-content {
-	margin-top:0px;
-	margin-bottom:0px;
 }
 
 /* Start Global Nodes CSS */

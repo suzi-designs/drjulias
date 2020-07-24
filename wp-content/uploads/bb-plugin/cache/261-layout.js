@@ -1625,6 +1625,46 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 	
 })(jQuery);
+(function($) {
+
+	$(function() {
+
+		new FLBuilderPostGrid({
+			id: '5f1ae6bc92822',
+			layout: 'columns',
+			pagination: 'numbers',
+			postSpacing: '30',
+			postWidth: '300',
+			matchHeight: {
+				default	   : '0',
+				medium 	   : '',
+				responsive : ''
+			},
+			isRTL: false		});
+	});
+
+	
+})(jQuery);
+(function($) {
+
+	$(function() {
+
+		new FLBuilderPostGrid({
+			id: '5f1aedcfe3ee6',
+			layout: 'feed',
+			pagination: 'numbers',
+			postSpacing: '60',
+			postWidth: '300',
+			matchHeight: {
+				default	   : '0',
+				medium 	   : '',
+				responsive : ''
+			},
+			isRTL: false		});
+	});
+
+	
+})(jQuery);
 
 /* Start Global Node Custom JS */
 

@@ -10,29 +10,7 @@ template: bb-theme
 
 /* Add your custom styles here... */ 
 
-h1.fl-heading {
-	text-align: center;
-	margin: 0 auto;  
-}
 
-h2 {
-	letter-spacing: -1px;
-}
-
-a.button {
-	color: #fff;
-	background-color: #ff5d4c;
-	padding: 10px; 
-	width: 300px;
-	display: block;
-	margin: 0 auto;
-}
-
-a.button:hover, a.button:active {
-	background-color: #d95252;
-	
-
-}
 
 /*** custom footer styles ***/
 
@@ -66,20 +44,23 @@ ul#menu-social-media-nav li{
 	padding: 0 2px;
 }
 
-ul#menu-social-media-nav i:hover{
-	color: #aaccbb;
-}
-
 ul#menu-social-media-nav i.fab, ul#menu-social-media-nav i.fas {
 	font-size: 1.1em; 
-	background-color: #157172;
+	color: #ffffff;
+	background-color: #478ba2;
 	border-radius: 50%;
+	border: 1px solid #ffffff;
 	width: 40px;
 	height: 40px; 
 	padding-top: 10px;
 	text-align: center;
 	
 	 }
+	 
+ul#menu-social-media-nav i:hover{
+	background-color: #aeced5;
+	color: #478ba2;
+}
 	 
  .menu-image-title-before.menu-image-title {
 	 padding-right: 0;
@@ -101,6 +82,7 @@ ul#menu-social-media-nav i.fab, ul#menu-social-media-nav i.fas {
 
 /*****  exosome page *****/
 
+/*
 div.header-container {
 	 background: url("img/coral-flower-bkgd.jpg") no-repeat scroll right center / cover rgba(0, 0, 0, 0);
 	 width: 100%;
@@ -171,9 +153,11 @@ h3.exosome-headline {
 	background-color: rgba(217, 82, 82, .15);
 	text-align: center;
 }
+*/
 
 /*****  new exsome page *****/ 
 
+/*
 .exosome-info{
 	border: 1px red dotted;
 	
@@ -193,6 +177,7 @@ h3.exosome-headline {
 	display: inline-block;
 	text-align: right; 
 }
+*/
 
 /***** 404 page *****/
 

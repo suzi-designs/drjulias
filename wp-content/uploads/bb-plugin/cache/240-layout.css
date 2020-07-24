@@ -1449,7 +1449,13 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 }
 
 /* Start Global CSS */
-
+.cta {
+    max-width: 925px; 
+    margin: 30px auto;
+    background: linear-gradient(70deg, #ff9a9e, #fad0c4);
+    border-radius: 5px;
+    
+}
 /* End Global CSS */
 
 

@@ -1,16 +1,16 @@
 .fl-node-5e8a473e0d2c2 {
-	color: #80a694;
+	color: #478ba2;
 }
 .fl-builder-content .fl-node-5e8a473e0d2c2 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
 	color: inherit;
 }
 
 .fl-builder-content .fl-node-5e8a473e0d2c2 a {
-	color: #80a694;
+	color: #478ba2;
 }
 
 .fl-builder-content .fl-node-5e8a473e0d2c2 a:hover {
-	color: #80a694;
+	color: #478ba2;
 }
 
 .fl-builder-content .fl-node-5e8a473e0d2c2 h1,
@@ -25,20 +25,22 @@
 .fl-builder-content .fl-node-5e8a473e0d2c2 h4 a,
 .fl-builder-content .fl-node-5e8a473e0d2c2 h5 a,
 .fl-builder-content .fl-node-5e8a473e0d2c2 h6 a {
-	color: #80a694;
+	color: #478ba2;
 }
 
 
+.fl-node-5e8a473e0d2c2 > .fl-row-content-wrap:after {
+	background-color: rgba(174,206,213,0.4);
+}
 .fl-node-5e8a473e0d2c2 > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/03/teal-flower-bkgd.jpg);
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-gray.jpg);
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: right center;
 	background-attachment: fixed;
 	background-size: cover;
-	border-style: solid;
+	border-style: none;
 	border-width: 0;
 	background-clip: border-box;
-	border-color: #80a694;
 	border-bottom-width: 2px;
 }
 
@@ -67,37 +69,54 @@
 
 
 
-.fl-node-5e8a530bdc923 {
-	width: 50%;
-}
-
-
-
-
-.fl-node-5e8a530bdc929 {
-	width: 50%;
-}
-
-
-
-
-.fl-node-5ea74f98b44e7 {
+.fl-node-5f1ae66fdcc6f {
 	width: 100%;
 }
- .fl-node-5ea74fa31f75f > .fl-module-content {
-	margin-top:0px;
-	margin-right:15px;
-	margin-bottom:0px;
-	margin-left:15px;
+
+
+
+
+.fl-node-5f1ae6bc92a93 {
+	width: 100%;
 }
 
+
+
+
+.fl-node-5f1ae9ffbbfea {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f1aea3058bce {
+	width: 100%;
+}
+ .fl-node-5f1ae692a41af > .fl-module-content {
+	margin-top:50px;
+}
+@media (max-width: 768px) { .fl-node-5f1ae692a41af > .fl-module-content { margin-top:20px; } } .fl-node-5ea74fa31f75f > .fl-module-content {
+	margin-top:20px;
+	margin-right:25px;
+	margin-bottom:20px;
+	margin-left:25px;
+}
+@media (max-width: 768px) { .fl-node-5ea74fa31f75f > .fl-module-content { margin-left:20px;margin-right:20px; } }
 /* Start Global Nodes CSS */
 
 /* End Global Nodes CSS */
 
 
 /* Start Layout CSS */
+.exosome-faq, .exosome-faq-header {
+    background-color: rgba(174, 206, 213, .3);
+}
 
+.exosome-faq .fl-post-grid-post {
+    background-color: inherit;
+    border: none;
+}
 /* End Layout CSS */
 
 .fl-node-5e8a473e0d2c1 .fl-post-grid-post {
@@ -121,4 +140,73 @@
 .fl-node-5e8a473e0d2c1 div.content i {
   color: #80b0a0;
   font-size: 12px;
+}
+.fl-node-5f1ae6bc92822 .fl-post-grid-post {
+  font-size: 14px;
+}
+.fl-node-5f1ae6bc92822 .fl-post-text {
+  padding: 20px;
+}
+.fl-node-5f1ae6bc92822 .fl-post-title {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0 0 5px;
+}
+.fl-node-5f1ae6bc92822 .fl-post-meta {
+  padding: 0 0 15px;
+}
+.fl-node-5f1aedcfe3ee6 .fl-post-feed-post {
+  font-size: 14px;
+  border-bottom: none;
+}
+.fl-node-5f1aedcfe3ee6 .fl-post-text {
+  padding: 20px;
+  max-width: 500px;
+}
+.fl-node-5f1aedcfe3ee6 .fl-post-title {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0 0 5px;
+}
+.fl-node-5f1aedcfe3ee6 .fl-post-meta {
+  padding: 0 0 15px;
+}
+.fl-node-5f1aedcfe3ee6 .container {
+  border: 0;
+}
+.fl-node-5f1aedcfe3ee6 .testimonial-container {
+  border: 0 0 0 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.fl-node-5f1aedcfe3ee6 .center-quote-container {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.fl-node-5f1aedcfe3ee6 .testmonial-quote-center {
+  display: inline-block;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #aeced5;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  padding-top: 14px;
+  border-radius: 50%;
+}
+.fl-node-5f1aedcfe3ee6 .testimonial-container blockquote {
+  font-style: italic;
+  color: #316675;
+  border-left: none;
+  margin: 0;
+}
+.fl-node-5f1aedcfe3ee6 .testimonal-name {
+  text-align: right;
+  font-weight: 500;
+  color: #68aac0;
+  font-size: 16px;
+  border-bottom: 1px #68aac0 solid;
 }

@@ -1271,7 +1271,13 @@ img.mfp-img {
 }
 
 /* Start Global CSS */
-
+.cta {
+    max-width: 925px; 
+    margin: 30px auto;
+    background: linear-gradient(70deg, #ff9a9e, #fad0c4);
+    border-radius: 5px;
+    
+}
 /* End Global CSS */
 
 
