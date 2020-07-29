@@ -1357,128 +1357,6 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 
 (function($) {
-	
-	/**
-	 * Class for Post Slider Module
-	 *
-	 * @since 1.5.9
-	 */
-	FLBuilderPostSlider = function( settings ){
-
-		// set params
-		this.settings 		     = settings.settings;
-		this.nodeClass           = '.fl-node-' + settings.id;
-		this.wrapperClass        = this.nodeClass + ' .fl-post-slider-wrapper';
-		this.postClass           = this.nodeClass + ' .fl-post-slider-post';
-		this.prevSliderBtn       = $( this.nodeClass + ' .slider-prev' );
-		this.nextSliderBtn       = $( this.nodeClass + ' .slider-next' );
-		this.navigation          = settings.navigationControls;
-
-		// check if module have posts
-		if(this._hasPosts()) {
-			// initialize the slider
-			this._initSlider();
-		}
-	};
-
-	FLBuilderPostSlider.prototype = {
-		settings                : {},
-		nodeClass               : '',
-		wrapperClass            : '',
-		postClass               : '',
-		prevSliderBtn			: '',
-		nextSliderBtn			: '',
-		navigation				: false,
-		slider 			        : '',
-
-		/**
-		 * Check if the module have posts.
-		 * 
-		 * @since  1.5.9
-		 * @return bool
-		 */
-		_hasPosts: function(){
-			return $( this.postClass ).length > 0;
-		},
-
-		/**
-		 * build an object with slider options.
-		 *
-		 * @since  1.5.9
-		 * @return obj 		The slider options object.
-		 */
-		_getSettings: function(){
-			var settings = {
-				    onSliderLoad: function() { 
-						$( this.wrapperClass ).addClass( 'fl-post-slider-loaded' ); 
-					}.bind( this ),
-				}
-
-			return $.extend( {}, this.settings, settings );
-		},
-
-		/**
-		 * Creates a new Swiper instance and initialize prev and next buttons.
-		 *
-		 * @since  1.5.9
-		 * @return void
-		 */
-		_initSlider: function(){
-
-			this.slider = $( this.wrapperClass ).bxSlider( this._getSettings() );
-			
-			$( this.wrapperClass ).data( 'bxSlider', this.slider );
-
-			if( this.navigation ){
-
-				this.prevSliderBtn.on( 'click', function( e ){
-					e.preventDefault();
-					this.slider.goToPrevSlide();
-				}.bind( this ) );
-
-				this.nextSliderBtn.on( 'click', function( e ){
-					e.preventDefault();
-					this.slider.goToNextSlide();
-				}.bind( this ) );
-				
-			}
-
-		},
-				
-	};
-		
-})(jQuery);
-(function($) {
-
-	$(function() {
-
-		new FLBuilderPostSlider({
-			id: '5f1a4967ad900',
-					settings: {
-							mode: 'horizontal',
-													auto: true,
-							pause: 5000,
-				speed: 1000,
-							infiniteLoop: false,
-							adaptiveHeight: true,
-				controls: false,
-				autoHover: true,
-				onSlideBefore: function(ele, oldIndex, newIndex) {
-					$('.fl-node-5f1a4967ad900 .fl-post-slider-navigation a').addClass('disabled');
-					$('.fl-node-5f1a4967ad900 .bx-controls .bx-pager-link').addClass('disabled');
-				},
-				onSlideAfter: function( ele, oldIndex, newIndex ) {
-					$('.fl-node-5f1a4967ad900 .fl-post-slider-navigation a').removeClass('disabled');
-					$('.fl-node-5f1a4967ad900 .bx-controls .bx-pager-link').removeClass('disabled');
-				}
-			}
-		});
-
-	});
-
-})(jQuery);
-
-(function($) {
 
 	FLBuilderPostGrid = function(settings)
 	{
@@ -1732,9 +1610,9 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 	$(function() {
 
 		new FLBuilderPostGrid({
-			id: '5f1a12c90fcea',
+			id: '5f1d815117c23',
 			layout: 'columns',
-			pagination: 'none',
+			pagination: 'numbers',
 			postSpacing: '60',
 			postWidth: '300',
 			matchHeight: {
@@ -1757,4 +1635,3 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 /* End Layout Custom JS */
 
-; if(typeof FLBuilder !== 'undefined' && typeof FLBuilder._renderLayoutComplete !== 'undefined') FLBuilder._renderLayoutComplete();

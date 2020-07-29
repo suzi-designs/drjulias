@@ -1040,41 +1040,81 @@ img.mfp-img {
 	padding-left: 0;
 	padding-right: 0;
 }
- }.page .fl-post-header, .single-fl-builder-template .fl-post-header { display:none; }.fl-node-5e8a473e0d2c2 {
+ }.page .fl-post-header, .single-fl-builder-template .fl-post-header { display:none; }
+
+
+
+
+.fl-node-5f1d7f2db9660 > .fl-row-content-wrap:after {
+	background-color: rgba(174,206,213,0.4);
+}
+.fl-node-5f1d7f2db9660 > .fl-row-content-wrap {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-gray.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+
+
+
+
+ .fl-node-5f21d9151f555 > .fl-row-content-wrap {
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+}
+ .fl-node-5f21d9151f555 > .fl-row-content-wrap {
+	padding-top:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	padding-left:0px;
+}
+
+
+
+
+
+.fl-node-5e8a473e0d2b7.fl-row-fixed-width, .fl-node-5e8a473e0d2b7 .fl-row-fixed-width {
+	max-width: 880px;
+}
+.fl-node-5f1d7f13cd037 {
 	color: #478ba2;
 }
-.fl-builder-content .fl-node-5e8a473e0d2c2 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
+.fl-builder-content .fl-node-5f1d7f13cd037 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
 	color: inherit;
 }
 
-.fl-builder-content .fl-node-5e8a473e0d2c2 a {
+.fl-builder-content .fl-node-5f1d7f13cd037 a {
 	color: #478ba2;
 }
 
-.fl-builder-content .fl-node-5e8a473e0d2c2 a:hover {
+.fl-builder-content .fl-node-5f1d7f13cd037 a:hover {
 	color: #478ba2;
 }
 
-.fl-builder-content .fl-node-5e8a473e0d2c2 h1,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h2,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h3,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h4,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h5,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h6,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h1 a,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h2 a,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h3 a,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h4 a,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h5 a,
-.fl-builder-content .fl-node-5e8a473e0d2c2 h6 a {
+.fl-builder-content .fl-node-5f1d7f13cd037 h1,
+.fl-builder-content .fl-node-5f1d7f13cd037 h2,
+.fl-builder-content .fl-node-5f1d7f13cd037 h3,
+.fl-builder-content .fl-node-5f1d7f13cd037 h4,
+.fl-builder-content .fl-node-5f1d7f13cd037 h5,
+.fl-builder-content .fl-node-5f1d7f13cd037 h6,
+.fl-builder-content .fl-node-5f1d7f13cd037 h1 a,
+.fl-builder-content .fl-node-5f1d7f13cd037 h2 a,
+.fl-builder-content .fl-node-5f1d7f13cd037 h3 a,
+.fl-builder-content .fl-node-5f1d7f13cd037 h4 a,
+.fl-builder-content .fl-node-5f1d7f13cd037 h5 a,
+.fl-builder-content .fl-node-5f1d7f13cd037 h6 a {
 	color: #478ba2;
 }
 
 
-.fl-node-5e8a473e0d2c2 > .fl-row-content-wrap:after {
+.fl-node-5f1d7f13cd037 > .fl-row-content-wrap:after {
 	background-color: rgba(174,206,213,0.4);
 }
-.fl-node-5e8a473e0d2c2 > .fl-row-content-wrap {
+.fl-node-5f1d7f13cd037 > .fl-row-content-wrap {
 	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-gray.jpg);
 	background-repeat: no-repeat;
 	background-position: right center;
@@ -1089,15 +1129,14 @@ img.mfp-img {
 
 
 
-
-.fl-node-5e8a473e0d2b7.fl-row-fixed-width, .fl-node-5e8a473e0d2b7 .fl-row-fixed-width {
-	max-width: 880px;
+.fl-node-5f1d7f2dc1dd3 {
+	width: 100%;
 }
 
 
 
 
-.fl-node-5e8a473e0d2c4 {
+.fl-node-5f21d9152929c {
 	width: 100%;
 }
 
@@ -1138,8 +1177,66 @@ img.mfp-img {
 .fl-module-heading .fl-heading {
 	padding: 0 !important;
 	margin: 0 !important;
-}.fl-node-5e8a473e0d2c5.fl-module-heading .fl-heading {
+}.fl-node-5f1d7f3443211.fl-module-heading .fl-heading {
 	text-align: center;
+}
+
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:hover,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:visited {
+
+	
+		background: #ffffff;
+
+		
+	}
+
+
+
+
+
+
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:hover,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:focus {
+
+	background: #ffffff;
+
+	}
+
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:hover,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:focus,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:hover *,
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:focus * {
+	color: #e9765b;
+}
+
+
+
+
+
+
+
+.fl-node-5f21d9151e5fb .fl-button-wrap {
+	text-align: right;
+}
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button, .fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:visited {
+	font-size: 12px;
+	border: 1px solid #f3f3f3;
+	border-style: none;
+	border-width: 0;
+	background-clip: border-box;
+}
+.fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:hover, .fl-builder-content .fl-node-5f21d9151e5fb a.fl-button:focus {
+	border: 1px solid #f3f3f3;
+	border-style: none;
+	border-width: 0;
+	background-clip: border-box;
+}
+ .fl-node-5f21d9151e5fb > .fl-module-content {
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
 }
 /* Generic Styles */
 .fl-module-post-grid .fl-sep {

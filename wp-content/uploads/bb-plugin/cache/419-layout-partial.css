@@ -1,0 +1,109 @@
+.fl-node-5f1d7ccbdb948 {
+	color: #478ba2;
+}
+.fl-builder-content .fl-node-5f1d7ccbdb948 *:not(input):not(textarea):not(select):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.fl-menu-mobile-toggle) {
+	color: inherit;
+}
+
+.fl-builder-content .fl-node-5f1d7ccbdb948 a {
+	color: #478ba2;
+}
+
+.fl-builder-content .fl-node-5f1d7ccbdb948 a:hover {
+	color: #478ba2;
+}
+
+.fl-builder-content .fl-node-5f1d7ccbdb948 h1,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h2,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h3,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h4,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h5,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h6,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h1 a,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h2 a,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h3 a,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h4 a,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h5 a,
+.fl-builder-content .fl-node-5f1d7ccbdb948 h6 a {
+	color: #478ba2;
+}
+
+
+.fl-node-5f1d7ccbdb948 > .fl-row-content-wrap:after {
+	background-color: rgba(174,206,213,0.4);
+}
+.fl-node-5f1d7ccbdb948 > .fl-row-content-wrap {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-gray.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-attachment: fixed;
+	background-size: cover;
+	border-style: none;
+	border-width: 0;
+	background-clip: border-box;
+	border-bottom-width: 2px;
+}
+
+
+
+
+
+.fl-node-5f1d7cbf1438a .fl-row-content {
+	max-width: 1200px;
+}
+
+
+
+
+.fl-node-5f1d7f7f2f698 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f1d7cbf15a46 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f1d814b08cd6 {
+	width: 100%;
+}
+
+/* Start Global Nodes CSS */
+
+/* End Global Nodes CSS */
+
+
+/* Start Layout CSS */
+
+/* End Layout CSS */
+
+.fl-node-5f1d815117c23 .fl-post-grid-post {
+  font-size: 14px;
+}
+.fl-node-5f1d815117c23 .fl-post-text {
+  padding: 10px 40px;
+}
+.fl-node-5f1d815117c23 .fl-post-title {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0 0 5px;
+}
+.fl-node-5f1d815117c23 .fl-post-meta {
+  padding: 0 0 15px;
+}
+.fl-node-5f1d815117c23 .fl-post-image {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+  padding: 30px;
+}
+.fl-node-5f1d815117c23 .product-image {
+  max-width: 400px;
+  margin: 0 auto;
+}
