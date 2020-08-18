@@ -1046,7 +1046,7 @@ img.mfp-img {
 
 
 .fl-node-5f1a53a564e07 > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/water-orange.jpg);
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/water-blue-orange2.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: scroll;
@@ -1055,6 +1055,10 @@ img.mfp-img {
 }
 .fl-node-5f1a53a564e07.fl-row-fixed-width, .fl-node-5f1a53a564e07 .fl-row-fixed-width {
 	max-width: 1200px;
+}
+ .fl-node-5f1a53a564e07 > .fl-row-content-wrap {
+	padding-right:50px;
+	padding-left:50px;
 }
 
 
@@ -1065,9 +1069,9 @@ img.mfp-img {
 	max-width: 1200px;
 }
  .fl-node-5f1a5720ad5be > .fl-row-content-wrap {
-	padding-top:50px;
+	padding-top:0px;
 	padding-right:50px;
-	padding-bottom:50px;
+	padding-bottom:0px;
 	padding-left:50px;
 }
 
@@ -1081,8 +1085,64 @@ img.mfp-img {
 
 
 
+.fl-node-5f3c200f210fe {
+	width: 50%;
+}
+
+
+
+
+.fl-node-5f3c200f21104 {
+	width: 50%;
+}
+
+
+
+
 .fl-node-5f1a5720b04ea {
 	width: 100%;
+}
+
+
+
+
+.fl-node-5f3c27b91a362 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f3c2094ed947 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f3c2712455c9 {
+	width: 36.55%;
+}
+
+
+
+
+.fl-node-5f3c2712455d2 {
+	width: 63.45%;
+}
+
+
+
+
+.fl-node-5f3c27e286331 {
+	width: 50%;
+}
+
+
+
+
+.fl-node-5f3c27e286336 {
+	width: 50%;
 }
 .fl-module-heading .fl-heading {
 	padding: 0 !important;
@@ -1091,24 +1151,40 @@ img.mfp-img {
 .fl-row .fl-col .fl-node-5f1a53c87bff5 h1.fl-heading .fl-heading-text,
 .fl-row .fl-col .fl-node-5f1a53c87bff5 h1.fl-heading .fl-heading-text *,
 .fl-node-5f1a53c87bff5 h1.fl-heading .fl-heading-text {
-	color: #ffffff;
+	color: #478ba2;
 }
 .fl-node-5f1a53c87bff5.fl-module-heading .fl-heading {
 	text-align: center;
+}
+.fl-row .fl-col .fl-node-5f1a573bc5dbb h3.fl-heading a,
+.fl-row .fl-col .fl-node-5f1a573bc5dbb h3.fl-heading .fl-heading-text,
+.fl-row .fl-col .fl-node-5f1a573bc5dbb h3.fl-heading .fl-heading-text *,
+.fl-node-5f1a573bc5dbb h3.fl-heading .fl-heading-text {
+	color: #478ba2;
 }
  .fl-node-5f1a573bc5dbb > .fl-module-content {
 	margin-top:30px;
 	margin-bottom:30px;
 }
 @media (max-width: 768px) { .fl-node-5f1a573bc5dbb > .fl-module-content { margin-top:20px;margin-bottom:20px; } } .fl-node-5f1a584a931f7 > .fl-module-content {
-	margin-top:30px;
+	margin-top:25px;
 	margin-bottom:30px;
 }
 @media (max-width: 768px) { .fl-node-5f1a584a931f7 > .fl-module-content { margin-top:20px;margin-bottom:20px; } } .fl-node-5f1a594820520 > .fl-module-content {
 	margin-top:30px;
 	margin-bottom:30px;
 }
-@media (max-width: 768px) { .fl-node-5f1a594820520 > .fl-module-content { margin-top:20px;margin-bottom:20px; } }
+@media (max-width: 768px) { .fl-node-5f1a594820520 > .fl-module-content { margin-top:20px;margin-bottom:20px; } }.fl-builder-content .fl-rich-text strong {
+	font-weight: bold;
+}
+.fl-node-5f3c2991aa00d .fl-rich-text, .fl-node-5f3c2991aa00d .fl-rich-text * {
+	color: #316675;
+	font-size: 20px;
+}
+ .fl-node-5f3c2991aa00d > .fl-module-content {
+	margin-top:0px;
+}
+
 
 
 
@@ -1123,7 +1199,45 @@ img.mfp-img {
 
 
 .fl-node-5f1a59ad64d7e .fl-button-wrap {
+	text-align: center;
+}
+.fl-builder-content .fl-node-5f1a59ad64d7e a.fl-button {
+	padding-top: 20px;
+	padding-right: 50px;
+	padding-bottom: 20px;
+	padding-left: 50px;
+}
+.fl-builder-content .fl-node-5f1a59ad64d7e a.fl-button, .fl-builder-content .fl-node-5f1a59ad64d7e a.fl-button:visited {
+	border-color: #f2a490;
+}
+.fl-builder-content .fl-node-5f1a59ad64d7e a.fl-button:hover, .fl-builder-content .fl-node-5f1a59ad64d7e a.fl-button:focus {
+	border-color: #f2a490;
+}
+ .fl-node-5f1a59ad64d7e > .fl-module-content {
+	margin-top:20px;
+}
+.fl-node-5f3c27b91a0e2 .fl-separator {
+	border-top:1px solid #cccccc;
+	max-width: 100%;
+	margin: auto;
+}
+img.mfp-img {
+    padding-bottom: 40px !important;
+}
+@media (max-width: 768px) { /* Mobile Photo */
+.fl-photo-content {
+	width: 100%;
+} }.fl-node-5f3c24a3cf44d .fl-photo {
 	text-align: left;
+}
+.fl-node-5f3c24a3cf44d .fl-photo-img, .fl-node-5f3c24a3cf44d .fl-photo-content {
+	width: 350px;
+}
+.fl-node-5f3c271e12284.fl-module-heading .fl-heading {
+	text-align: left;
+}
+ .fl-node-5f3c271e12284 > .fl-module-content {
+	margin-top:20px;
 }
 .fl-animated.fl-bounce-down {
 	animation: fl-bounce-down 1s ease;
@@ -2802,6 +2916,16 @@ img.mfp-img {
 
 
 /* Start Layout CSS */
-
+.center-list {
+    list-style: none; 
+    text-align: left;
+    padding-left: 0;
+    padding-top: 10px;
+    margin-left: 0;
+    color: #316675;
+    font-size: .85em;
+    font-family: 'Oxygen', sans-serif;
+    
+}
 /* End Layout CSS */
 
