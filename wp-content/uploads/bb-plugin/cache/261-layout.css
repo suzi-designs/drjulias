@@ -1768,6 +1768,16 @@ body h6.fl-cta-title {
     border-radius: 5px;
     
 }
+
+#top-bar-link {
+    text-align: center; 
+    font-size: 12px; 
+    padding: 5px 0; 
+}
+
+
+
+
 /* End Global CSS */
 
 
