@@ -193,21 +193,21 @@
 	<div class="icons_size"><span>Size:</span><input name="sfsi_icons_size" value="<?php echo ($option5['sfsi_icons_size']!='') ?  $option5['sfsi_icons_size'] : '' ;?>" type="text" /><ins>pixels wide &amp; tall</ins> <span class="last">Spacing between icons:</span><input name="sfsi_icons_spacing" type="text" value="<?php echo ($option5['sfsi_icons_spacing']!='') ?  $option5['sfsi_icons_spacing'] : '' ;?>" /><ins>Pixels</ins></div>
 
     <div class="icons_prem_disc">
-        <p class="sfsi_prem_plu_desc"><b>New: </b>The Premium Plugin also allows you to define the vertical distance between the icons (and set this differently for mobile vs. desktop): <a  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)"  style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="sfisi_font_bold" target="_blank">Go premium now.<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_spacings&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank"> or learn more.</a>
+        <p class="sfsi_prem_plu_desc"><b>New: </b>The Premium Plugin also allows you to define the vertical distance between the icons (and set this differently for mobile vs. desktop): <a  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)"  style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="sfisi_font_bold" target="_blank">Go premium now<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_spacings&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank"> or learn more.</a>
     </div>
     
     </div>
     
-    <div class="row">
+    <div class="row" style="font-size: 17px;">
 	<h4>Alignments</h4>
 	<div class="icons_size" style="width: max-content;display:flow-root">
-		<span>Icons per row:</span>
+		<span style="font-size: 17px;">Icons per row:</span>
 		<input name="sfsi_icons_perRow" type="text" value="<?php echo ($option5['sfsi_icons_perRow']!='') ?  $option5['sfsi_icons_perRow'] : '' ;?>" />
-		<ins class="leave_empty" style="margin-bottom: 34px;">Leave empty if you don't want to <br /> define this</ins>
+		<ins class="leave_empty" style="margin-bottom: 34px;font-size: 17px;">Leave empty if you don't want to <br /> define this</ins>
 	</div>
 	<div class="icons_size" style="width: max-content;">
 		<div style="width: 232px;float: left;position: relative;">
-			<span style="line-height: 26px;margin-bottom: 22px;">Alignment of icons within a widget:</span>
+			<span style="line-height: 26px;margin-bottom: 22px;font-size: 17px;">Alignment of icons within a widget:</span>
 			
 		</div>
 		<div class="field">
@@ -220,7 +220,7 @@
 	</div>
 	<div class="icons_size" style="width: max-content;">
 		<div style="width: 232px;float: left;position: relative;">
-			<span style="line-height: 26px;margin-bottom: 22px;">Alignment of icons if placed via shortcode:</span>
+			<span style="line-height: 26px;margin-bottom: 22px;font-size: 17px;">Alignment of icons if placed via shortcode:</span>
 		</div>
 		<div class="field">
 			<select name="sfsi_icons_Alignment_via_shortcode" id="sfsi_icons_Alignment_via_shortcode" class="styled">
@@ -232,7 +232,7 @@
 	</div>
 	<div class="icons_size" style="width: max-content;">
 		<div style="width: 232px;float: left;position: relative;">
-			<span style="line-height: 26px;margin-bottom: 10px;">Alignment of icons In the second row:</span>
+			<span style="line-height: 26px;margin-bottom: 10px;font-size: 17px;">Alignment of icons In the second row:</span>
 			<ins class="sfsi_icons_other_allign" style="bottom: -22px;left: 0;width: 200px;color: rgb(128,136,145);">
 				(with respect to icons in the first row; only relevant if your icons show in two or more rows)
 			</ins>
@@ -349,7 +349,7 @@
  		</div>
 
 		<div class="sfsi_new_prmium_follw sfsi_social_sharing" style="margin-bottom: 15px;">
-			<p>Note: This feature is currently only available in the Premium Plugin. <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)"  class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=define_pic_and_text&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a>
+			<p>Note: This feature is currently only available in the Premium Plugin. <a class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=define_pic_and_text&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a>
 			</p>
 		</div> 		
 </div>
@@ -387,6 +387,10 @@ here what text will be displayed if a user moves his mouse over the icon:
 			<label>LinkedIn:</label>
 			<input name="sfsi_linkedIn_MouseOverText" value="<?php echo ($option5['sfsi_linkedIn_MouseOverText']!='') ?  $option5['sfsi_linkedIn_MouseOverText'] : '' ;?>"  type="text" />
 		</div>
+		<div class="mouseover_field wechat_section">
+				<label>WeChat:</label>
+				<input name="sfsi_wechat_MouseOverText" value="<?php echo ($option5['sfsi_wechat_MouseOverText']!='') ?  $option5['sfsi_wechat_MouseOverText'] : '' ;?>" type="text" />
+		    </div>
 		</div>
 		<div class="clear">
 		<div class="mouseover_field pinterest_section">
@@ -423,10 +427,7 @@ here what text will be displayed if a user moves his mouse over the icon:
 				<label>Weibo:</label>
 				<input name="sfsi_weibo_MouseOverText" value="<?php echo ($option5['sfsi_weibo_MouseOverText']!='') ?  $option5['sfsi_weibo_MouseOverText'] : '' ;?>" type="text" />
 			</div>
-			<div class="mouseover_field wechat_section">
-				<label>WeChat:</label>
-				<input name="sfsi_wechat_MouseOverText" value="<?php echo ($option5['sfsi_wechat_MouseOverText']!='') ?  $option5['sfsi_wechat_MouseOverText'] : '' ;?>" type="text" />
-		    </div>
+			
 		</div>
         <div class="clear"> </div>  
 		<div class="custom_m">
@@ -465,12 +466,28 @@ here what text will be displayed if a user moves his mouse over the icon:
 				</li>
 	      	</ul>
       	</div>
-    </div>
+	</div>
+	
+	<!-- <div class="row new_wind">
+		<h4>Tips</h4>
+		<div class="row_onl"><p>Show useful tips for more sharing & traffic?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_hide_banners" checked="true"  type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_hide_banners" type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
+    </div> -->
 
 	<?php sfsi_ask_for_help(5); ?>
     <!-- SAVE BUTTON SECTION   --> 
     <div class="save_button">
-         <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
+         <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" alt="error" class="loader-img" />
          <?php  $nonce = wp_create_nonce("update_step5"); ?>
          <a href="javascript:;" id="sfsi_save5" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
     </div>

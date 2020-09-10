@@ -55,8 +55,8 @@
     </div> -->
     <?php } ?>
     <!-- Get notification bar-->
-
     <div class="sfsi_notificationBannner"></div>
+
     <!-- Get new_notification bar-->
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -114,7 +114,7 @@
                             <div class='d-table' style='width:100%;height:100%'>
                                 <div class='d-table-row'>
                                     <div class='d-table-cell align-bottom'>
-                                        <a href="https://www.ultimatelysocial.com/usm-premium/?playvideo=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" target="_blank"><img target="_blank" src="<?php echo SFSI_PLUGURL; ?>images/sfsi-video-play.png" style='width:100%'></a>
+                                        <a href="https://www.ultimatelysocial.com/usm-premium/?playvideo=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" target="_blank"><img target="_blank" alt="video" src="<?php echo SFSI_PLUGURL; ?>images/sfsi-video-play.png" style='width:100%'></a>
                                     </div>
                                 </div>
                             </div>

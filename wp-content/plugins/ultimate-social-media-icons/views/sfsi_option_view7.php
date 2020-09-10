@@ -495,7 +495,7 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 
 		<div class="bannerPopupQue6 sfsi_new_prmium_follw" style="margin-top: 38px;">
 
-			<p><b>New: </b>The Premium Plugin allows you to do much more with the pop-up, e.g. you can: <br>- &nbsp;&nbsp; Show it when users try to leave your page<br>- &nbsp;&nbsp; Limit how often the pop-up is shown to the same user (e.g. only once per day)<br>- &nbsp;&nbsp; Select to show the subscription form in the pop-up (which you designed in question 9) <br><a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
+			<p><b>New: </b>The Premium Plugin allows you to do much more with the pop-up, e.g. you can:- Show it when users try to leave your page, Limit how often the pop-up is shown to the same user (e.g. only once per day), Select to show the subscription form in the pop-up (which you designed in question 9). <a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold"  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
 
 		</div>
 
@@ -507,7 +507,7 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 
 	<div class="save_button">
 
-		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
+		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" alt="error" class="loader-img" />
 
 		<?php $nonce = wp_create_nonce("update_step7"); ?>
 

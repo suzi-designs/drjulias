@@ -3,7 +3,6 @@
 add_action('wp_ajax_UploadSkins','sfsi_UploadSkins');
 function sfsi_UploadSkins()
 {
-	// extract($_REQUEST);
 	if ( !wp_verify_nonce( $_POST['nonce'], "UploadSkins")) {
       echo  json_encode(array("wrong_nonce")); exit;
     }
@@ -271,7 +270,6 @@ function sfsi_UploadIcons()
 	}
     if(!current_user_can('manage_options')){ echo json_encode(array('res'=>'not allowed'));die(); }
 
-	// extract($_POST);
 	$custom_imgurl = isset($_POST) && isset($_POST['custom_imgurl']) ? esc_url($_POST['custom_imgurl']):'';
 	
 	if(strpos($custom_imgurl, home_url()) === false){

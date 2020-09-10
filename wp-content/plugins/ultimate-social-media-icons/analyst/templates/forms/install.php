@@ -3,7 +3,7 @@
 		<div class="analyst-disable-modal-mask" id="analyst-disable-install-modal-mask" style="display: none"></div>
 		<div style="display: flex">
 			<div class="analyst-install-image-block">
-				<img src="<?=$shieldImage?>"/>
+				<img src="<?=$shieldImage?>" alt="shield image"/>
 			</div>
 			<div class="analyst-install-description-block">
 				<strong class="analyst-modal-header">Stay on the safe side</strong>

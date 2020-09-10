@@ -112,7 +112,7 @@ $option4['sfsi_responsive_share_count']         = (isset($option4['sfsi_responsi
 if (isset($option4['sfsi_youtube_user']) && !empty($option4['sfsi_youtube_user'])) {
     $option4['sfsi_youtube_user']       = sfsi_sanitize_field($option4['sfsi_youtube_user']);
 } else {
-    if ("name" == $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])) {
+    if (isset($option2['sfsi_youtubeusernameorid']) && "name" == $option2['sfsi_youtubeusernameorid']  && !empty($option2['sfsi_youtubeusernameorid'])) {
         $option4['sfsi_youtube_user']   = isset($option2['sfsi_ytube_user']) && !empty($option2['sfsi_ytube_user']) ? $option2['sfsi_ytube_user'] : '';
     }
 }
@@ -246,9 +246,39 @@ $hide = "display:none;";
     </ul>
     <!-- END  show/hide counts for icons section -->
 
+
+
     <!-- show/hide counts for all icons section  START -->
+
     <div class="count_sections" style="display:none">
-        <h4>Please specify which counts should be shown:</h4>
+        <?php
+        $socialObj = new sfsi_SocialHelper();
+        $current_url = site_url();
+        $fb_data = $socialObj->sfsi_banner_get_fb($current_url);
+        $check_fb_count_more_than_one = $fb_data > 0 || $socialObj->sfsi_get_pinterest($current_url) > 0;
+        $sfsi_fb_count =  get_option('sfsi_fb_count', false);
+        if ($check_fb_count_more_than_one > $sfsi_fb_count || $sfsi_fb_count == "") {
+            update_option('sfsi_fb_count', ($check_fb_count_more_than_one));
+        }
+        $sfsi_fb_count_check_for_shares =  $sfsi_fb_count > 0;
+
+        if (is_ssl() && ($sfsi_fb_count_check_for_shares ||  $check_fb_count_more_than_one)) {
+            ?>
+            <div class="sfsi_new_prmium_follw sfsi_banner_body sfsi_warning_banner">
+                <div>
+                    <p style="margin-bottom: 12px !important;"><b>Important:</b> Your website used to be on http (before you enabled an SSL certificate to switch to https). We found share counts for your URLs on http which usually get lost
+                        after switch to https (because Facebook etc. provide the counts per url, and an url on https is a different url then one on http). <b>We found a solution for that</b> so that your share counts on http and https will
+                        be aggregated and your full number of share counts is restored. It is implemented in the Premium Plugin - <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=share_count_recovery_notification&utm_medium=link" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #222222;text-decoration: none;font-weight: bold;font-family: unset;" data-id="sfsi_quickpay-overlay" target="_blank">
+                            <b>Get it now.</b>
+                        </a>
+                    </p>
+                </div>
+                <small class="sfsi_banner_dismiss">Dismiss</small>
+            </div>
+        <?php
+        }
+        ?>
+        <h4 style="display: inline-block;">Please specify which counts should be shown:</h4>
 
         <!-- RSS ICON COUNT SECTION-->
         <div class="specify_counts rss_section">
@@ -457,6 +487,8 @@ $hide = "display:none;";
                             <label>Enter Youtube User name:</label>
                             <input name="sfsi_youtube_user" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user'] != '') ?  $option4['sfsi_youtube_user'] : ''; ?>" />
                         </div>
+                    </li>
+                    <li class="youtube_options" style="<?php echo (!isset($option4['sfsi_youtube_countsFrom']) || empty($option4['sfsi_youtube_countsFrom']) || $option4['sfsi_youtube_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>">
                         <div>
                             <label>Enter Youtube Channel Id:</label>
                             <input name="sfsi_youtube_channelId" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_channelId']) && $option4['sfsi_youtube_channelId'] != '') ?  $option4['sfsi_youtube_channelId'] : ''; ?>" />
@@ -486,10 +518,11 @@ $hide = "display:none;";
                 </ul>
             </div>
             <div class="sfsi_new_prmium_follw" style="margin-top: 38px;">
-                <p><b>New: </b>In the Premium Plugin you can also automatically show the number of PINs from your Pinterest account, or of a specific board, or the number of your Pinterest followers. <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_pinterest_counts&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
+                <p><b>New: </b>In the Premium Plugin you can also automatically show the number of PINs from your Pinterest account, or of a specific board, or the number of your Pinterest followers. <a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_pinterest_counts&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
             </div>
-
         </div>
+
+
         <!-- END PINIT ICON COUNT SECTION-->
 
         <!-- INSTAGRAM ICON COUNT SECTION-->
@@ -671,7 +704,7 @@ $hide = "display:none;";
         <h4 style="clear: both;">For which icons do you want to show the counts?</h4>
         <!-- wechat ICON COUNT SECTION-->
         <div class="specify_counts" style="border-top: 0px solid #eaebee;padding-top: 0px;">
-            <div class="radio_section">                
+            <div class="radio_section">
                 <input name="sfsi_round_counts" <?php echo ($option4['sfsi_round_counts'] == 'yes') ?  'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" />
             </div>
             <div class="listing">
@@ -710,7 +743,7 @@ $hide = "display:none;";
     <?php sfsi_ask_for_help(4); ?>
     <!-- SAVE BUTTON SECTION   -->
     <div class="save_button">
-        <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
+        <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" alt="error" class="loader-img" />
         <?php $nonce = wp_create_nonce("update_step4"); ?>
         <a href="javascript:;" id="sfsi_save4" title="Save" data-nonce="<?php echo $nonce; ?>">Save</a>
     </div>

@@ -145,7 +145,7 @@ body .fl-post-grid-content p:last-of-type {
 body .fl-post-grid-text a {
 	text-decoration: none;
 }
-body h2.fl-post-grid-title {
+body .fl-post-grid-title {
 	font-size: 20px;
 	line-height: 26px;
 	margin: 0 0 10px;
@@ -426,7 +426,7 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 	padding: 30px;
 }
 
-.fl-node-5ea39eb04502a h2.fl-post-grid-title a {
+.fl-builder-content .fl-node-5ea39eb04502a .fl-post-grid-title a {
 	color: #157172;
 }
 
@@ -434,11 +434,13 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 
 
 
-.fl-node-5ea39eb04502a .fl-post-grid-content a {
+.fl-builder-content .fl-node-5ea39eb04502a .fl-post-grid-content a,
+.fl-builder-content .fl-node-5ea39eb04502a .page-numbers {
 	color: #d95252;
 }
 
-.fl-node-5ea39eb04502a .fl-post-grid-content a:hover {
+.fl-builder-content .fl-node-5ea39eb04502a .fl-post-grid-content a:hover,
+.fl-builder-content .fl-node-5ea39eb04502a .page-numbers:hover {
 	color: #e69572;
 }
 
@@ -466,7 +468,7 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-.fl-node-5ea39eb04502a h2.fl-post-grid-title {
+.fl-node-5ea39eb04502a .fl-post-grid-title {
 	font-weight: 600;
 	font-size: 24px;
 	letter-spacing: 0.1px;

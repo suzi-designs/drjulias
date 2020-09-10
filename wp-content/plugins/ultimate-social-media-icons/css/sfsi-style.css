@@ -347,7 +347,7 @@ label.toglpstpgsbttl {
     margin-right: 18px;
     display: block;
     float: left;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 46px;
 }
@@ -963,7 +963,7 @@ ul.tab_3_icns li .radio {
     left: 0;
     width: 100%;
     height: 100%;
-    backgound-color: #d3d3d3;
+    background-color: #d3d3d3;
     z-index: 10;
     padding: 20px;
     display: none;
@@ -975,7 +975,7 @@ ul.tab_3_icns li .radio {
     left: 0;
     width: 100%;
     height: 100%;
-    backgound-color: #d3d3d3;
+    background-color: #d3d3d3;
     z-index: -1000;
     padding: 20px;
     opacity: 0;
@@ -1311,7 +1311,7 @@ ul.icn_listing li .right_info a {
 }
 
 .tab2 .twt_fld {
-    margin: 16px 0 23px;
+    margin: 18px 0 23px;
     float: left;
 }
 
@@ -1477,7 +1477,7 @@ ul.tab_3_list li span {
 }
 
 .tab7 .pop_up_show label {
-    font-family: helveticaregular !important;
+    font-family: helveticaneue-light !important;
 }
 
 .tab7 .save_button {
@@ -1500,6 +1500,7 @@ ul.tab_3_list li span {
 #accordion .tab2 .facebook_section .inr_cont p.extra_sp,
 #accordion1 .tab2 .facebook_section .inr_cont p.extra_sp {
     padding-top: 7px;
+   
 }
 
 .tab2 .custom_section {
@@ -1783,7 +1784,7 @@ h2.optional {
 .fb_tool_bdr .sfsi_inside .icon2 {
     margin: 2px 0 3px 0 !important;
     height: auto;
-    width: 53px;
+    width: 60px;
     display: inline-block;
     overflow: hidden;
 }
@@ -1816,7 +1817,7 @@ h2.optional {
     height: auto;
     display: inline-block;
     float: none;
-    width: 73px;
+    width: 64px;
 }
 
 .printst_tool_bdr .sfsi_inside .icon2 {
@@ -2045,10 +2046,11 @@ h2.optional {
     float: none;
     /* height: 20px;*/
     width: 100%;
+    text-align: initial;
 }
 
 .linkedin_tool_bdr .sfsi_inside .icon2 {
-    margin: 2px 0 2px 0px;
+    margin: 2px 19px 2px 0px;
     display: inline-block;
     float: none;
     /* height: 20px;*/
@@ -2056,7 +2058,7 @@ h2.optional {
 }
 
 .linkedin_tool_bdr .sfsi_inside .icon3 {
-    margin: 2px 0 2px 0px;
+    margin: 2px 19px 2px 0px;
     display: inline-block;
     float: none;
     /* height: 20px;*/
@@ -2145,15 +2147,16 @@ h2.optional {
 .sfsi_mainContainer select,
 .sfsi_mainContainer textarea {
     color: #5a6570 !important;
+    line-height: 1 !important;
 }
 
 .adminTooltip {
-    left: 142px;
+    left: 118px;
     position: absolute;
 }
 
 .adPopWidth {
-    min-height: 100px !important;
+    min-height: 136px !important;
 }
 
 .main_contant p>a.lit_txt,
@@ -2171,7 +2174,7 @@ h2.optional {
 }
 
 .linkedin_section .link_4>label.anthr_labl {
-    height: 94px;
+    height: 60px;
 }
 
 .mediam_txt {
@@ -2888,7 +2891,12 @@ a.sficn {
     z-index: 99;
     margin-left: -59px;
     margin-top: -14px;
-    background: rgba(255, 255, 255, .8);
+    background: rgba(255, 255, 255, .6);
+}
+
+.disabled_checkbox .sfsi_right_info.sfsi_Woocommerce_disable:before {
+    margin-left: -49px !important;
+    width: 400px;
 }
 
 .disabled_checkbox .sfsi_right_info.sfsi_Woocommerce_disable:before {
@@ -3048,7 +3056,7 @@ a.pop-up .radio{
 .sfsi_responsive_icon_gradient{
     background-image: -webkit-linear-gradient(bottom,rgba(0, 0, 0, 0.17) 0%,rgba(255, 255, 255, 0.17) 100%); 
     background-image: -moz-linear-gradient(bottom,rgba(0, 0, 0, 0.17) 0%,rgba(255, 255, 255, 0.17) 100%);
-    background-image: linear-gradient(bottom,rgba(0,0,0,.17) 0%,rgba(255,255,255,.17) 100%);
+    background-image: linear-gradient(to bottom,rgba(0,0,0,.17) 0%,rgba(255,255,255,.17) 100%);
 }
 .tab6 ul.sfsi_icn_listing8 ul.sfsi_tab_3_icns li {
     width: 50%;
@@ -3095,7 +3103,6 @@ ul.sfsi_tab_3_icns {
 }
 .tab6 .sfsi_tab_3_icns.sfsi_shwthmbfraftr .social_icon_like1 li {
     width: auto;
-    max-width: auto;
     min-width: auto;
     margin: 0 30px 0 0;
 }
@@ -3656,7 +3663,6 @@ ul.sfsi_icn_listing8 li .tb_4_ck{
     margin: 0 4px!important;
     line-height: unset!important;
     width: unset!important;
-    height: 20px!important;
     text-align: unset!important;
     max-width: 100%!important;
 }

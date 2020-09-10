@@ -452,9 +452,12 @@ final class FLTheme {
 
 		self::add_font( $settings['fl-body-font-family'], apply_filters( 'fl_body_font_family', array( 300, 400, 700 ) ) );
 		self::add_font( $settings['fl-heading-font-family'], $settings['fl-heading-font-weight'] );
-		self::add_font( $settings['fl-title-font-family'], $settings['fl-title-font-weight'] );
 		self::add_font( $settings['fl-nav-font-family'], $settings['fl-nav-font-weight'] );
 		self::add_font( $settings['fl-button-font-family'], $settings['fl-button-font-weight'] );
+
+		if ( '' !== $settings['fl-heading-style'] ) {
+			self::add_font( $settings['fl-title-font-family'], $settings['fl-title-font-weight'] );
+		}
 
 		if ( 'text' === $settings['fl-logo-type'] ) {
 			self::add_font( $settings['fl-logo-font-family'], $settings['fl-logo-font-weight'] );
@@ -640,6 +643,12 @@ final class FLTheme {
 			$classes[]      = 'woo-' . $fl_woo_columns;
 		}
 
+		// WooCommerce Products Per Page
+		if ( class_exists( 'woocommerce' ) && is_woocommerce() ) {
+			$fl_woo_products_per_page = self::get_setting( 'fl-woo-products-per-page' );
+			$classes[]                = 'woo-products-per-page-' . $fl_woo_products_per_page;
+		}
+
 		// Submenu Indicator
 		if ( self::get_setting( 'fl-nav-submenu-indicator' ) === 'enable' ) {
 			FLTheme::enqueue_fontawesome();
@@ -752,7 +761,7 @@ final class FLTheme {
 			$logo_text  = apply_filters( 'fl_logo_text', get_bloginfo( 'name' ) );
 			$logo_title = apply_filters( 'fl_logo_title', '' );
 
-			echo '<img data-no-lazy="1" class="fl-logo-img"' . FLTheme::print_schema( ' itemscope itemtype="https://schema.org/ImageObject"', false ) . ' src="' . $sticky_logo . '"';
+			echo '<img loading="false" data-no-lazy="1" class="fl-logo-img"' . FLTheme::print_schema( ' itemscope itemtype="https://schema.org/ImageObject"', false ) . ' src="' . $sticky_logo . '"';
 			echo ' data-retina="' . $sticky_retina . '"';
 			echo ' title="' . esc_attr( $logo_title ) . '"';
 			echo ' alt="' . esc_attr( $logo_text ) . '" />';
@@ -856,7 +865,7 @@ final class FLTheme {
 			$logo_text  = apply_filters( 'fl_logo_text', get_bloginfo( 'name' ) );
 			$logo_title = apply_filters( 'fl_logo_title', '' );
 
-			echo '<img data-no-lazy="1" class="fl-logo-img"' . FLTheme::print_schema( ' itemscope itemtype="https://schema.org/ImageObject"', false ) . ' src="' . $logo_image . '"';
+			echo '<img loading="false" data-no-lazy="1" class="fl-logo-img"' . FLTheme::print_schema( ' itemscope itemtype="https://schema.org/ImageObject"', false ) . ' src="' . $logo_image . '"';
 			echo ' data-retina="' . $logo_retina . '"';
 			if ( $mobile_logo ) {
 				echo ' data-mobile="' . $mobile_logo . '"';
@@ -895,7 +904,7 @@ final class FLTheme {
 
 		echo '<ul class="fl-page-' . $args['theme_location'] . '-nav nav navbar-nav menu">';
 		echo '<li>';
-		echo '<a href="' . $url . '">' . $text . '</a>';
+		echo '<a class="no-menu" href="' . $url . '">' . $text . '</a>';
 		echo '</li>';
 		echo '</ul>';
 	}
@@ -1401,9 +1410,10 @@ final class FLTheme {
 		$show_nav = self::get_setting( 'fl-posts-show-nav' );
 
 		if ( 'visible' === $show_nav ) {
+			$in_same_term = apply_filters( 'fl_post_navigation_same_term', false );
 			echo '<div class="fl-post-nav clearfix">';
-			previous_post_link( '<span class="fl-post-nav-prev">%link</span>', '&larr; %title' );
-			next_post_link( '<span class="fl-post-nav-next">%link</span>', '%title &rarr;' );
+			previous_post_link( '<span class="fl-post-nav-prev">%link</span>', '&larr; %title', $in_same_term );
+			next_post_link( '<span class="fl-post-nav-next">%link</span>', '%title &rarr;', $in_same_term );
 			echo '</div>';
 		}
 	}
@@ -1538,6 +1548,19 @@ final class FLTheme {
 	}
 
 	/**
+	 * Renders number of products per page for WooCommerce.
+	 *
+	 * @since 1.7.7
+	 * @return int
+	 */
+	static public function woocommerce_shop_products_per_page() {
+
+		$products_per_page = self::get_setting( 'fl-woo-products-per-page' );
+
+		return empty( $products_per_page ) ? 16 : absint( $products_per_page );
+	}
+
+	/**
 	 * Filter comment form fields.
 	 * @since 1.6.6
 	 */
@@ -1621,6 +1644,7 @@ final class FLTheme {
 	 */
 	static public function print_schema( $schema, $echo = true ) {
 		if ( self::is_schema_enabled() ) {
+			$schema = apply_filters( 'fl_theme_print_schema', $schema );
 			if ( $echo ) {
 				echo $schema;
 			} else {

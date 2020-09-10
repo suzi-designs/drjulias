@@ -20,7 +20,7 @@ $email = $current_user->user_email;
 			<div class="support-forum-green-div">
 				<!-- <span style="width: 25%">   </span> -->
 				<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" class="support-forum-green-bg" >
-	                <img src="<?php echo SFSI_PLUGURL ?>images/support.png">
+	                <img alt="support" src="<?php echo SFSI_PLUGURL ?>images/support.png">
 	                <p class="support-forum">Support Forum</p>
 	            </a>
 	            <span class="sfsi-button-right-side" ><span class="sfsi-button-right-side-icon"></span>Click here</span>

@@ -403,7 +403,9 @@
 	}
 					
 	.fl-node-5f48074088656 .fl-menu-mobile-toggle{
-		font-size: 18px;text-transform: capitalize;color: #316675;		padding-left: 20px;
+		color: #316675;		font-size: 18px;
+		text-transform: capitalize;
+		padding-left: 20px;
 		padding-right: 20px;
 		padding-top: 10px;
 		padding-bottom: 10px;
@@ -493,6 +495,10 @@
 .fl-builder-content[data-shrink="1"] img {
 	width: auto;
 }
+.fl-builder-content[data-shrink="1"] img.fl-photo-img {
+	width: auto;
+	height: auto;
+}
 .fl-builder-content[data-type="header"].fl-theme-builder-header-shrink .fl-row-content-wrap {
 	margin-bottom: 0;
 	margin-top: 0;
@@ -516,7 +522,9 @@
 	margin-top: 5px;
 }
 .fl-builder-content[data-type="header"].fl-theme-builder-header-shrink img {
-	max-height: 50px;
+	-webkit-transition: all 0.4s ease-in-out, background-position 1ms;
+	-moz-transition: all 0.4s ease-in-out, background-position 1ms;
+	transition: all 0.4s ease-in-out, background-position 1ms;
 }
 
 /* Overlay */

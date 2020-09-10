@@ -45,14 +45,38 @@ class sfsi_SocialHelper
 	}
 	
 	/* get facebook likes */
+	// function sfsi_get_fb($url)
+	// {
+	// 	$count 		 = 0; 
+	// 	$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url);
+	// 	$json 		 = json_decode($json_string);
+
+	// 	if(isset($json) && isset($json->share) && isset($json->share->share_count)){
+	// 		$count  = $json->share->share_count;
+	// 	}
+	// 	return $count;
+	// }
 	function sfsi_get_fb($url)
 	{
 		$count 		 = 0; 
-		$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url);
+		$appid = '959456867427268';
+		$appsecret = '7cc27f382c47fd5cc3a7203e40d70bf1';
+		$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url."&fields=engagement&access_token=".$appid.'|'.$appsecret);
 		$json 		 = json_decode($json_string);
-
-		if(isset($json) && isset($json->share) && isset($json->share->share_count)){
-			$count  = $json->share->share_count;
+		if(isset($json) && isset($json->engagement)){
+			$count  = $json->engagement->share_count + $json->engagement->reaction_count + $json->engagement->comment_count +  $json->engagement->comment_plugin_count;
+		}
+		return $count;
+	}
+	function sfsi_banner_get_fb($url)
+	{
+		$count 		 = 0; 
+		$appid = '290081412196492';
+		$appsecret = 'a86ca864f716e974cb3d72294c20b275';
+		$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url."&fields=engagement&access_token=".$appid.'|'.$appsecret);
+		$json 		 = json_decode($json_string);
+		if(isset($json) && isset($json->engagement)){
+			$count  = $json->engagement->share_count + $json->engagement->reaction_count + $json->engagement->comment_count +  $json->engagement->comment_plugin_count;
 		}
 		return $count;
 	}
@@ -79,11 +103,11 @@ class sfsi_SocialHelper
 				!empty($sfsi_section4_options['sfsi_youtube_channelId'])
 			) ? $sfsi_section4_options['sfsi_youtube_channelId'] : 'UCYQyWnJPrY4XY3Avc7BU9aA';
 			
-			$xmlData = $this->file_get_contents_curl('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+			$xmlData = $this->file_get_contents_curl('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='.$user.'&key=AIzaSyB_XMi9MwNweEYyt7c122CidZxqGZqex6Y');
 		}
 		else
 		{
-			$xmlData = $this->file_get_contents_curl('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+			$xmlData = $this->file_get_contents_curl('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='.$user.'&key=AIzaSyB_XMi9MwNweEYyt7c122CidZxqGZqex6Y');
 		}
 		
 		if($xmlData)
@@ -445,7 +469,7 @@ class sfsi_SocialHelper
 	/* create linkedIn  follow button */
 	public function sfsi_LinkedInFollow($company_id)
 	{
-		return  $ifollow='<script type="IN/FollowCompany" data-id="'.$company_id.'" data-counter="none"></script>';
+		return  $ifollow='<script type="IN/FollowCompany" data-id="'.$company_id.'" ></script>';
 	}
 	
 	/* create linkedIn  recommend button */

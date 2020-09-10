@@ -24,7 +24,10 @@ class Sfsi_Widget extends WP_Widget
 
 	function widget($args, $instance)
 	{
-		extract($args);
+		$before_title = isset($args["before_title"])?$args["before_title"]:'';
+		$after_title = isset($args["after_title"])?$args["after_title"]:'';
+		$before_widget = isset($args["before_widget"])?$args["before_widget"]:'';
+		$after_widget = isset($args["after_widget"])?$args["after_widget"]:'';
 		/*Our variables from the widget settings. */
 		$title 		= isset($instance['title']) ? apply_filters('widget_title', $instance['title']) : '';
 		// var_dump($title,'ldfjgkdfj');
@@ -118,8 +121,8 @@ class Sfsi_Widget extends WP_Widget
 			$icons_per_row   	   = ($sfsi_section5['sfsi_icons_perRow']) ? $sfsi_section5['sfsi_icons_perRow'] : '';
 
 			$icons_alignment 	   = $sfsi_section5['sfsi_icons_Alignment'];
-			$icons_alignment_widget 	   = isset($sfsi_section5['sfsi_icons_Alignment_via_widget'])?sanitize_text_field($sfsi_section5['sfsi_icons_Alignment_via_widget']):'left';
-			$icons_alignment_shortcode 	   = isset($sfsi_section5['sfsi_icons_Alignment_via_shortcode'])?sanitize_text_field($sfsi_section5['sfsi_icons_Alignment_via_shortcode']):'left';
+			$icons_alignment_widget 	   = isset($sfsi_section5['sfsi_icons_Alignment_via_widget']) ? sanitize_text_field($sfsi_section5['sfsi_icons_Alignment_via_widget']) : 'left';
+			$icons_alignment_shortcode 	   = isset($sfsi_section5['sfsi_icons_Alignment_via_shortcode']) ? sanitize_text_field($sfsi_section5['sfsi_icons_Alignment_via_shortcode']) : 'left';
 
 			$position 			   = 'position:absolute;';
 			$position1 			   = 'position:absolute;';
@@ -289,9 +292,9 @@ class Sfsi_Widget extends WP_Widget
 
 			/* built the main widget div */
 			if ($shortcode) {
-				$icons_main = '<div class="norm_row sfsi_wDiv "  style="' . (isset($main_width)?'width:'.$main_width:'') . ';text-align:' . $icons_alignment . ';">';
+				$icons_main = '<div class="norm_row sfsi_wDiv "  style="' . (isset($main_width) ? 'width:' . $main_width : '') . ';text-align:' . $icons_alignment . ';">';
 			} else {
-				$icons_main = '<div class="norm_row sfsi_wDiv "  style="' . (isset($main_width)?'width:'.$main_width. ';' . $position1:'') . ';text-align:' . $icons_alignment_widget . '">';
+				$icons_main = '<div class="norm_row sfsi_wDiv "  style="' . (isset($main_width) ? 'width:' . $main_width . ';' . $position1 : '') . ';text-align:' . $icons_alignment_widget . '">';
 			}
 			$icons = "";
 			/* loop through icons and bulit the icons with all settings applied in admin */
@@ -485,11 +488,11 @@ class Sfsi_Widget extends WP_Widget
 					$hoverdiv  = '';
 
 					$sfsi_section2_options['sfsi_email_url'];
-					if( sanitize_text_field(get_option('sfsi_feed_id', false)) == ""){
+					if (sanitize_text_field(get_option('sfsi_feed_id', false)) == "") {
 						$url = "https://follow.it/now";
-					}else{
-				   		$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'https://follow.it/now';
-				   	}
+					} else {
+						$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'https://follow.it/now';
+					}
 					$toolClass   = "email_tool_bdr";
 					$arrow_class = "bot_eamil_arow";
 
@@ -497,7 +500,7 @@ class Sfsi_Widget extends WP_Widget
 					if (
 						$sfsi_section4_options['sfsi_email_countsDisplay'] == "yes" &&
 						$sfsi_section4_options['sfsi_display_counts'] == "yes" &&
-					    $sfsi_section4_options['sfsi_round_counts'] == "yes"
+						$sfsi_section4_options['sfsi_round_counts'] == "yes"
 					) {
 						if ($sfsi_section4_options['sfsi_email_countsFrom'] == "manual") {
 							$counts = $socialObj->format_num($sfsi_section4_options['sfsi_email_manualCounts']);
@@ -594,7 +597,6 @@ class Sfsi_Widget extends WP_Widget
 						}
 						if (false != $share_option && $share_option == "yes") {
 							$hoverdiv .= "<div  class='icon3'>" . $socialObj->sfsiFB_Share($current_url) . "</div>";
-
 						}
 					}
 
@@ -674,7 +676,7 @@ class Sfsi_Widget extends WP_Widget
 					/* fecth no of counts if active in admin section */
 					if (
 						$sfsi_section4_options['sfsi_twitter_countsDisplay'] == "yes" &&
-						$sfsi_section4_options['sfsi_display_counts'] == "yes" && 
+						$sfsi_section4_options['sfsi_display_counts'] == "yes" &&
 						$sfsi_section4_options['sfsi_round_counts'] == "yes"
 					) {
 						if ($sfsi_section4_options['sfsi_twitter_countsFrom'] == "manual") {
@@ -755,7 +757,7 @@ class Sfsi_Widget extends WP_Widget
 					/* fecth no of counts if active in admin section */
 					if (
 						$sfsi_section4_options['sfsi_youtube_countsDisplay'] == "yes" &&
-						$sfsi_section4_options['sfsi_display_counts'] == "yes" && 
+						$sfsi_section4_options['sfsi_display_counts'] == "yes" &&
 						$sfsi_section4_options['sfsi_round_counts'] == "yes"
 					) {
 						if ($sfsi_section4_options['sfsi_youtube_countsFrom'] == "manual") {
@@ -785,12 +787,17 @@ class Sfsi_Widget extends WP_Widget
 
 				case "pinterest":
 
-					$width 		 = 73;
-					$totwith 	 = $width + 28 + $icons_space;
-					$twt_margin  = $totwith / 2;
+					$width 		 = 85;
+
 					$toolClass   = "printst_tool_bdr";
 					$arrow_class = "bot_pintst_arow";
-
+					if ($sfsi_section2_options['sfsi_pinterest_page'] == "yes" &&  $sfsi_section2_options['sfsi_pinterest_pingBlog'] == "yes") {
+						$totwith 	 = $width + 10 + $icons_space;
+						$twt_margin  = $totwith / 2;
+					} else {
+						$totwith 	 = $width + $icons_space;
+						$twt_margin  = $totwith / 2;
+					}
 					$pinterest_user 	= (isset($sfsi_section4_options['sfsi_pinterest_user']))
 						? $sfsi_section4_options['sfsi_pinterest_user'] : '';
 					$pinterest_board 	= (isset($sfsi_section4_options['sfsi_pinterest_board']))
@@ -816,7 +823,7 @@ class Sfsi_Widget extends WP_Widget
 					$cDisplay = isset($sfsi_section4_options['sfsi_pinterest_countsDisplay']) && !empty($sfsi_section4_options['sfsi_pinterest_countsDisplay']) ? $sfsi_section4_options['sfsi_pinterest_countsDisplay'] : false;
 
 					$displayC = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
-					
+
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 
 					$cFrom = isset($sfsi_section4_options['sfsi_pinterest_countsFrom']) && !empty($sfsi_section4_options['sfsi_pinterest_countsFrom']) ? $sfsi_section4_options['sfsi_pinterest_countsFrom'] : false;
@@ -834,7 +841,7 @@ class Sfsi_Widget extends WP_Widget
 					}
 
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $displayC == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $displayC == "yes" && $display_round_counts == "yes") {
 						if ($cFrom == "manual") {
 							$counts = $socialObj->format_num($sfsi_section4_options['sfsi_pinterest_manualCounts']);
 						} else if ($cFrom == "pins") {
@@ -886,7 +893,7 @@ class Sfsi_Widget extends WP_Widget
 					$cFrom = isset($sfsi_section4_options['sfsi_instagram_countsFrom']) && !empty($sfsi_section4_options['sfsi_instagram_countsFrom']) ? $sfsi_section4_options['sfsi_instagram_countsFrom'] : false;
 
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 						if ($cFrom == "manual") {
 							$counts = $socialObj->format_num($sfsi_section4_options['sfsi_instagram_manualCounts']);
 						} else if ($cFrom == "followers") {
@@ -933,7 +940,7 @@ class Sfsi_Widget extends WP_Widget
 					$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 
 						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_telegram_manualCounts']);
 					}
@@ -997,7 +1004,7 @@ class Sfsi_Widget extends WP_Widget
 					$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_vk_manualCounts']);
 					}
 
@@ -1038,9 +1045,9 @@ class Sfsi_Widget extends WP_Widget
 
 					$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
-					
+
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_ok_manualCounts']);
 					}
 
@@ -1083,7 +1090,7 @@ class Sfsi_Widget extends WP_Widget
 					$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_weibo_manualCounts']);
 					}
 
@@ -1126,7 +1133,7 @@ class Sfsi_Widget extends WP_Widget
 					$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 					/* fecth no of counts if active in admin section */
-					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts =="yes") {
+					if ($cDisplay == "yes" && $Displayc == "yes" && $display_round_counts == "yes") {
 						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_wechat_manualCounts']);
 					}
 					$url = "weixin://dl/chat";
@@ -1199,7 +1206,8 @@ class Sfsi_Widget extends WP_Widget
 
 
 				case "linkedin":
-					$width = 66;
+					$width = 85;
+
 					$toolClass = "linkedin_tool_bdr";
 					$arrow_class = "bot_linkedin_arow";
 
@@ -1217,10 +1225,18 @@ class Sfsi_Widget extends WP_Widget
 					$linkedIn_ProductId = isset($sfsi_section2_options['sfsi_linkedin_recommendProductId']) && !empty($sfsi_section2_options['sfsi_linkedin_recommendProductId']) ? $sfsi_section2_options['sfsi_linkedin_recommendProductId'] : false;
 
 					$visit_icon 		= $visit_iconsUrl . "linkedIn.png";
-
+					$totwith = $width + 29 + $icons_space;
+					if ($share == "yes" && ($follow == "false" || $follow == "no")) {
+						$totwith = $width + $icons_space;
+					} 
+					$twt_margin = $totwith / 2;
 					/*check for icons to display */
 					$url = isset($sfsi_section2_options['sfsi_linkedin_pageURL']) && !empty($sfsi_section2_options['sfsi_linkedin_pageURL']) ? $sfsi_section2_options['sfsi_linkedin_pageURL'] : '';
-
+					if (isset($sfsi_section5_options['sfsi_linkedIn_MouseOverText']) && !empty($sfsi_section5_options['sfsi_linkedIn_MouseOverText'])) {
+						$alt_text = $sfsi_section5_options['sfsi_linkedIn_MouseOverText'];
+					} else {
+						$alt_text = "";
+					}
 					if ($follow == "yes" || $share == "yes" || $reBusiness == "yes") {
 						$hoverSHow = 1;
 						$hoverdiv  = '';
@@ -1247,7 +1263,7 @@ class Sfsi_Widget extends WP_Widget
 					$dcount  = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
 					$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
 					/* fecth no of counts if active in admin section */
-					if ($disp == "yes" && $dcount == "yes" && $display_round_counts =="yes") {
+					if ($disp == "yes" && $dcount == "yes" && $display_round_counts == "yes") {
 						if ($cFrom == "manual") {
 							$counts = $socialObj->format_num($sfsi_section4_options['sfsi_linkedIn_manualCounts']);
 						} else if ($cFrom == "follower") {
@@ -1266,8 +1282,6 @@ class Sfsi_Widget extends WP_Widget
 							}
 						}
 					}
-					$totwith = $width + 28 + $icons_space;
-					$twt_margin = $totwith / 2;
 
 					//Giving alternative text to image
 					if (isset($sfsi_section5_options['sfsi_linkedIn_MouseOverText']) && !empty($sfsi_section5_options['sfsi_linkedIn_MouseOverText'])) {

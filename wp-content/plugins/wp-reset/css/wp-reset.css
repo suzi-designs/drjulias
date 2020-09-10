@@ -1,8 +1,12 @@
 /**
  * WP Reset
  * https://wpreset.com/
- * (c) WebFactory Ltd, 2017-2019
+ * (c) WebFactory Ltd, 2017-2020
  */
+
+body.tools_page_wp-reset {
+  overflow-y: scroll;
+}
 
 .tools_page_wp-reset #wpcontent,
 .tools_page_wp-reset .auto-fold #wpcontent {
@@ -15,6 +19,13 @@
   min-height: calc(100vh - 100px);
   font-size: 14px;
   padding: 0;
+}
+
+.tools_page_wp-reset button.loading,
+.tools_page_wp-reset a.loading {
+  pointer-events: none;
+  cursor: wait !important;
+  opacity: 0.6;
 }
 
 .tools_page_wp-reset #loading-tabs {
@@ -80,7 +91,7 @@
 }
 
 .tools_page_wp-reset .button.dropdown-toggle::after {
-  content: '\f140';
+  content: "\f140";
   font-family: dashicons;
   display: inline-block;
   line-height: 1;
@@ -98,10 +109,15 @@
   text-align: center;
 }
 
+.tools_page_wp-reset .dropdown.dropdown-right .dropdown-menu {
+  left: 0;
+  right: auto;
+}
+
 .tools_page_wp-reset .dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -141,7 +157,8 @@
   background-color: #f8f9fa;
 }
 
-.tools_page_wp-reset #wp_reset_confirm {
+.tools_page_wp-reset #wp_reset_confirm,
+.tools_page_wp-reset #nuclear_reset_confirm {
   vertical-align: top;
 }
 
@@ -161,6 +178,18 @@
   vertical-align: top;
 }
 
+.tools_page_wp-reset .third {
+  width: 32.9%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tools_page_wp-reset .thirdx2 {
+  width: 65.8%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .tools_page_wp-reset .button.disabled {
   pointer-events: none;
   cursor: not-allowed;
@@ -172,15 +201,12 @@
   border-radius: 0;
 }
 
-.tools_page_wp-reset .button,
-.tools_page_wp-reset .button-secondary {
-  color: #555;
-  border-color: #ccc;
-  background: #f7f7f7;
-  box-shadow: 0 1px 0 #ccc;
-}
-
-.tools_page_wp-reset .button-secondary:focus, .tools_page_wp-reset .button-secondary:hover, .tools_page_wp-reset .button.focus, .tools_page_wp-reset .button.hover, .tools_page_wp-reset .button:focus, .tools_page_wp-reset .button:hover {
+.tools_page_wp-reset .button-secondary:focus,
+.tools_page_wp-reset .button-secondary:hover,
+.tools_page_wp-reset .button.focus,
+.tools_page_wp-reset .button.hover,
+.tools_page_wp-reset .button:focus,
+.tools_page_wp-reset .button:hover {
   background: #fafafa;
   border-color: #999;
   color: #23282d;
@@ -239,6 +265,11 @@
   z-index: 99999;
 }
 
+.tools_page_wp-reset .swal2-timer-progress-bar {
+  height: 0.2em;
+  background: #dd3036;
+}
+
 .tools_page_wp-reset .swal2-container .swal2-popup .swal2-actions {
   margin: 2em auto 0;
 }
@@ -274,6 +305,8 @@
 
 .tools_page_wp-reset .button-delete {
   color: #cc2f2f;
+  border-color: #cc2f2f;
+  background-color: #ffffff;
 }
 
 .tools_page_wp-reset .button-delete:hover,
@@ -354,6 +387,16 @@
   margin: 1em 0;
 }
 
+.tools_page_wp-reset #reset-details td,
+.tools_page_wp-reset #reset-details th {
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.tools_page_wp-reset #reset-details td:first-child {
+  text-align: left;
+}
+
 .tools_page_wp-reset table td {
   text-align: left;
   padding: 20px 10px;
@@ -364,14 +407,30 @@
   background-color: #f9f9f9;
 }
 
-.tools_page_wp-reset table .ss-actions {
-  width: 65px;
+.tools_page_wp-reset table .ss-actions,
+.tools_page_wp-reset table .ss-size {
+  text-align: center;
+  white-space: nowrap;
+  width: 70px;
 }
 
 .tools_page_wp-reset table th {
   text-align: left;
   border-bottom: thin solid #444444;
   padding: 5px;
+}
+
+.tools_page_wp-reset #reset-details tfoot th {
+  border-top: thin solid #444444;
+  border-bottom: none;
+}
+
+.tools_page_wp-reset #reset-details tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tools_page_wp-reset #reset-details th {
+  vertical-align: top;
 }
 
 .tools_page_wp-reset table .ss-action {
@@ -533,7 +592,11 @@
 }
 
 .tools_page_wp-reset .ui-tabs .ui-tabs-nav li a,
-.tools_page_wp-reset .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+.tools_page_wp-reset
+  .ui-tabs.ui-tabs-collapsible
+  .ui-tabs-nav
+  li.ui-tabs-selected
+  a {
   cursor: pointer;
 }
 
@@ -562,7 +625,7 @@
 }
 
 .tools_page_wp-reset .ui-tabs-nav:after {
-  content: '';
+  content: "";
   clear: both;
   display: block;
 }
@@ -870,13 +933,150 @@
 }
 /* webhooks dialog */
 
+.pro-feature {
+  font-weight: normal;
+  font-variant: small-caps;
+  font-style: italic;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pro-feature.pro-feature-text {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pro-feature:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: inherit;
+}
+
+.dropdown-item .pro-feature:hover {
+  text-decoration: none;
+}
+
+a.button .pro-feature:hover {
+  text-decoration: inherit;
+  cursor: inherit;
+  color: inherit;
+}
+
+th .pro-feature {
+  display: inline-block;
+}
+
+li .pro-feature {
+  white-space: nowrap;
+}
+
+.pro-feature .pro,
+.pro-feature.pro-feature-text span {
+  font-weight: 700;
+  color: #dd3036;
+}
+
+#pricing-table tr.pricing td {
+  padding: 20px 10px;
+  line-height: 1.5;
+}
+
+#pricing-table tr td:nth-child(3),
+#pricing-table tr th:nth-child(3) {
+  background-color: #f9f9f9;
+}
+
+#pricing-table tr.pricing td del {
+  text-decoration-color: #dd3036;
+}
+
+#pricing-table tr.pricing td b {
+  font-weight: 900;
+}
+
+#tab-pro label {
+  vertical-align: inherit;
+  font-weight: 500;
+  min-width: 95px;
+  display: inline-block;
+  padding: 2px 0;
+}
+
+#wpr-license-key {
+  margin-left: 0;
+}
+
+.tools_page_wp-reset #pricing-table td,
+.tools_page_wp-reset #pricing-table th {
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.tools_page_wp-reset #pricing-table td:first-child {
+  text-align: left;
+}
+
+.tools_page_wp-reset #pricing-table tfoot th {
+  border-top: thin solid #444444;
+  border-bottom: none;
+}
+
+.tools_page_wp-reset #pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tools_page_wp-reset #pricing-table th {
+  vertical-align: top;
+  font-weight: normal;
+}
+
+.tools_page_wp-reset #pricing-table th span {
+  color: #dd3036;
+  font-weight: 700;
+}
+
+/* collections */
+.tools_page_wp-reset .collection-table tr td:first-child .dashicons {
+  margin-right: 8px;
+}
+
+.tools_page_wp-reset .collection-table tr td:first-child {
+  width: 85px;
+}
+
+.tools_page_wp-reset table tr td:first-child {
+  padding-left: 5px;
+}
+
+.tools_page_wp-reset .collection-table td {
+  padding: 10px 10px;
+}
+
+.tools_page_wp-reset table tr td:last-child {
+  padding-right: 5px;
+}
+
+.tools_page_wp-reset .collection-table .actions {
+  text-align: center;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.collection-item-details span {
+  display: block;
+  font-weight: 500;
+}
+/* collections */
+
 /* Fontello */
 @font-face {
-  font-family: 'fontello';
-  src: url('./font/fontello.eot?91671913');
-  src: url('./font/fontello.eot?91671913#iefix') format('embedded-opentype'),
-    url('./font/fontello.woff2?91671913') format('woff2'), url('./font/fontello.woff?91671913') format('woff'),
-    url('./font/fontello.ttf?91671913') format('truetype'), url('./font/fontello.svg?91671913#fontello') format('svg');
+  font-family: "fontello";
+  src: url("./font/fontello.eot?91671913");
+  src: url("./font/fontello.eot?91671913#iefix") format("embedded-opentype"),
+    url("./font/fontello.woff2?91671913") format("woff2"),
+    url("./font/fontello.woff?91671913") format("woff"),
+    url("./font/fontello.ttf?91671913") format("truetype"),
+    url("./font/fontello.svg?91671913#fontello") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -891,9 +1091,9 @@
 }
 */
 
-[class^='icon-']:before,
-[class*=' icon-']:before {
-  font-family: 'fontello';
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   display: inline-block;
@@ -926,8 +1126,112 @@
 }
 
 .icon-doc-text-inv:before {
-  content: '\f15c';
+  content: "\f15c";
 } /* '' */
 .icon-database:before {
-  content: '\f1c0';
+  content: "\f1c0";
 } /* '' */
+
+.wpr-collections-installer {
+  height: 100px;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+  padding: 68px 40px;
+  -webkit-mask-image: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 38%,
+    rgba(255, 255, 255, 1) 63%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.wpr-collections-installer-errors {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding: 0px 40px;
+  max-height: 200px;
+}
+
+.wpr-collections-installer::-webkit-scrollbar,
+.wpr-collections-installer-errors::-webkit-scrollbar {
+  height: 12px;
+  width: 6px;
+  background: #ccc;
+}
+
+.wpr-collections-installer::-webkit-scrollbar-thumb,
+.wpr-collections-installer-errors::-webkit-scrollbar-thumb {
+  background: #dd3036;
+  -webkit-border-radius: 1ex;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+.wpr-collections-installer::-webkit-scrollbar-corner,
+.wpr-collections-installer-errors::-webkit-scrollbar-corner {
+  background: #ccc;
+}
+
+.wpr-collections-installer-message {
+  text-align: left;
+  position: relative;
+  margin: 20px 0;
+}
+
+.wpr-collections-error {
+  position: absolute;
+  color: #f00;
+  font-size: 12px;
+  left: 24px;
+  bottom: -14px;
+}
+
+.wpr-collections-installer-message .dashicons {
+  vertical-align: text-top;
+  line-height: 24px;
+  height: 24px;
+}
+
+.wpr-collections-installer-loading .dashicons:before {
+  content: "\f463";
+}
+
+.wpr-collections-installer-loading .dashicons {
+  -webkit-animation: wpr_rspin 1.5s linear infinite;
+  -moz-animation: wpr_rspin 1.5s linear infinite;
+  animation: wpr_rspin 1.5s linear infinite;
+}
+
+.wpr-collections-installer-done {
+  opacity: 1;
+}
+
+.wpr-collections-installer-success .dashicons:before {
+  content: "\f12a";
+  color: #1e232a;
+}
+
+.wpr-collections-installer-error .dashicons:before {
+  content: "\f153";
+  color: #dd3036;
+}
+
+@-moz-keyframes wpr_rspin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes wpr_rspin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes wpr_rspin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

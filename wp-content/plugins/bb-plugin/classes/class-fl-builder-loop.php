@@ -190,11 +190,7 @@ final class FLBuilderLoop {
 		$paged = self::get_paged();
 
 		// Get the offset.
-		if ( ! isset( $settings->offset ) || ! is_int( (int) $settings->offset ) ) {
-			$offset = 0;
-		} else {
-			$offset = $settings->offset;
-		}
+		$offset = isset( $settings->offset ) ? intval( $settings->offset ) : 0;
 
 		// Get the paged offset.
 		if ( $paged < 2 ) {
@@ -220,6 +216,16 @@ final class FLBuilderLoop {
 			'fields'              => $fields,
 			'settings'            => $settings,
 		);
+
+		// Set query keywords if specified in the settings.
+		if ( isset( $settings->keyword ) && ! empty( $settings->keyword ) ) {
+			$args['s'] = $settings->keyword;
+		}
+
+		// Set post_status if specified in the settings.
+		if ( isset( $settings->post_status ) && ! empty( $settings->post_status ) ) {
+			$args['post_status'] = $settings->post_status;
+		}
 
 		// Order by meta value arg.
 		if ( strstr( $order_by, 'meta_value' ) ) {
@@ -778,14 +784,20 @@ final class FLBuilderLoop {
 				$add_args['fl_rand_seed'] = self::$rand_seed;
 			}
 
-			echo paginate_links(array(
+			/**
+			 * @since 2.4
+			 * @see fl_loop_paginate_links_args
+			 */
+			$args = apply_filters( 'fl_loop_paginate_links_args', array(
 				'base'     => $base . '%_%',
 				'format'   => $format,
 				'current'  => $current_page,
 				'total'    => $total_pages,
 				'type'     => 'list',
 				'add_args' => $add_args,
-			));
+			), $query );
+
+			echo paginate_links( $args );
 		}
 	}
 

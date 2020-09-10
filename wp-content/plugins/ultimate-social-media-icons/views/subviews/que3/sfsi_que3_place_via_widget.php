@@ -6,11 +6,11 @@
 			$sfsi_show_via_widget = $option9['sfsi_show_via_widget'];
 		}
  
-		$label_style 	 = 'style="display:none;font-size: 16px;"';
+		$label_style 	 = 'style="display:none;font-size: 19px;line-height: 81px;"';
 		$checked 	 	 = '';
 
 		if($sfsi_show_via_widget =='yes'){			
-			$label_style = 'style="display:block;font-size: 16px;"';
+			$label_style = 'style="display:block;font-size: 19px;line-height: 81px;"';
 			$checked     = 'checked="true"';
 		}
 
@@ -25,7 +25,7 @@
 			</div>
 			
 			<div class="sfsi_right_info">
-				<p>
+				<p style="margin-bottom: -33px">
 					<span class="sfsi_toglepstpgspn">Show them via a widget</span><br>
                     
 					<label  <?php echo $label_style; ?> class="sfsiplus_sub-subtitle ckckslctn">Go to the <a href="<?php echo admin_url('widgets.php');?>">widget area</a> and drag & drop it where you want to show them!

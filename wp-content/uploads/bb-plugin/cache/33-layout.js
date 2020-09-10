@@ -1613,11 +1613,11 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 			id: '5f1a12c90fcea',
 			layout: 'columns',
 			pagination: 'none',
-			postSpacing: '60',
+			postSpacing: '50',
 			postWidth: '300',
 			matchHeight: {
-				default	   : '1',
-				medium 	   : '',
+				default	   : '0',
+				medium 	   : '1',
 				responsive : ''
 			},
 			isRTL: false		});
@@ -1625,6 +1625,18 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 	
 })(jQuery);
+jQuery(function($) {
+	
+		$(function() {
+		$( '.fl-node-5f592fdaa7840 .fl-photo-img' )
+			.on( 'mouseenter', function( e ) {
+				$( this ).data( 'title', $( this ).attr( 'title' ) ).removeAttr( 'title' );
+			} )
+			.on( 'mouseleave', function( e ){
+				$( this ).attr( 'title', $( this ).data( 'title' ) ).data( 'title', null );
+			} );
+	});
+	});
 
 (function($) {
 	

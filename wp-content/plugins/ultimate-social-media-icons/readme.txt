@@ -2,8 +2,8 @@
 Contributors: socialdude, socialtech
 Tags: social media, share, buttons, social widget, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
 Requires at least: 3.5
-Tested up to: 5.4
-Stable tag: 2.5.5
+Tested up to: 5.5
+Stable tag: 2.5.8
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -270,13 +270,27 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+= 2.5.8 =
+* UI fixes
+* Corrected banner behaviour
+* Wordpress Compatablity increased to 5.5.
+* Removed comment that was being flagged as dangourous code by some malware scanners.
+
+= 2.5.7 =
+* Subscription fallback Url issue fixed
+
+= 2.5.6 =
+* Fixed undefined index issue
+* Updated Youtube api updated
+* Bitly changes
+
 = 2.5.5 =
-* Fixed claim feed from Q8 popup.
-* Updated new section to show counts.
-* Fixed subscribe form button value.
-* Fixed twitter url space corrected.
-* changed nopin to data-attr.
-* Fixed youtube tooltip alignemnt.
+* Fixed claim feed from Q8 popup
+* Updated new section to show counts
+* Fixed subscribe form button value
+* Fixed twitter url space corrected
+* changed nopin to data-attr
+* Fixed youtube tooltip alignemnt
 
 = 2.5.4 =
 * Fixed syntax errors.
@@ -928,5 +942,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 2.5.5 =
+= 2.5.8 =
 Please upgrade

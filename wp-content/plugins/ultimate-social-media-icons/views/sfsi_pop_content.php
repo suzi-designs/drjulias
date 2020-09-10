@@ -24,7 +24,7 @@ $connectFeedLgn	= "http://api.follow.it/?".base64_encode("userprofile=wordpress&
                     <input type="email" name="email" value="<?php echo get_option("admin_email"); ?>" placeholder="Your email" style="color: #000 !important;"/>
                 </div>
                 <div class="save_button">
-                    <a href="javascript:;" id="sfsi_getMeFullAccess" data-nonce-fetch-feed-id="<?php echo wp_create_nonce( 'sfsi_get_feed_id' );?>" title="Give me access">
+                    <a href="javascript:;" id="sfsi_getMeFullAccess" class="sfsi_getMeFullAccess_class" data-nonce-fetch-feed-id="<?php echo wp_create_nonce( 'sfsi_get_feed_id' );?>" title="Give me access">
                         Give me access!
                     </a>
                 </div>

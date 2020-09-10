@@ -39,9 +39,6 @@ $option6['sfsi_display_button_type']     = (isset($option6['sfsi_display_button_
 $option6['sfsi_show_premium_placement_box'] = (isset($option6['sfsi_show_premium_placement_box']))
   ? sanitize_text_field($option6['sfsi_show_premium_placement_box'])
   : 'yes';
-$option6['sfsi_responsive_icons_end_post'] = (isset($option6['sfsi_responsive_icons_end_post']))
-  ? sanitize_text_field($option6['sfsi_responsive_icons_end_post'])
-  : 'no';
 
 
 $sfsi_responsive_icons_default = array(
@@ -89,7 +86,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
 ?>
 <!-- Section 6 "Do you want to display icons at the end of every post?" main div Start -->
 <div>
-  <p class="clear" style="margin-top:0 !important">Here you have two options:</p>
+  <p class="clear" style="margin-top:16 !important">Here you have two options:</p>
 
   <div class="tab6">
     <ul class="sfsi_icn_listing8">
@@ -143,7 +140,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
                     <span class="sfsi_icon_container">
                       <div class="sfsi_responsive_icon_item_container sfsi_responsive_icon_<?php echo strtolower($icon); ?>_container" style="word-break:break-all;padding-left:0">
                         <div style="display: inline-block;height: 40px;width: 40px;text-align: center;vertical-align: middle!important;float: left;">
-                          <img style="float:none" src="<?php echo SFSI_PLUGURL; ?>images/responsive-icon/<?php echo $icon; ?><?php echo 'Follow' === $icon ? '.png' : '.svg'; ?>">
+                          <img style="float:none" alt="<?php echo $icon; ?>" src="<?php echo SFSI_PLUGURL; ?>images/responsive-icon/<?php echo $icon; ?><?php echo 'Follow' === $icon ? '.png' : '.svg'; ?>">
                         </div>
                         <span> <?php echo $icon_config["text"];  ?> </span>
                       </div>
@@ -173,24 +170,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
                 </div>
               <?php } ?>
 
-              <div class="options">
-                <label class="heading-label" style="width:auto!important;margin-top: 11px;margin-right: 11px;">
-                  <b>So: do you want to display those at the end of every post?</b>
-                </label>
-                <ul style="display:flex">
-                  <li style="min-width: 200px">
-                    <input name="sfsi_responsive_icons_end_post" <?php echo ($option6['sfsi_responsive_icons_end_post'] == 'yes') ?  'checked="true"' : ''; ?> type="radio" value="yes" class="styled" />
-                    <label class="labelhdng4" style="width: auto;">
-                      Yes
-                    </label>
-                  </li>
-                  <li>
-                    <input name="sfsi_responsive_icons_end_post" <?php echo ($option6['sfsi_responsive_icons_end_post'] == 'no') ?  'checked="true"' : ''; ?> type="radio" value="no" class="styled" />
-                    <label class="labelhdng4" style="width: auto;">
-                      No
-                    </label>
-                  </li>
-              </div>
+             
             </li>
             <?php if ($option6['sfsi_display_button_type'] == 'standard_buttons') : $display = "display:block";
             else :  $display = "display:none";
@@ -266,25 +246,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
                       learn more</a>
                   </p>
                 <?php } ?>
-                <div class="options">
-                  <label class="heading-label" style="width:auto!important;margin-top: 11px;margin-right: 11px;">
-                    <b>So: do you want to display those at the end of every post?</b>
-                  </label>
-                  <ul style="display:flex">
-                    <li style="min-width: 200px">
-                      <input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts'] == 'yes') ?  'checked="true"' : ''; ?> type="radio" value="yes" class="styled" />
-                      <label class="labelhdng4" style="width: auto;">
-                        Yes
-                      </label>
-                    </li>
-                    <li>
-                      <input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts'] == 'no') ?  'checked="true"' : ''; ?> type="radio" value="no" class="styled" />
-                      <label class="labelhdng4" style="width: auto;">
-                        No
-                      </label>
-                    </li>
-
-                </div>
+               
                 <div class="row PostsSettings_section">
 
                   <h4>Options:</h4>
@@ -333,7 +295,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
               </div>
             </li>
             
-            <?php $display2 = ($option6['sfsi_display_button_type'] == 'responsive_button' && $option6['sfsi_responsive_icons_end_post'] == 'yes' ) ? "display:block;border-left:0!important":"display:none;border-left:0!important"; ?>
+            <?php $display2 = ($option6['sfsi_display_button_type'] == 'responsive_button') ? "display:block;border-left:0!important":"display:none;border-left:0!important"; ?>
             <!-- sfsi_responsive_icons_end_post -->
             <li class="sfsi_responsive_icon_option_li sfsi_responsive_show " style="margin-left:20px;border-left:0;<?php echo $display2 ?>">
               <label class="options heading-label" style="margin: 0px 0px 12px 0px;">

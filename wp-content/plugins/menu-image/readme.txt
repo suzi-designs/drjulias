@@ -3,8 +3,8 @@ Contributors: takanakui, freemius
 Tags: menu, navigation, image, icons, nav menu
 Donate link: https://www.buymeacoffee.com/ruiguerreiro
 Requires at least: 4.4.0
-Tested up to: 5.4
-Stable tag: 2.9.6
+Tested up to: 5.5
+Stable tag: 2.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,9 +109,12 @@ add_filter( 'wp_calculate_image_srcset', '__return_false' );
 
 == Changelog ==
 
+### 2.9.7 ###
+* Fix - Fix Issue with display title above and below
+* Improvment - Update Freemius SDK to 2.4.0.1
+
 ### 2.9.6 ###
 * Fix - Fix compatibility issue with WordPress 5.4.
-* New - New filter for the Menu Image positions.
 
 ### 2.9.5 ###
 * Fix - Remove unnecessary filter.

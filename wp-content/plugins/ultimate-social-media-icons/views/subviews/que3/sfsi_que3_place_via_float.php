@@ -160,7 +160,7 @@ $style                                    =  ($option9['sfsi_icons_float'] == "y
 
                     	
 
-                        <h4>Margin From: </h4>
+                        <h4 style="color: #5a6570 !important;font-family: 'helveticaneue-light';">Margin From: </h4>
 
                         <ul class="sfsi_floaticon_margin_sec">
 

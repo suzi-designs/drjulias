@@ -463,6 +463,10 @@ final class FLCustomizer {
 			// Loop panel sections
 			if ( isset( $panel_data['sections'] ) ) {
 
+				if ( ! class_exists( 'woocommerce' ) ) {
+					unset( $panel_data['sections']['fl-content-woo'] );
+				}
+
 				foreach ( $panel_data['sections'] as $section_key => $section_data ) {
 
 					// Make sure this section should be registered.
@@ -1116,20 +1120,27 @@ final class FLCustomizer {
 
 		// Button Styles
 		if ( 'custom' === $mods['fl-button-style'] ) {
-			$vars['button-font-size']      = is_numeric( $mods['fl-button-font-size'] ) ? $mods['fl-button-font-size'] . 'px' : '16px';
-			$vars['button-line-height']    = is_numeric( $mods['fl-button-line-height'] ) ? $mods['fl-button-line-height'] : '1.2';
-			$vars['button-color']          = $mods['fl-button-color'] ? $mods['fl-button-color'] : $defaults['fl-button-color'];
-			$vars['button-bg-color']       = $mods['fl-button-background-color'] ? $mods['fl-button-background-color'] : $defaults['fl-button-background-color'];
-			$vars['button-hover-color']    = $mods['fl-button-hover-color'] ? $mods['fl-button-hover-color'] : $defaults['fl-button-hover-color'];
-			$vars['button-bg-hover-color'] = $mods['fl-button-background-hover-color'] ? $mods['fl-button-background-hover-color'] : $defaults['fl-button-background-hover-color'];
-			$vars['button-border-width']   = is_numeric( $mods['fl-button-border-width'] ) ? $mods['fl-button-border-width'] . 'px' : '0px';
-			$vars['button-border-style']   = $mods['fl-button-border-style'] ? $mods['fl-button-border-style'] : 'none';
-			$vars['button-border-color']   = $mods['fl-button-border-color'] ? $mods['fl-button-border-color'] : 'initial';
-			$vars['button-border']         = $vars['button-border-width'] . ' ' . $vars['button-border-style'] . ' ' . $vars['button-border-color'];
-			$vars['button-border-hover']   = $vars['button-border-width'] . ' ' . $vars['button-border-style'] . ' ' . $vars['button-border-color'];
-			$vars['button-border-radius']  = $mods['fl-button-border-radius'] . 'px';
+			$vars['button-font-weight']        = self::_sanitize_weight( $mods['fl-button-font-weight'] );
+			$vars['button-font-family']        = self::_get_font_family_string( $mods['fl-button-font-family'] );
+			$vars['button-text-transform']     = $mods['fl-button-text-transform'] ? $mods['fl-button-text-transform'] : 'none';
+			$vars['button-font-size']          = is_numeric( $mods['fl-button-font-size'] ) ? $mods['fl-button-font-size'] . 'px' : '16px';
+			$vars['button-line-height']        = is_numeric( $mods['fl-button-line-height'] ) ? $mods['fl-button-line-height'] : '1.2';
+			$vars['button-color']              = $mods['fl-button-color'] ? $mods['fl-button-color'] : $defaults['fl-button-color'];
+			$vars['button-bg-color']           = $mods['fl-button-background-color'] ? $mods['fl-button-background-color'] : $defaults['fl-button-background-color'];
+			$vars['button-hover-color']        = $mods['fl-button-hover-color'] ? $mods['fl-button-hover-color'] : $defaults['fl-button-hover-color'];
+			$vars['button-bg-hover-color']     = $mods['fl-button-background-hover-color'] ? $mods['fl-button-background-hover-color'] : $defaults['fl-button-background-hover-color'];
+			$vars['button-border-width']       = is_numeric( $mods['fl-button-border-width'] ) ? $mods['fl-button-border-width'] . 'px' : '0px';
+			$vars['button-border-style']       = $mods['fl-button-border-style'] ? $mods['fl-button-border-style'] : 'none';
+			$vars['button-border-color']       = $mods['fl-button-border-color'] ? $mods['fl-button-border-color'] : 'initial';
+			$vars['button-border-hover-color'] = $mods['fl-button-border-hover-color'] ? $mods['fl-button-border-hover-color'] : $vars['button-border-color'];
+			$vars['button-border']             = $vars['button-border-width'] . ' ' . $vars['button-border-style'] . ' ' . $vars['button-border-color'];
+			$vars['button-border-hover']       = $vars['button-border-width'] . ' ' . $vars['button-border-style'] . ' ' . $vars['button-border-color'];
+			$vars['button-border-radius']      = $mods['fl-button-border-radius'] . 'px';
 
 		} else {
+			$vars['button-font-weight']        = 'normal';
+			$vars['button-font-family']        = $vars['text-font'];
+			$vars['button-text-transform']     = 'none';
 			$vars['button-font-size']          = '16px';
 			$vars['medium-button-font-size']   = '16px';
 			$vars['mobile-button-font-size']   = '16px';
@@ -1143,29 +1154,41 @@ final class FLCustomizer {
 			$vars['button-border']             = '1px solid darken( ' . $vars['accent-color'] . ', 12%)';
 			$vars['button-border-hover']       = '1px solid darken( ' . $vars['accent-hover-color'] . ', 12%)';
 			$vars['button-border-radius']      = '4px';
+			$vars['button-border-hover-color'] = 'darken( ' . $vars['accent-hover-color'] . ', 12%)';
 		}
 
-		$vars['button-font-family']        = self::_get_font_family_string( $mods['fl-button-font-family'] );
-		$vars['button-font-weight']        = self::_sanitize_weight( $mods['fl-button-font-weight'] );
-		$vars['button-text-transform']     = $mods['fl-button-text-transform'];
-		$vars['woo-button-font-family']    = $vars['button-font-family'];
-		$vars['woo-button-font-weight']    = $vars['button-font-weight'];
-		$vars['woo-button-text-transform'] = $vars['button-text-transform'];
-		$vars['woo-button-border']         = $vars['button-border'];
-		$vars['woo-button-border-hover']   = $vars['button-border-hover'];
-		$vars['woo-button-border-radius']  = $vars['button-border-radius'];
+		$vars['woo-button-font-family']         = $vars['button-font-family'];
+		$vars['woo-button-font-weight']         = $vars['button-font-weight'];
+		$vars['woo-button-text-transform']      = $vars['button-text-transform'];
+		$vars['woo-button-border']              = $vars['button-border'];
+		$vars['woo-button-border-hover']        = $vars['button-border-hover'];
+		$vars['woo-button-border-radius']       = $vars['button-border-radius'];
+		$vars['woo-button-hover-border-radius'] = $vars['button-border-radius'];
+		$vars['woo-button-border-hover-color']  = $vars['button-border-hover-color'];
 
-		if ( class_exists( 'WooCommerce' ) && 'enabled' === $mods['fl-woo-css'] ) {
+		if ( class_exists( 'WooCommerce' ) ) {
 			$vars['woo-button-font-size']          = $vars['button-font-size'];
 			$vars['medium-woo-button-font-size']   = $vars['medium-button-font-size'];
 			$vars['mobile-woo-button-font-size']   = $vars['mobile-button-font-size'];
 			$vars['woo-button-line-height']        = $vars['button-line-height'];
 			$vars['medium-woo-button-line-height'] = $vars['medium-button-line-height'];
 			$vars['mobile-woo-button-line-height'] = $vars['mobile-button-line-height'];
-			$vars['woo-button-color']              = $vars['button-color'];
-			$vars['woo-button-bg-color']           = $vars['button-bg-color'];
-			$vars['woo-button-hover-color']        = $vars['button-hover-color'];
-			$vars['woo-button-bg-hover-color']     = $vars['button-bg-hover-color'];
+
+			if ( 'enabled' === $mods['fl-woo-css'] ) {
+				$vars['woo-button-color']          = $vars['button-color'];
+				$vars['woo-button-bg-color']       = $vars['button-bg-color'];
+				$vars['woo-button-hover-color']    = $vars['button-hover-color'];
+				$vars['woo-button-bg-hover-color'] = $vars['button-bg-hover-color'];
+			} else {
+				$vars['woo-button-color']               = '#fff';
+				$vars['woo-button-bg-color']            = '#a46497';
+				$vars['woo-button-hover-color']         = '#fff';
+				$vars['woo-button-bg-hover-color']      = '#96588a';
+				$vars['woo-button-border']              = 'none';
+				$vars['woo-button-border-hover']        = 'none';
+				$vars['woo-button-border-radius']       = '3px';
+				$vars['woo-button-hover-border-radius'] = '3px';
+			}
 		} else {
 			$vars['woo-button-font-size']          = '16px';
 			$vars['medium-woo-button-font-size']   = '16px';
@@ -1173,7 +1196,6 @@ final class FLCustomizer {
 			$vars['woo-button-line-height']        = '1.2';
 			$vars['medium-woo-button-line-height'] = '1.2';
 			$vars['mobile-woo-button-line-height'] = '1.2';
-			$vars['woo-button-font-weight']        = '700';
 			$vars['woo-button-color']              = '#515151';
 			$vars['woo-button-bg-color']           = '#ebe9eb';
 			$vars['woo-button-hover-color']        = '#515151';

@@ -6,7 +6,7 @@ Description: Easy to use and 100% FREE social media plugin which adds social med
 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.5.5
+Version: 2.5.8
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -90,8 +90,7 @@ register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.55) {
-
+if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.58) {
     add_action("init", "sfsi_update_plugin");
 }
 /* redirect setting page hook */
@@ -799,95 +798,25 @@ function sfsi_admin_notice()
                 $siteMatch = false;
             }
         }
-        $screen = get_current_screen();
-        if (get_option("show_premium_notification") == "yes" && ($screen->id != "toplevel_page_sfsi-options")) {
+        // $screen = get_current_screen();
+        // if (get_option("show_premium_notification") == "yes" && ($screen->id != "toplevel_page_sfsi-options")) {
 
-            ?>
+        //     
+        ?>
 
-        <style type="text/css">
-            div.sfsi_show_premium_notification {
 
-                float: none;
 
-                display: block;
+    </style>
+    <?php
 
-                margin-left: 15px;
+        include("views/sfsi_plugin_lists.php");
+        include("views/sfsi_other_banners.php");
+        include("views/sfsi_global_banners.php");
 
-                margin-top: 15px;
+        if (is_ssl() && false) {
+            if (get_option("show_premium_cumulative_count_notification") == "yes") {
 
-                padding: 8px;
-
-                background-color: #38B54A;
-
-                color: #fff;
-
-                font-size: 18px;
-
-            }
-
-            .sfsi_show_premium_notification a {
-
-                color: #fff;
-
-            }
-
-            form.sfsi_premiumNoticeDismiss {
-
-                display: inline-block;
-
-                margin: 5px 0 0;
-
-                vertical-align: middle;
-
-            }
-
-            .sfsi_premiumNoticeDismiss input[type='submit'] {
-
-                background-color: transparent;
-
-                border: medium none;
-
-                color: #fff;
-
-                margin: 0;
-
-                padding: 0;
-
-                cursor: pointer;
-
-            }
-        </style>
-
-        <div class="updated sfsi_show_premium_notification" style="<?php echo isset($style) ? $style : ''; ?>">
-
-            <div style="margin: 9px 0; ">
-
-                BIG NEWS: There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features: <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
-
-            </div>
-
-            <div style="text-align:right;margin-top:-40px;">
-
-                <form method="post" class="sfsi_premiumNoticeDismiss" style="padding-bottom:8px;">
-
-                    <input type="hidden" name="sfsi-dismiss-premiumNotice" value="true">
-
-                    <input type="submit" name="dismiss" value="Dismiss" />
-
-                </form>
-
-            </div>
-
-        </div>
-
-        <?php
-
-            }
-            if (is_ssl() && false) {
-                if (get_option("show_premium_cumulative_count_notification") == "yes") {
-
-                    ?>
-
+                ?>
             <style type="text/css">
                 div.sfsi_show_premium_cumulative_count_notification {
 
@@ -967,6 +896,7 @@ function sfsi_admin_notice()
 
                 }
             }
+
             /* show mobile notification */
 
             if (get_option("show_mobile_notification") == "yes") {
@@ -1386,6 +1316,8 @@ function sfsi_admin_notice()
 
         {
 
+            $current_date_sfsi = date("Y-m-d h:i:s");
+
             if (isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true') {
 
                 update_option('show_notification_plugin', "no");
@@ -1424,7 +1356,139 @@ function sfsi_admin_notice()
 
                 update_option('show_premium_cumulative_count_notification', "no");
             }
+            if (isset($_REQUEST['sfsi-dismiss-sharecount']) && $_REQUEST['sfsi-dismiss-sharecount'] == 'true') {
+                $sfsi_dismiss_sharecount = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_sharecount', serialize($sfsi_dismiss_sharecount));
+            }
+            if (isset($_REQUEST['sfsi-dismiss-google-analytic']) && $_REQUEST['sfsi-dismiss-google-analytic'] == 'true') {
+                $sfsi_dismiss_google_analytic = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_google_analytic', serialize($sfsi_dismiss_google_analytic));
+            }
+            if (isset($_REQUEST['sfsi-dismiss-gdpr']) && $_REQUEST['sfsi-dismiss-gdpr'] == 'true') {
+                $sfsi_dismiss_gdpr = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_gdpr', serialize($sfsi_dismiss_gdpr));
+            }
+            if (isset($_REQUEST['sfsi-dismiss-optimization']) && $_REQUEST['sfsi-dismiss-optimization'] == 'true') {
+                $sfsi_dismiss_optimization = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_optimization', serialize($sfsi_dismiss_optimization));
+            }
+            if (isset($_REQUEST['sfsi-dismiss-gallery']) && $_REQUEST['sfsi-dismiss-gallery'] == 'true') {
+                $sfsi_dismiss_gallery = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_gallery', serialize($sfsi_dismiss_gallery));
+            }
+
+
+            if (isset($_REQUEST['sfsi-banner-global-upgrade']) && $_REQUEST['sfsi-banner-global-upgrade'] == 'true') {
+                $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+                $sfsi_banner_global_upgrade = array(
+                    'met_criteria'     =>  $sfsi_banner_global_upgrade['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_upgrade', serialize($sfsi_banner_global_upgrade));
+                sfsi_check_banner();
+            }
+            if (isset($_REQUEST['sfsi-banner-global-http']) && $_REQUEST['sfsi-banner-global-http'] == 'true') {
+                $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
+                $sfsi_banner_global_http = array(
+                    'met_criteria'     =>  $sfsi_banner_global_http['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_http', serialize($sfsi_banner_global_http));
+                sfsi_check_banner();
+            }
+            if (isset($_REQUEST['sfsi-banner-global-gdpr']) && $_REQUEST['sfsi-banner-global-gdpr'] == 'true') {
+                $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
+                $sfsi_banner_global_gdpr = array(
+                    'met_criteria'     => $sfsi_banner_global_gdpr['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_gdpr', serialize($sfsi_banner_global_gdpr));
+                sfsi_check_banner();
+            }
+
+            if (isset($_REQUEST['sfsi-banner-global-shares']) && $_REQUEST['sfsi-banner-global-shares'] == 'true') {
+                $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
+                $sfsi_banner_global_shares = array(
+                    'met_criteria'     => $sfsi_banner_global_shares['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_shares', serialize($sfsi_banner_global_shares));
+                sfsi_check_banner();
+            }
+            if (isset($_REQUEST['sfsi-banner-global-load_faster']) && $_REQUEST['sfsi-banner-global-load_faster'] == 'true') {
+                $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
+                $sfsi_banner_global_load_faster = array(
+                    'met_criteria'     => $sfsi_banner_global_load_faster['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_load_faster', serialize($sfsi_banner_global_load_faster));
+                sfsi_check_banner();
+            }
+            if (isset($_REQUEST['sfsi-banner-global-social']) && $_REQUEST['sfsi-banner-global-social'] == 'true') {
+                $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
+                $sfsi_banner_global_social = array(
+                    'met_criteria'     =>  $sfsi_banner_global_social['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_social', serialize($sfsi_banner_global_social));
+                sfsi_check_banner();
+            }
+            if (isset($_REQUEST['sfsi-banner-global-pinterest']) && $_REQUEST['sfsi-banner-global-pinterest'] == 'true') {
+                $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
+                $sfsi_banner_global_pinterest = array(
+                    'met_criteria'     => $sfsi_banner_global_pinterest['met_criteria'],
+                    'banner_appeared' => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_pinterest', serialize($sfsi_banner_global_pinterest));
+                sfsi_check_banner();
+            }
+            $sfsi_install_time = strtotime(get_option('sfsi_installDate'));
+            $sfsi_max_show_time = $sfsi_install_time + (120 * 60);
+            $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+            if (
+                (isset($_REQUEST['sfsi-banner-global-firsttime-offer']) && $_REQUEST['sfsi-banner-global-firsttime-offer'] == 'true') || (isset($sfsi_banner_global_firsttime_offer['is_active']) && $sfsi_banner_global_firsttime_offer['is_active'] == "yes" &&  ceil(($sfsi_max_show_time - strtotime(date('Y-m-d h:i:s'))) / 60) <= 0)
+            ) {
+
+                $sfsi_banner_global_firsttime_offer = array(
+                    'met_criteria'     => "yes",
+                    'is_active' => "no",
+                    'timestamp' => $current_date_sfsi
+                );
+                update_option('sfsi_banner_global_firsttime_offer', serialize($sfsi_banner_global_firsttime_offer));
+                sfsi_check_banner();
+            }
         }
+        // add_action("admin_init","sfsi_check_banner");
+
         function sfsi_get_bloginfo($url)
 
         {
@@ -1926,4 +1990,468 @@ function sfsi_plugin_redirect()
 
         add_action('wp_ajax_sfsi_dismiss_error_reporting_notice', 'sfsi_dismiss_error_reporting_notice');
         // ********************************* Notice for error reporting CLOSE *******************************//
+
+        function sfsi_check_banner()
+        {
+            $gallery_plugins  = array(
+                array('option_name' => 'photoblocks', 'dir_slug' => 'photoblocks-grid-gallery/photoblocks.php'),
+                array('option_name' => 'everlightbox_options', 'dir_slug' => 'everlightbox/everlightbox.php'),
+                array('option_name' => 'Total_Soft_Gallery_Video', 'dir_slug' => 'gallery-videos/index.php'),
+                array('option_name' => 'Wpape-gallery-settings', 'dir_slug' => 'gallery-images-ape/index.php'),
+                array('option_name' => 'overview', 'dir_slug' => 'robo-gallery/robogallery.php'),
+                array('option_name' => 'flag-overview', 'dir_slug' => 'flash-album-gallery/flag.php'),
+                array('option_name' => 'GrandMedia', 'dir_slug' => 'grand-media/grand-media.php'),
+                array('option_name' => 'emg-whats-new', 'dir_slug' => 'easy-media-gallery/easy-media-gallery.php'),
+                array('option_name' => 'grid-kit', 'dir_slug' => 'portfolio-wp/portfolio-wp.php'),
+                array('option_name' => 'Wc-gallery', 'dir_slug' => 'wc-gallery/wc-gallery.php'),
+                array('option_name' => 'elementor-getting-started', 'dir_slug' => 'elementor/elementor.php'),
+                array('option_name' => 'photospace.php', 'dir_slug' => 'photospace/photospace.php'),
+                array('option_name' => 'unitegallery', 'dir_slug' => 'unite-gallery-lite/unitegallery.php'),
+                array('option_name' => 'resmushit_options', 'dir_slug' => 'resmushit-image-optimizer/resmushit.php'),
+                array('option_name' => 'picture-gallery', 'dir_slug' => 'picture-gallery/picture-gallery.php'),
+                array('option_name' => 'imagify', 'dir_slug' => 'imagify/imagify.php'),
+                array('option_name' => 'gallery_bank', 'dir_slug' => 'gallery-bank/gallery-bank.php'),
+                array('option_name' => 'wp-shortpixel-settings', 'dir_slug' => 'shortpixel-image-optimiser/wp-shortpixel.php'),
+                array('option_name' => 'post-gallery-settings', 'dir_slug' => 'simple-post-gallery/plugin.php'),
+                array('option_name' => 'image-gallery-settings', 'dir_slug' => 'responsive-photo-gallery/get-responsive-gallery.php'),
+                array('option_name' => 'gallery-plugin.php', 'dir_slug' => 'gallery-plugin/gallery-plugin.php'),
+                array('option_name' => 'youtube-my-preferences', 'dir_slug' => 'youtube-embed-plus/youtube.php'),
+                array('option_name' => 'pfg-update-plugin', 'dir_slug' => 'portfolio-filter-gallery/portfolio-filter-gallery.php'),
+                array('option_name' => 'jetpack', 'dir_slug' => 'jetpack/jetpack.php'),
+                array('option_name' => 'gallery-options', 'dir_slug' => 'fancy-gallery/plugin.php'),
+                array('option_name' => 'gallery-box-options.php', 'dir_slug' => 'gallery-box/gallery-box.php'),
+                array('option_name' => 'catch-gallery', 'dir_slug' => 'catch-gallery/catch-gallery.php'),
+                array('option_name' => 'galleries_grs', 'dir_slug' => 'limb-gallery/gallery-rs.php'),
+                array('option_name' => 'wooswipe-options', 'dir_slug' => 'wooswipe/wooswipe.php'),
+                array('option_name' => 'photoswipe-masonry.php', 'dir_slug' => 'photoswipe-masonry/photoswipe-masonry.php'),
+                array('option_name' => 'maxgalleria-settings', 'dir_slug' => 'maxgalleria/maxgalleria-admin.php'),
+                array('option_name' => 'Emg-whats-new', 'dir_slug' => 'easy-media-gallery/easy-media-gallery.php'),
+                array('option_name' => 'wpffag_products', 'dir_slug' => 'flickr-album-gallery/flickr-album-gallery.php'),
+                array('option_name' => 'foogallery-settings', 'dir_slug' => 'foogallery/foogallery.php'),
+                array('option_name' => 'foogallery-settings', 'dir_slug' => 'foogallery/foogallery.php'),
+                array('option_name' => 'modula', 'dir_slug' => 'modula-best-grid-gallery/Modula.php'),
+                array('option_name' => 'robo-gallery-settings', 'dir_slug' => 'robo-gallery/robogallery.php'),
+                array('option_name' => 'envira', 'dir_slug' => 'envira-gallery-lite/envira-gallery-lite.php'),
+                array('option_name' => 'supsystic-gallery', 'dir_slug' => 'gallery-by-supsystic/index.php'),
+                array('option_name' => 'ftg-lite-gallery-admin', 'dir_slug' => 'final-tiles-grid-gallery-lite/FinalTilesGalleryLite.php'),
+                array('option_name' => 'everest-gallery-lite', 'dir_slug' => 'everest-gallery-lite/everest-gallery-lite.php'),
+                array('option_name' => 'photonic-options-manager', 'dir_slug' => 'photonic/photonic.php'),
+                array('option_name' => 'meowapps-main-menu', 'dir_slug' => 'meow-gallery/meow-gallery.php'),
+                array('option_name' => 'video_galleries_origincode_video_gallery', 'dir_slug' => 'smart-grid-gallery/smart-video-gallery.php'),
+                array('option_name' => 'wpape_gallery_type', 'dir_slug' => 'gallery-images-ape/index.php'),
+                array('option_name' => 'wc-gallery', 'dir_slug' => 'wc-gallery/wc-gallery.php'),
+                array('option_name' => 'elementor', 'dir_slug' => 'elementor/elementor.php'),
+                array('option_name' => 'robo_gallery_table', 'dir_slug' => 'robo-gallery/robogallery.php'),
+                array('option_name' => 'awl_filter_gallery', 'dir_slug' => 'portfolio-filter-gallery/portfolio-filter-gallery.php'),
+                array('option_name' => 'gallery_box', 'dir_slug' => 'gallery-box/gallery-box.php'),
+                array('option_name' => 'maxgalleria-settings', 'dir_slug' => 'maxgalleria/maxgalleria.php'),
+                array('option_name' => 'fa_gallery', 'dir_slug' => 'flickr-album-gallery/flickr-album-gallery.php'),
+                array('option_name' => 'grid_gallery', 'dir_slug' => 'new-grid-gallery/grid-gallery.php'),
+            );
+            $sharecount_plugins  = array(
+                array("dir_slug" => "optinmonster/optin-monster-wp-api.php", 'option_name' => 'optin-monster-api-welcome'),
+                array("dir_slug" => "floating-social-bar/floating-social-bar.php", 'option_name' => 'floating-social-bar'),
+                array("dir_slug" => "tweet-old-post/tweet-old-post.php", 'option_name' => 'TweetOldPost'),
+                array("dir_slug" => "wp-to-buffer/wp-to-buffer.php", 'option_name' => 'wp-to-buffer-settings'),
+                array("dir_slug" => "wordpress-seo/wp-seo.php", 'option_name' => 'wpseo_dashboard'),
+                array("dir_slug" => "intelly-related-posts/index.php", 'option_name' => 'intelly-related-posts'),
+                array("dir_slug" => "wordpress-popular-posts/wordpress-popular-posts.php", 'option_name' => 'wordpress-popular-posts'),
+                array("dir_slug" => "subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php", 'option_name' => 'stcr_options'),
+                array("dir_slug" => "click-to-tweet-by-todaymade/tm-click-to-tweet.php", 'option_name' => 'tmclicktotweet'),
+                array("dir_slug" => "fb-instant-articles/facebook-instant-articles.php", 'option_name' => 'instant-articles-wizard'),
+                array("dir_slug" => "sharebar/sharebar.php", 'option_name' => 'Sharebar'),
+                array("dir_slug" => "wp-to-twitter/wp-to-twitter.php", 'option_name' => 'wp-tweets-pro'),
+                array("dir_slug" => "sem-bookmark-me/sem-bookmark-me.php", 'option_name' => ''),
+                array("dir_slug" => "onlywire-bookmark-share-button/owbutton_wordpress.php", 'option_name' => 'onlywireoptions'),
+                array("dir_slug" => "google-analyticator/google-analyticator.php", 'option_name' => 'google-analyticator'),
+                array("dir_slug" => "getsocial/getsocial.php", 'option_name' => 'getsocial/getsocial.php'),
+                array("dir_slug" => "visitors-traffic-real-time-statistics/Visitors-Traffic-Real-Time-Statistics.php", 'option_name' => 'ahc_hits_counter_menu_free'),
+                array("dir_slug" => "microblog-poster/microblogposter.php", 'option_name' => 'microblogposter.php'),
+                array("dir_slug" => "triberr-wordpress-plugin/triberr.php", 'option_name' => 'triberr-options'),
+                array("dir_slug" => "social-networks-auto-poster-facebook-twitter-g/NextScripts_SNAP.php", 'option_name' => 'nxssnap-ntadmin'),
+                array("dir_slug" => "all-in-one-seo-pack/all_in_one_seo_pack.php", 'option_name' => 'all-in-one-seo-pack/aioseop_class.php'),
+                array("dir_slug" => "multi-rating/multi-rating.php", 'option_name' => 'mr_settings'),
+                array("dir_slug" => "social-pug/index.php", 'option_name' => 'dpsp-social-pug'),
+                array("dir_slug" => "comment-reply-email-notification/cren_plugin.php", 'option_name' => 'comment_reply_email_notification'),
+                array("dir_slug" => "share-subscribe-contact-aio-widget/free_profitquery_aio_widgets.php", 'option_name' => 'free_profitquery_aio_widgets'),
+                array("dir_slug" => "better-robots-txt/better-robots-txt.php", 'option_name' => 'better-robots-txt'),
+                array("dir_slug" => "google-analytics-for-wordpress/googleanalytics.php", 'option_name' => 'monsterinsights_settings'),
+                array("dir_slug" => "onesignal-free-web-push-notifications/onesignal-push", 'option_name' => 'onesignal-push'),
+                array("dir_slug" => "access-watch/index.php", 'option_name' => 'access-watch-dashboard'),
+                array("dir_slug" => "tweet-old-post/tweet-old-post.php", 'option_name' => 'TweetOldPost'),
+                array("dir_slug" => "mailoptin/mailoptin.php", 'option_name' => 'mailoptin-settings'),
+                array("dir_slug" => "NextScripts_SNAP/NextScripts_SNAP.php", 'option_name' => 'nxssnap-reposter'),
+                array("dir_slug" => "social-pug-author-box/index.php", 'option_name' => 'social_pug_author_box'),
+                array("dir_slug" => "google-analytics-for-wordpress/googleanalytics.php", 'option_name' => 'monsterinsights-getting-started'),
+                array("dir_slug" => "onesignal-free-web-push-notifications/onesignal.php", 'option_name' => 'onesignal-push'),
+            );
+            $optimization_plugins  = array(
+                array('dir_slug' => 'litespeed-cache/litespeed-cache.php', 'option_name' => 'lscache-settings'),
+                array('dir_slug' => 'w3-total-cache/w3-total-cache.php', 'option_name' => 'w3tc_dashboard'),
+                array('dir_slug' => 'wp-fastest-cache/wpFastestCache.php', 'option_name' => 'wpfastestcacheoptions'),
+                array('dir_slug' => 'wp-optimize/wp-optimize.php', 'option_name' => 'WP-Optimize'),
+                array('dir_slug' => 'autoptimize/autoptimize.php', 'option_name' => 'autoptimize'),
+                array('dir_slug' => 'cache-enabler/cache-enabler.php', 'option_name' => 'cache-enabler'),
+                array('dir_slug' => 'wp-super-cache/wp-cache.php', 'option_name' => 'wpsupercache'),
+                array('dir_slug' => 'hummingbird-performance/wp-hummingbird.php', 'option_name' => 'wphb'),
+                array('dir_slug' => 'breeze/breeze.php', 'option_name' => 'breeze'),
+                array('dir_slug' => 'sg-cachepress/sg-cachepress.php', 'option_name' => 'sg-cachepress'),
+                array('dir_slug' => 'wp-rest-cache/wp-rest-cache.php', 'option_name' => 'wp-rest-cache'),
+                array('dir_slug' => 'fast-velocity-minify/fvm.php', 'option_name' => 'fastvelocity-min'),
+                array('dir_slug' => 'hyper-cache/plugin.php', 'option_name' => 'hyper-cache/options.php'),
+                array('dir_slug' => 'redis-cache/redis-cache.php', 'option_name' => 'redis-cache'),
+                array('dir_slug' => 'varnish-page', 'option_name' => 'varnish-page'),
+                array('dir_slug' => 'sns-count-cache/sns-count-cache.php', 'option_name' => 'scc-dashboard'),
+                array('dir_slug' => 'harrys-gravatar-cache/harrys-gravatar-cache.php', 'option_name' => 'harrys-gravatar-cache-options'),
+                array('dir_slug' => 'fv-gravatar-cache/fv-gravatar-cache.php', 'option_name' => 'fv-gravatar-cache'),
+                array('dir_slug' => 'wpe-advanced-cache-options/wpe-advanced-cache.php', 'option_name' => 'cache-settings'),
+                array('dir_slug' => 'simple-cache/simple-cache.php', 'option_name' => 'simple-cache'),
+                array('dir_slug' => 'ezcache/ezcache.php', 'option_name' => 'ezcache'),
+                array('dir_slug' => 'wp-cloudflare-page-cache/wp-cloudflare-super-page-cache.php', 'option_name' => 'wp-cloudflare-super-page-cache-index'),
+                array('dir_slug' => 'optimum-gravatar-cache/optimum-gravatar-cache.php', 'option_name' => 'optimum-gravatar-cache'),
+                array('dir_slug' => 'yasakani-cache/yasakani-cache.php', 'option_name' => 'yasakani-cache'),
+                array('dir_slug' => 'cachify/cachify.php', 'option_name' => 'cachify'),
+                array('dir_slug' => 'gator-cache/gator-cache.php', 'option_name' => 'gtr_cache'),
+                array('dir_slug' => 'wp-speed-of-light/wp-speed-of-light.php', 'option_name' => 'wpsol_dashboard'),
+                array('dir_slug' => 'wp-super-minify/wp-super-minify.php', 'option_name' => 'wp-super-minify'),
+                array('dir_slug' => 'wsa-cachepurge/wsa-cachepurge.php', 'option_name' => 'wsa-cachepurge/lib/wsa-cachepurge_display.php'),
+                array('dir_slug' => 'a2-optimized-wp/a2-optimized.php', 'option_name' => 'A2_Optimized_Plugin_admin'),
+                array('dir_slug' => 'nitropack/main.php', 'option_name' => 'nitropack'),
+                array('dir_slug' => 'swift-performance-lite/performance.php', 'option_name' => 'swift-performance'),
+                array('dir_slug' => 'wp-performance/wp-performance.php', 'option_name' => 'wp-performance'),
+                array('dir_slug' => 'arvancloud-cache-cleaner/Arvancloud.php', 'option_name' => 'ar_cache'),
+                array('dir_slug' => 'clear-cache-for-widgets/clear-cache-for-widgets.php', 'option_name' => 'ccfm-options'),
+                array('dir_slug' => 'wp-asset-clean-up/wpacu.php', 'option_name' => 'wpassetcleanup_settings'),
+                array('dir_slug' => 'flying-pages/flying-pages.php', 'option_name' => 'flying-pages'),
+                array('dir_slug' => 'speed-booster-pack/speed-booster-pack.php', 'option_name' => 'sbp-options'),
+                array('dir_slug' => 'baqend/baqend.php', 'option_name' => 'baqend'),
+                array('dir_slug' => 'wp-smushit/wp-smush.php', 'option_name' => 'smush'),
+                array('dir_slug' => 'varnish-http-purge/varnish-http-purge.php', 'option_name' => 'varnish-page'),
+                array('dir_slug' => 'varnish-http-purge/varnish-http-purge.php', 'option_name' => 'varnish-check-caching'),
+
+            );
+            $gdpr_plugins  = array(
+                array('dir_slug' => 'cookie-law-info/cookie-law-info.php', 'option_name' => 'cookie-law-info'),
+                array('dir_slug' => 'complianz-gdpr/complianz-gpdr.php', 'option_name' => 'complianz'),
+                array('dir_slug' => 'shapepress-dsgvo/sp-dsgvo.php', 'option_name' => 'sp-dsgvo'),
+                array('dir_slug' => 'cookiebot/cookiebot.php', 'option_name' => 'cookiebot'),
+                array('dir_slug' => 'gdpr-banner/gdpr-banner.php', 'option_name' => 'gdpr_banner'),
+                array('dir_slug' => 'dsgvo-tools-cookie-hinweis-datenschutz/main.php', 'option_name' => 'fhw_dsgvo_cookies_options'),
+                array('dir_slug' => 'ga-germanized/ga-germanized.php', 'option_name' => 'ga-germanized'),
+                array('dir_slug' => 'cwis-antivirus-malware-detected/cwis-antivirus-malware-detected.php', 'option_name' => 'cwis-updater'),
+                array('dir_slug' => 'luckywp-cookie-notice-gdpr/luckywp-cookie-notice-gdpr.php', 'option_name' => 'lwpcng_settings'),
+                array('dir_slug' => 'ninja-gdpr-compliance/njt-gdpr.php', 'option_name' => 'njt-gdpr'),
+                array('dir_slug' => 'gdpr-cookie-consent/gdpr-cookie-consent.php', 'option_name' => 'gdpr-cookie-consent'),
+                array('dir_slug' => 'uniconsent-cmp/uniconsent-cmp.php', 'option_name' => 'unic-options'),
+                array('dir_slug' => 'wplegalpages/wplegalpages.php', 'option_name' => 'legal-pages'),
+                array('dir_slug' => 'smart-cookie-kit/plugin.php', 'option_name' => 'nmod_sck_graphics'),
+                array('dir_slug' => 'cookie-information-consent-solution/cookie-information.php', 'option_name' => 'cookie-information'),
+                array('dir_slug' => 'dsgvo-fur-die-schweiz/dsgvo-fur-die-schweiz.php', 'option_name' => 'dsgvo-admin'),
+                array('dir_slug' => 'gdpr-cookies-pro/gdpr-cookies-pro.php', 'option_name' => 'gdpr-cookies-pro'),
+                array('dir_slug' => 'seahorse-gdpr-data-manager/seahorse-gdpr-data-manager.php', 'option_name' => 'seahorse_gdpr_data_manager_plugin'),
+                array('dir_slug' => 'dsgvo-tools-kommentar-ip-entfernen/main.php', 'option_name' => 'fhw_dsgvo_kommentar_options'),
+                array('dir_slug' => 'gdpr-tools/gdpr-tools.php', 'option_name' => 'gdpr-tools-settings'),
+                array('dir_slug' => 'gdpr-cookie-compliance/moove-gdpr.php', 'option_name' => 'moove-gdpr'),
+                array('dir_slug' => 'cookie-notice/cookie-notice.php', 'option_name' => 'cookie-notice'),
+                array('dir_slug' => 'tarteaucitronjs/tarteaucitron.php', 'option_name' => 'tarteaucitronjs'),
+                array('dir_slug' => 'wp-gdpr-compliance/wp-gdpr-compliance.php', 'option_name' => 'wp_gdpr_compliance'),
+                array('dir_slug' => 'iubenda_cookie_solution/iubenda_cookie_solution.php', 'option_name' => 'iubenda'),
+                array('dir_slug' => 'easy-wp-cookie-popup/easy-wp-cookie-popup.php', 'option_name' => 'cookii_settings'),
+                array('dir_slug' => 'gdpr-compliance-cookie-consent/gdpr-compliance-cookie-consent.php', 'option_name' => 'gdpr-compliance-cookie-consent'),
+                array('dir_slug' => 'yetience-plugin/yetience-plugin.php', 'option_name' => 'yetience-yeloni'),
+                array('dir_slug' => 'cwis-antivirus-malware-detected/cwis-antivirus-malware-detected.php', 'option_name' => 'cwis-scanner'),
+                array('dir_slug' => 'gdpr-compliance-by-supsystic/grs.php', 'option_name' => 'gdpr-compliance-by-supsystic'),
+                array('dir_slug' => 'auto-terms-of-service-privacy-policy/auto-terms-of-service-privacy-policy.php', 'option_name' => 'wpautoterms_page'),
+                array('dir_slug' => 'google-analytics-opt-out/google-analytics-opt-out.php', 'option_name' => 'gaoo-options'),
+                array('dir_slug' => 'surbma-gdpr-proof-google-analytics/surbma-gdpr-proof-google-analytics.php', 'option_name' => 'surbma-gpga-menu'),
+                array('dir_slug' => 'bp-gdpr/buddypress-gdpr.php', 'option_name' => 'buddyboss-bp-gdpr'),
+                array('dir_slug' => 'beautiful-and-responsive-cookie-consent/nsc_bar-cookie-consent.php', 'option_name' => 'nsc_bar-cookie-consent'),
+                array('dir_slug' => 'simple-gdpr/simple-gdpr.php', 'option_name' => 'SGDPR_settings'),
+                array('dir_slug' => 'wonderpush-web-push-notifications/wonderpush.php', 'option_name' => 'wonderpush'),
+                array('dir_slug' => 'ns-gdpr/ns-gdpr.php', 'option_name' => 'ns-gdpr'),
+            );
+            $google_analytics  = array(
+                array('dir_slug' => 'really-simple-ssl/rlrsssl-really-simple-ssl.php', 'option_name' => 'rlrsssl_really_simple_ssl'),
+                array('dir_slug' => 'ssl-insecure-content-fixer/ssl-insecure-content-fixer.php', 'option_name' => 'ssl-insecure-content-fixer'),
+                array('dir_slug' => 'https-redirection/https-redirection.php', 'option_name' => 'https-redirection'),
+                array('dir_slug' => 'wordpress-https/wordpress-https.php', 'option_name' => 'wordpress-https'),
+                array('dir_slug' => 'wp-force-ssl/wp-force-ssl.php', 'option_name' => 'wpfs-settings'),
+                array('dir_slug' => 'sakura-rs-wp-ssl/sakura-rs-ssl.php', 'option_name' => 'sakura-admin-menu'),
+                array('dir_slug' => 'wp-letsencrypt-ssl/wp-letsencrypt.php', 'option_name' => 'wp_encryption'),
+                array('dir_slug' => 'ssl-zen/ssl_zen.php', 'option_name' => 'ssl_zen'),
+                array('dir_slug' => 'one-click-ssl/ssl.php', 'option_name' => 'one-click-ssl'),
+                array('dir_slug' => 'http-https-remover/http-https-remover.php', 'option_name' => 'httphttpsRemoval')
+            );
+
+            $socialObj = new sfsi_SocialHelper();
+            $current_url = site_url();
+            $fb_data = $socialObj->sfsi_banner_get_fb($current_url);
+            $check_fb_count_more_than_one = $fb_data > 0 || $socialObj->sfsi_get_pinterest($current_url) > 0;
+            $sfsi_fb_count =  get_option('sfsi_fb_count', false);
+            $sfsi_fb_count_check_for_shares =  $sfsi_fb_count > 0;
+
+            // $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+            $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
+            $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
+            $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
+            $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
+            $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
+            $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
+            $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+
+            // $sfsi_banner_global_firsttime_offer_criteria = true;
+            $sfsi_banner_global_pinterest_criteria = ((sfsi_count_media_item() > 2) || (sfsi_pinterest_icon_shown()) || sfsi_has_gallery_plugin_activated($gallery_plugins));
+            $sfsi_banner_global_social_criteria =  sfsi_mobile_icons_shown();
+            $sfsi_banner_global_load_faster_criteria = sfsi_has_cache_plugin_activated($optimization_plugins);
+            $sfsi_banner_global_shares_criteria = sfsi_has_sharecount_plugin_activated($sharecount_plugins);
+            $sfsi_banner_global_gdpr_criteria  = sfsi_has_gdpr_plugin_activated($gdpr_plugins);
+            $sfsi_banner_global_http_criteria = is_ssl() && ($sfsi_fb_count_check_for_shares || $check_fb_count_more_than_one);
+            // $sfsi_banner_global_http_criteria = true;
+
+
+            $global_banners = array(
+                array($sfsi_banner_global_social, 'sfsi_banner_global_social', $sfsi_banner_global_social_criteria),
+                array($sfsi_banner_global_gdpr, 'sfsi_banner_global_gdpr', $sfsi_banner_global_gdpr_criteria),
+                array($sfsi_banner_global_pinterest, 'sfsi_banner_global_pinterest', $sfsi_banner_global_pinterest_criteria),
+                array($sfsi_banner_global_load_faster, 'sfsi_banner_global_load_faster', $sfsi_banner_global_load_faster_criteria),
+                array($sfsi_banner_global_shares, 'sfsi_banner_global_shares', $sfsi_banner_global_shares_criteria),
+                array($sfsi_banner_global_http, 'sfsi_banner_global_http', $sfsi_banner_global_http_criteria),
+            );
+            $global_banners_not_met_criteria = array(
+                array($sfsi_banner_global_pinterest, 'sfsi_banner_global_pinterest', !(sfsi_count_media_item() > 2)),
+                array($sfsi_banner_global_shares, 'sfsi_banner_global_shares', $sfsi_banner_global_shares_criteria),
+                array($sfsi_banner_global_load_faster, 'sfsi_banner_global_load_faster', $sfsi_banner_global_load_faster_criteria),
+                array($sfsi_banner_global_gdpr, 'sfsi_banner_global_gdpr', $sfsi_banner_global_gdpr_criteria),
+            );
+            $global_banner_criteria = array(
+                $sfsi_banner_global_pinterest_criteria,
+                $sfsi_banner_global_social_criteria,
+                $sfsi_banner_global_load_faster_criteria,
+                $sfsi_banner_global_shares_criteria,
+                $sfsi_banner_global_gdpr_criteria,
+                $sfsi_banner_global_http_criteria
+            );
+            // var_dump($global_banner_criteria);
+
+            $global_banner_criteria_true_count = count(array_keys($global_banner_criteria, true));
+            $global_banner_appeared_true_count = 0;
+
+            $count = 0;
+            $sfsi_present_time = strtotime(date('Y-m-d h:i:s'));
+            $sfsi_install_time = (get_option('sfsi_installDate'));
+            $sfsi_loyalty = get_option("sfsi_loyaltyDate");
+            $sfsi_min_loyalty_time = date('Y-m-d H:i:s', strtotime($sfsi_install_time . $sfsi_loyalty));
+            $sfsi_round_one_added = false;
+            foreach ($global_banners as $key => $global_banner) {
+
+                if ($sfsi_present_time >= strtotime($global_banner[0]['timestamp']) || ($global_banner[0]['timestamp'] == "")) {
+                    // var_dump("round1",$global_banner[1]);
+
+                    if ($global_banner[0]['met_criteria'] == "yes") {
+                        $count = $count + 1;
+                    }
+                    if ($global_banner[0]['banner_appeared'] == "yes") {
+                        $global_banner_appeared_true_count = $global_banner_appeared_true_count + 1;
+                    }
+                    if ($global_banner[0]['met_criteria'] == "no" && $global_banner[0]['banner_appeared'] == "no" && $global_banner[0]['is_active'] == "no" && $global_banner[2] == true) {
+                        // var_dump('met criteria');
+                        $todaysdate = date("Y-m-d h:i:s");
+                        $showNextBanner = get_option('sfsi_showNextBannerDate');
+                        if ($todaysdate >= $sfsi_min_loyalty_time && $sfsi_banner_global_upgrade['met_criteria'] == "no") {
+                            $date = date('Y-m-d H:i:s', strtotime($todaysdate . $showNextBanner));
+                            $update_banner_status = array(
+                                'met_criteria'     => "yes",
+                                'is_active' => "yes",
+                                'timestamp' =>  $date
+                            );
+                            update_option('sfsi_banner_global_upgrade', serialize($update_banner_status));
+                            break;
+                        }
+                        $date = date('Y-m-d H:i:s', strtotime($todaysdate . $showNextBanner));
+                        $update_banner_status = array(
+                            'met_criteria'     => "yes",
+                            'banner_appeared' => "yes",
+                            'is_active' => "yes",
+                            'timestamp' =>  $date
+                        );
+                        update_option($global_banner[1], serialize($update_banner_status));
+                        $sfsi_round_one_added = true;
+
+                        break;
+                    }
+                }
+            }
+
+            $global_banners_filters = array_filter($global_banners_not_met_criteria, function ($global_banner) {
+                return ($global_banner[2] == false && $global_banner[0]['met_criteria'] == "no" && $global_banner[0]['banner_appeared'] == "no" && $global_banner[0]['is_active'] == "no");
+            });
+            $global_banners_criteria_filters = array_filter($global_banners, function ($global_banner) {
+                return ($global_banner[2] == true && $global_banner[0]['met_criteria'] == "no" && $global_banner[0]['banner_appeared'] == "no" && $global_banner[0]['is_active'] == "no");
+            });
+            // var_dump("round one added",$sfsi_round_one_added);
+            if (false === $sfsi_round_one_added) {
+                foreach ($global_banners_filters as $key => $global_banners_filter) {
+                    // if ($count >= $global_banner_criteria_true_count) {
+                    // var_dump('round2', $global_banners_filter);
+                    if ($global_banners_filter[0]['met_criteria'] == "no" && $global_banners_filter[0]['banner_appeared'] == "no" && $global_banners_filter[0]['is_active'] == "no" && $global_banners_filter[2] == false) {
+                        $todaysdate = date("Y-m-d h:i:s");
+                        $showNextBanner = get_option('sfsi_showNextBannerDate');
+                        if ($todaysdate >= $sfsi_min_loyalty_time && $sfsi_banner_global_upgrade['met_criteria'] == "no") {
+                            $date = date('Y-m-d H:i:s', strtotime($todaysdate . $showNextBanner));
+                            $update_banner_status = array(
+                                'met_criteria'     => "yes",
+                                'is_active' => "yes",
+                                'timestamp' =>  $date
+                            );
+                            update_option('sfsi_banner_global_upgrade', serialize($update_banner_status));
+                            break;
+                        }
+                        $date = date('Y-m-d H:i:s', strtotime($todaysdate . $showNextBanner));
+                        $update_banner_status = array(
+                            'met_criteria'     => "no",
+                            'banner_appeared' => "yes",
+                            'is_active' => "yes",
+                            'timestamp' =>  $date
+                        );
+                        update_option($global_banners_filter[1], serialize($update_banner_status));
+                        break;
+                    }
+                    // }
+                }
+            }
+            if (empty($global_banners_filters) && empty($global_banners_criteria_filters)) {
+                foreach ($global_banners as $key => $global_banner) {
+
+                    $todaysdate = date("Y-m-d h:i:s");
+                    $cycleDate = get_option('sfsi_cycleDate');
+
+                    $date_plus_180 =  date('Y-m-d H:i:s', strtotime($todaysdate . $cycleDate));
+                    $update_banner_status = array(
+                        'met_criteria'     => "no",
+                        'banner_appeared' => "no",
+                        'is_active' => "no",
+                        'timestamp' =>  $date_plus_180,
+                    );
+                    update_option($global_banner[1], serialize($update_banner_status));
+                }
+                foreach ($global_banners as $key => $global_banner) {
+                    if ($global_banner[2] == true) {
+                        $update_banner_status = array(
+                            'met_criteria'     => "yes",
+                            'banner_appeared' => "yes",
+                            'is_active' => "yes",
+                            'timestamp' =>  $date_plus_180,
+                        );
+                        update_option($global_banner[1], serialize($update_banner_status));
+                        break;
+                    }
+                }
+                if ($global_banner_criteria_true_count == 0) {
+                    foreach ($global_banners_not_met_criteria as $key => $global_banner) {
+                        $update_banner_status = array(
+                            'met_criteria'     => "no",
+                            'banner_appeared' => "yes",
+                            'is_active' => "yes",
+                            'timestamp' =>  $date_plus_180,
+                        );
+                        // var_dump($global_banners_not_met_criteria,'kfdjgkdsfgndfkngn isdfhgi hsdfg    idhfguidfi');
+                        if ($global_banner[2] == false) {
+                            update_option($global_banner[1], serialize($update_banner_status));
+                            break;
+                        }
+                    }
+                }
+            }
+            // return false;
+        }
+
+        function sfsi_count_media_item()
+        {
+            $query_img_args = array(
+                'post_type' => 'attachment',
+                'post_mime_type' => array(
+                    'jpg|jpeg|jpe' => 'image/jpeg',
+                    'gif' => 'image/gif',
+                    'png' => 'image/png',
+                ),
+                'post_status' => 'inherit',
+                'posts_per_page' => -1,
+            );
+            $query_img = new WP_Query($query_img_args);
+            return $query_img->post_count;
+        }
+        function sfsi_pinterest_icon_shown()
+        {
+            $sfsi_section1       =  unserialize(get_option('sfsi_section1_options', false));
+            $option9 =  unserialize(get_option('sfsi_section9_options', false));
+            $option6 =  unserialize(get_option('sfsi_section6_options', false));
+            // var_dump($option9["sfsi_icons_float"]);
+            // var_dump($option9["sfsi_show_via_widget"]);
+            // var_dump($option9["sfsi_show_via_shortcode"]);
+            // var_dump($sfsi_section1["sfsi_pinterest_display"]);
+            // var_dump($option6["sfsi_show_Onposts"]);
+            // var_dump($option6["sfsi_rectpinit"]);
+            // var_dump($option9["sfsi_show_via_afterposts"]);
+            //check if icons are displayed
+            if (
+                (
+                    (
+                        (isset($option9["sfsi_icons_float"]) && $option9["sfsi_icons_float"] == "yes") || (isset($option9["sfsi_show_via_widget"]) && $option9["sfsi_show_via_widget"] == "yes") || (isset($option9["sfsi_show_via_shortcode"]) && $option9["sfsi_show_via_shortcode"] == "yes")) &&
+                    $sfsi_section1["sfsi_pinterest_display"] == "yes") || (isset($option9["sfsi_show_via_afterposts"]) &&
+                    $option9["sfsi_show_via_afterposts"] == "yes" &&
+                    $option6["sfsi_rectpinit"] == "yes")
+            ) {
+                return true;
+            }
+            return false;
+        }
+        function sfsi_mobile_icons_shown()
+        {
+            /// check if mobile icons are shown and mobile icons are present on the homepage.
+            $sfsi_section9            =  unserialize(get_option('sfsi_section9_options', false));
+            if ($sfsi_section9['sfsi_disable_floaticons'] == "yes") {
+                return true;
+            }
+            return false;
+        }
+        function sfsi_has_cache_plugin_activated($optimization_plugins)
+        {
+            $sfsi_optimization_plugin_active = array();
+            foreach ($optimization_plugins as $key => $optimization_plugin) {
+                $sfsi_optimization_plugin_active[$key] = is_plugin_active($optimization_plugin['dir_slug']);
+            }
+            $check_optimization_plugin_active_is_true = in_array(true, $sfsi_optimization_plugin_active);
+            return $check_optimization_plugin_active_is_true;
+        }
+
+        function sfsi_has_sharecount_plugin_activated($sharecount_plugins)
+        {
+            $sfsi_sharecount_plugin_active = array();
+            foreach ($sharecount_plugins as $key => $sharecount_plugin) {
+                $sfsi_sharecount_plugin_active[$key] = is_plugin_active($sharecount_plugin['dir_slug']);
+            }
+            $check_sharecount_plugin_active_is_true = in_array(true, $sfsi_sharecount_plugin_active);
+            return $check_sharecount_plugin_active_is_true;
+        }
+
+        function sfsi_has_gdpr_plugin_activated($gdpr_plugins)
+        {
+            $sfsi_gdpr_plugin_active = array();
+            foreach ($gdpr_plugins as $key => $gdpr_plugin) {
+                $sfsi_gdpr_plugin_active[$key] = is_plugin_active($gdpr_plugin['dir_slug']);
+            }
+            $check_gdpr_plugin_active_is_true = in_array(true, $sfsi_gdpr_plugin_active);
+            return $check_gdpr_plugin_active_is_true;
+        }
+
+        function sfsi_has_gallery_plugin_activated($gallery_plugins)
+        {
+            $sfsi_gallery_plugin_active = array();
+            foreach ($gallery_plugins as $key => $gallery_plugin) {
+                $sfsi_gallery_plugin_active[$key] = is_plugin_active($gallery_plugin['dir_slug']);
+            }
+            $check_gallery_plugin_active_is_true = in_array(true, $sfsi_gallery_plugin_active);
+            return $check_gallery_plugin_active_is_true;
+        }
+
         ?>

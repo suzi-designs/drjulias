@@ -167,7 +167,7 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
 
                 <p><span>Strongly recommended:</span> Can have a strong promotional effect.
 
-                    <label class="expanded-area">If you have a Twitter-account then adding this icon is a no-brainer. However, similar as with facebook, even if you don’t have one you should still show this icon so that Twitter-users can share your site.</label>
+                    <label class="expanded-area">If you have a Twitter-account then adding this icon is a no-brainer. However, similar as with Facebook, even if you don’t have one you should still show this icon so that Twitter-users can share your site.</label>
 
                 </p>
 

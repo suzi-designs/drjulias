@@ -17,7 +17,7 @@ if(!is_null($analyst_cache) && isset($analyst_cache["plugin_to_install"])){
 
 	<span id="sfsi_analyst_pop" style="display:none" data-status="<?php echo $sfsi_willshow_analyst_popup?"yes":"no"; ?>" ></span>
 
-	<p class="clear">Please select one or multiple placement options: </p>
+	<p class="clear" style="padding-top: 5px;!important">Please select one or multiple placement options: </p>
 
 		<!--**********************  Define the location on the page **************************************-->
 
@@ -66,7 +66,7 @@ if(!is_null($analyst_cache) && isset($analyst_cache["plugin_to_install"])){
 
 				<p style="display:block">
 
-					<span class="sfsi_toglepstpgspn" style="display:inline-block;float:left;">Show a Pinterest icon over images on mouse-over </span>- <span><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=pinterest_icon_mouse_over&utm_medium=link" target="_blank" style="font-weight:800">Premium feature</a></span>
+					<span class="sfsi_toglepstpgspn" style="display:inline-block;float:left;">Show a Pinterest icon over images on mouse-over </span>&nbsp;- <span><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=pinterest_icon_mouse_over&utm_medium=link" target="_blank" style="font-weight:800">Premium feature</a></span>
 
 				</p>
 
@@ -130,7 +130,7 @@ if(!is_null($analyst_cache) && isset($analyst_cache["plugin_to_install"])){
 
 	<div class="save_button">
 
-		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" alt='loader' />
+		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" alt='error' />
 
 		<?php $nonce2 = wp_create_nonce("update_step6"); ?>
 

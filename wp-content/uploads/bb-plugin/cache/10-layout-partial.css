@@ -3,19 +3,33 @@
 
 
 
-.fl-node-5f1a53a564e07 > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/water-blue-orange2.jpg);
+.fl-node-5f5a908ab7569 > .fl-row-content-wrap {
+	background-color: rgba(174,206,213,0.4);
+}
+
+
+
+
+
+.fl-node-5f5a90b467950 > .fl-row-content-wrap {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/09/dr-julia-steavens-landscape-2-scaled.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: scroll;
 	background-size: cover;
-	min-height: 250px;
+	min-height: 500px;
 }
-.fl-node-5f1a53a564e07.fl-row-fixed-width, .fl-node-5f1a53a564e07 .fl-row-fixed-width {
+.fl-node-5f5a90b467950.fl-row-fixed-width, .fl-node-5f5a90b467950 .fl-row-fixed-width {
 	max-width: 1200px;
 }
- .fl-node-5f1a53a564e07 > .fl-row-content-wrap {
+ .fl-node-5f5a90b467950 > .fl-row-content-wrap {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+ .fl-node-5f5a90b467950 > .fl-row-content-wrap {
+	padding-top:0px;
 	padding-right:50px;
+	padding-bottom:0px;
 	padding-left:50px;
 }
 
@@ -36,7 +50,14 @@
 
 
 
-.fl-node-5f1a53a5667e6 {
+.fl-node-5f5a908ac4656 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5f5a90b467ae5 {
 	width: 100%;
 }
 
@@ -102,11 +123,23 @@
 .fl-node-5f3c27e286336 {
 	width: 50%;
 }
- .fl-node-5f1a573bc5dbb > .fl-module-content {
-	margin-top:30px;
-	margin-bottom:30px;
+ .fl-node-5f5a9095e598d > .fl-module-content {
+	margin-top:50px;
 }
-@media (max-width: 768px) { .fl-node-5f1a573bc5dbb > .fl-module-content { margin-top:20px;margin-bottom:20px; } } .fl-node-5f1a584a931f7 > .fl-module-content {
+@media (max-width: 768px) { .fl-node-5f5a9095e598d > .fl-module-content { margin-top:20px; } } .fl-node-5f5a90b467ae6 > .fl-module-content {
+	margin-top:50px;
+}
+@media (max-width: 768px) { .fl-node-5f5a90b467ae6 > .fl-module-content { margin-top:20px; } } .fl-node-5f5a90b467ae7 > .fl-module-content {
+	margin-top:0px;
+	margin-bottom:30px;
+	margin-left:500px;
+}
+@media ( max-width: 992px ) {
+ .fl-node-5f5a90b467ae7.fl-module > .fl-module-content {
+	margin-left:200px;
+}
+}
+@media (max-width: 768px) { .fl-node-5f5a90b467ae7 > .fl-module-content { margin-bottom:20px;margin-left:20px; } } .fl-node-5f1a584a931f7 > .fl-module-content {
 	margin-top:25px;
 	margin-bottom:30px;
 }
@@ -137,9 +170,21 @@
     padding-top: 10px;
     margin-left: 0;
     color: #316675;
-    font-size: .85em;
+    font-size: 20px;
     font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+    margin: 10px 0;
     
 }
+.center-list i {
+    color: #aeced5; 
+    font-size: 18px;
+}
+
+.center-list li {
+    padding: 5px 0 ;
+}
+
+
 /* End Layout CSS */
 

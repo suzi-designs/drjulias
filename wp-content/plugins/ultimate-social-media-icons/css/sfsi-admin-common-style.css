@@ -52,7 +52,7 @@ img#sfsi-social-media-image-preview {}
 input#sfsi-social-media-image-button,input#sfsi-social-pinterest-image-button {width: 100%;margin-top: 10px;min-height: 45px;background: #45a745;color: white;font-size: 16px;}
 .imgTxt{ margin-top: 10px;width: 100%;}
 .imgTopTxt{  font-size: 14px;padding-bottom: 10px;}
-.imgTopTxt strong {font-size: 17px;font-family: inherit;}
+.imgTopTxt strong {font-size: 17px;font-family: inherit;font-weight: bold;}
 .sfsi_custom_social_titlePlusDescription { margin-left: 30px; width: 70%;float: left; margin-top:7px;}
 .sfsi_titlePlusDescription{ margin-left: 30px; width: 100%;float: left;}
 .sfsi_custom_social_data_title{float: left;width: 100%;}
@@ -95,4 +95,62 @@ a.sfsi_disable_usm_ogtags_setting_change {color: #444;cursor: pointer;font-weigh
     font-size: 22px;
     margin-left: -25px;
     margin-top: -28px;
+}
+
+.sfsi_new_prmium_follw.sfsi_banner_body {
+    width: 91%;
+    display: flex;
+    padding: 11px 20px;
+    margin:15px 40px;
+    border-radius: 10px;
+}
+
+.sfsi_new_prmium_follw p a {
+    color: #12a252 !important;
+    text-decoration: none;
+}
+
+.sfsi_new_prmium_follw p {
+    margin: 0 !important;
+}
+.sfsi_new_prmium_follw p {
+    color: #1a1d20 !important;
+    font-size: 18px !important;
+    font-family: helveticaregular !important;
+}
+
+.sfsi_new_prmium_follw .sfsi_banner_dismiss{
+    height: fit-content;
+    font-size: 16px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.sfsi_new_prmium_follw {
+    margin-top: 20px;
+    background: #f3faf6;
+    border: 1px solid #12a252;
+    padding: 15px 75px 20px 24px;
+    /* float: left; */
+    clear: both;
+}
+
+.sfsi_new_prmium_follw.sfsi_banner_body.sfsi_warning_banner{
+    background: #ffe1e4;
+    border: 1px solid #cd2d2d;
+}
+
+.sfsi_new_prmium_follw.sfsi_banner_body .sfsi_premiumNoticeDismiss input{
+    color: inherit;
+    border: 0px #000 solid;
+    background-color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+}
+.sfsi_new_prmium_follw.sfsi_banner_body .sfsi_premiumNoticeDismiss input:focus {
+    outline:none;
+}
+   
+.sfsi_new_prmium_follw.sfsi_banner_body div:first-child{
+    width: 96%;
 }

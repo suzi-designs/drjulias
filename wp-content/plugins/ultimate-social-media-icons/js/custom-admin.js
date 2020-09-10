@@ -574,71 +574,71 @@ function sfsi_update_step4() {
 
         wcc = 1 == SFSI("input[name='sfsi_wechat_countsDisplay']").prop("disabled") ? "" : SFSI("input[name='sfsi_wechat_countsDisplay']:checked").val(),
         wcm = SFSI("input[name='sfsi_wechat_manualCounts']").val(),
-        
+
         resp = 1 == SFSI("input[name='sfsi_responsive_share_count']").prop("disabled") ? "" : SFSI("input[name='sfsi_responsive_share_count']:checked").val(),
         original = 1 == SFSI("input[name='sfsi_original_counts']").prop("disabled") ? "" : SFSI("input[name='sfsi_original_counts']:checked").val(),
         round = 1 == SFSI("input[name='sfsi_round_counts']").prop("disabled") ? "" : SFSI("input[name='sfsi_round_counts']:checked").val()
 
-console.log(resp,original,round);
+    console.log(resp, original, round);
 
-        $ = {
-            action: "updateSrcn4",
-            sfsi_display_counts: e,
-            sfsi_email_countsDisplay: t,
-            sfsi_email_countsFrom: n,
-            sfsi_email_manualCounts: o,
-            sfsi_rss_countsDisplay: r,
-            sfsi_rss_manualCounts: c,
-            sfsi_facebook_countsDisplay: p,
-            sfsi_facebook_countsFrom: _,
-            sfsi_facebook_mypageCounts: mp,
-            sfsi_facebook_manualCounts: l,
-            sfsi_twitter_countsDisplay: S,
-            sfsi_twitter_countsFrom: u,
-            sfsi_twitter_manualCounts: f,
-            tw_consumer_key: d,
-            tw_consumer_secret: I,
-            tw_oauth_access_token: m,
-            tw_oauth_access_token_secret: F,
-            sfsi_linkedIn_countsDisplay: D,
-            sfsi_linkedIn_countsFrom: k,
-            sfsi_linkedIn_manualCounts: y,
-            ln_company: b,
-            ln_api_key: w,
-            ln_secret_key: x,
-            ln_oAuth_user_token: C,
-            sfsi_youtube_countsDisplay: U,
-            sfsi_youtube_countsFrom: O,
-            sfsi_youtube_manualCounts: T,
-            sfsi_youtube_user: j,
-            sfsi_youtube_channelId: SFSI("input[name='sfsi_youtube_channelId']").val(),
-            sfsi_pinterest_countsDisplay: P,
-            sfsi_pinterest_countsFrom: M,
-            sfsi_pinterest_manualCounts: L,
-            sfsi_pinterest_user: B,
-            sfsi_pinterest_board: E,
-            sfsi_instagram_countsDisplay: z,
-            sfsi_instagram_countsFrom: A,
-            sfsi_instagram_manualCounts: N,
-            sfsi_instagram_User: H,
-            sfsi_instagram_clientid: ha,
-            sfsi_instagram_appurl: ia,
-            sfsi_instagram_token: ja,
-            sfsi_telegram_countsDisplay: tc,
-            sfsi_telegram_manualCounts: tm,
-            sfsi_vk_countsDisplay: vc,
-            sfsi_vk_manualCounts: vm,
-            sfsi_ok_countsDisplay: oc,
-            sfsi_ok_manualCounts: om,
-            sfsi_weibo_countsDisplay: wc,
-            sfsi_weibo_manualCounts: wm,
-            sfsi_wechat_countsDisplay: wcc,
-            sfsi_wechat_manualCounts: wcm,
-            sfsi_responsive_share_count: resp,
-            sfsi_original_counts: original,
-            sfsi_round_counts: round,
-            nonce: nonce
-        };
+    $ = {
+        action: "updateSrcn4",
+        sfsi_display_counts: e,
+        sfsi_email_countsDisplay: t,
+        sfsi_email_countsFrom: n,
+        sfsi_email_manualCounts: o,
+        sfsi_rss_countsDisplay: r,
+        sfsi_rss_manualCounts: c,
+        sfsi_facebook_countsDisplay: p,
+        sfsi_facebook_countsFrom: _,
+        sfsi_facebook_mypageCounts: mp,
+        sfsi_facebook_manualCounts: l,
+        sfsi_twitter_countsDisplay: S,
+        sfsi_twitter_countsFrom: u,
+        sfsi_twitter_manualCounts: f,
+        tw_consumer_key: d,
+        tw_consumer_secret: I,
+        tw_oauth_access_token: m,
+        tw_oauth_access_token_secret: F,
+        sfsi_linkedIn_countsDisplay: D,
+        sfsi_linkedIn_countsFrom: k,
+        sfsi_linkedIn_manualCounts: y,
+        ln_company: b,
+        ln_api_key: w,
+        ln_secret_key: x,
+        ln_oAuth_user_token: C,
+        sfsi_youtube_countsDisplay: U,
+        sfsi_youtube_countsFrom: O,
+        sfsi_youtube_manualCounts: T,
+        sfsi_youtube_user: j,
+        sfsi_youtube_channelId: SFSI("input[name='sfsi_youtube_channelId']").val(),
+        sfsi_pinterest_countsDisplay: P,
+        sfsi_pinterest_countsFrom: M,
+        sfsi_pinterest_manualCounts: L,
+        sfsi_pinterest_user: B,
+        sfsi_pinterest_board: E,
+        sfsi_instagram_countsDisplay: z,
+        sfsi_instagram_countsFrom: A,
+        sfsi_instagram_manualCounts: N,
+        sfsi_instagram_User: H,
+        sfsi_instagram_clientid: ha,
+        sfsi_instagram_appurl: ia,
+        sfsi_instagram_token: ja,
+        sfsi_telegram_countsDisplay: tc,
+        sfsi_telegram_manualCounts: tm,
+        sfsi_vk_countsDisplay: vc,
+        sfsi_vk_manualCounts: vm,
+        sfsi_ok_countsDisplay: oc,
+        sfsi_ok_manualCounts: om,
+        sfsi_weibo_countsDisplay: wc,
+        sfsi_weibo_manualCounts: wm,
+        sfsi_wechat_countsDisplay: wcc,
+        sfsi_wechat_manualCounts: wcm,
+        sfsi_responsive_share_count: resp,
+        sfsi_original_counts: original,
+        sfsi_round_counts: round,
+        nonce: nonce
+    };
     console.log($);
     return SFSI.ajax({
         url: sfsi_icon_ajax_object.ajax_url,
@@ -2166,6 +2166,42 @@ SFSI(document).ready(function (s) {
         SFSI("#sfsi_installDate").on("click", function () {
             sfsi_installDate_save();
         }),
+        SFSI("#sfsi_currentDate").on("click", function () {
+            sfsi_currentDate_save();
+        }),
+        SFSI("#sfsi_showNextBannerDate").on("click", function () {
+            sfsi_showNextBannerDate_save();
+        }),
+        SFSI("#sfsi_cycleDate").on("click", function () {
+            sfsi_cycleDate_save();
+        }),
+        SFSI("#sfsi_loyaltyDate").on("click", function () {
+            sfsi_loyaltyDate_save();
+        }),
+        SFSI("#sfsi_banner_global_firsttime_offer").on("click", function () {
+            sfsi_banner_global_firsttime_offer_save();
+        }),
+        SFSI("#sfsi_banner_global_pinterest").on("click", function () {
+            sfsi_banner_global_pinterest_save();
+        }),
+        SFSI("#sfsi_banner_global_social").on("click", function () {
+            sfsi_banner_global_social_save();
+        }),
+        SFSI("#sfsi_banner_global_load_faster").on("click", function () {
+            sfsi_banner_global_load_faster_save();
+        }),
+        SFSI("#sfsi_banner_global_shares").on("click", function () {
+            sfsi_banner_global_shares_save();
+        }),
+        SFSI("#sfsi_banner_global_gdpr").on("click", function () {
+            sfsi_banner_global_gdpr_save();
+        }),
+        SFSI("#sfsi_banner_global_http").on("click", function () {
+            sfsi_banner_global_http_save();
+        }),
+        SFSI("#sfsi_banner_global_upgrade").on("click", function () {
+            sfsi_banner_global_upgrade_save();
+        }),
         SFSI("#save_all_settings").on("click", function () {
             return SFSI("#save_all_settings").text("Saving.."), SFSI(".save_button >a").css("pointer-events", "none"),
                 sfsi_update_step1(), sfsi_update_step8(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Which icons do you want to show on your site?" tab.', 8),
@@ -2626,6 +2662,8 @@ SFSI(document).ready(function (s) {
         }
 
         if (!error) {
+
+            SFSI(this).css("pointer-events", "none");
             // console.log("feedid",feedid);
             if (feedid == "" || undefined == feedid) {
                 var nonce = SFSI(this).attr('data-nonce-fetch-feed-id');
@@ -2646,18 +2684,30 @@ SFSI(document).ready(function (s) {
                             if ("success" == s.res) {
                                 var feedid = s.feed_id;
                                 if (feedid == "" || null == feedid) {
-                                    alert("Error: Claiming didn't work. Please try again later.")
+                                    alert("Error: Claiming didn't work. Please try again later.");
+                                    SFSI(".sfsi_getMeFullAccess_class").css("pointer-events", "initial");
+
+
                                 } else {
                                     jQuery('#calimingOptimizationForm input[name="feed_id"]').val(feedid);
                                     // console.log("feedid",feedid,SFSI("#calimingOptimizationForm input[name='feed_id']"),SFSI('#calimingOptimizationForm input[name="feedid"]').val());
                                     SFSI('#calimingOptimizationForm').submit();
+                                    SFSI(".sfsi_getMeFullAccess_class").css("pointer-events", "initial");
+
+
                                 }
                             } else {
                                 if ("failed" == s.res) {
                                     alert("Error: " + s.message + ".");
+                                    SFSI(".sfsi_getMeFullAccess_class").css("pointer-events", "initial");
+
+
 
                                 } else {
                                     alert("Error: Please try again.");
+                                    SFSI(".sfsi_getMeFullAccess_class").css("pointer-events", "initial");
+
+
                                 }
                             }
                         }
@@ -2727,7 +2777,7 @@ function showhideutube(ref) {
         SFSI(ref).parent(".enough_waffling").next(".cstmutbtxtwpr").children(".cstmutbchnlnmewpr").slideUp();
     }
 }
-
+ 
 function checkforinfoslction(ref) {
     var pos = jQuery(ref).children(".checkbox").css("background-position");
 
@@ -2746,6 +2796,7 @@ function checkforinfoslction(ref) {
 
 function checkforinfoslction_checkbox(ref) {
 
+console.log(ref)
     var pos = jQuery(ref).children(".checkbox").css("background-position");
 
     var elem = jQuery(ref).parent().children('.sfsi_right_info').find('.kckslctn');
@@ -3437,18 +3488,339 @@ function sfsi_installDate_save() {
         nonce: nonce
     };
     console.log(data);
-    SFSI.ajax({
-        url: sfsi_icon_ajax_object.ajax_url,
-        type: "post",
-        data: data,
-        success: function (s) {
-            console.log(s);
-            if (s == "wrong_nonce") {
-                showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
-                global_error = 1;
-            } else {
-                console.log(s);
-            }
-        }
-    });
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
 }
+
+function sfsi_currentDate_save(){
+    var nonce = SFSI("#sfsi_currentDate").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_currentDate = SFSI("input[name='sfsi_currentDate']").val();
+	var data = {
+        action: "sfsi_currentDate",
+        sfsi_currentDate:sfsi_currentDate,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+function sfsi_showNextBannerDate_save(){
+    var nonce = SFSI("#sfsi_showNextBannerDate").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_showNextBannerDate = SFSI("input[name='sfsi_showNextBannerDate']").val();
+	var data = {
+        action: "sfsi_showNextBannerDate",
+        sfsi_showNextBannerDate:sfsi_showNextBannerDate,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+function sfsi_cycleDate_save(){
+    var nonce = SFSI("#sfsi_cycleDate").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_cycleDate = SFSI("input[name='sfsi_cycleDate']").val();
+	var data = {
+        action: "sfsi_cycleDate",
+        sfsi_cycleDate:sfsi_cycleDate,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+function sfsi_loyaltyDate_save(){
+    var nonce = SFSI("#sfsi_loyaltyDate").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_loyaltyDate = SFSI("input[name='sfsi_loyaltyDate']").val();
+	var data = {
+        action: "sfsi_loyaltyDate",
+        sfsi_loyaltyDate:sfsi_loyaltyDate,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_firsttime_offer_save(){
+    var nonce = SFSI("#sfsi_banner_global_firsttime_offer").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_firsttime_offer = SFSI("input[name='sfsi_banner_global_firsttime_offer']").val();
+	var data = {
+        action: "sfsi_banner_global_firsttime_offer",
+        sfsi_banner_global_firsttime_offer:sfsi_banner_global_firsttime_offer,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_pinterest_save(){
+    var nonce = SFSI("#sfsi_banner_global_pinterest").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_pinterest = SFSI("input[name='sfsi_banner_global_pinterest']").val();
+	var data = {
+        action: "sfsi_banner_global_pinterest",
+        sfsi_banner_global_pinterest:sfsi_banner_global_pinterest,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_social_save(){
+    var nonce = SFSI("#sfsi_banner_global_social").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_social = SFSI("input[name='sfsi_banner_global_social']").val();
+	var data = {
+        action: "sfsi_banner_global_social",
+        sfsi_banner_global_social:sfsi_banner_global_social,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_load_faster_save(){
+    var nonce = SFSI("#sfsi_banner_global_load_faster").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_load_faster = SFSI("input[name='sfsi_banner_global_load_faster']").val();
+	var data = {
+        action: "sfsi_banner_global_load_faster",
+        sfsi_banner_global_load_faster:sfsi_banner_global_load_faster,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_shares_save(){
+    var nonce = SFSI("#sfsi_banner_global_shares").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_shares = SFSI("input[name='sfsi_banner_global_shares']").val();
+	var data = {
+        action: "sfsi_banner_global_shares",
+        sfsi_banner_global_shares:sfsi_banner_global_shares,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_gdpr_save(){
+    var nonce = SFSI("#sfsi_banner_global_gdpr").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_gdpr = SFSI("input[name='sfsi_banner_global_gdpr']").val();
+	var data = {
+        action: "sfsi_banner_global_gdpr",
+        sfsi_banner_global_gdpr:sfsi_banner_global_gdpr,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_http_save(){
+    var nonce = SFSI("#sfsi_banner_global_http").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_http = SFSI("input[name='sfsi_banner_global_http']").val();
+	var data = {
+        action: "sfsi_banner_global_http",
+        sfsi_banner_global_http:sfsi_banner_global_http,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+
+
+function sfsi_banner_global_upgrade_save(){
+    var nonce = SFSI("#sfsi_banner_global_upgrade").attr("data-nonce");
+    console.log(nonce);
+    var sfsi_banner_global_upgrade = SFSI("input[name='sfsi_banner_global_upgrade']").val();
+	var data = {
+        action: "sfsi_banner_global_upgrade",
+        sfsi_banner_global_upgrade:sfsi_banner_global_upgrade,
+		nonce: nonce
+    };
+    console.log(data);
+	SFSI.ajax({
+		url: sfsi_icon_ajax_object.ajax_url,
+		type: "post",
+		data: data,
+		success: function (s) {
+			console.log(s);
+			if (s == "wrong_nonce") {
+				showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 6);
+				global_error = 1;
+			} else {
+				console.log(s);
+			}
+		}
+	});
+}
+

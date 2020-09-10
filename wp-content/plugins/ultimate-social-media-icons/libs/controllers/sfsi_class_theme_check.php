@@ -511,7 +511,16 @@ class sfsi_ThemeCheck
 		    return ($flag)? $strCheckForThemeType:$flag;    
 	}
 
- 	public function sfsi_plus_bannereHtml($title, $siteLink, $bannerImage, $buttonTitle)
+ 	public function sfsi_plus_bannereHtml_main($title, $siteLink, $bannerImage, $buttonTitle)
+	{
+		echo '<script type="text/javascript">
+		SFSI(".sfsi_webtheme").show();
+		SFSI(".icns_tab_3.sfsi_premium_ad span ").css("background-image", \'url('.$bannerImage.')\');
+		SFSI(".sfsi_premium_ad_lable").text(\''.$siteLink.'\');
+		</script>';
+	}		
+
+	public function sfsi_plus_bannereHtml($title, $siteLink, $bannerImage, $buttonTitle)
 	{
 		echo '<div class="sfsi_new_notification_cat">
 	        <div class="sfsi_new_notification_header_cat">
@@ -535,6 +544,8 @@ class sfsi_ThemeCheck
 	            </div>    
 	        </div>
 	    </div>';
-	}		
+	}	
+
+	
 }
 ?>

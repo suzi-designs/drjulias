@@ -3,7 +3,7 @@
 		<div class="analyst-disable-modal-mask" id="analyst-disable-deactivate-modal-mask" style="display: none"></div>
 		<div style="display: flex">
 			<div class="analyst-install-image-block" style="width: 80px">
-				<img src="<?=$pencilImage?>"/>
+				<img src="<?=$pencilImage?>" alt="shield image"/>
 			</div>
 			<div class="analyst-install-description-block" style="padding-left: 20px">
 				<strong class="analyst-modal-header">Why do you deactivate?</strong>

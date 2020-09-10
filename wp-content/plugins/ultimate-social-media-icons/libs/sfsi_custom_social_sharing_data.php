@@ -126,12 +126,12 @@ function sfsi_social_media_metabox( $post ) { ?>
 
         <div class="sfsi_custom_social_data_container">
 
-            <div class="imgTopTxt"><?php _e('<strong>Picture </strong>(for social media sharing)',SFSI_DOMAIN); ?>
+            <div class="imgTopTxt"><?php _e('<strong>Picture </strong>(For social media sharing)',SFSI_DOMAIN); ?>
             </div>
 
             <div class="imgContainer imgpicker">
 
-                <img src="<?php echo esc_url(SFSI_PLUGURL."images/no-image.jpg"); ?>" />
+                <img src="<?php echo esc_url(SFSI_PLUGURL."images/no-image.jpg"); ?>" alt="no image" />
             </div>
             <div class="imgUploadBtn"><input readonly disable type="button" class="button sfsi-post-meta-btn"
                     value="Add Picture" /></div>
@@ -151,7 +151,7 @@ function sfsi_social_media_metabox( $post ) { ?>
                     <div class="imgTopTxt">
                         <?php _e('<strong>Title </strong>(leave blank to use the post title)',SFSI_DOMAIN); ?></div>
 
-                    <div class="social_title"><textarea readonly name="social_fbGLTw_title_textarea" class="sfsi_textarea"
+                    <div class="social_title"><textarea readonly class="sfsi_textarea"
                             maxlength="95"></textarea>
                     </div>
 
@@ -164,7 +164,6 @@ function sfsi_social_media_metabox( $post ) { ?>
                     <div class="remaining_char_box" class="sfsi-remaining_char_title">
                         <?php _e('<span id="sfsi_title_remaining_char">95</span> Characters Remaining',SFSI_DOMAIN);?>
                     </div>
-
                 </div>
 
                 <!--********************************** TITLE for Social Networks (Facebook, LinkedIn & Twitter) CLOSES ***********************************************-->
@@ -177,21 +176,19 @@ function sfsi_social_media_metabox( $post ) { ?>
                         <?php _e('<strong>Description </strong>(leave blank to use the post exerpt)',SFSI_DOMAIN); ?>
                     </div>
 
-                    <div class="social_description_container"><textarea name="social_fbGLTw_description_textarea" readonly 
+                    <div class="social_description_container"><textarea  readonly 
                             class="sfsi_textarea"
                             maxlength="297"></textarea>
                     </div>
-
-                    <div class="social_description_hint">
-                        <div style="padding-right: 15px;">
+                    <div style="display: flex;justify-content: space-between;">
+                        <div class="social_description_hint">
                             <?php _e('This description will be used when shared on Facebook, Linkedin, Twitter and WhatsApp (if you use ‘Twitter cards’). Leave it blank to use the post excerpt. [Developers: this is used by the open graph meta tag «og:description»]',SFSI_DOMAIN); ?>
                         </div>
-                    </div>
 
-                    <div class="remaining_char_box">
-                        <?php _e('<span id="sfsi_desc_remaining_char">297</span> Characters Remaining',SFSI_DOMAIN);?>
+                        <div class="remaining_char_box">
+                            <?php _e('<span id="sfsi_desc_remaining_char">297</span> Characters Remaining',SFSI_DOMAIN);?>
+                        </div>
                     </div>
-
                     <?php //sfsi_social_image_issues_support_link(); ?>
 
                 </div>
@@ -207,11 +204,11 @@ function sfsi_social_media_metabox( $post ) { ?>
 
         <div class="sfsi_custom_social_data_container">
 
-            <div class="imgTopTxt"><?php _e('<strong>Pinterest image </strong>',SFSI_DOMAIN); ?></div>
+            <div class="imgTopTxt"><?php _e('<strong>Picture </strong>(For social media sharing)',SFSI_DOMAIN); ?></div>
 
             <div class="imgContainer imgpicker">
 
-                <img src="<?php echo esc_url(SFSI_PLUGURL."images/no-image.jpg"); ?>" />
+                <img src="<?php echo esc_url(SFSI_PLUGURL."images/no-image.jpg"); ?>" alt="no image" />
 
                 <?php
                     
@@ -236,7 +233,7 @@ function sfsi_social_media_metabox( $post ) { ?>
                         <?php _e('<strong>Pinterest description </strong>(leave blank to use the post title)',SFSI_DOMAIN); ?>
                     </div>
 
-                    <div class="social_title"><textarea readonly name="social_pinterest_description_textarea" class="sfsi_textarea"
+                    <div class="social_title"><textarea readonly class="sfsi_textarea"
                             ></textarea></div>
 
                     <div class="social_description">
@@ -253,19 +250,20 @@ function sfsi_social_media_metabox( $post ) { ?>
 
                     <div class="imgTopTxt"><?php _e('<strong>Tweet </strong>',SFSI_DOMAIN); ?></div>
 
-                    <div class="social_description_container"><textarea name="social_twitter_description_textarea" readonly
-                            class="sfsi_textarea"
+                    <div class="social_description_container"><textarea  readonly
+                            class="sfsi_textarea"name
                             maxlength="106"></textarea>
                     </div>
 
-                    <div class="social_description_hint">
-                        <?php _e('This will be used as tweet-text (the link which get shared will be automatically the added at the end). If you don’t enter anything here the tweet text will be used which you defined globally under question 6 on the plugin’s settings page. ',SFSI_DOMAIN); ?>
-                    </div>
+                    <div style="display: flex;justify-content: space-between;">
+                        <div class="social_description_hint">
+                            <?php _e('This will be used as tweet-text (the link which get shared will be automatically the added at the end). If you don’t enter anything here the tweet text will be used which you defined globally under question 6 on the plugin’s settings page. ',SFSI_DOMAIN); ?>
+                        </div>
 
-                    <div class="remaining_char_box" id="remaining_twiter_char_description">
-                        <?php _e('<span id="sfsi_twitter_desc_remaining_char">106</span> Characters Remaining',SFSI_DOMAIN);?>
+                        <div class="remaining_char_box" id="remaining_twiter_char_description">
+                            <?php _e('<span id="sfsi_twitter_desc_remaining_char">106</span> Characters Remaining',SFSI_DOMAIN);?>
+                        </div>
                     </div>
-
                     <?php //sfsi_social_image_issues_support_link(); ?>
 
                 </div>

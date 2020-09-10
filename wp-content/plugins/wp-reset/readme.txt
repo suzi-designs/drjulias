@@ -1,10 +1,10 @@
 === WP Reset - Most Advanced WordPress Reset Tool ===
-Tags: wordpress reset, reset database, reset wordpress database, reset, advanced wordpress reset, restart wordpress, clean wordpress, default wp, default wordpress, reset wp, wp reset, developer, wp-cli, webhooks, backup, database backup
+Tags: wordpress reset, reset database, reset wordpress database, reset, advanced wordpress reset, restart wordpress, clean wordpress, default wp, default wordpress, reset wp, wp reset, developer, wp-cli, backup, database backup
 Contributors: WebFactory, wpreset, googlemapswidget, underconstructionpage
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 5.3
-Stable tag: 1.77
+Tested up to: 5.5
+Stable tag: 1.80
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,9 +19,6 @@ https://youtu.be/qMnkCW2PFoI?rel=0
 For support please use the <a href="https://wordpress.org/support/plugin/wp-reset">official forum</a>, and if you need more information visit <a href="https://wpreset.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=wp-reset&utm_term=wpreset.com">wpreset.com</a> and be sure to check out the <a href="https://wpreset.com/roadmap/?utm_source=wordpressorg&utm_medium=content&utm_campaign=wp-reset&utm_term=roadmap">roadmap</a> for the list of upcoming features.
 
 Access WP Reset admin page via the "Tools" menu.
-
-WP Reset is fully integrated with <a href="https://wordpress.org/plugins/wp-webhooks/">WP Webhooks</a> plugin - a secure, universal system that connects WP to any 3rd party systems and enables you to initiate actions both from WordPress (for instance start a MailChimp campaign once a new user registers), and from any other application (create a new user in WP when a purchase is made on a 3rd party system). View more <a href="https://underconstructionpage.com/wp-webhooks-connect-integrate-wordpress/" target="_blank">practical use-cases</a> that save hours of repetitive work.
-
 
 **Please read carefully before proceeding to understand what WP Reset does, and remember to always create a snapshot**
 
@@ -117,6 +114,16 @@ Or if needed, upload manually;
 5. Use our 1-click backup feature before running any reset tools
 
 == Changelog ==
+
+= v1.80 =
+* 2020/04/17
+* new tool: Purge Cache
+* new tool: Delete Local Data
+* fixed "Delete all plugins" tool
+* other minor bug fixes
+* started selling WP Reset PRO
+* 200,000 installs hit on 2020-03-07 with 1,560,000 downloads
+
 
 = v1.77 =
 * 2019/12/25

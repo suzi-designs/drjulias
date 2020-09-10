@@ -70,6 +70,15 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                 </div>
             </li>
 
+
+            <li class="sfsi_webtheme" style='display:none'>
+                <span class="radio" style="opacity: 0.5;"></span>    
+                <label class="sfsi_premium_ad_lable" style="text-transform: capitalize;">Default</label>
+                <div class="icns_tab_3 sfsi_premium_ad"><span class="premium_col_1 rss_section"></span><span class="premium_col_2 email_section"></span><span class="premium_col_3 facebook_section"></span><span class="premium_col_4 twitter_section"></span><div class="sfis_premium_ad_name">(Premium)</div>
+                    <!--<span class="row_1_11 sf_section"></span>-->
+                </div>
+            </li>
+
             <li><input name="sfsi_actvite_theme" <?php echo ($option3['sfsi_actvite_theme'] == 'flat') ?  'checked="true"' : ''; ?> type="radio" value="flat" class="styled" /><label>Flat</label>
                 <div class="icns_tab_3"><span class="row_2_1 rss_section"></span><span class="row_2_2 email_section"></span><span class="row_2_3 facebook_section"></span><span class="row_2_5 twitter_section"></span><span class="row_2_7 youtube_section"></span><span class="row_2_8 pinterest_section"></span><span class="row_2_9 linkedin_section"></span><span class="row_2_10 instagram_section"></span><span class="row_2_14 telegram_section"></span><span class="row_2_15 vk_section"></span><span class="row_2_16 ok_section"></span><span class="row_2_17 weibo_section"></span><span class="row_2_18 wechat_section"></span>
                     <!--<span class="row_2_11 sf_section"></span>-->
@@ -179,142 +188,142 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
 
                         <?php
 
-                        if (get_option("rss_skin")) {
+                            if (get_option("rss_skin")) {
 
-                            $icon = get_option("rss_skin");
+                                $icon = get_option("rss_skin");
 
-                            echo '<span class="row_17_1 rss_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_1 rss_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_1 rss_section" style="background-position:-1px 0;"></span>';
-                        }
+                                echo '<span class="row_17_1 rss_section" style="background-position:-1px 0;"></span>';
+                            }
 
-                        if (get_option("email_skin")) {
+                            if (get_option("email_skin")) {
 
-                            $icon = get_option("email_skin");
+                                $icon = get_option("email_skin");
 
-                            echo '<span class="row_17_2 email_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_2 email_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_2 email_section" style="background-position:-58px 0;"></span>';
-                        }
+                                echo '<span class="row_17_2 email_section" style="background-position:-58px 0;"></span>';
+                            }
 
-                        if (get_option("facebook_skin")) {
+                            if (get_option("facebook_skin")) {
 
-                            $icon = get_option("facebook_skin");
+                                $icon = get_option("facebook_skin");
 
-                            echo '<span class="row_17_3 facebook_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_3 facebook_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_3 facebook_section" style="background-position:-118px 0;"></span>';
-                        }
-                        if (get_option("twitter_skin")) {
+                                echo '<span class="row_17_3 facebook_section" style="background-position:-118px 0;"></span>';
+                            }
+                            if (get_option("twitter_skin")) {
 
-                            $icon = get_option("twitter_skin");
+                                $icon = get_option("twitter_skin");
 
-                            echo '<span class="row_17_5 twitter_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_5 twitter_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_5 twitter_section" style="background-position:-235px 0;"></span>';
-                        }
+                                echo '<span class="row_17_5 twitter_section" style="background-position:-235px 0;"></span>';
+                            }
 
-                        if (get_option("youtube_skin")) {
+                            if (get_option("youtube_skin")) {
 
-                            $icon = get_option("youtube_skin");
+                                $icon = get_option("youtube_skin");
 
-                            echo '<span class="row_17_7 youtube_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_7 youtube_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_7 youtube_section" style="background-position:-350px 0;"></span>';
-                        }
+                                echo '<span class="row_17_7 youtube_section" style="background-position:-350px 0;"></span>';
+                            }
 
-                        if (get_option("pintrest_skin")) {
+                            if (get_option("pintrest_skin")) {
 
-                            $icon = get_option("pintrest_skin");
+                                $icon = get_option("pintrest_skin");
 
-                            echo '<span class="row_17_8 pinterest_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_8 pinterest_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_8 pinterest_section" style="background-position:-409px 0;"></span>';
-                        }
+                                echo '<span class="row_17_8 pinterest_section" style="background-position:-409px 0;"></span>';
+                            }
 
-                        if (get_option("linkedin_skin")) {
+                            if (get_option("linkedin_skin")) {
 
-                            $icon = get_option("linkedin_skin");
+                                $icon = get_option("linkedin_skin");
 
-                            echo '<span class="row_17_9 linkedin_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_9 linkedin_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_9 linkedin_section" style="background-position:-467px 0;"></span>';
-                        }
+                                echo '<span class="row_17_9 linkedin_section" style="background-position:-467px 0;"></span>';
+                            }
 
-                        if (get_option("instagram_skin")) {
+                            if (get_option("instagram_skin")) {
 
-                            $icon = get_option("instagram_skin");
+                                $icon = get_option("instagram_skin");
 
-                            echo '<span class="row_17_10 instagram_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 instagram_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_10 instagram_section" style="background-position:-526px 0;"></span>';
-                        }
+                                echo '<span class="row_17_10 instagram_section" style="background-position:-526px 0;"></span>';
+                            }
 
-                        if (get_option("telegram_skin")) {
+                            if (get_option("telegram_skin")) {
 
-                            $icon = get_option("telegram_skin");
+                                $icon = get_option("telegram_skin");
 
-                            echo '<span class="row_17_10 telegram_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 telegram_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_10 telegram_section" style="background-position:-773px 0;"></span>';
-                        }
+                                echo '<span class="row_17_10 telegram_section" style="background-position:-773px 0;"></span>';
+                            }
 
-                        if (get_option("vk_skin")) {
+                            if (get_option("vk_skin")) {
 
-                            $icon = get_option("vk_skin");
+                                $icon = get_option("vk_skin");
 
-                            echo '<span class="row_17_10 vk_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 vk_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_10 vk_section" style="background-position:-838px 0;"></span>';
-                        }
+                                echo '<span class="row_17_10 vk_section" style="background-position:-838px 0;"></span>';
+                            }
 
-                        if (get_option("ok_skin")) {
+                            if (get_option("ok_skin")) {
 
-                            $icon = get_option("ok_skin");
+                                $icon = get_option("ok_skin");
 
-                            echo '<span class="row_17_10 ok_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 ok_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_10 ok_section" style="background-position:-909px 0;"></span>';
-                        }
+                                echo '<span class="row_17_10 ok_section" style="background-position:-909px 0;"></span>';
+                            }
 
-                        if (get_option("weibo_skin")) {
+                            if (get_option("weibo_skin")) {
 
-                            $icon = get_option("weibo_skin");
+                                $icon = get_option("weibo_skin");
 
-                            echo '<span class="row_17_10 weibo_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 weibo_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_17_10 weibo_section" style="background-position:-977px 0;"></span>';
-                        }
+                                echo '<span class="row_17_10 weibo_section" style="background-position:-977px 0;"></span>';
+                            }
 
-                        if (get_option("wechat_skin")) {
+                            if (get_option("wechat_skin")) {
 
-                            $icon = get_option("wechat_skin");
+                                $icon = get_option("wechat_skin");
 
-                            echo '<span class="row_17_10 wechat_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
-                        } else {
+                                echo '<span class="row_17_10 wechat_section sfsi-bgimage" style="background: url(' . $icon . ') no-repeat;"></span>';
+                            } else {
 
-                            echo '<span class="row_1_18  wechat_section"></span>';
-                        }
+                                echo '<span class="row_1_18  wechat_section"></span>';
+                            }
 
-                        ?>
+                            ?>
 
                     </div>
                 </li>
-            <?php
-        }
-        ?><?php if (get_option('sfsi_custom_icons') == 'no') { ?>
+                <?php
+                }
+                ?><?php if (get_option('sfsi_custom_icons') == 'no') { ?>
 
                 <li class="sfsi_custom_icons_q4">
                     <div style="float: left;">
@@ -332,10 +341,10 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                             </a>
                             <span>Upload any icons you want <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
                                 Get it now. 
-                            </a>&nbsp;  Custom design for the social media platforms implemented in the plugin under question number 1 - </span>
-                            <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
+                            <!-- </a>&nbsp;  Custom design for the social media platforms implemented in the plugin under question number 1 - </span> -->
+                            <!-- <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
                                 Get it now.
-                            </a>
+                            </a> -->
                         </p>
                     </div>
                 </li>
@@ -345,7 +354,7 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
 
                             <input type="radio" class="styled" />
 
-                            <label style="line-height:20px !important;margin-top:15px;">Tailored</label>
+                            <label style="line-height:20px !important;margin-top:15px;opacity: 0.5;min-width: 79px;">Tailored -</label>
                         </a>
                     </div>
                     <div>
@@ -358,8 +367,8 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                     </div>
                 </li>
             <?php
-        }
-        ?>
+            }
+            ?>
             <li>
 
                 <?php include_once(SFSI_DOCROOT . '/views/subviews/que4/banner.php'); ?>
