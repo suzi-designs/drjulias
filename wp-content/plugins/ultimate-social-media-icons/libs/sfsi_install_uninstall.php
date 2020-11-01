@@ -39,7 +39,7 @@ function sfsi_update_plugin()
         update_option("sfsi_custom_icons", "yes");
     }
     //Install version
-    update_option("sfsi_pluginVersion", "2.58");
+    update_option("sfsi_pluginVersion", "2.60");
 
     if (!get_option('sfsi_serverphpVersionnotification')) {
         add_option("sfsi_serverphpVersionnotification", "yes");
@@ -84,10 +84,28 @@ function sfsi_update_plugin()
         add_option("sfsi_dismiss_google_analytic", serialize($sfsi_dismiss_google_analytic));
     }
 
+    $sfsi_dismiss_woocommerce = unserialize(get_option('sfsi_dismiss_woocommerce'));
+    if (!isset($sfsi_dismiss_woocommerce) || empty($sfsi_dismiss_woocommerce)) {
+        $sfsi_dismiss_woocommerce = array(
+            'show_banner'     => "yes",
+            'timestamp' => ""
+        );
+        add_option("sfsi_dismiss_woocommerce", serialize($sfsi_dismiss_woocommerce));
+    }
+
+    $sfsi_dismiss_twitter = unserialize(get_option('sfsi_dismiss_twitter'));
+    if (!isset($sfsi_dismiss_twitter) || empty($sfsi_dismiss_twitter)) {
+        $sfsi_dismiss_twitter = array(
+            'show_banner'     => "yes",
+            'timestamp' => ""
+        );
+        add_option("sfsi_dismiss_twitter", serialize($sfsi_dismiss_twitter));
+    }
+
 
     $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer'));
     // var_dump($sfsi_banner_global_firsttime_offer);
-    if (!isset($sfsi_banner_global_firsttime_offer) || empty($sfsi_banner_global_firsttime_offer) || !isset($sfsi_banner_global_firsttime_offer["is_active"]) ) {
+    if (!isset($sfsi_banner_global_firsttime_offer) || empty($sfsi_banner_global_firsttime_offer) || !isset($sfsi_banner_global_firsttime_offer["is_active"])) {
         $sfsi_banner_global_firsttime_offer = array(
             'met_criteria'     => "yes",
             'is_active' => "yes",
@@ -135,7 +153,7 @@ function sfsi_update_plugin()
         );
         update_option("sfsi_banner_global_upgrade", serialize($sfsi_banner_global_upgrade));
     }
-    
+
     $sfsi_banner_global_http =  unserialize(get_option('sfsi_banner_global_http'));
     if (!isset($sfsi_banner_global_http) || empty($sfsi_banner_global_http) || !isset($sfsi_banner_global_http["is_active"])) {
         $sfsi_banner_global_http = array(
@@ -157,7 +175,7 @@ function sfsi_update_plugin()
         update_option("sfsi_banner_global_gdpr", serialize($sfsi_banner_global_gdpr));
     }
     $sfsi_banner_global_shares =  unserialize(get_option('sfsi_banner_global_shares'));
-    if (!isset($sfsi_banner_global_shares) || empty($sfsi_banner_global_shares) || !isset($sfsi_banner_global_shares["is_active"]) ) {
+    if (!isset($sfsi_banner_global_shares) || empty($sfsi_banner_global_shares) || !isset($sfsi_banner_global_shares["is_active"])) {
         $sfsi_banner_global_shares = array(
             'met_criteria'     => "no",
             'banner_appeared' => "no",
@@ -196,7 +214,10 @@ function sfsi_update_plugin()
         );
         update_option("sfsi_banner_global_pinterest", serialize($sfsi_banner_global_pinterest));
     }
-
+    $sfsi_banner_popups =  get_option('sfsi_banner_popups');
+    if (!isset($sfsi_banner_popups)|| empty($sfsi_banner_popups)) {
+        update_option('sfsi_banner_popups', "yes");
+    }
 
     /*Extra important options*/
     if (!get_option('sfsi_instagram_sf_count')) {
@@ -299,6 +320,15 @@ function sfsi_update_plugin()
         }
         if (!isset($option4['sfsi_responsive_share_count'])) {
             $option4['sfsi_responsive_share_count'] = "no";
+        }
+        if (!isset($option4['sfsi_whatsapp_manualCounts'])) {
+            $option4['sfsi_whatsapp_manualCounts'] = "no";
+        }
+        if (!isset($option4['sfsi_whatsapp_countsDisplay'])) {
+            $option4['sfsi_whatsapp_countsDisplay'] = "no";
+        }
+        if (!isset($option4['sfsi_whatsapp_countsFrom'])) {
+            $option4['sfsi_whatsapp_countsFrom'] = "manual";
         }
     }
 
@@ -563,6 +593,9 @@ function sfsi_update_plugin()
         if (!isset($option5['sfsi_wechatIcon_order'])) {
             $option5['sfsi_wechatIcon_order']    = '15';
         }
+        if (!isset($option5['sfsi_whatsappIcon_order'])) {
+            $option5['sfsi_whatsappIcon_order']    = '16';
+        }
         if (!isset($option5['sfsi_telegram_MouseOverText'])) {
             $option5['sfsi_telegram_MouseOverText']    = 'Telegram';
         }
@@ -578,8 +611,8 @@ function sfsi_update_plugin()
         if (!isset($option5['sfsi_wechat_MouseOverText'])) {
             $option5['sfsi_wechat_MouseOverText']    = 'WeChat';
         }
-        if (!isset($option5['sfsi_wechat_MouseOverText'])) {
-            $option5['sfsi_wechat_MouseOverText']    = 'WeChat';
+        if (!isset($option5['sfsi_whatsapp_MouseOverText'])) {
+            $option5['sfsi_whatsapp_MouseOverText']    = 'WhatsApp';
         }
         if (isset($option5['sfsi_googleIcon_order'])) {
             unset($option5['sfsi_googleIcon_order']);
@@ -625,7 +658,7 @@ function sfsi_update_plugin()
         if (!isset($option6['sfsi_display_button_type'])) {
             $option6["sfsi_display_button_type"] = 'responsive_button';
         }
-      
+
         if (!isset($option6['sfsi_responsive_icons_end_post'])) {
             $option6["sfsi_responsive_icons_end_post"] = 'no';
         }
@@ -699,6 +732,9 @@ function sfsi_update_plugin()
     if (isset($option1['sfsi_google_display'])) {
         unset($option1['sfsi_google_display']);
     }
+    if (!isset($option1['sfsi_whatsapp_display'])) {
+        $option1['sfsi_whatsapp_display'] = "no";
+    }
     update_option('sfsi_section1_options', serialize($option1));
     // Add this removed in version 2.0.2, removing values from section 1 & section 6 & setting notice display value
     sfsi_was_displaying_addthis();
@@ -707,7 +743,11 @@ function sfsi_update_plugin()
     delete_option("sfsi_curlErrorMessage");
 
     add_option('sfsi_currentDate',  date('Y-m-d h:i:s'));
-    add_option('sfsi_showNextBannerDate', '21 day');
+    add_option('sfsi_showNextBannerDate', '14 day');
+    if (get_option('sfsi_showNextBannerDate') == "21 day") {
+        update_option('sfsi_showNextBannerDate', '14 day');
+    }
+
     add_option('sfsi_cycleDate',  "180 day");
     add_option('sfsi_loyaltyDate',  "180 day");
     if (!get_option('sfsi_fb_count')) {
@@ -772,7 +812,8 @@ function sfsi_activate_plugin()
             'sfsi_linkedin_display' => 'no',
             'sfsi_youtube_display' => 'no',
             'sfsi_custom_display' => '',
-            'sfsi_custom_files' => ''
+            'sfsi_custom_files' => '',
+            'sfsi_whatsapp_display' => 'no',
         );
         add_option('sfsi_section1_options',  serialize($options1));
     }
@@ -906,7 +947,7 @@ function sfsi_activate_plugin()
             'sfsi_round_counts' => 'yes',
             'sfsi_original_counts' => 'yes',
             'sfsi_responsive_share_count' => 'yes',
-            
+
             'sfsi_wechat_countsDisplay' => 'no',
             'sfsi_wechat_countsFrom' => 'manual',
             'sfsi_wechat_manualCounts' => '20',
@@ -933,8 +974,10 @@ function sfsi_activate_plugin()
             'sfsi_instagram_manualCounts' => '20',
 
             'sfsi_instagram_User' => '',
+            'sfsi_whatsapp_countsDisplay' => 'no',
+            'sfsi_whatsapp_countsFrom' => 'manual',
+            'sfsi_whatsapp_manualCounts' => '20',
 
-             
         );
         add_option('sfsi_section4_options',  serialize($options4));
     }
@@ -952,6 +995,7 @@ function sfsi_activate_plugin()
             'sfsi_icons_perRow'            => '5',
             'sfsi_icons_ClickPageOpen'    => 'yes',
             'sfsi_icons_suppress_errors' => 'no',
+            'sfsi_icons_sharing_and_traffic_tips' => 'yes',
             'sfsi_icons_float'            => 'no',
             'sfsi_disable_floaticons'    => 'no',
             'sfsi_icons_floatPosition'    => 'center-right',
@@ -987,6 +1031,7 @@ function sfsi_activate_plugin()
             'sfsi_ok_MouseOverText'  => 'OK',
             'sfsi_weibo_MouseOverText'  => 'Weibo',
             'sfsi_wechat_MouseOverText'  => 'WeChat',
+            'sfsi_whatsapp_MouseOverText'  => 'WhatsaApp',
             'sfsi_custom_MouseOverTexts'  => '',
             'sfsi_custom_social_hide'       => 'no'
         );
@@ -1112,7 +1157,10 @@ function sfsi_activate_plugin()
     update_option('sfsi_redirect_url', esc_url($sffeeds->redirect_url));
     add_option('sfsi_installDate', date('Y-m-d h:i:s'));
     add_option('sfsi_currentDate',  date('Y-m-d h:i:s'));
-    add_option('sfsi_showNextBannerDate', '21 day');
+    add_option('sfsi_showNextBannerDate', '14 day');
+    if (get_option('sfsi_showNextBannerDate') == "21 day") {
+        update_option('sfsi_showNextBannerDate', '14 day');
+    }
     add_option('sfsi_cycleDate',  "180 day");
     add_option('sfsi_loyaltyDate',  "180 day");
 
@@ -1139,6 +1187,25 @@ function sfsi_activate_plugin()
         );
         add_option("sfsi_dismiss_google_analytic", serialize($sfsi_dismiss_google_analytic));
     }
+
+    $sfsi_dismiss_woocommerce = unserialize(get_option('sfsi_dismiss_woocommerce'));
+    if (!isset($sfsi_dismiss_woocommerce) || empty($sfsi_dismiss_woocommerce)) {
+        $sfsi_dismiss_woocommerce = array(
+            'show_banner'     => "yes",
+            'timestamp' => ""
+        );
+        add_option("sfsi_dismiss_woocommerce", serialize($sfsi_dismiss_woocommerce));
+    }
+
+    $sfsi_dismiss_twitter = unserialize(get_option('sfsi_dismiss_twitter'));
+    if (!isset($sfsi_dismiss_twitter) || empty($sfsi_dismiss_twitter)) {
+        $sfsi_dismiss_twitter = array(
+            'show_banner'     => "yes",
+            'timestamp' => ""
+        );
+        add_option("sfsi_dismiss_twitter", serialize($sfsi_dismiss_twitter));
+    }
+
 
 
     $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer'));
@@ -1211,7 +1278,7 @@ function sfsi_activate_plugin()
         add_option("sfsi_banner_global_gdpr", serialize($sfsi_banner_global_gdpr));
     }
     $sfsi_banner_global_shares =  unserialize(get_option('sfsi_banner_global_shares'));
-    if (!isset($sfsi_banner_global_shares) || empty($sfsi_banner_global_shares) ||!isset($sfsi_banner_global_shares["is_active"])) {
+    if (!isset($sfsi_banner_global_shares) || empty($sfsi_banner_global_shares) || !isset($sfsi_banner_global_shares["is_active"])) {
         $sfsi_banner_global_shares = array(
             'met_criteria'     => "no",
             'banner_appeared' => "no",
@@ -1250,7 +1317,10 @@ function sfsi_activate_plugin()
         );
         add_option("sfsi_banner_global_pinterest", serialize($sfsi_banner_global_pinterest));
     }
-
+    $sfsi_banner_popups =  (get_option('sfsi_banner_popups'));
+    if (!isset($sfsi_banner_popups)|| empty($sfsi_banner_popups)) {
+        add_option('sfsi_banner_popups', "yes");
+    }
 
     /*Changes in option 2*/
     $get_option2 = unserialize(get_option('sfsi_section2_options', false));
@@ -1362,6 +1432,8 @@ function sfsi_Unistall_plugin()
     delete_option("sfsi_dismiss_gdpr");
     delete_option("sfsi_dismiss_optimization");
     delete_option("sfsi_dismiss_gallery");
+    delete_option("sfsi_dismiss_woocommerce");
+    delete_option("sfsi_dismiss_twitter");
     delete_option("sfsi_banner_global_firsttime_offer");
     delete_option("sfsi_banner_global_social");
     delete_option("sfsi_banner_global_gdpr");
@@ -1371,6 +1443,8 @@ function sfsi_Unistall_plugin()
     delete_option("sfsi_banner_global_http");
     delete_option("sfsi_banner_global_upgrade");
     delete_option("sfsi_fb_count");
+    delete_option("sfsi_banner_popups");
+
 }
 /* end function */
 
@@ -1429,14 +1503,14 @@ function SFSI_getFeedUrl()
         'timeout' => 30
     );
     $resp = wp_remote_post('https://api.follow.it/wordpress/plugin_setup', $args);
-    if(!is_wp_error($resp)){
+    if (!is_wp_error($resp)) {
         $resp = json_decode($resp['body']);
     }
-    if(isset($resp->redirect_url) && isset($resp->feed_id)){
+    if (isset($resp->redirect_url) && isset($resp->feed_id)) {
         $feed_url = stripslashes_deep($resp->redirect_url);
         return $resp;
-    }else{
-        return (Object)array('redirect_url'=>'https://follow.it/now','feed_id'=>'');
+    } else {
+        return (object) array('redirect_url' => 'https://follow.it/now', 'feed_id' => '');
     }
     exit;
 }
@@ -1480,7 +1554,7 @@ function sfsi_setUpfeeds($feed_id)
         'blocking' => true,
         'user-agent' => 'sf rss request',
         'header'    => array("Content-Type" => "application/json"),
-        'sslverify' => true,
+        'sslverify' => false,
         'timeout'   => 30
     );
     $resp = wp_remote_get('https://api.follow.it/rssegtcrons/download_rssmorefeed_data_single/' . $feed_id . "/Y", $args);
@@ -1573,7 +1647,10 @@ function sfsi_rating_msg()
     $datetime1 = new DateTime($install_date);
     $datetime2 = new DateTime($display_date);
     $diff_inrval = round(($datetime2->format('U') - $datetime1->format('U')) / (60 * 60 * 24));
-    $screen = get_current_screen();
+    $screen = "";
+    if (function_exists('get_current_screen')) {
+        $screen = get_current_screen();
+    } 
     if ($diff_inrval >= 40 && "no" == get_option('sfsi_RatingDiv') && !is_null($screen) && "toplevel_page_sfsi-options" == $screen->id) {
         ?>
         <style type="text/css">
@@ -1684,58 +1761,58 @@ function sfsi_pingVendor($post_id)
     if (wp_is_post_revision($post_id))
         return;
     $post_data = get_post($post_id, ARRAY_A);
-    if($post_data['post_status']=='publish' && $post_data['post_type']=='post') : 
-		$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
-		return sfsi_setUpfeeds($feed_id);
-// 		$categories = wp_get_post_categories($post_data['ID']);
-// 		$cats='';
-// 		$total=count($categories);
-// 		$count=1;
-// 		foreach($categories as $c)
-// 		{	
-// 			$cat_data = get_category( $c );
-// 			if($count==$total)
-// 			{
-// 				$cats.= $cat_data->name;
-// 			}
-// 			else
-// 			{
-// 				$cats.= $cat_data->name.',';	
-// 			}
-// 			$count++;	
-// 		}
-// 		$postto_array = array(
-// 			'feed_id'	=> sanitize_text_field(get_option('sfsi_plus_feed_id')),
-// 			'title'		=> $post_data['post_title'],
-// 			'description' => $post_data['post_content'],
-// 			'link'		=> $post_data['guid'],
-// 			'author'	=> get_the_author_meta('user_login', $post_data['post_author']),
-// 			'category' 	=> $cats,
-// 			'pubDate'	=> $post_data['post_modified'],
-// 			'rssurl'	=> sfsi_plus_get_bloginfo('rss2_url')
-// 		);
-// 		$args = array(
-// 		    'body' => $postto_array,
-// 		    'blocking' => true,
-// 		    'user-agent' => 'sf rss request',
-// 		    'header'	=> array("Content-Type"=>"application/x-www-form-urlencoded"),
-// 		    'sslverify' => true
-// 		);
-// 		$data = get_option('sfsi_plus_log',array());
-// 		array_push($data,array("pingVendor"=>"ready to post","post_id"=>$post_id,"post_fields"=>$postto_array));
-// 		update_option('sfsi_plus_log',$data);
-// 		$resp = wp_remote_post();
-// 		if ( !is_wp_error( $resp ) ) {
-// 			$resp = json_decode($resp['body']);
-// 			$data = get_option('sfsi_plus_log',array());
-// 			array_push($data,array("pingVendor"=>"sucess on call","post_id"=>$post_id,"response"=>$resp));
-// 			update_option('sfsi_plus_log',$data);
-// 			return true;
-// 		}else{
-// 			$data = get_option('sfsi_plus_log',array());
-// 			array_push($data,array("pingVendor"=>"error on call","post_id"=>$post_id,"err"=>$resp));
-// 			update_option('sfsi_plus_log',$data);
-// 		}
+    if ($post_data['post_status'] == 'publish' && $post_data['post_type'] == 'post') :
+        $feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
+        return sfsi_setUpfeeds($feed_id);
+    // 		$categories = wp_get_post_categories($post_data['ID']);
+    // 		$cats='';
+    // 		$total=count($categories);
+    // 		$count=1;
+    // 		foreach($categories as $c)
+    // 		{	
+    // 			$cat_data = get_category( $c );
+    // 			if($count==$total)
+    // 			{
+    // 				$cats.= $cat_data->name;
+    // 			}
+    // 			else
+    // 			{
+    // 				$cats.= $cat_data->name.',';	
+    // 			}
+    // 			$count++;	
+    // 		}
+    // 		$postto_array = array(
+    // 			'feed_id'	=> sanitize_text_field(get_option('sfsi_plus_feed_id')),
+    // 			'title'		=> $post_data['post_title'],
+    // 			'description' => $post_data['post_content'],
+    // 			'link'		=> $post_data['guid'],
+    // 			'author'	=> get_the_author_meta('user_login', $post_data['post_author']),
+    // 			'category' 	=> $cats,
+    // 			'pubDate'	=> $post_data['post_modified'],
+    // 			'rssurl'	=> sfsi_plus_get_bloginfo('rss2_url')
+    // 		);
+    // 		$args = array(
+    // 		    'body' => $postto_array,
+    // 		    'blocking' => true,
+    // 		    'user-agent' => 'sf rss request',
+    // 		    'header'	=> array("Content-Type"=>"application/x-www-form-urlencoded"),
+    // 		    'sslverify' => true
+    // 		);
+    // 		$data = get_option('sfsi_plus_log',array());
+    // 		array_push($data,array("pingVendor"=>"ready to post","post_id"=>$post_id,"post_fields"=>$postto_array));
+    // 		update_option('sfsi_plus_log',$data);
+    // 		$resp = wp_remote_post();
+    // 		if ( !is_wp_error( $resp ) ) {
+    // 			$resp = json_decode($resp['body']);
+    // 			$data = get_option('sfsi_plus_log',array());
+    // 			array_push($data,array("pingVendor"=>"sucess on call","post_id"=>$post_id,"response"=>$resp));
+    // 			update_option('sfsi_plus_log',$data);
+    // 			return true;
+    // 		}else{
+    // 			$data = get_option('sfsi_plus_log',array());
+    // 			array_push($data,array("pingVendor"=>"error on call","post_id"=>$post_id,"err"=>$resp));
+    // 			update_option('sfsi_plus_log',$data);
+    // 		}
     endif;
 }
 add_action('save_post', 'sfsi_pingVendor');

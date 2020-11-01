@@ -24,10 +24,10 @@ class Sfsi_Widget extends WP_Widget
 
 	function widget($args, $instance)
 	{
-		$before_title = isset($args["before_title"])?$args["before_title"]:'';
-		$after_title = isset($args["after_title"])?$args["after_title"]:'';
-		$before_widget = isset($args["before_widget"])?$args["before_widget"]:'';
-		$after_widget = isset($args["after_widget"])?$args["after_widget"]:'';
+		$before_title = isset($args["before_title"]) ? $args["before_title"] : '';
+		$after_title = isset($args["after_title"]) ? $args["after_title"] : '';
+		$before_widget = isset($args["before_widget"]) ? $args["before_widget"] : '';
+		$after_widget = isset($args["after_widget"]) ? $args["after_widget"] : '';
 		/*Our variables from the widget settings. */
 		$title 		= isset($instance['title']) ? apply_filters('widget_title', $instance['title']) : '';
 		// var_dump($title,'ldfjgkdfj');
@@ -256,6 +256,9 @@ class Sfsi_Widget extends WP_Widget
 			if (!isset($sfsi_section5['sfsi_wechatIcon_order'])) {
 				$sfsi_section5['sfsi_wechatIcon_order']    = '15';
 			}
+			if (!isset($sfsi_section5['sfsi_whatsappIcon_order'])) {
+				$sfsi_section5['sfsi_whatsappIcon_order']    = '16';
+			}
 			$icons_order = array(
 				'0' => '',
 				$sfsi_section5['sfsi_rssIcon_order'] => 'rss',
@@ -271,6 +274,7 @@ class Sfsi_Widget extends WP_Widget
 				$sfsi_section5['sfsi_okIcon_order'] => 'ok',
 				$sfsi_section5['sfsi_weiboIcon_order'] => 'weibo',
 				$sfsi_section5['sfsi_wechatIcon_order'] => 'wechat',
+				$sfsi_section5['sfsi_whatsappIcon_order'] => 'whatsapp',
 			);
 			if (is_array($custom_icons_order)) {
 				foreach ($custom_icons_order as $data) {
@@ -343,6 +347,9 @@ class Sfsi_Widget extends WP_Widget
 					case 'wechat':
 						if ($sfsi_section1_options['sfsi_wechat_display'] == 'yes')    $icons .= sfsi_prepairIcons('wechat');
 						break;
+					case 'whatsapp':
+						if ($sfsi_section1_options['sfsi_whatsapp_display'] == 'yes')    $icons .= sfsi_prepairIcons('whatsapp');
+						break;
 					case 'custom':
 						$icons .= sfsi_prepairIcons($icon_arry['ele']);
 						break;
@@ -377,7 +384,7 @@ class Sfsi_Widget extends WP_Widget
 				$icons_float .= '<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:' . $width . 'px;text-align:' . $icons_alignment . ';' . $position . '">';
 				$icons_float .= $icons;
 				$icons_float .= "<input type='hidden' id='sfsi_floater_sec' value='" . $sfsi_section9['sfsi_icons_floatPosition'] . "' />";
-				$icons_float .= "</div>" . $jquery;
+				$icons_float .= $jquery;
 				return $icons_float;
 				exit;
 			}
@@ -390,6 +397,7 @@ class Sfsi_Widget extends WP_Widget
 		{
 			global $wpdb;
 			global $socialObj;
+			global $post;
 			$mouse_hover_effect = '';
 			$active_theme = 'official';
 			$sfsi_shuffle_Firstload = 'no';
@@ -448,7 +456,6 @@ class Sfsi_Widget extends WP_Widget
 			$toolClass  = '';
 
 			$socialObj = new sfsi_SocialHelper(); /* global object to access 3rd party icon's actions */
-
 			switch ($icon_name) {
 				case "rss":
 
@@ -1204,7 +1211,41 @@ class Sfsi_Widget extends WP_Widget
 
 					break;
 
+				case "whatsapp":
+					if (!is_null($post)) {
+						$sfsi_current_url = get_permalink($post->ID);
+					} else {
+						global $wp;
+						$sfsi_current_url = home_url($wp->request);
+					}
+					if (isset($sfsi_section5_options['sfsi_whatsapp_MouseOverText']) && !empty($sfsi_section5_options['sfsi_whatsapp_MouseOverText'])) {
+						$alt_text = $sfsi_section5_options['sfsi_whatsapp_MouseOverText'];
+					} else {
+						$alt_text = "";
+					}
 
+					if (
+						isset($sfsi_section4_options['sfsi_whatsapp_countsDisplay']) &&
+						"yes" == $sfsi_section4_options['sfsi_whatsapp_countsDisplay'] &&
+						"yes" == $sfsi_section4_options['sfsi_display_counts'] &&
+						$sfsi_section4_options['sfsi_round_counts'] == "yes"
+					) {
+						$counts = $socialObj->format_num($sfsi_section4_options['sfsi_whatsapp_manualCounts']);
+					}
+					$url = 'https://api.whatsapp.com/send?text=' . $sfsi_current_url;
+					//Custom Skin Support {Monad}	 
+					if ($active_theme == 'custom_support') {
+						if (get_option("facebook_skin")) {
+							$icon = get_option("facebook_skin");
+						} else {
+							$active_theme = 'default';
+							$icons_baseUrl = SFSI_PLUGURL . "images/icons_theme/default/";
+							$icon = $icons_baseUrl . $active_theme . "_whatsapp.png";
+						}
+					} else {
+						$icon = $icons_baseUrl . $active_theme . "_whatsapp.png";
+					}
+					break;
 				case "linkedin":
 					$width = 85;
 
@@ -1228,7 +1269,7 @@ class Sfsi_Widget extends WP_Widget
 					$totwith = $width + 29 + $icons_space;
 					if ($share == "yes" && ($follow == "false" || $follow == "no")) {
 						$totwith = $width + $icons_space;
-					} 
+					}
 					$twt_margin = $totwith / 2;
 					/*check for icons to display */
 					$url = isset($sfsi_section2_options['sfsi_linkedin_pageURL']) && !empty($sfsi_section2_options['sfsi_linkedin_pageURL']) ? $sfsi_section2_options['sfsi_linkedin_pageURL'] : '';
@@ -1303,7 +1344,9 @@ class Sfsi_Widget extends WP_Widget
 						$icon = $icons_baseUrl . $active_theme . "_linkedin.png";
 					}
 					break;
+				case "linkedin":
 
+					break;
 				default:
 					$border_radius = "";
 					//$border_radius =" border-radius:48%;";

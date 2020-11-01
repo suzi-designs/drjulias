@@ -43,6 +43,7 @@ final class FLBuilderCompatibility {
 		add_action( 'fl_theme_builder_before_render_header', array( __CLASS__, 'fix_lazyload_header_start' ) );
 		add_action( 'fl_theme_builder_after_render_header', array( __CLASS__, 'fix_lazyload_header_end' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'ee_remove_stylesheet' ), 99999 );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'fix_woocommerce_products_filter' ), 12 );
 
 		// Filters
 		add_filter( 'fl_builder_is_post_editable', array( __CLASS__, 'bp_pages_support' ), 11, 2 );
@@ -64,6 +65,7 @@ final class FLBuilderCompatibility {
 		add_filter( 'fl_select2_enabled', array( __CLASS__, 'fix_memberium' ) );
 		add_filter( 'option_wp-smush-lazy_load', array( __CLASS__, 'fix_smush' ) );
 		add_filter( 'fl_row_bg_video_wrapper_class', array( __CLASS__, 'fix_twenty_twenty_video' ) );
+		add_filter( 'fl_builder_loop_rewrite_rules', array( __CLASS__, 'fix_wpseo_category_pagination_rule' ) );
 	}
 
 	/**
@@ -779,6 +781,58 @@ final class FLBuilderCompatibility {
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Fix compatibility issue with Yoast SEO when category prefix is removed
+	 * in the settings.
+	 *
+	 * @since 2.4
+	 */
+	public static function fix_wpseo_category_pagination_rule( $rewrite_rules ) {
+		if ( ! class_exists( 'WPSEO_Rewrite' ) ) {
+			return $rewrite_rules;
+		}
+
+		if ( ! isset( $GLOBALS['wpseo_rewrite'] ) ) {
+			return $rewrite_rules;
+		}
+
+		if ( ! method_exists( $GLOBALS['wpseo_rewrite'], 'category_rewrite_rules' ) ) {
+			return $rewrite_rules;
+		}
+
+		global $wp_rewrite;
+
+		$wpseo_rewrite_rules = $GLOBALS['wpseo_rewrite']->category_rewrite_rules();
+		$page_base           = $wp_rewrite->pagination_base;
+		$flpaged_base        = 'paged-[0-9]{1,}';
+		$flpaged_rules       = array();
+
+		foreach ( $wpseo_rewrite_rules as $regex => $redirect ) {
+			if ( strpos( $regex, '/' . $page_base . '/' ) !== false ) {
+				$flregex = str_replace( $page_base, $flpaged_base, $regex );
+
+				// Adds our custom paged rule.
+				$flpaged_rules[ $flregex ] = 'index.php?category_name=$matches[1]&flpaged=$matches[2]';
+			}
+		}
+		$rewrite_rules = array_merge( $flpaged_rules, $rewrite_rules );
+
+		return $rewrite_rules;
+	}
+	/**
+	 * Fix compatibility issue Woocommerce Products Filter Add-on
+	 *
+	 * @since 2.4.1
+	 */
+	public static function fix_woocommerce_products_filter() {
+		if ( class_exists( 'WooCommerce' )
+		&& class_exists( 'WooCommerce_Product_Filter_Plugin\Plugin' )
+		&& class_exists( 'FLBuilderModel' )
+		&& ( FLBuilderModel::is_builder_active() ) ) {
+			wp_deregister_script( 'wcpf-plugin-polyfills-script' );
+		}
 	}
 }
 FLBuilderCompatibility::init();

@@ -3,7 +3,6 @@
 	$icons 		= ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
 	$option3	= unserialize(get_option('sfsi_section3_options',false));
 	$option5	= unserialize(get_option('sfsi_section5_options',false));
-
 	$custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
 	if(!isset($option5['sfsi_telegramIcon_order'])){                     
         $option5['sfsi_telegramIcon_order']    = '11';
@@ -20,6 +19,9 @@
     if(!isset($option5['sfsi_wechatIcon_order'])){                     
         $option5['sfsi_wechatIcon_order']    = '15';
     }
+    if(!isset($option5['sfsi_whatsappIcon_order'])){                     
+        $option5['sfsi_whatsappIcon_order']    = '16';
+    }
 	$icons_order = array(
 		$option5['sfsi_rssIcon_order']		=> 'rss',
 		$option5['sfsi_emailIcon_order']	=> 'email',
@@ -34,6 +36,7 @@
 		$option5['sfsi_okIcon_order']=> 'ok',
 		$option5['sfsi_weiboIcon_order']=> 'weibo',
 		$option5['sfsi_wechatIcon_order']=> 'wechat',
+		$option5['sfsi_whatsappIcon_order']=> 'whatsapp',
 
 	) ;
 	
@@ -103,9 +106,15 @@
 	$option5['sfsi_wechat_MouseOverText']		= 	(isset($option5['sfsi_wechat_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_wechat_MouseOverText'])
 														: '';
+	$option5['sfsi_whatsapp_MouseOverText']		= 	(isset($option5['sfsi_whatsapp_MouseOverText']))
+														? sanitize_text_field($option5['sfsi_whatsapp_MouseOverText'])
+														: '';
 	$sfsi_icons_suppress_errors 				=   (isset($option5['sfsi_icons_suppress_errors']))
 														? sanitize_text_field($option5['sfsi_icons_suppress_errors'])
 														: 'no';
+	$sfsi_icons_sharing_and_traffic_tips 				=   (isset($option5['sfsi_icons_sharing_and_traffic_tips']))
+	? sanitize_text_field($option5['sfsi_icons_sharing_and_traffic_tips'])
+	: 'yes';
 	if(is_array($custom_icons_order) ) 
 	{
 		foreach($custom_icons_order as $data)
@@ -177,6 +186,10 @@
 		  <?php break; ?><?php case 'wechat' :?>
           		<li class="wechat_section " data-index="<?php echo $index; ?>" id="sfsi_wechatIcon_order">
                 	<a href="#" title="wechat" ><img src="<?php echo SFSI_PLUGURL; ?>images/icons_theme/default/default_wechat.png" height="54px;" alt="wechat" /></a>
+                </li>
+          <?php break; ?><?php case 'whatsapp' :?>
+          		<li class="whatsapp_section " data-index="<?php echo $index; ?>" id="sfsi_whatsappIcon_order">
+                	<a href="#" title="whatsapp" ><img src="<?php echo SFSI_PLUGURL; ?>images/icons_theme/default/default_whatsapp.png" height="54px;" alt="whatsapp" /></a>
                 </li>
 		  <?php break; ?><?php default   :?><?php if(isset($icons[$icn['ele']]) && !empty($icons[$icn['ele']]) && filter_var($icons[$icn['ele']], FILTER_VALIDATE_URL) ): ?>
           		<li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" >
@@ -393,6 +406,13 @@ here what text will be displayed if a user moves his mouse over the icon:
 		    </div>
 		</div>
 		<div class="clear">
+			<div class="mouseover_field wechat_section">
+				<label>WhatsApp:</label>
+				<input name="sfsi_whatsapp_MouseOverText" value="<?php echo ($option5['sfsi_whatsapp_MouseOverText']!='') ?  $option5['sfsi_whatsapp_MouseOverText'] : '' ;?>" type="text" />
+	    	</div>
+		</div>
+
+		<div class="clear">
 		<div class="mouseover_field pinterest_section">
 			<label>Pinterest:</label>
 			<input name="sfsi_pinterest_MouseOverText" value="<?php echo ($option5['sfsi_pinterest_MouseOverText']!='') ?  $option5['sfsi_pinterest_MouseOverText'] : '' ;?>" type="text" />
@@ -462,6 +482,22 @@ here what text will be displayed if a user moves his mouse over the icon:
 		    	</li>
 				<li>
 					<input name="sfsi_icons_suppress_errors" <?php echo ($sfsi_icons_suppress_errors=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
+	</div>
+
+	<div class="row new_wind">
+		<h4>Tips</h4>
+		<div class="row_onl"><p>Show more useful tips for more sharing & traffic?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_sharing_and_traffic_tips" <?php echo ($sfsi_icons_sharing_and_traffic_tips=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_sharing_and_traffic_tips" <?php echo ($sfsi_icons_sharing_and_traffic_tips=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
 					<label>No</label>
 				</li>
 	      	</ul>

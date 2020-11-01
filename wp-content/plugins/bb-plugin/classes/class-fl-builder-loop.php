@@ -439,6 +439,8 @@ final class FLBuilderLoop {
 		// Generic Rule for Homepage / Search
 		$flpaged_rules[ $paged_regex . '/?([0-9]{1,})/?$' ] = 'index.php?&flpaged=$matches[1]';
 
+		$flpaged_rules = apply_filters( 'fl_builder_loop_rewrite_rules', $flpaged_rules );
+
 		foreach ( $flpaged_rules as $regex => $redirect ) {
 			add_rewrite_rule( $regex, $redirect, 'top' );
 		}
@@ -673,17 +675,32 @@ final class FLBuilderLoop {
 		if ( is_array( $wp_the_query->query ) ) {
 			foreach ( $wp_the_query->query as $key => $value ) {
 				if ( strpos( $key, 'flpaged' ) === 0 && is_page() && get_option( 'page_on_front' ) ) {
-					$redirect_url = false;
-					break;
+					return false;
 				}
 			}
 
-			// Disable canonical on single post pagination for all post types.
-			if ( true === $wp_the_query->is_singular
-				&& - 1 == $wp_the_query->current_post
-				&& true === $wp_the_query->is_paged
+			// Checks for paginated singular posts.
+			if ( false === $wp_the_query->is_singular
+				|| - 1 != $wp_the_query->current_post
+				|| false === $wp_the_query->is_paged
 			) {
-				$redirect_url = false;
+				return $redirect_url;
+			}
+
+			// Checks for posts module in the current layout.
+			$modules = FLBuilderModel::get_all_modules();
+
+			if ( FLBuilderModel::is_builder_enabled() && ! empty( $modules ) ) {
+				foreach ( $modules as $module ) {
+					if ( 'post-grid' == $module->slug ) {
+						return false;
+					}
+				}
+			}
+
+			// Checks for posts module in themer layouts.
+			if ( fl_theme_builder_has_post_grid() ) {
+				return false;
 			}
 		}
 

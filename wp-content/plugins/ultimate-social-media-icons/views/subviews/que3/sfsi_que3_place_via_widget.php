@@ -6,11 +6,11 @@
 			$sfsi_show_via_widget = $option9['sfsi_show_via_widget'];
 		}
  
-		$label_style 	 = 'style="display:none;font-size: 19px;line-height: 81px;"';
+		$label_style 	 = 'style="display:none;font-size: 19px;line-height: 45px;"';
 		$checked 	 	 = '';
 
 		if($sfsi_show_via_widget =='yes'){			
-			$label_style = 'style="display:block;font-size: 19px;line-height: 81px;"';
+			$label_style = 'style="display:block;font-size: 19px;line-height: 45px;"';
 			$checked     = 'checked="true"';
 		}
 

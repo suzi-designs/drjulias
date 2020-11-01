@@ -283,7 +283,10 @@ function sfsi_social_media_metabox( $post ) { ?>
 
  
 function sfsi_icons_add_meta_boxes() {
-    $screen            = get_current_screen(); 
+    $screen = "";
+    if (function_exists('get_current_screen')) {
+        $screen = get_current_screen();
+    } 
     $option5           = unserialize(get_option('sfsi_section5_options',false));
     $hideSectionVal    = (isset($option5['sfsi_custom_social_hide'])) ? $option5['sfsi_custom_social_hide']: 'no'; 
 

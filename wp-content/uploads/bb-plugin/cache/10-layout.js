@@ -671,7 +671,8 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 				enableAudio = playerWrap.data('enable-audio'),
 				audioButton = playerWrap.find('.fl-bg-video-audio'),
 				player,
-				width = playerWrap.outerWidth();
+				width = playerWrap.outerWidth(),
+				ua    = navigator.userAgent;
 
 			if ( typeof Vimeo !== 'undefined' && videoId )	{
 				player = new Vimeo.Player(videoPlayer[0], {
@@ -690,7 +691,7 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 				}
 				else if ("yes" === enableAudio ) {
 					// Chrome and Safari have audio policy restrictions for autoplay videos.
-					if ( $.browser.safari || $.browser.chrome ) {
+					if ( ua.indexOf("Safari") > -1 || ua.indexOf("Chrome") > -1 ) {
 						player.setVolume(0);
 						audioButton.show();
 					}

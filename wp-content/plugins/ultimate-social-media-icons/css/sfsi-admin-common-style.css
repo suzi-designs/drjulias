@@ -154,3 +154,7 @@ a.sfsi_disable_usm_ogtags_setting_change {color: #444;cursor: pointer;font-weigh
 .sfsi_new_prmium_follw.sfsi_banner_body div:first-child{
     width: 96%;
 }
+
+#wp__notice-list.woocommerce-layout__notice-list-hide {
+    display: block !important;
+}

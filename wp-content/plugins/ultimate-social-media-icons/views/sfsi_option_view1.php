@@ -61,6 +61,9 @@ $option1['sfsi_linkedin_display']     = (isset($option1['sfsi_linkedin_display']
 $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display']))
     ? sanitize_text_field($option1['sfsi_instagram_display'])
     : 'no';
+$option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']))
+    ? sanitize_text_field($option1['sfsi_whatsapp_display'])
+    : 'no';
 ?>
 
 <!-- Section 1 "Which icons do you want to show on your site? " main div Start -->
@@ -208,6 +211,7 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
         </li>
         <!-- END LINKEDIN ICON -->
 
+       
         <!-- PINTEREST ICON -->
         <li class="sfsi_vertically_center">
             <div>
@@ -243,7 +247,21 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
 
         </li>
         <!-- END INSTAGRAM ICON -->
+         <!-- WHATSAPP ICON -->
+        <li class="sfsi_vertically_center">
+            <div>
+                <div class="radio_section tb_4_ck"><input name="sfsi_whatsapp_display" <?php echo ($option1['sfsi_whatsapp_display'] == 'yes') ?  'checked="true"' : ''; ?> id="sfsi_whatsapp_display" type="checkbox" value="yes" class="styled" /></div>
 
+                <span class="sfsicls_whatsapp">WhatsApp</span>
+            </div>
+            <div class="right_info">
+
+                <p><span>It depends:</span> Show this icon if you want to allow users to share the page via WhatsApp.</p>
+
+            </div>
+
+        </li>
+        <!-- END WHATSAPP ICON -->
         <!-- TELEGRAM ICON -->
         <li class="sfsi_vertically_center">
             <div>
@@ -382,7 +400,7 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
                     </a>
 
                     <div class="right_info">
-                        <p>
+                        <p style="padding-top: 2px;">
                             <label style="color: #12a252 !important; font-weight: bold;font-family: unset;">
                                 Premium Feature:
                             </label>
@@ -525,7 +543,7 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
 
                     </div>
 
-                    <div class="sfsi_prem_cmn_rowlisting">
+                    <!-- <div class="sfsi_prem_cmn_rowlisting">
 
                         <span>
 
@@ -535,7 +553,7 @@ $option1['sfsi_instagram_display']     = (isset($option1['sfsi_instagram_display
 
                         <span class="sfsicls_prem_text">WhatsApp or Phone</span>
 
-                    </div>
+                    </div> -->
 
                     <div class="sfsi_prem_cmn_rowlisting">
 

@@ -1,8 +1,8 @@
 <?php
 namespace FLCacheClear;
 class ACF {
-	var $name = 'Advanced Custom Fields';
-	var $url  = 'https://wordpress.org/plugins/advanced-custom-fields/';
+	var $name    = 'Advanced Custom Fields';
+	var $url     = 'https://wordpress.org/plugins/advanced-custom-fields/';
 	var $actions = array( 'admin_init' );
 
 	function run() {

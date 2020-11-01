@@ -790,7 +790,7 @@
   }
 }, {
   "Cabin": {
-    "variants": ["regular", "italic", "500", "500italic", "600", "600italic", "700", "700italic"],
+    "variants": ["regular", "500", "600", "700", "italic", "500italic", "600italic", "700italic"],
     "fallback": "sans-serif"
   }
 }, {
@@ -1069,6 +1069,11 @@
     "fallback": "cursive"
   }
 }, {
+  "Commissioner": {
+    "variants": ["100", "200", "300", "regular", "500", "600", "700", "800", "900"],
+    "fallback": "sans-serif"
+  }
+}, {
   "Concert One": {
     "variants": ["regular"],
     "fallback": "sans-serif"
@@ -1200,7 +1205,7 @@
   }
 }, {
   "Cuprum": {
-    "variants": ["regular", "italic", "700", "700italic"],
+    "variants": ["regular", "500", "600", "700", "italic", "500italic", "600italic", "700italic"],
     "fallback": "sans-serif"
   }
 }, {
@@ -1340,7 +1345,7 @@
   }
 }, {
   "Domine": {
-    "variants": ["regular", "700"],
+    "variants": ["regular", "500", "600", "700"],
     "fallback": "serif"
   }
 }, {
@@ -1862,6 +1867,11 @@
   "Grand Hotel": {
     "variants": ["regular"],
     "fallback": "cursive"
+  }
+}, {
+  "Grandstander": {
+    "variants": ["100", "200", "300", "regular", "500", "600", "700", "800", "900", "100italic", "200italic", "300italic", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
+    "fallback": "sans-serif"
   }
 }, {
   "Gravitas One": {
@@ -2449,6 +2459,11 @@
     "fallback": "sans-serif"
   }
 }, {
+  "Kufam": {
+    "variants": ["regular", "500", "600", "700", "800", "900", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
+    "fallback": "sans-serif"
+  }
+}, {
   "Kulim Park": {
     "variants": ["200", "200italic", "300", "300italic", "regular", "italic", "600", "600italic", "700", "700italic"],
     "fallback": "sans-serif"
@@ -2461,6 +2476,11 @@
 }, {
   "Kumar One Outline": {
     "variants": ["regular"],
+    "fallback": "sans-serif"
+  }
+}, {
+  "Kumbh Sans": {
+    "variants": ["300", "regular", "700"],
     "fallback": "sans-serif"
   }
 }, {
@@ -2650,7 +2670,7 @@
   }
 }, {
   "Literata": {
-    "variants": ["regular", "500", "600", "700", "italic", "500italic", "600italic", "700italic"],
+    "variants": ["200", "300", "regular", "500", "600", "700", "800", "900", "200italic", "300italic", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
     "fallback": "serif"
   }
 }, {
@@ -3634,6 +3654,11 @@
     "fallback": "sans-serif"
   }
 }, {
+  "Piazzolla": {
+    "variants": ["100", "200", "300", "regular", "500", "600", "700", "800", "900", "100italic", "200italic", "300italic", "italic", "500italic", "600italic", "700italic", "800italic", "900italic"],
+    "fallback": "serif"
+  }
+}, {
   "Piedra": {
     "variants": ["regular"],
     "fallback": "sans-serif"
@@ -3925,7 +3950,7 @@
   }
 }, {
   "Red Rose": {
-    "variants": ["300", "regular", "700"],
+    "variants": ["300", "regular", "500", "600", "700"],
     "fallback": "sans-serif"
   }
 }, {
@@ -4156,6 +4181,11 @@
 }, {
   "Sansita": {
     "variants": ["regular", "italic", "700", "700italic", "800", "800italic", "900", "900italic"],
+    "fallback": "sans-serif"
+  }
+}, {
+  "Sansita Swashed": {
+    "variants": ["300", "regular", "500", "600", "700", "800", "900"],
     "fallback": "sans-serif"
   }
 }, {
@@ -4601,6 +4631,11 @@
 }, {
   "Syncopate": {
     "variants": ["regular", "700"],
+    "fallback": "sans-serif"
+  }
+}, {
+  "Syne": {
+    "variants": ["regular", "500", "600", "700", "800"],
     "fallback": "sans-serif"
   }
 }, {

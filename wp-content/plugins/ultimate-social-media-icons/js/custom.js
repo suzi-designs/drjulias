@@ -423,6 +423,13 @@ function sfsi_widget_set(){
     });
 }
 
+SFSI(window).load(function(e) {
+    SFSI('.sfsi_pinterest_sm_click').on('click touchstart', function() {
+        console.log('dsfdsfdsf');
+        sfsi_pinterest_modal_images(e);
+    });
+});
+
 function sfsi_pinterest_modal_images(event,url,title) {
     console.log(event);
     event && event.preventDefault();

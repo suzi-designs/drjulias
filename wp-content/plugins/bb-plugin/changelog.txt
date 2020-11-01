@@ -1,3 +1,51 @@
+<h4>2.4.0.6</h4> - 10/12/2020</h4>
+<strong>Hot Fix</strong>
+<ul>
+	<li>Fixed PHP notice that appears when dropping a Menu module on the page (Issue #775)</li>
+	<li>Fixed Callout modules not working in Pre-Built Rows (Issue #767)</li>
+	<li>Fixed importer line break issue with imported css/js in layouts (Issue #758)</li>
+	<li>Fixed fatal on Flywheel Cloud hosting when you have Lite installed and then activate a Premium version (Issue #770)</li>
+</ul>
+
+<h4>2.4.0.5</h4> - 09/28/2020</h4>
+<strong>Hot Fix</strong>
+<ul>
+	<li>Button Module: Fix lightbox not working if ID specified in module settings</li>
+	<li>Callout Module: fix links not working on icons</li>
+	<li>Login Module: Make strings translateable</li>
+	<li>Photo Module & Callout Module: Fix cropping hanging with unreachable URLs</li>
+	<li>Photo Module: new filter <code>fl_builder_photo_noimage</code></li>
+	<li>Post Carousel Module: Fix equal height issue on some themes</li>
+	<li>Fix Content Panel button animation</li>
+	<li>Fix Themer field connection button not showing in TwentyTwenty theme</li>
+	<li>Fix layout shortcode CSS issue</li>
+	<li>Fix fatal error for KeyCDN Cache Enabler users</li>
+	<li>WooCommerce Product Filters Add-on - fix conflict</li>
+	<li>Add tiptip a dependency for admin JS</li>
+</ul>
+
+<h4>2.4.0.4 - 09/15/2020</h4>
+<strong>Hot Fix</strong>
+<ul>
+	<li>Fixed UI CSS issues</li>
+</ul>
+
+<h4>2.4.0.3 - 09/14/2020</h4>
+<strong>Hot Fix</strong>
+<ul>
+	<li>Added pagination compatibility with Yoast SEO when category prefix is removed</li>
+	<li>Fixed WordPress not redirecting Post URLs that do not exist when BB is active</li>
+	<li>Fixed button group text hover global style not working for focus</li>
+	<li>Fixed one.com detection on Settings page</li>
+	<li>Fixed limit being bypassed on repeater fields</li>
+	<li>Fixed undefined offset with <code>wp_print_styles</code></li>
+	<li>Fixed Responsive Preview due to a bug in Chrome. Bug detailed here: https://bugs.chromium.org/p/chromium/issues/detail?id=843887</li>
+	<li>Fixed JS error when using Vimeo video in a row background when audio is enabled</li>
+	<li>Fixed Callout Module Icon links not working</li>
+	<li>Fixed Posts Module buttons being broken when using jQuery 3.5.1</li>
+	<li>Fixed compatibility with WordPress versions below 5.2 and ClassicPress</li>
+</ul>
+
 <h4>2.4.0.2 - 08/24/2020</h4>
 <strong>Hot Fix</strong>
 <ul>
@@ -21,7 +69,7 @@
 	<li>Fixed PHP warning when using layout shortcodes.</li>
 	<li>Fixed ACF issue where CSS was not being purged after updating ACF fields.</li>
 	<li>Fixed default settings not being used in Responsive Editing and Preview when Responsive settings in Previews is set to No.</li>
-	<li>Fixed lazy loading isues in post-slider and content-slider modules.</li>
+	<li>Fixed lazy loading issues in post slider and contentslider modules.</li>
 	<li>Includes all fixes from 2.3.2.8</li>
 </ul>
 

@@ -193,6 +193,7 @@ ul.icn_listing li .tb_4_ck {
 .tab1 ul.icn_listing li .sfsicls_wechat,
 .tab1 ul.icn_listing li .sfsicls_weibo,
 .sfsicls_linkdin,
+.sfsicls_whatsapp,
 .tab1 ul.icn_listing li .sfsicls_pinterest,
 .tab1 ul.icn_listing li .sfsicls_rs_s,
 .tab1 ul.icn_listing li .sfsicls_share,
@@ -256,6 +257,9 @@ ul.icn_listing li .tb_4_ck {
 .tab1 ul.icn_listing li .sfsicls_linkdin {
     background-position: 0 -548px;
     color: #1e88c9;
+}
+.tab1 ul.icn_listing li .sfsicls_whatsapp {
+    background-position: 0 -929px;
 }
 .tab1 ul.icn_listing li .sfsicls_pinterest {
     background-position: 0 -623px;
@@ -351,7 +355,9 @@ ul.icn_listing li .right_info a {
 .tab2 .row h2.sfsicls_rs_s,
 .tab2 .row h2.sfsicls_share,
 .tab2 .row h2.sfsicls_twt,
-.tab2 .row h2.sfsicls_utube {
+.tab2 .row h2.sfsicls_utube,
+.tab2 .row h2.sfsicls_whatsapp
+ {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     padding: 0 0 0 70px;
     margin: 15px 0 7px 21px;
@@ -408,6 +414,10 @@ ul.icn_listing li .right_info a {
 .tab2 .row h2.sfsicls_linkdin {
     background-position: 0 -548px;
     color: #1e88c9;
+    width: 100%;
+}
+.tab2 .row h2.sfsicls_whatsapp {
+    background-position: 0 -929px;
     width: 100%;
 }
 .tab2 .row h2.sfsicls_pinterest {
@@ -717,6 +727,23 @@ ul.tab_2_email_sec li .radio {
 .icns_tab_3 .row_15_17,
 .icns_tab_3 .row_16_17,
 
+.icns_tab_3 .row_1_19,
+.icns_tab_3 .row_2_19,
+.icns_tab_3 .row_3_19,
+.icns_tab_3 .row_4_19,
+.icns_tab_3 .row_5_19,
+.icns_tab_3 .row_6_19,
+.icns_tab_3 .row_7_19,
+.icns_tab_3 .row_8_19,
+.icns_tab_3 .row_9_19,
+.icns_tab_3 .row_10_19,
+.icns_tab_3 .row_11_19,
+.icns_tab_3 .row_12_19,
+.icns_tab_3 .row_13_19,
+.icns_tab_3 .row_14_19,
+.icns_tab_3 .row_15_19,
+.icns_tab_3 .row_16_19,
+
 .icns_tab_3 .row_1_18,
 .icns_tab_3 .row_2_18,
 .icns_tab_3 .row_3_18,
@@ -743,792 +770,840 @@ ul.tab_2_email_sec li .radio {
     margin: 0 4px 0 0;
 }
 .icns_tab_3 .row_1_1 {
-    background-position: -1px 0;
+    background-position: -7px 0;
 }
 .icns_tab_3 .row_1_2 {
-    background-position: -60px 0;
+    background-position: -65px 0;
 }
 .icns_tab_3 .row_1_3 {
-    background-position: -118px 0;
+    background-position: -123px 0;
 }
 .icns_tab_3 .row_1_4 {
-    background-position: -176px 0;
+    background-position: -181px 0;
 }
 .icns_tab_3 .row_1_5 {
-    background-position: -235px 0;
+    background-position: -240px 0;
 }
 .icns_tab_3 .row_1_6 {
-    background-position: -293px 0;
+    background-position: -297px 0;
 }
 .icns_tab_3 .row_1_7 {
-    background-position: -350px 0;
+    background-position: -356px 0;
 }
 .icns_tab_3 .row_1_8 {
-    background-position: -409px 0;
+    background-position: -415px 0;
 }
 .icns_tab_3 .row_1_9 {
-    background-position: -467px 0;
+    background-position: -473px 0;
 }
 .icns_tab_3 .row_1_10 {
-    background-position: -526px 0;
+    background-position: -532px 0;
 }
 .icns_tab_3 .row_1_11 {
-    background-position: -711px 0;
+    background-position: -717px 0;
 }
 
 .icns_tab_3 .row_1_14 {
-    background-position: -773px 0;
+    background-position: -778px 0;
 }
 .icns_tab_3 .row_1_15 {
-    background-position: -838px 0;
+    background-position: -845px 0;
 }
 .icns_tab_3 .row_1_16 {
-    background-position: -909px 0;
+    background-position: -917px 0;
 }
 .icns_tab_3 .row_1_17 {
-    background-position: -977px 0;
+    background-position: -982px 0;
 }
 .icns_tab_3 .row_1_18 {
     background: url(../images/icons_theme/default/default_wechat.png) no-repeat;
     background-size: contain;
-}.icns_tab_3 .row_2_1 {
-    background-position: 0 -74px;
+}
+.icns_tab_3 .row_1_19 {
+    background-position: -1046px 0;
+}
+.icns_tab_3 .row_2_1 {
+    background-position: -7px -74px;
 }
 .icns_tab_3 .row_2_2 {
-    background-position: -60px -74px;
+    background-position: -65px -74px;
 }
 .icns_tab_3 .row_2_3 {
-    background-position: -118px -74px;
+    background-position: -123px -74px;
 }
 .icns_tab_3 .row_2_4 {
-    background-position: -176px -74px;
+    background-position: -181px -74px;
 }
 .icns_tab_3 .row_2_5 {
-    background-position: -235px -74px;
+    background-position: -240px -74px;
 }
 .icns_tab_3 .row_2_6 {
-    background-position: -293px -74px;
+    background-position: -297px -74px;
 }
 .icns_tab_3 .row_2_7 {
-    background-position: -350px -74px;
+    background-position: -356px -74px;
 }
 .icns_tab_3 .row_2_8 {
-    background-position: -409px -74px;
+    background-position: -415px -74px;
 }
 .icns_tab_3 .row_2_9 {
-    background-position: -467px -74px;
+    background-position: -473px -74px;
 }
 .icns_tab_3 .row_2_10 {
-    background-position: -526px -74px;
+    background-position: -532px -74px;
 }
 .icns_tab_3 .row_2_11 {
-    background-position: -711px -74px;
+    background-position: -717px -74px;
 }
 .icns_tab_3 .row_2_14 {
-    background-position: -773px -74px;
+    background-position: -778px -74px;
 }
 .icns_tab_3 .row_2_15 {
-    background-position: -838px -74px;
+    background-position: -845px -74px;
 }
 .icns_tab_3 .row_2_16 {
-    background-position: -909px -74px;
+    background-position: -917px -74px;
 }
 .icns_tab_3 .row_2_17 {
-    background-position: -977px -74px;
+    background-position: -982px -74px;
 }
 .icns_tab_3 .row_2_18 {
     background: url(../images/icons_theme/flat/flat_wechat.png) no-repeat;
     background-size: contain;
 }
+.icns_tab_3 .row_2_19 {
+    background-position: -1046px -74px;
+}
 .icns_tab_3 .row_3_1 {
-    background-position: 0 -146px;
+    background-position: -7px -146px;
 }
 .icns_tab_3 .row_3_2 {
-    background-position: -60px -146px;
+    background-position: -65px -146px;
 }
 .icns_tab_3 .row_3_3 {
-    background-position: -118px -146px;
+    background-position: -123px -146px;
 }
 .icns_tab_3 .row_3_4 {
-    background-position: -176px -146px;
+    background-position: -181px -146px;
 }
 .icns_tab_3 .row_3_5 {
-    background-position: -235px -146px;
+    background-position: -240px -146px;
 }
 .icns_tab_3 .row_3_6 {
-    background-position: -293px -146px;
+    background-position: -297px -146px;
 }
 .icns_tab_3 .row_3_7 {
-    background-position: -350px -146px;
+    background-position: -356px -146px;
 }
 .icns_tab_3 .row_3_8 {
-    background-position: -409px -146px;
+    background-position: -415px -146px;
 }
 .icns_tab_3 .row_3_9 {
-    background-position: -467px -146px;
+    background-position: -473px -146px;
 }
 .icns_tab_3 .row_3_10 {
-    background-position: -526px -146px;
+    background-position: -532px -146px;
 }
 .icns_tab_3 .row_3_11 {
-    background-position: -711px -147px;
+    background-position: -717px -147px;
 }
 .icns_tab_3 .row_3_14 {
-    background-position: -773px -147px;
+    background-position: -778px -147px;
 }
 .icns_tab_3 .row_3_15 {
-    background-position: -838px -147px;
+    background-position: -845px -147px;
 }
 .icns_tab_3 .row_3_16 {
-    background-position: -909px -147px;
+    background-position: -917px -147px;
 }
 .icns_tab_3 .row_3_17 {
-    background-position: -977px -147px;
+    background-position: -982px -147px;
 }
 .icns_tab_3 .row_3_18 {
     background: url(../images/icons_theme/thin/thin_wechat.png) no-repeat;
     background-size: contain;
 }
+.icns_tab_3 .row_3_19 {
+    background-position: -1046px -147px;
+}
 .icns_tab_3 .row_4_1 {
-    background-position: 0 -222px;
+    background-position: -7px -222px;
 }
 .icns_tab_3 .row_4_2 {
-    background-position: -60px -222px;
+    background-position: -65px -222px;
 }
 .icns_tab_3 .row_4_3 {
-    background-position: -118px -222px;
+    background-position: -123px -222px;
 }
 .icns_tab_3 .row_4_4 {
-    background-position: -176px -222px;
+    background-position: -181px -222px;
 }
 .icns_tab_3 .row_4_5 {
-    background-position: -235px -222px;
+    background-position: -240px -222px;
 }
 .icns_tab_3 .row_4_6 {
-    background-position: -293px -222px;
+    background-position: -297px -222px;
 }
 .icns_tab_3 .row_4_7 {
-    background-position: -350px -222px;
+    background-position: -356px -222px;
 }
 .icns_tab_3 .row_4_8 {
-    background-position: -409px -222px;
+    background-position: -415px -222px;
 }
 .icns_tab_3 .row_4_9 {
-    background-position: -467px -222px;
+    background-position: -473px -222px;
 }
 .icns_tab_3 .row_4_10 {
-    background-position: -526px -222px;
+    background-position: -532px -222px;
 }
 .icns_tab_3 .row_4_11 {
-    background-position: -711px -222px;
+    background-position: -717px -222px;
 }
 .icns_tab_3 .row_4_14 {
-    background-position: -773px -222px;
+    background-position: -778px -222px;
 }
 .icns_tab_3 .row_4_15 {
-    background-position: -838px -222px;
+    background-position: -845px -222px;
 }
 .icns_tab_3 .row_4_16 {
-    background-position: -909px -222px;
+    background-position: -917px -222px;
 }
 .icns_tab_3 .row_4_17 {
-    background-position: -977px -222px;
+    background-position: -982px -222px;
 }
 .icns_tab_3 .row_4_18 {
     background: url(../images/icons_theme/cute/cute_wechat.png) no-repeat;
     background-size: contain;
 }
+.icns_tab_3 .row_4_19 {
+    background-position: -1046px -222px;
+}
 .icns_tab_3 .row_5_1 {
-    background-position: 0 -296px;
+    background-position: -7px -296px;
 }
 .icns_tab_3 .row_5_2 {
-    background-position: -60px -296px;
+    background-position: -65px -296px;
 }
 .icns_tab_3 .row_5_3 {
-    background-position: -118px -296px;
+    background-position: -123px -296px;
 }
 .icns_tab_3 .row_5_4 {
-    background-position: -176px -296px;
+    background-position: -181px -296px;
 }
 .icns_tab_3 .row_5_5 {
-    background-position: -235px -296px;
+    background-position: -240px -296px;
 }
 .icns_tab_3 .row_5_6 {
-    background-position: -293px -296px;
+    background-position: -297px -296px;
 }
 .icns_tab_3 .row_5_7 {
-    background-position: -350px -296px;
+    background-position: -356px -296px;
 }
 .icns_tab_3 .row_5_8 {
-    background-position: -409px -296px;
+    background-position: -415px -296px;
 }
 .icns_tab_3 .row_5_9 {
-    background-position: -467px -296px;
+    background-position: -473px -296px;
 }
 .icns_tab_3 .row_5_10 {
-    background-position: -526px -296px;
+    background-position: -532px -296px;
 }
 .icns_tab_3 .row_5_11 {
-    background-position: -711px -296px;
+    background-position: -717px -296px;
 }
 .icns_tab_3 .row_5_14 {
-    background-position: -773px -296px;
+    background-position: -778px -296px;
 }
 .icns_tab_3 .row_5_15 {
-    background-position: -838px -296px;
+    background-position: -845px -296px;
 }
 .icns_tab_3 .row_5_16 {
-    background-position: -909px -296px;
+    background-position: -917px -296px;
 }
 .icns_tab_3 .row_5_17 {
-    background-position: -977px -296px;
+    background-position: -982px -296px;
 }
 .icns_tab_3 .row_5_18 {
     background: url(../images/icons_theme/cubes/cubes_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_5_19 {
+    background-position: -1046px -296px;
+}
 .icns_tab_3 .row_6_1 {
-    background-position: 0 -370px;
+    background-position: -7px -370px;
 }
 .icns_tab_3 .row_6_2 {
-    background-position: -60px -370px;
+    background-position: -65px -370px;
 }
 .icns_tab_3 .row_6_3 {
-    background-position: -118px -370px;
+    background-position: -123px -370px;
 }
 .icns_tab_3 .row_6_4 {
-    background-position: -176px -370px;
+    background-position: -181px -370px;
 }
 .icns_tab_3 .row_6_5 {
-    background-position: -235px -370px;
+    background-position: -240px -370px;
 }
 .icns_tab_3 .row_6_6 {
-    background-position: -293px -370px;
+    background-position: -297px -370px;
 }
 .icns_tab_3 .row_6_7 {
-    background-position: -350px -370px;
+    background-position: -356px -370px;
 }
 .icns_tab_3 .row_6_8 {
-    background-position: -409px -370px;
+    background-position: -415px -370px;
 }
 .icns_tab_3 .row_6_9 {
     background-position: -468px -370px;
 }
 .icns_tab_3 .row_6_10 {
-    background-position: -526px -370px;
+    background-position: -532px -370px;
 }
 .icns_tab_3 .row_6_11 {
-    background-position: -711px -370px;
+    background-position: -717px -370px;
 }
 .icns_tab_3 .row_6_14 {
-    background-position: -773px -370px;
+    background-position: -778px -370px;
 }
 .icns_tab_3 .row_6_15 {
-    background-position: -838px -370px;
+    background-position: -845px -370px;
 }
 .icns_tab_3 .row_6_16 {
-    background-position: -909px -370px;
+    background-position: -917px -370px;
 }
 .icns_tab_3 .row_6_17 {
-    background-position: -977px -370px;
+    background-position: -982px -370px;
 }
 .icns_tab_3 .row_6_18 {
     background: url(../images/icons_theme/chrome_blue/chrome_blue_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_6_19 {
+    background-position: -1046px -370px;
+}
 .icns_tab_3 .row_7_1 {
-    background-position: 0 -444px;
+    background-position: -7px -444px;
 }
 .icns_tab_3 .row_7_2 {
-    background-position: -60px -444px;
+    background-position: -65px -444px;
 }
 .icns_tab_3 .row_7_3 {
-    background-position: -118px -444px;
+    background-position: -123px -444px;
 }
 .icns_tab_3 .row_7_4 {
-    background-position: -176px -444px;
+    background-position: -181px -444px;
 }
 .icns_tab_3 .row_7_5 {
-    background-position: -235px -444px;
+    background-position: -240px -444px;
 }
 .icns_tab_3 .row_7_6 {
-    background-position: -293px -444px;
+    background-position: -297px -444px;
 }
 .icns_tab_3 .row_7_7 {
-    background-position: -350px -444px;
+    background-position: -356px -444px;
 }
 .icns_tab_3 .row_7_8 {
-    background-position: -409px -444px;
+    background-position: -415px -444px;
 }
 .icns_tab_3 .row_7_9 {
     background-position: -466px -444px;
 }
 .icns_tab_3 .row_7_10 {
-    background-position: -526px -444px;
+    background-position: -532px -444px;
 }
 .icns_tab_3 .row_7_11 {
-    background-position: -711px -444px;
+    background-position: -717px -444px;
 }
 .icns_tab_3 .row_7_14 {
-    background-position: -773px -444px;
+    background-position: -778px -444px;
 }
 .icns_tab_3 .row_7_15 {
-    background-position: -838px -444px;
+    background-position: -845px -444px;
 }
 .icns_tab_3 .row_7_16 {
-    background-position: -909px -444px;
+    background-position: -917px -444px;
 }
 .icns_tab_3 .row_7_17 {
-    background-position: -977px -444px;
+    background-position: -982px -444px;
 }
 .icns_tab_3 .row_7_18 {
     background: url(../images/icons_theme/chrome_grey/chrome_grey_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_7_19 {
+    background-position: -1046px -444px;
+}
 .icns_tab_3 .row_8_1 {
-    background-position: 0 -518px;
+    background-position: -7px -518px;
 }
 .icns_tab_3 .row_8_2 {
-    background-position: -60px -518px;
+    background-position: -65px -518px;
 }
 .icns_tab_3 .row_8_3 {
-    background-position: -118px -518px;
+    background-position: -123px -518px;
 }
 .icns_tab_3 .row_8_4 {
-    background-position: -176px -518px;
+    background-position: -181px -518px;
 }
 .icns_tab_3 .row_8_5 {
-    background-position: -235px -518px;
+    background-position: -240px -518px;
 }
 .icns_tab_3 .row_8_6 {
-    background-position: -293px -518px;
+    background-position: -297px -518px;
 }
 .icns_tab_3 .row_8_7 {
-    background-position: -350px -518px;
+    background-position: -356px -518px;
 }
 .icns_tab_3 .row_8_8 {
-    background-position: -409px -518px;
+    background-position: -415px -518px;
 }
 .icns_tab_3 .row_8_9 {
-    background-position: -467px -518px;
+    background-position: -473px -518px;
 }
 .icns_tab_3 .row_8_10 {
-    background-position: -526px -518px;
+    background-position: -532px -518px;
 }
 .icns_tab_3 .row_8_11 {
-    background-position: -711px -518px;
+    background-position: -717px -518px;
 }
 .icns_tab_3 .row_8_14 {
-    background-position: -773px -518px;
+    background-position: -778px -518px;
 }
 .icns_tab_3 .row_8_15 {
-    background-position: -838px -518px;
+    background-position: -845px -518px;
 }
 .icns_tab_3 .row_8_16 {
-    background-position: -909px -518px;
+    background-position: -917px -518px;
 }
 .icns_tab_3 .row_8_17 {
-    background-position: -977px -518px;
+    background-position: -982px -518px;
 }
 .icns_tab_3 .row_8_18 {
     background: url(../images/icons_theme/splash/splash_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_8_19 {
+    background-position: -1046px -518px;
+}
 .icns_tab_3 .row_9_1 {
-    background-position: 0 -592px;
+    background-position: -7px -592px;
 }
 .icns_tab_3 .row_9_2 {
-    background-position: -60px -592px;
+    background-position: -65px -592px;
 }
 .icns_tab_3 .row_9_3 {
-    background-position: -118px -592px;
+    background-position: -123px -592px;
 }
 .icns_tab_3 .row_9_4 {
-    background-position: -176px -592px;
+    background-position: -181px -592px;
 }
 .icns_tab_3 .row_9_5 {
-    background-position: -235px -592px;
+    background-position: -240px -592px;
 }
 .icns_tab_3 .row_9_6 {
-    background-position: -293px -592px;
+    background-position: -297px -592px;
 }
 .icns_tab_3 .row_9_7 {
-    background-position: -350px -592px;
+    background-position: -356px -592px;
 }
 .icns_tab_3 .row_9_8 {
-    background-position: -409px -592px;
+    background-position: -415px -592px;
 }
 .icns_tab_3 .row_9_9 {
-    background-position: -467px -592px;
+    background-position: -473px -592px;
 }
 .icns_tab_3 .row_9_10 {
-    background-position: -526px -592px;
+    background-position: -532px -592px;
 }
 .icns_tab_3 .row_9_11 {
-    background-position: -711px -592px;
+    background-position: -717px -592px;
 }
 .icns_tab_3 .row_9_14 {
-    background-position: -773px -592px;
+    background-position: -778px -592px;
 }
 .icns_tab_3 .row_9_15 {
-    background-position: -838px -592px;
+    background-position: -845px -592px;
 }
 .icns_tab_3 .row_9_16 {
-    background-position: -909px -592px;
+    background-position: -917px -592px;
 }
 .icns_tab_3 .row_9_17 {
-    background-position: -977px -592px;
+    background-position: -982px -592px;
 }
 .icns_tab_3 .row_9_18 {
     background: url(../images/icons_theme/orange/orange_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_9_19 {
+    background-position: -1046px -592px;
+}
 .icns_tab_3 .row_10_1 {
-    background-position: 0 -666px;
+    background-position: -7px -666px;
 }
 .icns_tab_3 .row_10_2 {
-    background-position: -60px -666px;
+    background-position: -65px -666px;
 }
 .icns_tab_3 .row_10_3 {
-    background-position: -118px -666px;
+    background-position: -123px -666px;
 }
 .icns_tab_3 .row_10_4 {
-    background-position: -176px -666px;
+    background-position: -181px -666px;
 }
 .icns_tab_3 .row_10_5 {
-    background-position: -235px -666px;
+    background-position: -240px -666px;
 }
 .icns_tab_3 .row_10_6 {
-    background-position: -293px -666px;
+    background-position: -297px -666px;
 }
 .icns_tab_3 .row_10_7 {
-    background-position: -350px -666px;
+    background-position: -356px -666px;
 }
 .icns_tab_3 .row_10_8 {
-    background-position: -409px -666px;
+    background-position: -415px -666px;
 }
 .icns_tab_3 .row_10_9 {
-    background-position: -467px -666px;
+    background-position: -473px -666px;
 }
 .icns_tab_3 .row_10_10 {
-    background-position: -526px -666px;
+    background-position: -532px -666px;
 }
 .icns_tab_3 .row_10_11 {
-    background-position: -711px -666px;
+    background-position: -717px -666px;
 }
 .icns_tab_3 .row_10_14 {
-    background-position: -773px -666px;
+    background-position: -778px -666px;
 }
 .icns_tab_3 .row_10_15 {
-    background-position: -838px -666px;
+    background-position: -845px -666px;
 }
 .icns_tab_3 .row_10_16 {
-    background-position: -909px -666px;
+    background-position: -917px -666px;
 }
 .icns_tab_3 .row_10_17 {
-    background-position: -977px -666px;
+    background-position: -982px -666px;
 }
 .icns_tab_3 .row_10_18 {
     background: url(../images/icons_theme/crystal/crystal_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_10_19 {
+    background-position: -1046px -666px;
+}
 .icns_tab_3 .row_11_1 {
-    background-position: 0 -740px;
+    background-position: -7px -740px;
 }
 .icns_tab_3 .row_11_2 {
-    background-position: -60px -740px;
+    background-position: -65px -740px;
 }
 .icns_tab_3 .row_11_3 {
-    background-position: -118px -740px;
+    background-position: -123px -740px;
 }
 .icns_tab_3 .row_11_4 {
-    background-position: -176px -740px;
+    background-position: -181px -740px;
 }
 .icns_tab_3 .row_11_5 {
-    background-position: -235px -740px;
+    background-position: -240px -740px;
 }
 .icns_tab_3 .row_11_6 {
-    background-position: -293px -740px;
+    background-position: -297px -740px;
 }
 .icns_tab_3 .row_11_7 {
-    background-position: -350px -740px;
+    background-position: -356px -740px;
 }
 .icns_tab_3 .row_11_8 {
-    background-position: -409px -740px;
+    background-position: -415px -740px;
 }
 .icns_tab_3 .row_11_9 {
-    background-position: -467px -740px;
+    background-position: -473px -740px;
 }
 .icns_tab_3 .row_11_10 {
-    background-position: -526px -740px;
+    background-position: -532px -740px;
 }
 .icns_tab_3 .row_11_11 {
-    background-position: -711px -740px;
+    background-position: -717px -740px;
 }
 .icns_tab_3 .row_11_14 {
-    background-position: -773px -740px;
+    background-position: -778px -740px;
 }
 .icns_tab_3 .row_11_15 {
-    background-position: -838px -740px;
+    background-position: -845px -740px;
 }
 .icns_tab_3 .row_11_16 {
-    background-position: -909px -740px;
+    background-position: -917px -740px;
 }
 .icns_tab_3 .row_11_17 {
-    background-position: -977px -740px;
+    background-position: -982px -740px;
 }
 .icns_tab_3 .row_11_18 {
     background: url(../images/icons_theme/glossy/glossy_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_11_19 {
+    background-position: -1046px -740px;
+}
 .icns_tab_3 .row_12_1 {
-    background-position: 0 -814px;
+    background-position: -7px -814px;
 }
 .icns_tab_3 .row_12_2 {
-    background-position: -60px -814px;
+    background-position: -65px -814px;
 }
 .icns_tab_3 .row_12_3 {
-    background-position: -118px -814px;
+    background-position: -123px -814px;
 }
 .icns_tab_3 .row_12_4 {
-    background-position: -176px -814px;
+    background-position: -181px -814px;
 }
 .icns_tab_3 .row_12_5 {
-    background-position: -235px -814px;
+    background-position: -240px -814px;
 }
 .icns_tab_3 .row_12_6 {
-    background-position: -293px -814px;
+    background-position: -297px -814px;
 }
 .icns_tab_3 .row_12_7 {
-    background-position: -350px -814px;
+    background-position: -356px -814px;
 }
 .icns_tab_3 .row_12_8 {
-    background-position: -409px -814px;
+    background-position: -415px -814px;
 }
 .icns_tab_3 .row_12_9 {
-    background-position: -467px -814px;
+    background-position: -473px -814px;
 }
 .icns_tab_3 .row_12_10 {
-    background-position: -526px -814px;
+    background-position: -532px -814px;
 }
 .icns_tab_3 .row_12_11 {
-    background-position: -711px -814px;
+    background-position: -717px -814px;
 }
 .icns_tab_3 .row_12_14 {
-    background-position: -773px -814px;
+    background-position: -778px -814px;
 }
 .icns_tab_3 .row_12_15 {
-    background-position: -838px -814px;
+    background-position: -845px -814px;
 }
 .icns_tab_3 .row_12_16 {
-    background-position: -909px -814px;
+    background-position: -917px -814px;
 }
 .icns_tab_3 .row_12_17 {
-    background-position: -977px -814px;
+    background-position: -982px -814px;
 }
 .icns_tab_3 .row_12_18 {
     background: url(../images/icons_theme/black/black_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_12_19 {
+    background-position: -1046px -814px;
+}
 .icns_tab_3 .row_13_1 {
-    background-position: 0 -888px;
+    background-position: -7px -888px;
 }
 .icns_tab_3 .row_13_2 {
-    background-position: -60px -888px;
+    background-position: -65px -888px;
 }
 .icns_tab_3 .row_13_3 {
-    background-position: -118px -888px;
+    background-position: -123px -888px;
 }
 .icns_tab_3 .row_13_4 {
-    background-position: -176px -888px;
+    background-position: -181px -888px;
 }
 .icns_tab_3 .row_13_5 {
-    background-position: -235px -888px;
+    background-position: -240px -888px;
 }
 .icns_tab_3 .row_13_6 {
-    background-position: -293px -888px;
+    background-position: -297px -888px;
 }
 .icns_tab_3 .row_13_7 {
-    background-position: -350px -888px;
+    background-position: -356px -888px;
 }
 .icns_tab_3 .row_13_8 {
-    background-position: -409px -888px;
+    background-position: -415px -888px;
 }
 .icns_tab_3 .row_13_9 {
-    background-position: -467px -888px;
+    background-position: -473px -888px;
 }
 .icns_tab_3 .row_13_10 {
-    background-position: -526px -888px;
+    background-position: -532px -888px;
 }
 .icns_tab_3 .row_13_11 {
-    background-position: -711px -888px;
+    background-position: -717px -888px;
 }
 .icns_tab_3 .row_13_14 {
-    background-position: -773px -888px;
+    background-position: -778px -888px;
 }
 .icns_tab_3 .row_13_15 {
-    background-position: -838px -888px;
+    background-position: -845px -888px;
 }
 .icns_tab_3 .row_13_16 {
-    background-position: -909px -888px;
+    background-position: -917px -888px;
 }
 .icns_tab_3 .row_13_17 {
-    background-position: -977px -888px;
+    background-position: -982px -888px;
 }
 .icns_tab_3 .row_13_18 {
     background: url(../images/icons_theme/silver/silver_wechat.png);
 
     background-size: contain;
 }
+.icns_tab_3 .row_13_19 {
+    background-position: -1046px -888px;
+}
 .icns_tab_3 .row_14_1 {
-    background-position: 0 -962px;
+    background-position: -7px -962px;
 }
 .icns_tab_3 .row_14_2 {
-    background-position: -60px -962px;
+    background-position: -65px -962px;
 }
 .icns_tab_3 .row_14_3 {
-    background-position: -118px -962px;
+    background-position: -123px -962px;
 }
 .icns_tab_3 .row_14_4 {
-    background-position: -176px -962px;
+    background-position: -181px -962px;
 }
 .icns_tab_3 .row_14_5 {
-    background-position: -235px -962px;
+    background-position: -240px -962px;
 }
 .icns_tab_3 .row_14_6 {
-    background-position: -293px -962px;
+    background-position: -297px -962px;
 }
 .icns_tab_3 .row_14_7 {
-    background-position: -350px -962px;
+    background-position: -356px -962px;
 }
 .icns_tab_3 .row_14_8 {
-    background-position: -409px -962px;
+    background-position: -415px -962px;
 }
 .icns_tab_3 .row_14_9 {
-    background-position: -467px -962px;
+    background-position: -473px -962px;
 }
 .icns_tab_3 .row_14_10 {
-    background-position: -526px -962px;
+    background-position: -532px -962px;
 }
 .icns_tab_3 .row_14_11 {
-    background-position: -711px -962px;
+    background-position: -717px -962px;
 }
 .icns_tab_3 .row_14_14 {
-    background-position: -773px -962px;
+    background-position: -778px -962px;
 }
 .icns_tab_3 .row_14_15 {
-    background-position: -838px -962px;
+    background-position: -845px -962px;
 }
 .icns_tab_3 .row_14_16 {
-    background-position: -909px -962px;
+    background-position: -917px -962px;
 }
 .icns_tab_3 .row_14_17 {
-    background-position: -977px -962px;
+    background-position: -982px -962px;
 }
 .icns_tab_3 .row_14_18 {
     background: url(../images/icons_theme/shaded_dark/shaded_dark_wechat.png);
 
     background-size: contain;
 }
+.icns_tab_3 .row_14_19 {
+    background-position: -1046px -962px;
+}
 .icns_tab_3 .row_15_1 {
-    background-position: 0 -1036px;
+    background-position: -7px -1036px;
 }
 .icns_tab_3 .row_15_2 {
-    background-position: -60px -1036px;
+    background-position: -65px -1036px;
 }
 .icns_tab_3 .row_15_3 {
-    background-position: -118px -1036px;
+    background-position: -123px -1036px;
 }
 .icns_tab_3 .row_15_4 {
-    background-position: -176px -1036px;
+    background-position: -181px -1036px;
 }
 .icns_tab_3 .row_15_5 {
-    background-position: -235px -1036px;
+    background-position: -240px -1036px;
 }
 .icns_tab_3 .row_15_6 {
-    background-position: -293px -1036px;
+    background-position: -297px -1036px;
 }
 .icns_tab_3 .row_15_7 {
-    background-position: -350px -1036px;
+    background-position: -356px -1036px;
 }
 .icns_tab_3 .row_15_8 {
-    background-position: -409px -1036px;
+    background-position: -415px -1036px;
 }
 .icns_tab_3 .row_15_9 {
-    background-position: -467px -1036px;
+    background-position: -473px -1036px;
 }
 .icns_tab_3 .row_15_10 {
-    background-position: -526px -1036px;
+    background-position: -532px -1036px;
 }
 .icns_tab_3 .row_15_11 {
-    background-position: -711px -1036px;
+    background-position: -717px -1036px;
 }
 .icns_tab_3 .row_15_14 {
-    background-position: -773px -1036px;
+    background-position: -778px -1036px;
 }
 .icns_tab_3 .row_15_15 {
-    background-position: -838px -1036px;
+    background-position: -845px -1036px;
 }
 .icns_tab_3 .row_15_16 {
-    background-position: -909px -1036px;
+    background-position: -917px -1036px;
 }
 .icns_tab_3 .row_15_17 {
-    background-position: -977px -1036px;
+    background-position: -982px -1036px;
 }
 .icns_tab_3 .row_15_18 {
     background: url(../images/icons_theme/shaded_light/shaded_light_wechat.png);
     background-size: contain;
 }
+.icns_tab_3 .row_15_19 {
+    background-position: -1046px -1036px;
+}
 .icns_tab_3 .row_16_1 {
-    background-position: 0 -1109px;
+    background-position: -7px -1109px;
 }
 .icns_tab_3 .row_16_2 {
-    background-position: -60px -1109px;
+    background-position: -65px -1109px;
 }
 .icns_tab_3 .row_16_3 {
-    background-position: -118px -1109px;
+    background-position: -123px -1109px;
 }
 .icns_tab_3 .row_16_4 {
-    background-position: -176px -1109px;
+    background-position: -181px -1109px;
 }
 .icns_tab_3 .row_16_5 {
-    background-position: -235px -1109px;
+    background-position: -240px -1109px;
 }
 .icns_tab_3 .row_16_6 {
-    background-position: -293px -1109px;
+    background-position: -297px -1109px;
 }
 .icns_tab_3 .row_16_7 {
-    background-position: -350px -1109px;
+    background-position: -356px -1109px;
 }
 .icns_tab_3 .row_16_8 {
-    background-position: -409px -1109px;
+    background-position: -415px -1109px;
 }
 .icns_tab_3 .row_16_9 {
-    background-position: -467px -1109px;
+    background-position: -473px -1109px;
 }
 .icns_tab_3 .row_16_10 {
-    background-position: -526px -1109px;
+    background-position: -532px -1109px;
 }
 .icns_tab_3 .row_16_11 {
-    background-position: -711px -1109px;
+    background-position: -717px -1109px;
 }
 .icns_tab_3 .row_16_14 {
-    background-position: -773px -1109px;
+    background-position: -778px -1109px;
 }
 .icns_tab_3 .row_16_15 {
-    background-position: -838px -1109px;
+    background-position: -845px -1109px;
 }
 .icns_tab_3 .row_16_16 {
-    background-position: -909px -1109px;
+    background-position: -917px -1109px;
 }
 .icns_tab_3 .row_16_17 {
-    background-position: -977px -1109px;
+    background-position: -982px -1109px;
 }
 .icns_tab_3 .row_16_18 {
     background: url(../images/icons_theme/transparent/transparent_wechat.png);
     background-size: contain;
 }
-
+.icns_tab_3 .row_16_19 {
+    background-position: -1046px -1109px;
+}
 .icns_tab_3.sfsi_premium_ad span{
     width: 55px;
     height: 56px;
@@ -2663,7 +2738,7 @@ p.sfsi_prem_plu_desc a {
     float: left;
     margin-bottom: 12px;
     /* width: 550px;*/
-    width: 50%;
+    width: 54%;
     margin-left: 60px;
 }
 
@@ -2671,7 +2746,7 @@ p.sfsi_prem_plu_desc a {
     float: left;
     margin-bottom: 12px;
     /* width: 450px; */
-    width: 40%;
+    width: 35%;
     margin-left: 30px;
 }
 #accordion1 p {
@@ -3144,8 +3219,6 @@ h2.optional {
 }
 .sfsi_mainContainer .checkbox {
     float: left;
-}#accordion .tab9 .sfsi_icn_listing8 li .sfsi_right_info .kckslctn p:first-child {
-    margin-top: 17px !important;
 }
 #accordion .tab9 .sfsi_icn_listing8 li .sfsi_right_info p {
     padding-left: 20px;
@@ -3187,7 +3260,6 @@ h2.optional {
 .tab9 .sfsi_show_via_shortcode .kckslctn,
 .tab9 .sfsi_show_via_afterposts .kckslctn {
     font-size: 15px;
-    margin-top: 5px;
 }
 .tab9 .sfsi_show_via_shortcode .kckslctn h4,
 .tab9 .sfsi_show_via_afterposts .kckslctn h4 {
@@ -4726,4 +4798,12 @@ text-decoration:none!important;
 
 .ui-accordion-header:focus {
     outline: none;
+}
+
+.PostsSettings_section input{
+    margin-top: 3px;
+}
+
+.usually li{
+    font-family: helveticaneue-light;
 }

@@ -1335,6 +1335,18 @@ img.mfp-img {
 }
 
 /* Start Global CSS */
+/***** footer *****/
+
+.suzi-link {
+    font-size: 12px;
+    letter-spacing: .5px; 
+}
+
+.suzi-link:hover, .suzi-link:active {
+    border: none;
+    text-decoration: none;
+}
+
 .cta {
     max-width: 925px; 
     margin: 30px auto;
@@ -1351,7 +1363,7 @@ img.mfp-img {
 
 
 .header-photo img{
- transform: rotate(3deg);
+ transform: rotate(-3deg);
  border: 1px #cdcdcd solid;
  padding: 8px; 
  margin: 30px 0;

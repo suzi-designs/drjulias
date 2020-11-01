@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.2.1
+Version: 2.2.3
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -192,18 +192,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 
 			$pdfprnt_options['plugin_option_version'] = $pdfprnt_plugin_info["Version"];
 			$pdfprnt_options['hide_premium_options'] = array();
-
-			/**
-			 * @deprecated 2.2.1
-			 * @todo Remove after 20.08.2020
-			 */
-			if ( version_compare( $pdfprnt_plugin_info["Version"], '2.2.1' ) <= 0 ) {
-				$pdfprnt_options['use_default_css'] = 'theme' === $pdfprnt_options['use_default_css'] || 1 === $pdfprnt_options['use_default_css'] ? 1 : 0;
-			}
-			/* end todo */
-
 			update_option( 'pdfprnt_options', $pdfprnt_options );
-
 			pdfprnt_plugin_activate();
 		}
 	}
@@ -243,7 +232,8 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'use_custom_css'				=> 0,
 			'custom_css_code'				=> '',
 			'do_shorcodes'					=> 1,
-			'disable_links'					=> 1,
+			'disable_links'					=> 0,
+			'remove_links'					=> 0,
 			'show_print_window'				=> 0,
 			'additional_fonts'				=> 0,
 			'show_title'					=> 1,
@@ -398,6 +388,15 @@ if ( ! function_exists( 'pdfprnt_shortcode' ) ) {
 	}
 }
 
+if ( ! function_exists( 'pdfprnt_shortcode_pagebreak' ) ) {
+	function pdfprnt_shortcode_pagebreak() {
+		if ( isset( $_GET['print'] ) && 'pdf' == $_GET['print'] ) {
+		    return '<div style="page-break-after:always"></div>';
+		}
+		return '';
+	}
+}
+
 /**
  * Add shortcode content
  */
@@ -440,7 +439,7 @@ if ( ! function_exists( 'pdfprnt_shortcode_button_content' ) ) {
             } ) ( jQuery );
         }";
 
-        wp_register_script( 'pdfprnt_bws_shortcode_button', '' );
+        wp_register_script( 'pdfprnt_bws_shortcode_button', '//' );
         wp_enqueue_script( 'pdfprnt_bws_shortcode_button' );
         wp_add_inline_script( 'pdfprnt_bws_shortcode_button', sprintf( $script ) );
 	}
@@ -466,7 +465,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 			$image = sprintf( '<img src="%s" alt="image_%s" title="%s" />',
 				esc_attr( $pdfprnt_options['button_image'][ $button ]['image_src'] ),
 				$button,
-				( ( 'print' == $button ) ? __( 'Print Content', 'pdf-print' ) : __( 'View PDF', 'pdf-print' ) )
+				( ( 'print' == $button ) ? __( 'Print Content', 'pdf-print' ) : ( ( $pdfprnt_options['file_action'] == 'open' ) ? __( 'View PDF', 'pdf-print' ) : __( 'Download PDF', 'pdf-print' ) ) )
 			);
 		} else {
 			$image = '';
@@ -504,7 +503,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 if ( ! function_exists( 'pdfprnt_is_user_role_enabled' ) ) {
 	function pdfprnt_is_user_role_enabled() {
 		global $pdfprnt_options, $current_user;
-		if ( ! is_user_logged_in() ) {
+		if ( ! is_user_logged_in() || empty( $current_user->roles ) ) {
 			return ! empty( $pdfprnt_options['enabled_roles']['unauthorized'] );
 		} else {
 			$role = $current_user->roles[0];
@@ -590,24 +589,26 @@ if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
 				return;
 			}
 
-			global $pdfprnt_is_search_archive;
-			$current_url = set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-			$pdfprnt_is_search_archive = true;
-			$str = '<div class="pdfprnt-buttons pdfprnt-buttons-' . ( ( $is_search ) ? 'search' : 'archive' ) .' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
-			if ( $show_button_pdf ) {
-				$str .= pdfprnt_get_button( 'pdf', $current_url, 'pdf-search' );
-			}
+            if ( $show_button_pdf || $show_button_print ) {
+                global $pdfprnt_is_search_archive;
+                $current_url = set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+                $pdfprnt_is_search_archive = true;
+                $str = '<div class="pdfprnt-buttons pdfprnt-buttons-' . ( ( $is_search ) ? 'search' : 'archive' ) .' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
+                if ( $show_button_pdf ) {
+                    $str .= pdfprnt_get_button( 'pdf', $current_url, 'pdf-search' );
+                }
 
-			if ( $show_button_print ) {
-				$str .= pdfprnt_get_button( 'print', $current_url, 'print-search' );
-			}
-			$str .= '</div>';
-			echo $str;
-			if ( 'loop_start' == $loop_position ) {
-				$pdfprnt_show_archive_start++;
-			} elseif ( 'loop_end' == $loop_position ) {
-				$pdfprnt_show_archive_end++;
-			}
+                if ( $show_button_print ) {
+                    $str .= pdfprnt_get_button( 'print', $current_url, 'print-search' );
+                }
+                $str .= '</div>';
+                echo $str;
+                if ( 'loop_start' == $loop_position ) {
+                    $pdfprnt_show_archive_start++;
+                } elseif ( 'loop_end' == $loop_position ) {
+                    $pdfprnt_show_archive_end++;
+                }
+            }
 		}
 	}
 }
@@ -1044,6 +1045,13 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+                    if ( 1 == $pdfprnt_options['remove_links'] ) {
+                        $p->post_content = preg_replace('~<a\b[^>]*+>|</a\b[^>]*+>~','$2', $p->post_content);
+                        $p->post_content = preg_replace('@((https?://)?([-\w]+\.[-\w\.]+)+\w(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)*)@', '', $p->post_content);
+                    }
+                    if ( 1 == $pdfprnt_options['disable_links'] ) {
+                        $html .= '<style> a {text-decoration: none; color:#000000 !important; } </style>';
+                    }
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
                     $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' , 'multilanguage_switcher') ) );
@@ -1136,6 +1144,13 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+                    if ( 1 == $pdfprnt_options['remove_links'] ) {
+                        $p->post_content = preg_replace('~<a\b[^>]*+>|</a\b[^>]*+>~','$2', $p->post_content);
+                        $p->post_content = preg_replace('@((https?://)?([-\w]+\.[-\w\.]+)+\w(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)*)@', '', $p->post_content);
+                    }
+                    if ( 1 == $pdfprnt_options['disable_links'] ) {
+                        $html .= '<style> a {text-decoration: none; color:#000000 !important; } </style>';
+                    }
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
                     $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_', 'multilanguage_switcher') ) );
@@ -1695,6 +1710,7 @@ add_action( 'admin_menu', 'pdfprnt_add_admin_menu' );
 add_filter( 'query_vars', 'print_vars_callback' );
 
 add_shortcode( 'bws_pdfprint', 'pdfprnt_shortcode' );
+add_shortcode( 'bws_pdfprint_pagebreak', 'pdfprnt_shortcode_pagebreak' );
 /* custom filter for bws button in tinyMCE */
 add_filter( 'bws_shortcode_button_content', 'pdfprnt_shortcode_button_content' );
 

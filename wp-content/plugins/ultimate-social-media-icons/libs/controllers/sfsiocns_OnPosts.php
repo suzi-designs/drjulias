@@ -364,7 +364,7 @@ function sfsi_footer_script()
 					$footer_link .= "</div>";
 					echo $footer_link;
 				} else if (in_array($firstCharacter, array('n', 'o', 'p', 'q', 'r', 's'))) {
-					$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;"><a href="https://www.ultimatelysocial.com/usm-premium/" target="new">Wordpress Social Share Plugin </a> powered by Ultimatelysocial';
+					$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;"><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit_new&utm_medium=banner" target="new">Wordpress Social Share Plugin </a> powered by Ultimatelysocial';
 					$footer_link .= "</div>";
 					echo $footer_link;
 				} else {

@@ -30,6 +30,8 @@ function sfsi_options_updater1()
     $sfsi_instagram_display     = isset($_POST["sfsi_instagram_display"]) ? sanitize_text_field($_POST["sfsi_instagram_display"]) : 'no';
     $sfsi_linkedin_display      = isset($_POST["sfsi_linkedin_display"]) ? sanitize_text_field($_POST["sfsi_linkedin_display"]) : 'no';
     $sfsi_custom_icons          = isset($option1['sfsi_custom_files']) ? $option1['sfsi_custom_files'] : '';
+    $sfsi_whatsapp_display        = isset($_POST["sfsi_whatsapp_display"]) ? sanitize_text_field($_POST["sfsi_whatsapp_display"]) : 'no';
+
     $up_option1 = array(
         'sfsi_rss_display'      => sanitize_text_field($sfsi_rss_display),
         'sfsi_email_display'    => sanitize_text_field($sfsi_email_display),
@@ -45,7 +47,9 @@ function sfsi_options_updater1()
 
         'sfsi_linkedin_display' => sanitize_text_field($sfsi_linkedin_display),
         'sfsi_instagram_display' => sanitize_text_field($sfsi_instagram_display),
-        'sfsi_custom_files'     => sanitize_text_field($sfsi_custom_icons)
+        'sfsi_custom_files'     => sanitize_text_field($sfsi_custom_icons),
+        'sfsi_whatsapp_display'   => sanitize_text_field($sfsi_whatsapp_display),
+
     );
     update_option('sfsi_section1_options',  serialize($up_option1));
     header('Content-Type: application/json');
@@ -337,6 +341,8 @@ function sfsi_options_updater4()
     $sfsi_wechat_countsDisplay          = isset($_POST["sfsi_wechat_countsDisplay"]) ? sanitize_text_field($_POST["sfsi_wechat_countsDisplay"]) : 'no';
     $sfsi_wechat_manualCounts           = isset($_POST["sfsi_wechat_manualCounts"]) ? intval(trim($_POST["sfsi_wechat_manualCounts"])) : '';
 
+    $sfsi_whatsapp_countsDisplay          = isset($_POST["sfsi_whatsapp_countsDisplay"]) ? sanitize_text_field($_POST["sfsi_whatsapp_countsDisplay"]) : 'no';
+    $sfsi_whatsapp_manualCounts           = isset($_POST["sfsi_whatsapp_manualCounts"]) ? intval(trim($_POST["sfsi_whatsapp_manualCounts"])) : '';
 
     $sfsi_round_counts           = isset($_POST["sfsi_round_counts"]) ? sanitize_text_field($_POST["sfsi_round_counts"]) : 'no';
     $sfsi_original_counts           = isset($_POST["sfsi_original_counts"]) ? sanitize_text_field($_POST["sfsi_original_counts"]) : 'no';
@@ -408,6 +414,9 @@ function sfsi_options_updater4()
         'sfsi_wechat_countsDisplay'    => sanitize_text_field($sfsi_wechat_countsDisplay),
         'sfsi_wechat_manualCounts'     => intval($sfsi_wechat_manualCounts),
 
+        'sfsi_whatsapp_countsDisplay'    => sanitize_text_field($sfsi_whatsapp_countsDisplay),
+        'sfsi_whatsapp_manualCounts'     => intval($sfsi_whatsapp_manualCounts),
+
         'sfsi_round_counts'    => sanitize_text_field($sfsi_round_counts),
         'sfsi_original_counts'    => sanitize_text_field($sfsi_original_counts),
         'sfsi_responsive_share_count'    => sanitize_text_field($sfsi_responsive_share_count),
@@ -454,6 +463,7 @@ function sfsi_options_updater5()
     $sfsi_ok_MouseOverText          = isset($_POST["sfsi_ok_MouseOverText"]) ? sanitize_text_field($_POST["sfsi_ok_MouseOverText"]) : '';
     $sfsi_weibo_MouseOverText       = isset($_POST["sfsi_weibo_MouseOverText"]) ? sanitize_text_field($_POST["sfsi_weibo_MouseOverText"]) : '';
     $sfsi_wechat_MouseOverText      = isset($_POST["sfsi_wechat_MouseOverText"]) ? sanitize_text_field($_POST["sfsi_wechat_MouseOverText"]) : '';
+    $sfsi_whatsapp_MouseOverText      = isset($_POST["sfsi_whatsapp_MouseOverText"]) ? sanitize_text_field($_POST["sfsi_whatsapp_MouseOverText"]) : '';
 
     $sfsi_youtube_MouseOverText     = isset($_POST["sfsi_youtube_MouseOverText"]) ? sanitize_text_field($_POST["sfsi_youtube_MouseOverText"]) : '';
     if (isset($_POST["sfsi_custom_orders"])) {
@@ -490,6 +500,8 @@ function sfsi_options_updater5()
     $sfsi_custom_MouseOverTexts     = isset($sfsi_custom_MouseOverTexts) ? serialize($sfsi_custom_MouseOverTexts) : '';
 
     $sfsi_custom_social_hide        = isset($_POST["sfsi_custom_social_hide"]) ? sanitize_text_field($_POST["sfsi_custom_social_hide"]) : 'no';
+    $sfsi_icons_sharing_and_traffic_tips     = isset($_POST["sfsi_icons_sharing_and_traffic_tips"]) ? sanitize_text_field($_POST["sfsi_icons_sharing_and_traffic_tips"]) : 'yes';
+    $sfsi_whatsappIcon_order          = isset($_POST["sfsi_whatsappIcon_order"]) ? sanitize_text_field($_POST["sfsi_whatsappIcon_order"]) : '16';
 
     /* size and spacing of icons */
     $up_option5 = array(
@@ -517,6 +529,7 @@ function sfsi_options_updater5()
         'sfsi_ok_MouseOverText'         => sanitize_text_field($sfsi_ok_MouseOverText),
         'sfsi_weibo_MouseOverText'      => sanitize_text_field($sfsi_weibo_MouseOverText),
         'sfsi_wechat_MouseOverText'     => sanitize_text_field($sfsi_wechat_MouseOverText),
+        'sfsi_whatsapp_MouseOverText'     => sanitize_text_field($sfsi_whatsapp_MouseOverText),
         'sfsi_CustomIcons_order'        => $sfsi_custom_orders,
         'sfsi_rssIcon_order'            => intval($sfsi_rssIcon_order),
         'sfsi_emailIcon_order'          => intval($sfsi_emailIcon_order),
@@ -533,7 +546,11 @@ function sfsi_options_updater5()
         'sfsi_wechatIcon_order'         => intval($sfsi_wechatIcon_order),
 
         'sfsi_custom_MouseOverTexts'    => $sfsi_custom_MouseOverTexts,
-        'sfsi_custom_social_hide'       => $sfsi_custom_social_hide
+        'sfsi_custom_social_hide'       => $sfsi_custom_social_hide,
+        'sfsi_icons_sharing_and_traffic_tips'    => sanitize_text_field($sfsi_icons_sharing_and_traffic_tips),
+        'sfsi_whatsappIcon_order'         => intval($sfsi_whatsappIcon_order),
+
+        
     );
 
     if ("yes" == $sfsi_icons_suppress_errors) {
@@ -906,7 +923,9 @@ function sfsi_getCounts($for_resposive = false)
         'ok_count'      => '',
         'weibo_count'   => '',
         'wechat_count'  => '',
-        'share_count'   => ''
+        'share_count'   => '',
+        'whatsapp_count' => ''
+        
     );
 
     /* get rss count */
@@ -1042,6 +1061,7 @@ function sfsi_getCounts($for_resposive = false)
         $scounts['ok_count'] = isset($sfsi_section4_options['sfsi_ok_manualCounts']) ? $sfsi_section4_options['sfsi_ok_manualCounts'] : '0';
         $scounts['weibo_count'] = isset($sfsi_section4_options['sfsi_weibo_manualCounts']) ? $sfsi_section4_options['sfsi_weibo_manualCounts'] : '0';
         $scounts['wechat_count'] = isset($sfsi_section4_options['sfsi_wechat_manualCounts']) ? $sfsi_section4_options['sfsi_wechat_manualCounts'] : '0';
+        $scounts['whatsapp_count'] = isset($sfsi_section4_options['sfsi_whatsapp_manualCounts']) ? $sfsi_section4_options['sfsi_whatsapp_manualCounts'] : '0';
     }
     return $scounts;
     exit;

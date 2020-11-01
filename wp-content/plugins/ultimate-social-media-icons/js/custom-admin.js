@@ -82,10 +82,10 @@ function sfsi_depened_sections() {
         }
     } else {
         if ("email" == SFSI("input[name='sfsi_rss_icons']:checked").val()) {
-            for (SFSI(".row_1_2").css("background-position", "-58px 0"), i = 0; 16 > i; i++) {
+            for (SFSI(".row_1_2").css("background-position", "-65px 0"), i = 0; 16 > i; i++) {
                 var s = i + 1,
                     e = 74 * i;
-                SFSI(".row_" + s + "_2").css("background-position", "-58px -" + e + "px");
+                SFSI(".row_" + s + "_2").css("background-position", "-65px -" + e + "px");
             }
             var t = SFSI(".icon_img").attr("src");
             if (t) {
@@ -126,6 +126,7 @@ function sfsi_depened_sections() {
         SFSI("input[name='sfsi_weibo_display']").prop("checked") ? sfsi_section_Display("weibo_section", "show") : sfsi_section_Display("weibo_section", "hide"),
         SFSI("input[name='sfsi_instagram_display']").prop("checked") ? sfsi_section_Display("instagram_section", "show") : sfsi_section_Display("instagram_section", "hide"),
         SFSI("input[name='sfsi_linkedin_display']").prop("checked") ? sfsi_section_Display("linkedin_section", "show") : sfsi_section_Display("linkedin_section", "hide"),
+        SFSI("input[name='sfsi_whatsapp_display']").prop("checked") ? sfsi_section_Display("whatsapp_section", "show") : sfsi_section_Display("whatsapp_section", "hide"),
         SFSI("input[element-type='cusotm-icon']").prop("checked") ? sfsi_section_Display("custom_section", "show") : sfsi_section_Display("custom_section", "hide");
 }
 
@@ -256,6 +257,7 @@ function sfsi_update_step1() {
         wc = SFSI("input[name='sfsi_wechat_display']:checked").val(),
         wb = SFSI("input[name='sfsi_weibo_display']:checked").val(),
         _ = SFSI("input[name='sfsi_instagram_display']:checked").val(),
+        wa = SFSI("input[name='sfsi_whatsapp_display']:checked").val(),
         l = SFSI("input[name='sfsi_custom1_display']:checked").val(),
         S = SFSI("input[name='sfsi_custom2_display']:checked").val(),
         u = SFSI("input[name='sfsi_custom3_display']:checked").val(),
@@ -276,6 +278,7 @@ function sfsi_update_step1() {
             sfsi_wechat_display: wc,
             sfsi_weibo_display: wb,
             sfsi_instagram_display: _,
+            sfsi_whatsapp_display: wa,
             sfsi_custom1_display: l,
             sfsi_custom2_display: S,
             sfsi_custom3_display: u,
@@ -501,6 +504,8 @@ function sfsi_showPreviewCounts() {
         1 == SFSI("input[name='sfsi_ok_countsDisplay']").prop("checked") ? (SFSI("#sfsi_ok_countsDisplay").css("opacity", 0), s = 1) : SFSI("#sfsi_ok_countsDisplay").css("opacity", 0),
         1 == SFSI("input[name='sfsi_weibo_countsDisplay']").prop("checked") ? (SFSI("#sfsi_weibo_countsDisplay").css("opacity", 0), s = 1) : SFSI("#sfsi_weibo_countsDisplay").css("opacity", 0),
         1 == SFSI("input[name='sfsi_wechat_countsDisplay']").prop("checked") ? (SFSI("#sfsi_wechat_countsDisplay").css("opacity", 0), s = 1) : SFSI("#sfsi_wechat_countsDisplay").css("opacity", 0),
+        1 == SFSI("input[name='sfsi_whatsapp_countsDisplay']").prop("checked") ? (SFSI("#sfsi_whatsapp_countsDisplay").css("opacity", 0), s = 1) : SFSI("#sfsi_whatsapp_countsDisplay").css("opacity", 0),
+
 
         0 == s || "no" == SFSI("input[name='sfsi_display_counts']:checked").val() ? SFSI(".sfsi_Cdisplay").hide() : SFSI(".sfsi_Cdisplay").show();
 }
@@ -578,7 +583,8 @@ function sfsi_update_step4() {
         resp = 1 == SFSI("input[name='sfsi_responsive_share_count']").prop("disabled") ? "" : SFSI("input[name='sfsi_responsive_share_count']:checked").val(),
         original = 1 == SFSI("input[name='sfsi_original_counts']").prop("disabled") ? "" : SFSI("input[name='sfsi_original_counts']:checked").val(),
         round = 1 == SFSI("input[name='sfsi_round_counts']").prop("disabled") ? "" : SFSI("input[name='sfsi_round_counts']:checked").val()
-
+        whatsapp = 1 == SFSI("input[name='sfsi_whatsapp_countsDisplay']").prop("disabled") ? "" : SFSI("input[name='sfsi_whatsapp_countsDisplay']:checked").val(),
+        whatsapp_manual = SFSI("input[name='sfsi_whatsapp_manualCounts']").val(),
     console.log(resp, original, round);
 
     $ = {
@@ -637,6 +643,8 @@ function sfsi_update_step4() {
         sfsi_responsive_share_count: resp,
         sfsi_original_counts: original,
         sfsi_round_counts: round,
+        sfsi_whatsapp_countsDisplay: whatsapp,
+        sfsi_whatsapp_manualCounts: whatsapp_manual,
         nonce: nonce
     };
     console.log($);
@@ -680,6 +688,7 @@ function sfsi_update_step5() {
         o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(),
 
         se = SFSI("input[name='sfsi_icons_suppress_errors']:checked").val(),
+        st = SFSI("input[name='sfsi_icons_sharing_and_traffic_tips']:checked").val(),
         c = SFSI("input[name='sfsi_icons_stick']:checked").val(),
         p = SFSI("#sfsi_rssIcon_order").attr("data-index"),
         _ = SFSI("#sfsi_emailIcon_order").attr("data-index"),
@@ -694,6 +703,8 @@ function sfsi_update_step5() {
         oki = SFSI("#sfsi_okIcon_order").attr("data-index"),
         wbi = SFSI("#sfsi_weiboIcon_order").attr("data-index"),
         wci = SFSI("#sfsi_wechatIcon_order").attr("data-index"),
+        wap = SFSI("#sfsi_whatsappIcon_order").attr("data-index"),
+
 
         h = new Array();
 
@@ -717,7 +728,7 @@ function sfsi_update_step5() {
         ok = 1 == SFSI("input[name='sfsi_ok_MouseOverText']").prop("disabled") ? "" : SFSI("input[name='sfsi_ok_MouseOverText']").val(),
         wb = 1 == SFSI("input[name='sfsi_weibo_MouseOverText']").prop("disabled") ? "" : SFSI("input[name='sfsi_weibo_MouseOverText']").val(),
         wc = 1 == SFSI("input[name='sfsi_wechat_MouseOverText']").prop("disabled") ? "" : SFSI("input[name='sfsi_wechat_MouseOverText']").val(),
-
+        wa = 1 == SFSI("input[name='sfsi_whatsapp_MouseOverText']").prop("disabled") ? "" : SFSI("input[name='sfsi_whatsapp_MouseOverText']").val(),
         O = {};
     SFSI("input[name='sfsi_custom_MouseOverTexts[]']").each(function () {
         O[SFSI(this).attr("file-id")] = this.value;
@@ -735,6 +746,7 @@ function sfsi_update_step5() {
         sfsi_icons_spacing: t,
         sfsi_icons_ClickPageOpen: o,
         sfsi_icons_suppress_errors: se,
+        sfsi_icons_sharing_and_traffic_tips: st,
         sfsi_icons_stick: c,
         sfsi_rss_MouseOverText: v,
         sfsi_email_MouseOverText: g,
@@ -763,7 +775,8 @@ function sfsi_update_step5() {
         sfsi_okIcon_order: oki,
         sfsi_weiboIcon_order: wbi,
         sfsi_wechatIcon_order: wci,
-
+        sfsi_whatsappIcon_order:wap,
+        sfsi_whatsapp_MouseOverText: wa,
         sfsi_custom_orders: h,
         sfsi_custom_social_hide: sfsi_custom_social_hide,
         nonce: nonce
@@ -2601,7 +2614,7 @@ SFSI(document).ready(function (s) {
                     SFSI(this).children("div.inerCnt").find("a.sficn").removeClass("scale")), SFSI(this).children(".inerCnt").find("div.sfsi_tool_tip_2").hide();
         }), SFSI("body").on("click", function () {
             SFSI(".inerCnt").find("div.sfsi_tool_tip_2").hide();
-        }), SFSI(".adminTooltip >a").on("hover", function () {
+        }), SFSI(".adminTooltip >a").on("mouseenter", function () {
             SFSI(this).offset().top, SFSI(this).parent("div").find("div.sfsi_tool_tip_2_inr").css("opacity", "1"),
                 SFSI(this).parent("div").find("div.sfsi_tool_tip_2_inr").show();
         }), SFSI(".adminTooltip").on("mouseleave", function () {

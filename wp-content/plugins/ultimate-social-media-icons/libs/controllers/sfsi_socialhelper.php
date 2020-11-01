@@ -392,7 +392,7 @@ class sfsi_SocialHelper
 		// $pinit_url = 'https://www.pinterest.com/pin/create/button/?url='.$url.'&media='.$media.'&description='.$description;
 		// $pinit_url = 'https://www.pinterest.com/pin/create/button/?url='.$url.'&media='..'&description='.;
 
-		$pinit_html = "<a href='#'  onclick='sfsi_pinterest_modal_images(event)' style='display:inline-block;'  > <img class='sfsi_wicon'  data-pin-nopin='true' width='auto' height='auto' alt='fb-share-icon' title='Pin Share' src='" . SFSI_PLUGURL . "images/share_icons/Pinterest_Save/en_US_save.svg" . "'  /></a>";
+		$pinit_html = "<a href='#'  onclick='sfsi_pinterest_modal_images(event)' class='sfsi_pinterest_sm_click' style='display:inline-block;'  > <img class='sfsi_wicon'  data-pin-nopin='true' width='auto' height='auto' alt='fb-share-icon' title='Pin Share' src='" . SFSI_PLUGURL . "images/share_icons/Pinterest_Save/en_US_save.svg" . "'  /></a>";
 		return $pinit_html;
 		// $pin_it_html = '<a data-pin-do="buttonPin" data-pin-save="true" href="https://www.pinterest.com/pin/create/button/?url=&media=&description="></a>';
 		// return $pin_it_html;
@@ -405,12 +405,17 @@ class sfsi_SocialHelper
 	{
 		$sfsi_instagram_sf_count_option = get_option('sfsi_instagram_sf_count',false);
 		if(is_array($sfsi_instagram_sf_count_option)){
-			$sfsi_instagram_sf_count = unserialize($sfsi_instagram_sf_count_option);
+			$sfsi_instagram_sf_count = ($sfsi_instagram_sf_count_option);
 		}else{
-			$sfsi_instagram_sf_count = $sfsi_instagram_sf_count_option;
+			$sfsi_instagram_sf_count = unserialize($sfsi_instagram_sf_count_option);
+		}
+		if(!is_array($sfsi_instagram_sf_count)){
+			$sfsi_instagram_sf_count = strstr($sfsi_instagram_sf_count,"{");
+			$sfsi_instagram_sf_count = str_replace($sfsi_instagram_sf_count,"{",'');
+		    $sfsi_instagram_sf_count = strstr($sfsi_instagram_sf_count,'}',true);
 		}
 		/*if date is empty (for decrease request count)*/
-		if(!isset($sfsi_instagram_sf_count["date_instagram"])||empty($sfsi_instagram_sf_count["date_instagram"]))
+		if(!isset($sfsi_instagram_sf_count["date_instagram"])|| empty($sfsi_instagram_sf_count["date_instagram"]))
 		{
 			$sfsi_instagram_sf_count["date_instagram"] = strtotime(date("Y-m-d"));
 			$counts = $this->sfsi_get_instagramFollowersCount($user_name);
@@ -591,6 +596,55 @@ class sfsi_SocialHelper
 		return substr($headers[0], 9, 3);
 	}
 
+	public function  SFSI_getFeedSubscriberFetch($feedid)
+	{
+		$sfsi_instagram_sf_count = unserialize(get_option('sfsi_instagram_sf_count',false));
+
+		/*if date is empty (for decrease request count)*/
 	
+
+		// if(empty($sfsi_instagram_sf_count["date_sf"]))
+		// {
+			$sfsi_instagram_sf_count["date_instagram"] = strtotime(date("Y-m-d"));
+			$counts = $this->sfsi_getFeedSubscriberCount($feedid);
+			$sfsi_instagram_sf_count["sfsi_instagram_count"] = $counts;
+			
+			update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+		// }
+		// else
+		// {
+			// $phpVersion = phpVersion();
+			// if($phpVersion >= '5.3')
+			// {
+				// $diff = date_diff(
+				 	// date_create(
+						// date("Y-m-d", $sfsi_instagram_sf_count["date_sf"])
+					// ),
+					// date_create(
+						// date("Y-m-d")
+				// ));
+			// }
+			// var_dump($sfsi_instagram_sf_count,isset($diff),$sfsi_instagram_sf_count["date_sf"],date("Y-m-d", $sfsi_instagram_sf_count["date_sf"]),date('Y-m-d'),$diff , $diff->format("%a"));die();
+			// if((isset($diff) && $diff->format("%a") >= 1)||$sfsi_instagram_sf_count["sfsi_plus_sf_count"]=="")
+			// {
+			// 	$sfsi_instagram_sf_count["date_sf"] = strtotime(date("Y-m-d"));
+			// 	$counts = $this->sfsi_plus_getFeedSubscriberCount($feedid);
+			// 	$sfsi_instagram_sf_count["sfsi_plus_sf_count"] = $counts;
+			// 	update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+			// }
+			// else
+			// {
+				// $counts = $sfsi_instagram_sf_count["sfsi_plus_sf_count"];
+			// }
+
+		// }
+		
+		if(empty($counts) || $counts == "O")
+		{
+			$counts = 0;
+		}
+		
+		return $counts;
+	}
 }
 /* end of class */

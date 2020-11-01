@@ -45,7 +45,25 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 <!-- Section 7 "Do you want to display a pop-up, asking people to subscribe?" main div Start -->
 
 <div class="tab7">
+<?php
+    $sfsi_banner_popups = sanitize_text_field(get_option('sfsi_banner_popups', false));
+		if($sfsi_banner_popups == "yes"){
+	?>
+	<div id="sfsi_firsttime_offer" class="sfsi_new_prmium_follw  sfsi_banner_body">
+		<div>
+			<p>Update: if you want many more features for your pop-ups, have a look at <a target="_blank" href="https://sellcodes.com/s/3NmlIE" style="color:#1a1d20 !important;font-weight: bold;border-bottom: 1px solid #1a1d20;">MyPopUps.</a></p>
+		</div>
+		<div style="text-align:right;">
+			<form method="post" class="sfsi_premiumNoticeDismiss" style="padding-bottom:8px;">
+				<input type="hidden" name="sfsi-banner-popups" value="true">
+				<input type="submit" name="dismiss" value="Dismiss" />
 
+			</form>
+		</div>
+	</div>
+<?php
+}
+?>
 	<p>You can increase the chances that people share or follow you by displaying a pop-up asking them to. You can define the design and layout below:</p>
 
 	<!-- icons preview section -->
@@ -209,6 +227,18 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 						<img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/default/default_wechat.png" height="50px" alt="wechat" />
 
 						<span class="sfsi_Cdisplay" id="sfsi_wechat_countsDisplay">12k</span>
+
+					</div>
+
+				</li>
+
+				<li class="whatsapp_section">
+
+					<div>
+
+						<img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/default/default_whatsapp.png" height="50px" alt="whatsapp" />
+
+						<span class="sfsi_Cdisplay" id="sfsi_whatsapp_countsDisplay">12k</span>
 
 					</div>
 
@@ -495,7 +525,7 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 
 		<div class="bannerPopupQue6 sfsi_new_prmium_follw" style="margin-top: 38px;">
 
-			<p><b>New: </b>The Premium Plugin allows you to do much more with the pop-up, e.g. you can:- Show it when users try to leave your page, Limit how often the pop-up is shown to the same user (e.g. only once per day), Select to show the subscription form in the pop-up (which you designed in question 9). <a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold"  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
+			<p><b>New: </b>The Premium Plugin allows you to do much more with the pop-up, e.g. you can: show it when users try to leave your page, limit how often the pop-up is shown to the same user (e.g. only once per day), select to show the subscription form in the pop-up (which you designed in question 9). <a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold"  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
 
 		</div>
 

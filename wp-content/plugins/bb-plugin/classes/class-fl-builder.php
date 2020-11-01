@@ -822,7 +822,7 @@ final class FLBuilder {
 			}
 
 			// React polyfill for older versions of WordPress.
-			if ( version_compare( $wp_version, '5.1', '<=' ) ) {
+			if ( version_compare( $wp_version, '5.2', '<=' ) ) {
 				wp_deregister_script( 'react' );
 				wp_deregister_script( 'react-dom' );
 				wp_enqueue_script( 'react', $js_url . 'build/react.bundle.js', array(), $ver, true );
@@ -888,8 +888,12 @@ final class FLBuilder {
 					$fluid_js  = 'build/fluid.bundle.min.js';
 					$fluid_css = 'build/fluid.bundle.min.css';
 				}
-
-				wp_register_script( 'fl-fluid', $js_url . $fluid_js, array( 'react', 'react-dom', 'lodash' ), $ver, false );
+				// if < 5.0 we get an lodash conflict and fluid will not enqueue
+				if ( version_compare( $wp_version, '5.2', '<=' ) ) {
+					wp_register_script( 'fl-fluid', $js_url . $fluid_js, array( 'react', 'react-dom' ), $ver, false );
+				} else {
+					wp_register_script( 'fl-fluid', $js_url . $fluid_js, array( 'react', 'react-dom', 'lodash' ), $ver, false );
+				}
 				wp_register_style( 'fl-fluid', $css_url . $fluid_css, array(), $ver, null );
 			}
 
@@ -1691,26 +1695,7 @@ final class FLBuilder {
 
 				// Print the styles if we are outside of the head tag.
 				if ( did_action( 'wp_enqueue_scripts' ) && ! doing_filter( 'wp_enqueue_scripts' ) ) {
-					ob_start();
 					wp_print_styles();
-					$styles = trim( ob_get_flush() );
-					$styles = explode( "\n", $styles );
-					if ( is_array( $styles ) && ! empty( $styles ) ) {
-						$js = '';
-						foreach ( $styles as $k => $style ) {
-							if ( ! $style ) {
-								continue;
-							}
-							$id = sprintf( '%s_$%s', $post->ID, $k );
-							preg_match( "#<link\srel='stylesheet'\sid='([a-z0-9-_]+)'\s+href='(.*?)'#", $style, $matches );
-							$js .= sprintf( 'var head = document.getElementsByTagName("head")[0],cssLink_%1$s = document.createElement("link");cssLink_%1$s.rel = "stylesheet";cssLink_%1$s.href = "%3$s";cssLink_%1$s.id="%2$s";cssLink_%1$s.media="all";cssLink_%1$s.type="text/css";head.appendChild(cssLink_%1$s);', $id, $matches[1], $matches[2] );
-						}
-						if ( '' !== $js ) {
-							printf( '<script>%s</script>', $js );
-						}
-					} else {
-						wp_print_styles();
-					}
 				}
 
 				// Render the builder content.

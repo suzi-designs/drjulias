@@ -6,7 +6,7 @@ Description: Easy to use and 100% FREE social media plugin which adds social med
 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.5.8
+Version: 2.6.0
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -90,7 +90,7 @@ register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.58) {
+if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.60) {
     add_action("init", "sfsi_update_plugin");
 }
 /* redirect setting page hook */
@@ -1391,6 +1391,20 @@ function sfsi_admin_notice()
                 );
                 update_option('sfsi_dismiss_gallery', serialize($sfsi_dismiss_gallery));
             }
+            if (isset($_REQUEST['sfsi-dismiss-woocommerce']) && $_REQUEST['sfsi-dismiss-woocommerce'] == 'true') {
+                $sfsi_dismiss_woocommerce = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_woocommerce', serialize($sfsi_dismiss_woocommerce));
+            }
+            if (isset($_REQUEST['sfsi-dismiss-twitter']) && $_REQUEST['sfsi-dismiss-twitter'] == 'true') {
+                $sfsi_dismiss_twitter = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_twitter', serialize($sfsi_dismiss_twitter));
+            }
 
 
             if (isset($_REQUEST['sfsi-banner-global-upgrade']) && $_REQUEST['sfsi-banner-global-upgrade'] == 'true') {
@@ -1486,6 +1500,9 @@ function sfsi_admin_notice()
                 update_option('sfsi_banner_global_firsttime_offer', serialize($sfsi_banner_global_firsttime_offer));
                 sfsi_check_banner();
             }
+            if (isset($_REQUEST['sfsi-banner-popups']) && $_REQUEST['sfsi-banner-popups'] == 'true') {
+				update_option('sfsi_banner_popups', "no");
+			}
         }
         // add_action("admin_init","sfsi_check_banner");
 
@@ -2452,6 +2469,41 @@ function sfsi_plugin_redirect()
             }
             $check_gallery_plugin_active_is_true = in_array(true, $sfsi_gallery_plugin_active);
             return $check_gallery_plugin_active_is_true;
+        } 
+        function sfsi_sf_instagram_count_fetcher()
+		{
+			$sfsi_SocialHelper = new sfsi_SocialHelper();
+			$feed_id		= sanitize_text_field(get_option('sfsi_feed_id', false));
+			return $sfsi_SocialHelper->SFSI_getFeedSubscriberFetch($feed_id);
         }
-
+        function sfsi_getdomain($url)
+		{
+			$pieces = parse_url($url);
+			$domain = isset($pieces['host']) ? $pieces['host'] : '';
+			if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+				return $regs['domain'];
+			}
+			return false;
+		}
+        function sfsi_cronstarter_activation()
+		{
+			
+			$domain = sfsi_getdomain(get_site_url());
+			
+			if($domain && strlen($domain)>0){
+				$firstchar = strtolower($domain[0]);
+			}else{
+				$firstchar = "x";
+			}
+			if(!preg_match("/^[a-z]$/i", $firstchar)) {
+				$firstchar = 'x';
+			}
+			$number = ord($firstchar)-96;
+			$time = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d '.$number.':00:00'));
+			// sfsi_plus_write_log(wp_next_scheduled( 'sfsi_plus_sf_instagram_count_fetcher' ));
+			if (!wp_next_scheduled('sfsi_sf_instagram_count_fetcher')) {
+				wp_schedule_event($time, 'daily', 'sfsi_sf_instagram_count_fetcher');
+			}
+        }
+        add_action('wp', 'sfsi_cronstarter_activation');
         ?>

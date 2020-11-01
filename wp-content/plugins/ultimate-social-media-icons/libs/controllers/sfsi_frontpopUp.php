@@ -145,6 +145,7 @@ function sfsi_FrontPopupDiv()
         $sfsi_section5['sfsi_okIcon_order'] => 'ok',
         $sfsi_section5['sfsi_weiboIcon_order'] => 'weibo',
         $sfsi_section5['sfsi_wechatIcon_order'] => 'wechat',
+        $sfsi_section5['sfsi_whatsappIcon_order'] => 'whatsapp',
 
     );
     $icons = array();
@@ -229,6 +230,9 @@ function sfsi_FrontPopupDiv()
                 break;
             case 'wechat':
                 if ($sfsi_section1_options['sfsi_wechat_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('wechat', 1) . "</li>";
+                break;
+            case 'whatsapp':
+                if ($sfsi_section1_options['sfsi_whatsapp_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('whatsapp', 1) . "</li>";
                 break;
             case 'custom':
                 $icons .= "<li>" . sfsi_prepairIcons($icon_arry['ele'], 1) . "</li>";

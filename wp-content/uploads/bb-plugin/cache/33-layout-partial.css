@@ -161,7 +161,7 @@
 
 
 
-.fl-node-5f5a6c45ad875 {
+.fl-node-5f9c71e94bb79 {
 	width: 100%;
 }
  .fl-node-5e67d02add6f6 > .fl-module-content {
@@ -246,7 +246,10 @@
 
 
 /* Start Layout CSS */
-
+#home-blog-post {
+    max-width: 1000px;
+    margin: 0 auto;
+}
 /* End Layout CSS */
 
 .fl-node-5f1a12c90fcea .fl-post-grid-post {

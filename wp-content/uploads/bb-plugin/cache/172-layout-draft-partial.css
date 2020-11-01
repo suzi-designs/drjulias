@@ -523,8 +523,30 @@ ul.fl-menu-horizontal li.mega-menu > ul.sub-menu ul.sub-menu {
 			border-color: #ffffff;
 		}
 		
+	.fl-node-5e7fb7ce0bbb0 .menu > li > a:hover,
+.fl-node-5e7fb7ce0bbb0 .menu > li > a:focus,
+.fl-node-5e7fb7ce0bbb0 .menu > li > .fl-has-submenu-container:hover > a,
+.fl-node-5e7fb7ce0bbb0 .menu > li > .fl-has-submenu-container.focus > a,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li > a:hover,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li > a:focus,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li > .fl-has-submenu-container:hover > a,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li > .fl-has-submenu-container.focus > a,
+.fl-node-5e7fb7ce0bbb0 .menu > li.current-menu-item > a,
+.fl-node-5e7fb7ce0bbb0 .menu > li.current-menu-item > .fl-has-submenu-container > a,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li.current-menu-item > a,
+.fl-node-5e7fb7ce0bbb0 .sub-menu > li.current-menu-item > .fl-has-submenu-container > a{
+	color: #c5dee2;}
+
+				.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-arrows .fl-has-submenu-container:hover > .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-arrows .fl-has-submenu-container.focus > .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-arrows li.current-menu-item >.fl-has-submenu-container > .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-none .fl-has-submenu-container:hover > .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-none .fl-has-submenu-container.focus > .fl-menu-toggle:before,
+		.fl-node-5e7fb7ce0bbb0 .fl-menu .fl-toggle-none li.current-menu-item >.fl-has-submenu-container > .fl-menu-toggle:before{
+			border-color: #c5dee2;
+		}
 	
-	.fl-node-5e7fb7ce0bbb0 .menu .fl-has-submenu .sub-menu{
+		.fl-node-5e7fb7ce0bbb0 .menu .fl-has-submenu .sub-menu{
 		display: none;
 	}
 	.fl-node-5e7fb7ce0bbb0 .fl-menu .sub-menu {

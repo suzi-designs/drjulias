@@ -1375,7 +1375,7 @@
 		* @access private
 		* @method _publishLayout
 		* @param {Boolean} shouldExit Whether or not builder should exit after publish
-		* @param {Boolean} openLightbox Whether or not to keep the lightboxes open. 
+		* @param {Boolean} openLightbox Whether or not to keep the lightboxes open.
 		* @return void
 		*/
 		_publishLayout: function( shouldExit, openLightbox ) {
@@ -7010,6 +7010,7 @@
 				parentBoxWrap.find( 'label.error' ).remove();
 				parentBoxForm.validate().hideErrors();
 				FLBuilder._toggleSettingsTabErrors();
+				FLBuilder._initMultipleFields();
 			} );
 
 			nestedBoxObj.close();
@@ -7427,6 +7428,7 @@
 		 * @method _initMultipleFields
 		 */
 		_initMultipleFields: function()
+
 		{
 			var multiples = $('.fl-builder-settings:visible .fl-builder-field-multiples'),
 				multiple  = null,
@@ -7653,7 +7655,7 @@
 			if(typeof toggle !== 'undefined') {
 
 				toggle = FLBuilder._jsonParse(toggle);
-				
+
 				if ( 'responsive' === FLBuilderResponsiveEditing._mode && null != selectElem.match(/_responsive$/) ) {
 					allowToggle = true;
 				} else if ( 'medium' === FLBuilderResponsiveEditing._mode && null != selectElem.match(/_medium$/) ) {
@@ -7661,7 +7663,7 @@
 				} else if ( 'default' === FLBuilderResponsiveEditing._mode && null == selectElem.match(/_responsive$/) &&  null == selectElem.match(/_medium$/) ) {
 					allowToggle = true;
 				}
-				
+
 				for(i in toggle) {
 					if ( allowToggle ){
 						FLBuilder._settingsSelectToggle(toggle[i].fields, 'hide', '#fl-field-');

@@ -1094,7 +1094,7 @@ https://github.com/WordPress/gutenberg/issues/17718
 	background-color: rgba(174,206,213,0.4);
 }
 .fl-node-5f1d7ccbdb948 > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-gray.jpg);
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/10/abstract-gray.jpg);
 	background-repeat: no-repeat;
 	background-position: right center;
 	background-attachment: fixed;
@@ -1110,7 +1110,10 @@ https://github.com/WordPress/gutenberg/issues/17718
 
 
 .fl-node-5f1d7cbf1438a .fl-row-content {
-	max-width: 1020px;
+	max-width: 959px;
+}
+ .fl-node-5f1d7cbf1438a > .fl-row-content-wrap {
+	padding-top:0px;
 }
 
 
@@ -1131,14 +1134,7 @@ https://github.com/WordPress/gutenberg/issues/17718
 
 
 .fl-node-5f483bcb21ec8 {
-	width: 73.73%;
-}
-
-
-
-
-.fl-node-5f483bcb21ece {
-	width: 26.27%;
+	width: 100%;
 }
 
 
@@ -1160,30 +1156,21 @@ https://github.com/WordPress/gutenberg/issues/17718
 }.fl-node-5f1d7f7f2f440.fl-module-heading .fl-heading {
 	text-align: center;
 }
-.fl-node-5f1d7d0a280f9.fl-module-heading .fl-heading {
+.fl-builder-content .fl-rich-text strong {
+	font-weight: bold;
+}
+	.fl-builder-content .fl-node-5f9c6d3cb17a1 .fl-module-content .fl-rich-text,
+	.fl-builder-content .fl-node-5f9c6d3cb17a1 .fl-module-content .fl-rich-text * {
+		color: #478ba2;
+	}
+	.fl-builder-content .fl-node-5f9c6d3cb17a1 .fl-rich-text, .fl-builder-content .fl-node-5f9c6d3cb17a1 .fl-rich-text * {
+	font-family: "Libre Baskerville", serif;
+	font-weight: 400;
+	font-size: 24px;
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.fl-node-5f483b5ea1b8f .fl-button-wrap {
-	text-align: right;
-}
-@media(max-width: 992px) {
-	.fl-node-5f483b5ea1b8f .fl-button-wrap {
-		text-align: center;
-	}
+ .fl-node-5f9c6fc73f7e8 > .fl-module-content {
+	margin-top:0px;
 }
 /* Generic Styles */
 .fl-module-post-grid .fl-sep {
@@ -1523,9 +1510,6 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 	.fl-node-5f1d815117c23 .fl-post-column:nth-child(1n + 1) {
 		clear: both;
 	}
-}
-.fl-builder-content .fl-rich-text strong {
-	font-weight: bold;
 }
 @media ( max-width: 768px ) {
  .fl-node-5f483d53d4702.fl-module > .fl-module-content {
@@ -3212,7 +3196,16 @@ li.fl-post-feed-post,li.fl-post-gallery-post, li.fl-post-grid-post {
 
 
 /* Start Layout CSS */
+.product-intro {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+    padding-top: 0;
+}
 
+.product-intro a {
+    color: #e9765b;
+}
 /* End Layout CSS */
 
 .fl-node-5f1d815117c23 .fl-post-grid-post {

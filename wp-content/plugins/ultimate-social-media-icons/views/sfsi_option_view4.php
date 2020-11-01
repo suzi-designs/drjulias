@@ -103,8 +103,13 @@ $option4['sfsi_ok_manualCounts']         = (isset($option4['sfsi_ok_manualCounts
 $option4['sfsi_weibo_countsDisplay']         = (isset($option4['sfsi_weibo_countsDisplay'])) ? sanitize_text_field($option4['sfsi_weibo_countsDisplay']) : '';
 $option4['sfsi_weibo_manualCounts']         = (isset($option4['sfsi_weibo_manualCounts'])) ? intval($option4['sfsi_weibo_manualCounts']) : '';
 
+
 $option4['sfsi_wechat_countsDisplay']         = (isset($option4['sfsi_wechat_countsDisplay'])) ? sanitize_text_field($option4['sfsi_wechat_countsDisplay']) : '';
 $option4['sfsi_wechat_manualCounts']         = (isset($option4['sfsi_wechat_manualCounts'])) ? intval($option4['sfsi_wechat_manualCounts']) : '';
+
+$option4['sfsi_whatsapp_countsDisplay']         = (isset($option4['sfsi_whatsapp_countsDisplay'])) ? sanitize_text_field($option4['sfsi_whatsapp_countsDisplay']) : '';
+$option4['sfsi_whatsapp_manualCounts']         = (isset($option4['sfsi_whatsapp_manualCounts'])) ? intval($option4['sfsi_whatsapp_manualCounts']) : '';
+
 $option4['sfsi_round_counts']         = (isset($option4['sfsi_round_counts'])) ? sanitize_text_field($option4['sfsi_round_counts']) : '';
 $option4['sfsi_original_counts']         = (isset($option4['sfsi_original_counts'])) ? sanitize_text_field($option4['sfsi_original_counts']) : '';
 $option4['sfsi_responsive_share_count']         = (isset($option4['sfsi_responsive_share_count'])) ? sanitize_text_field($option4['sfsi_responsive_share_count']) : '';
@@ -214,6 +219,12 @@ $hide = "display:none;";
         <li class="ok_section">
             <a href="#" title="ok">
                 <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/default/default_ok.png" height="50px" alt="ok" />
+            </a>
+            <span>12k</span>
+        </li>
+        <li class="whatsapp_section">
+            <a href="#" title="whatsapp">
+                <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/default/default_whatsapp.png" height="50px" alt="whatsapp" />
             </a>
             <span>12k</span>
         </li>
@@ -655,6 +666,29 @@ $hide = "display:none;";
         </div>
         <!-- END ok ICON COUNT SECTION-->
 
+        <!-- WhatsApp ICON COUNT SECTION-->
+        <div class="specify_counts whatsapp_section">
+            <div class="radio_section">
+                <input name="sfsi_whatsapp_countsDisplay" <?php echo (isset($option4['sfsi_whatsapp_countsDisplay']) && $option4['sfsi_whatsapp_countsDisplay'] == 'yes') ?  'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" />
+            </div>
+            <div class="social_icon_like">
+                <ul class="like_icon">
+                    <li>
+                        <a title="whatsapp">
+                            <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/default/default_whatsapp.png" height="50px" alt="whatsapp" />
+                            <span><?php echo $counts['whatsapp_count']; ?></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="listing">
+                <ul>
+                    <li>We cannot track this. So enter the figure here: <input name="sfsi_whatsapp_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_whatsapp_manualCounts'] != '') ?  $option4['sfsi_whatsapp_manualCounts'] : ''; ?>" /></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END WhatsApp ICON COUNT SECTION-->
+        
         <!-- weibo ICON COUNT SECTION-->
         <div class="specify_counts weibo_section">
             <div class="radio_section">

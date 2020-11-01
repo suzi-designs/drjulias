@@ -403,6 +403,20 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
         </div>
     </div>
     <!-- END WECHAT ICON -->
+
+    <!-- WHATSAPP ICON -->
+    <div class="row whatsapp_section">
+        <h2 class="sfsicls_whatsapp">WhatsApp</h2>
+        <div class="inr_cont whatsapp_tab_2">
+            <p>When clicked on, your website/blog will be shared on WhatsApp.</p>
+            <input name="sfsi_whatsapp_option" checked="true" type="checkbox" value="yes" class="" style="display:none" />
+            <div class="sfsi_new_prmium_follw">
+                <p><b>New: </b>In our Premium Plugin you can define what text will get shared, and also give the icon the feature to send you a WhatsApp message. <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=whatsapp_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- END WHATSAPP ICON -->
+
     <!-- WEIBO ICON -->
     <div class="row weibo_section">
         <h2 class="sfsicls_weibo">Weibo</h2>
@@ -441,7 +455,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <p class="radio_section fb_url no_check"><input name="sfsi_ok_page" checked="true" type="checkbox" value="yes" class="" style="display:none" /><label>Visit me on OK:</label><input name="sfsi_ok_pageURL" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_ok_pageURL'] != '') ?  $option2['sfsi_ok_pageURL'] : ''; ?>" class="add" /></p>
 
             <div class="sfsi_new_prmium_follw">
-                <p><b>New: </b>In our Premium Plugin you can now give OK icon other functions too, e.g. <b> like your website/blog </b>, subscribe/follow you on OK. <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=ok_like_and_subscribe&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
+                <p><b>New: </b>In our Premium Plugin you can now give OK icon other functions too, e.g. <b> like your website/blog</b>, subscribe/follow you on OK. <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=ok_like_and_subscribe&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a></p>
             </div>
         </div>
     </div>
