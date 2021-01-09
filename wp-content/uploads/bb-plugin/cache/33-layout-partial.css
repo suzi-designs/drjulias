@@ -4,7 +4,7 @@
 
 
 .fl-node-5e669f6c3d0df > .fl-row-content-wrap {
-	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2020/07/abstract-orange3.jpg);
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2021/01/coral-flower-hero.jpg);
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-attachment: scroll;
@@ -31,65 +31,39 @@
 
 
 
-.fl-node-5e77eccf4275b > .fl-row-content-wrap {
-	background-color: #ffffff;
+.fl-node-5ff1d848eba0b.fl-row-fixed-width, .fl-node-5ff1d848eba0b .fl-row-fixed-width {
+	max-width: 1200px;
 }
- .fl-node-5e77eccf4275b > .fl-row-content-wrap {
-	margin-top:25px;
-}
-@media ( max-width: 992px ) {
- .fl-node-5e77eccf4275b.fl-row > .fl-row-content-wrap {
-	margin-right:0px;
-	margin-left:0px;
-}
-}
-@media ( max-width: 992px ) {
- .fl-node-5e77eccf4275b.fl-row > .fl-row-content-wrap {
-	padding-right:0px;
-	padding-left:0px;
-}
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 .fl-node-5f1a10ab87c98 > .fl-row-content-wrap {
-	background-color: rgba(174,206,213,0.4);
 	border-style: none;
 	border-width: 0;
 	background-clip: border-box;
 	border-color: #478ba2;
 	border-top-width: 1px;
 	border-bottom-width: 2px;
+	min-height: 500px;
+}
+.fl-node-5f1a10ab87c98 .fl-row-content {
+	max-width: 700px;
 }
  .fl-node-5f1a10ab87c98 > .fl-row-content-wrap {
 	margin-top:50px;
-	margin-bottom:50px;
-}
-
-
-
-
-
-.fl-node-5f4824ed081dd .fl-row-content {
-	max-width: 1200px;
-}
-@media ( max-width: 992px ) {
- .fl-node-5f4824ed081dd.fl-row > .fl-row-content-wrap {
-	margin-top:0px;
-	margin-right:20px;
 	margin-bottom:0px;
-	margin-left:20px;
-}
-}
-
-
-
-
-
-.fl-node-5f5a6c459c059 > .fl-row-content-wrap {
-	background-color: rgba(174,206,213,0.4);
 }
 
 
@@ -112,8 +86,69 @@
 
 
 
-.fl-node-5f5a5ada14997 {
+.fl-node-5ff1d8490736e {
+	width: 59.96%;
+}
+
+
+
+
+.fl-node-5ff1d84907378 {
+	width: 40.04%;
+}
+
+
+
+
+.fl-node-5ff37b7f2849d {
 	width: 100%;
+}
+
+
+
+
+.fl-node-5ff37b6edd827 {
+	width: 100%;
+}
+
+
+
+
+.fl-node-5ff37b7722372 {
+	width: 50%;
+}
+.fl-node-5ff37b7722372 > .fl-col-content {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2021/01/homepage-blog-bkgd.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	background-size: cover;
+}
+.fl-builder-content .fl-node-5ff37b7722372 > .fl-col-content {
+	min-height: 600px;
+}
+ .fl-node-5ff37b7722372 > .fl-col-content {
+	padding-top:35%;
+}
+
+
+
+
+.fl-node-5ff37b772237a {
+	width: 50%;
+}
+.fl-node-5ff37b772237a > .fl-col-content {
+	background-image: url(http://localhost:8888/drjulia/wp-content/uploads/2021/01/homepage-podcast-bkgd.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	background-size: cover;
+}
+.fl-builder-content .fl-node-5ff37b772237a > .fl-col-content {
+	min-height: 600px;
+}
+ .fl-node-5ff37b772237a > .fl-col-content {
+	padding-top:35%;
 }
 
 
@@ -122,47 +157,9 @@
 .fl-node-5f1a12b53d830 {
 	width: 100%;
 }
-
-
-
-
-.fl-node-5f1a10ab8f567 {
-	width: 100%;
-}
-
-
-
-
-.fl-node-5f1a12a798ce6 {
-	width: 100%;
-}
-
-
-
-
-.fl-node-5f4824ed18ee9 {
-	width: 100%;
-}
-
-
-
-
-.fl-node-5f592fc3b0677 {
-	width: 60.03%;
-}
-
-
-
-
-.fl-node-5f592fc3b067e {
-	width: 39.97%;
-}
-
-
-
-
-.fl-node-5f9c71e94bb79 {
-	width: 100%;
+ .fl-node-5f1a12b53d830 > .fl-col-content {
+	padding-right:0px;
+	padding-left:0px;
 }
  .fl-node-5e67d02add6f6 > .fl-module-content {
 	margin-top:25px;
@@ -229,52 +226,27 @@
 	margin-left:10px;
 }
 }
- .fl-node-5e77ee1d69d04 > .fl-module-content {
+ .fl-node-5f481ac42f656 > .fl-module-content {
+	margin-top:100px;
+}
+@media (max-width: 768px) { .fl-node-5f481ac42f656 > .fl-module-content { margin-top:20px; } } .fl-node-5e77ee1d69d04 > .fl-module-content {
 	margin-top:0px;
 	margin-bottom:0px;
 }
  .fl-node-5e9f44695cd5c > .fl-module-content {
 	margin-top:20px;
 }
- .fl-node-5f1a48bdd3cf4 > .fl-module-content {
-	margin-top:50px;
+ .fl-node-5ff747355c8b0 > .fl-module-content {
+	margin-right:20px;
+	margin-left:20px;
 }
-@media (max-width: 768px) { .fl-node-5f1a48bdd3cf4 > .fl-module-content { margin-top:20px; } }
+
 /* Start Global Nodes CSS */
 
 /* End Global Nodes CSS */
 
 
 /* Start Layout CSS */
-#home-blog-post {
-    max-width: 1000px;
-    margin: 0 auto;
-}
+
 /* End Layout CSS */
 
-.fl-node-5f1a12c90fcea .fl-post-grid-post {
-  font-size: 14px;
-}
-.fl-node-5f1a12c90fcea .fl-post-text {
-  padding: 20px;
-  background-color: inherit;
-}
-.fl-node-5f1a12c90fcea .fl-post-text i,
-.fl-node-5f1a12c90fcea .fl-post-text p {
-  display: inline;
-}
-.fl-node-5f1a12c90fcea .fl-post-text i {
-  color: #aeced5;
-}
-.fl-node-5f1a12c90fcea .fl-post-title {
-  font-size: 20px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0 0 5px;
-}
-.fl-node-5f1a12c90fcea .fl-post-meta {
-  padding: 0 0 15px;
-}
-.fl-node-5f1a12c90fcea .quote-name {
-  float: right;
-}

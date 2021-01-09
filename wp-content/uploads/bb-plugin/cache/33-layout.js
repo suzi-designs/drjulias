@@ -1356,280 +1356,32 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 /* End Global JS */
 
-
-(function($) {
-
-	FLBuilderPostGrid = function(settings)
-	{
-		this.settings    = settings;
-		this.nodeClass   = '.fl-node-' + settings.id;
-		this.matchHeight = settings.matchHeight;
-
-		if ( 'columns' == this.settings.layout ) {
-			this.wrapperClass = this.nodeClass + ' .fl-post-grid';
-			this.postClass    = this.nodeClass + ' .fl-post-column';
-		}
-		else {
-			this.wrapperClass = this.nodeClass + ' .fl-post-' + this.settings.layout;
-			this.postClass    = this.wrapperClass + '-post';
-		}
-
-		if(this._hasPosts()) {
-			this._initLayout();
-			this._initInfiniteScroll();
-		}
-	};
-
-	FLBuilderPostGrid.prototype = {
-
-		settings        : {},
-		nodeClass       : '',
-		wrapperClass    : '',
-		postClass       : '',
-		gallery         : null,
-		currPage		: 1,
-		totalPages		: 1,
-
-		_hasPosts: function()
-		{
-			return $(this.postClass).length > 0;
+(function($){
+	$('.fl-node-5f1a04c3e1e92 .fl-button-lightbox').magnificPopup({
+		
+				type: 'inline',
+		items: {
+			src: $('.fl-node-5f1a04c3e1e92 .fl-button-lightbox-content')[0]
 		},
+		callbacks: {
+			open: function() {
+				var divWrap = $( $(this.content)[0] ).find('> div');
+				divWrap.css('display', 'block');
 
-		_initLayout: function()
-		{
-			switch(this.settings.layout) {
-
-				case 'columns':
-				this._columnsLayout();
-				break;
-
-				case 'grid':
-				this._gridLayout();
-				break;
-
-				case 'gallery':
-				this._galleryLayout();
-				break;
-			}
-
-			$(this.postClass).css('visibility', 'visible');
-
-			FLBuilderLayout._scrollToElement( $( this.nodeClass + ' .fl-paged-scroll-to' ) );
-		},
-
-		_columnsLayout: function()
-		{
-			$(this.wrapperClass).imagesLoaded( $.proxy( function() {
-				this._gridLayoutMatchHeight();
-			}, this ) );
-
-			$( window ).on( 'resize', $.proxy( function(){
-				$(this.wrapperClass).imagesLoaded( $.proxy( function() {
-					this._gridLayoutMatchHeight();
-				}, this ) );
-			}, this ) );
-		},
-
-		_gridLayout: function()
-		{
-			var wrap = $(this.wrapperClass);
-
-			wrap.masonry({
-				columnWidth         : this.nodeClass + ' .fl-post-grid-sizer',
-				gutter              : parseInt(this.settings.postSpacing),
-				isFitWidth          : true,
-				itemSelector        : this.postClass,
-				transitionDuration  : 0,
-				isRTL               : this.settings.isRTL
-			});
-
-			wrap.imagesLoaded( $.proxy( function() {
-				this._gridLayoutMatchHeight();
-				wrap.masonry();
-			}, this ) );
-
-			$(window).scroll($.debounce( 25, function(){
-				wrap.masonry()
-			}));
-
-		},
-
-		_gridLayoutMatchHeight: function()
-		{
-			var highestBox = 0;
-
-			if ( ! this._isMatchHeight() ) {
-				$(this.nodeClass + ' .fl-post-grid-post').css('height', '');
-				return;
-			}
-
-            $(this.nodeClass + ' .fl-post-grid-post').css('height', '').each(function(){
-
-                if($(this).height() > highestBox) {
-                	highestBox = $(this).height();
-                }
-            });
-
-            $(this.nodeClass + ' .fl-post-grid-post').height(highestBox);
-		},
-
-		_isMatchHeight: function(){
-			var width 		= $( window ).width(),
-				breakpoints = FLBuilderLayoutConfig.breakpoints,
-				matchMedium = '' != this.matchHeight.medium ? this.matchHeight.medium : this.matchHeight.default;
-				matchSmall  = '' != this.matchHeight.responsive ? this.matchHeight.responsive : this.matchHeight.default;
-
-			return (width > breakpoints.medium && 1 == this.matchHeight.default)
-				   || (width > breakpoints.small && width <= breakpoints.medium && 1 == matchMedium)
-				   || (width <= breakpoints.small && 1 == matchSmall);
-		},
-
-		_galleryLayout: function()
-		{
-			this.gallery = new FLBuilderGalleryGrid({
-				'wrapSelector' : this.wrapperClass,
-				'itemSelector' : '.fl-post-gallery-post',
-				'isRTL'        : this.settings.isRTL
-			});
-		},
-
-		_initInfiniteScroll: function()
-		{
-			var isScroll = 'scroll' == this.settings.pagination || 'load_more' == this.settings.pagination,
-				pages	 = $( this.nodeClass + ' .fl-builder-pagination' ).find( 'li .page-numbers:not(.next)' );
-
-			if( pages.length > 1) {
-				total = pages.last().text().replace( /\D/g, '' )
-				this.totalPages = parseInt( total );
-			}
-
-			if( isScroll && this.totalPages > 1 && 'undefined' === typeof FLBuilder ) {
-				this._infiniteScroll();
-
-				if( 'load_more' == this.settings.pagination ) {
-					this._infiniteScrollLoadMore();
+				// Triggers select change in we have multiple forms in a page
+				if ( divWrap.find('form select').length > 0 ) {
+					divWrap.find('form select').trigger('change');
 				}
-			}
-		},
-
-		_infiniteScroll: function(settings)
-		{
-			var path 		= $(this.nodeClass + ' .fl-builder-pagination a.next').attr('href'),
-				pagePattern = /(.*?(\/|\&|\?)paged-[0-9]{1,}(\/|=))([0-9]{1,})+(.*)/,
-				wpPattern   = /^(.*?\/?page\/?)(?:\d+)(.*?$)/,
-				pageMatched = null,
-				scrollData	= {
-					navSelector     : this.nodeClass + ' .fl-builder-pagination',
-					nextSelector    : this.nodeClass + ' .fl-builder-pagination a.next',
-					itemSelector    : this.postClass,
-					prefill         : true,
-					bufferPx        : 200,
-					loading         : {
-						msgText         : 'Loading',
-						finishedMsg     : '',
-						img             : FLBuilderLayoutConfig.paths.pluginUrl + 'img/ajax-loader-grey.gif',
-						speed           : 1
-					}
-				};
-
-			// Define path since Infinitescroll incremented our custom pagination '/paged-2/2/' to '/paged-3/2/'.
-			if ( pagePattern.test( path ) ) {
-				scrollData.path = function( currPage ){
-					pageMatched = path.match( pagePattern );
-					path = pageMatched[1] + currPage + pageMatched[5];
-					return path;
-				}
-			}
-			else if ( wpPattern.test( path ) ) {
-				scrollData.path = path.match( wpPattern ).slice( 1 );
-			}
-
-			$(this.wrapperClass).infinitescroll( scrollData, $.proxy(this._infiniteScrollComplete, this) );
-
-			setTimeout(function(){
-				$(window).trigger('resize');
-			}, 100);
-		},
-
-		_infiniteScrollComplete: function(elements)
-		{
-			var wrap = $(this.wrapperClass);
-
-			elements = $(elements);
-
-			if(this.settings.layout == 'columns') {
-				wrap.imagesLoaded( $.proxy( function() {
-					this._gridLayoutMatchHeight();
-					elements.css('visibility', 'visible');
-				}, this ) );
-			}
-			else if(this.settings.layout == 'grid') {
-				wrap.imagesLoaded( $.proxy( function() {
-					this._gridLayoutMatchHeight();
-					wrap.masonry('appended', elements);
-					wrap.masonry();
-					elements.css('visibility', 'visible');
-				}, this ) );
-			}
-			else if(this.settings.layout == 'gallery') {
-				this.gallery.resize();
-				elements.css('visibility', 'visible');
-			}
-
-			if( 'load_more' == this.settings.pagination ) {
-				$( '#infscr-loading' ).appendTo( this.wrapperClass );
-			}
-
-			this.currPage++;
-
-			this._removeLoadMoreButton();
-		},
-
-		_infiniteScrollLoadMore: function()
-		{
-			var wrap = $( this.wrapperClass );
-
-			$( window ).unbind( '.infscr' );
-
-			$(this.nodeClass + ' .fl-builder-pagination-load-more .fl-button').on( 'click', function(){
-				wrap.infinitescroll( 'retrieve' );
-				return false;
-			});
-		},
-
-		_removeLoadMoreButton: function()
-		{
-			if ( 'load_more' == this.settings.pagination && this.totalPages == this.currPage ) {
-				$( this.nodeClass + ' .fl-builder-pagination-load-more' ).remove();
-			}
-		}
-	};
-
-})(jQuery);
-(function($) {
-
-	$(function() {
-
-		new FLBuilderPostGrid({
-			id: '5f1a12c90fcea',
-			layout: 'columns',
-			pagination: 'none',
-			postSpacing: '50',
-			postWidth: '300',
-			matchHeight: {
-				default	   : '0',
-				medium 	   : '1',
-				responsive : ''
 			},
-			isRTL: false		});
+		},
+				closeBtnInside: true,
+		tLoading: '<i class="fas fa-spinner fa-spin fa-3x fa-fw"></i>',
 	});
-
-	
 })(jQuery);
 jQuery(function($) {
 	
 		$(function() {
-		$( '.fl-node-5f592fdaa7840 .fl-photo-img' )
+		$( '.fl-node-5ff1d9cd17e8b .fl-photo-img' )
 			.on( 'mouseenter', function( e ) {
 				$( this ).data( 'title', $( this ).attr( 'title' ) ).removeAttr( 'title' );
 			} )
@@ -1638,125 +1390,54 @@ jQuery(function($) {
 			} );
 	});
 	});
-
 (function($) {
-	
-	/**
-	 * Class for Post Slider Module
-	 *
-	 * @since 1.5.9
-	 */
-	FLBuilderPostSlider = function( settings ){
 
-		// set params
-		this.settings 		     = settings.settings;
-		this.nodeClass           = '.fl-node-' + settings.id;
-		this.wrapperClass        = this.nodeClass + ' .fl-post-slider-wrapper';
-		this.postClass           = this.nodeClass + ' .fl-post-slider-post';
-		this.prevSliderBtn       = $( this.nodeClass + ' .slider-prev' );
-		this.nextSliderBtn       = $( this.nodeClass + ' .slider-next' );
-		this.navigation          = settings.navigationControls;
+	// Clear the controls in case they were already created.
+	$('.fl-node-5ff747355c8b0 .fl-slider-next').empty();
+	$('.fl-node-5ff747355c8b0 .fl-slider-prev').empty();
 
-		// check if module have posts
-		if(this._hasPosts()) {
-			// initialize the slider
-			this._initSlider();
+	// Create the slider.
+	$('.fl-node-5ff747355c8b0 .fl-testimonials').bxSlider({
+		autoStart : 1,
+		auto : true,
+		adaptiveHeight: true,
+		pause : 4000,
+		mode : 'horizontal',
+		autoDirection: 'next',
+		speed : 1000,
+		pager : 1,
+		nextSelector : '.fl-node-5ff747355c8b0 .fl-slider-next',
+		prevSelector : '.fl-node-5ff747355c8b0 .fl-slider-prev',
+		nextText: '<i class="fas fa-chevron-circle-right"></i>',
+		prevText: '<i class="fas fa-chevron-circle-left"></i>',
+		controls : 0,
+		onSliderLoad: function(currentIndex) {
+			$('.fl-node-5ff747355c8b0 .fl-testimonials').addClass('fl-testimonials-loaded');
+			$('.fl-node-5ff747355c8b0 .fl-slider-next a').attr('aria-label', 'Next testimonial.' );
+			$('.fl-node-5ff747355c8b0 .fl-slider-prev a').attr('aria-label', 'Previous testimonial.' );
+		},
+		onSliderResize: function(currentIndex){
+			this.working = false;
+			this.reloadSlider();
+		},
+		onSlideBefore: function(ele, oldIndex, newIndex) {
+			$('.fl-node-5ff747355c8b0 .fl-slider-next a').addClass('disabled');
+			$('.fl-node-5ff747355c8b0 .fl-slider-prev a').addClass('disabled');
+			$('.fl-node-5ff747355c8b0 .bx-controls .bx-pager-link').addClass('disabled');
+		},
+		onSlideAfter: function( ele, oldIndex, newIndex ) {
+			$('.fl-node-5ff747355c8b0 .fl-slider-next a').removeClass('disabled'); 
+			$('.fl-node-5ff747355c8b0 .fl-slider-prev a').removeClass('disabled'); 
+			$('.fl-node-5ff747355c8b0 .bx-controls .bx-pager-link').removeClass('disabled');
+		},
+		onSlideNext: function(ele, oldIndex, newIndex) {
+			$('.fl-node-5ff747355c8b0 .fl-slider-next').attr( 'aria-pressed', 'true' );
+			$('.fl-node-5ff747355c8b0 .fl-slider-prev').attr( 'aria-pressed', 'false' );
+		},
+		onSlidePrev: function(ele, oldIndex, newIndex) {
+			$('.fl-node-5ff747355c8b0 .fl-slider-next').attr( 'aria-pressed', 'false' );
+			$('.fl-node-5ff747355c8b0 .fl-slider-prev').attr( 'aria-pressed', 'true' );
 		}
-	};
-
-	FLBuilderPostSlider.prototype = {
-		settings                : {},
-		nodeClass               : '',
-		wrapperClass            : '',
-		postClass               : '',
-		prevSliderBtn			: '',
-		nextSliderBtn			: '',
-		navigation				: false,
-		slider 			        : '',
-
-		/**
-		 * Check if the module have posts.
-		 * 
-		 * @since  1.5.9
-		 * @return bool
-		 */
-		_hasPosts: function(){
-			return $( this.postClass ).length > 0;
-		},
-
-		/**
-		 * build an object with slider options.
-		 *
-		 * @since  1.5.9
-		 * @return obj 		The slider options object.
-		 */
-		_getSettings: function(){
-			var settings = {
-				    onSliderLoad: function() { 
-						$( this.wrapperClass ).addClass( 'fl-post-slider-loaded' ); 
-					}.bind( this ),
-				}
-
-			return $.extend( {}, this.settings, settings );
-		},
-
-		/**
-		 * Creates a new Swiper instance and initialize prev and next buttons.
-		 *
-		 * @since  1.5.9
-		 * @return void
-		 */
-		_initSlider: function(){
-
-			this.slider = $( this.wrapperClass ).bxSlider( this._getSettings() );
-			
-			$( this.wrapperClass ).data( 'bxSlider', this.slider );
-
-			if( this.navigation ){
-
-				this.prevSliderBtn.on( 'click', function( e ){
-					e.preventDefault();
-					this.slider.goToPrevSlide();
-				}.bind( this ) );
-
-				this.nextSliderBtn.on( 'click', function( e ){
-					e.preventDefault();
-					this.slider.goToNextSlide();
-				}.bind( this ) );
-				
-			}
-
-		},
-				
-	};
-		
-})(jQuery);
-(function($) {
-
-	$(function() {
-
-		new FLBuilderPostSlider({
-			id: '5f1a4967ad900',
-					settings: {
-							mode: 'horizontal',
-													auto: true,
-							pause: 5000,
-				speed: 1000,
-							infiniteLoop: false,
-							adaptiveHeight: true,
-				controls: false,
-				autoHover: true,
-				onSlideBefore: function(ele, oldIndex, newIndex) {
-					$('.fl-node-5f1a4967ad900 .fl-post-slider-navigation a').addClass('disabled');
-					$('.fl-node-5f1a4967ad900 .bx-controls .bx-pager-link').addClass('disabled');
-				},
-				onSlideAfter: function( ele, oldIndex, newIndex ) {
-					$('.fl-node-5f1a4967ad900 .fl-post-slider-navigation a').removeClass('disabled');
-					$('.fl-node-5f1a4967ad900 .bx-controls .bx-pager-link').removeClass('disabled');
-				}
-			}
-		});
-
 	});
 
 })(jQuery);

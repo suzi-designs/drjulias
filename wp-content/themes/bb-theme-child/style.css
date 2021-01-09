@@ -10,6 +10,11 @@ template: bb-theme
 
 /* Add your custom styles here... */ 
 
+.home-page-testimonial-container .peach {   /* Quote on homepage isn't working yet... */ 
+	color: #f1b8ab;
+
+}
+
 
 
 /*** custom footer styles ***/

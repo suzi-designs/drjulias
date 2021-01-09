@@ -1682,7 +1682,7 @@ ul.tab_3_list li span {
     background: #fff;
     border-radius: 5px;
     left: 50%;
-    margin-left: -20px;
+    margin-left: -22px;
     z-index: 9;
     border: 1px solid #333;
     top: 100%;
@@ -1690,7 +1690,7 @@ ul.tab_3_list li span {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin-top: 0px;
+    margin-top: 8px;
     width: 40px;
 }
 
@@ -3668,4 +3668,8 @@ ul.sfsi_icn_listing8 li .tb_4_ck{
 
 .sfsi_tool_tip_2.utube_tool_bdr .icon1 { 
     margin-left: 13px!important; 
+}
+
+.sfsi_shortcode_container .sfsi_wicons {
+    z-index: 110 !important;
 }

@@ -24,7 +24,7 @@ jQuery(function($) {
 			breakPoints: {
 				medium: 992,
 				small: 768			},
-			mobileBreakpoint: 'medium-mobile'
+			mobileBreakpoint: 'mobile'
 		});
 
 	});

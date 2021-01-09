@@ -242,14 +242,14 @@ class sfsi_SocialHelper
 	/* convert no. to 2K,3M format   */
 	function format_num($num, $precision = 0)
 	{
-		if ($num >= 1000 && $num < 1000000) {
-			$n_format = number_format($num/1000,$precision).'k';
+		if ((int)$num >= 1000 && (int)$num < 1000000) {
+			$n_format = number_format((int)$num/1000,$precision).'k';
 		} else if ($num >= 1000000 && $num < 1000000000) {
-			$n_format = number_format($num/1000000,$precision).'m';
+			$n_format = number_format((int)$num/1000000,$precision).'m';
 		} else if ($num >= 1000000000) {
-			$n_format=number_format($num/1000000000,$precision).'b';
+			$n_format=number_format((int)$num/1000000000,$precision).'b';
 		} else {
-			$n_format = $num;
+			$n_format = (int)$num;
 		}
 		return $n_format;
 	}

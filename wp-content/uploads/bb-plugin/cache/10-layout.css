@@ -843,10 +843,18 @@ https://core.trac.wordpress.org/ticket/49285
 https://github.com/WordPress/gutenberg/issues/17718
 */
 @supports (-webkit-touch-callout: inherit) {
-  .fl-row.fl-row-bg-parallax .fl-row-content-wrap {
+  .fl-row.fl-row-bg-parallax .fl-row-content-wrap,
+  .fl-row.fl-row-bg-fixed .fl-row-content-wrap {
     background-position: center !important;
     background-attachment: scroll !important;
   }
+}
+
+@supports (-webkit-touch-callout: none) {
+	.fl-row.fl-row-bg-fixed .fl-row-content-wrap {
+		background-position: center !important;
+		background-attachment: scroll !important;
+	}
 }
 .fl-row-content-wrap { margin: 0px; }.fl-row-content-wrap { padding: 20px; }.fl-row-fixed-width { max-width: 1200px; }.fl-col-content { margin: 0px; }.fl-col-content { padding: 0px; }.fl-module-content { margin: 20px; }@media (max-width: 992px) { /* Responsive Utilities
 ------------------------------------------------------ */
@@ -1335,6 +1343,23 @@ img.mfp-img {
 }
 
 /* Start Global CSS */
+/*** global syles ***/
+
+.img-border img{
+    padding: 10px;
+}
+
+/*** font awesome styles ***/
+
+
+.quote-name {
+    float: right;
+    color: #f2a490;
+}
+
+.home-page-quote p {
+    padding: 0 20px; 
+}
 /***** footer *****/
 
 .suzi-link {
@@ -1347,13 +1372,9 @@ img.mfp-img {
     text-decoration: none;
 }
 
-.cta {
-    max-width: 925px; 
-    margin: 30px auto;
-    background: linear-gradient(70deg, #ff9a9e, #fad0c4);
-    border-radius: 5px;
-    
-}
+/***** top bar and header *****/
+
+
 
 #top-bar-link {
     text-align: center; 
@@ -1361,6 +1382,8 @@ img.mfp-img {
     padding: 5px 0; 
 }
 
+
+/***** image with border and rotation *****/
 
 .header-photo img{
  transform: rotate(-3deg);
@@ -1416,11 +1439,7 @@ box-shadow: 6px 6px 19px -4px rgba(99,99,99,0.5);
   -ms-flex-pack: center;
 }
 
-.homepage-blog {
-    max-width: 1100px;
-    
-    
-}
+
 
 @media screen and (max-width: 768px) {
     .homepage-quote {

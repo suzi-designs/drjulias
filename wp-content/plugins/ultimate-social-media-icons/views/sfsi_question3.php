@@ -1,7 +1,7 @@
 <?php
 
 $option9   = unserialize(get_option('sfsi_section9_options', false));
-$analyst_cache = unserialize(get_option("analyst_cache"));
+$analyst_cache = (get_option("analyst_cache"));
 $sfsi_willshow_analyst_popup =false;
 if(!is_null($analyst_cache) && isset($analyst_cache["plugin_to_install"])){	
 	$sfsi_willshow_analyst_popup =true;

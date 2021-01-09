@@ -623,6 +623,26 @@ jQuery(function($) {
 	$(function() {
 
 		new FLBuilderMenu({
+			id: '5ff8f56fd4248',
+			type: 'horizontal',
+			mobile: 'text',
+			mobileBelowRow: true,
+			mobileFlyout: false,
+			breakPoints: {
+				medium: 992,
+				small: 768			},
+			mobileBreakpoint: 'mobile'
+		});
+
+	});
+
+})(jQuery);
+
+(function($) {
+
+	$(function() {
+
+		new FLBuilderMenu({
 			id: '5e9f6a9ba7ea0',
 			type: 'horizontal',
 			mobile: 'expanded',

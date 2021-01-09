@@ -23,6 +23,30 @@
     font-weight: 400;
     font-style: normal;
 }
+@font-face {
+    font-family: montserrat-bold;
+    src: url(fonts/montserrat-bold.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: montserrat-regular;
+    src: url(fonts/montserrat-regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: montserrat-extrabold;
+    src: url(fonts/montserrat-extrabold.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: montserrat-medium;
+    src: url(fonts/montserrat-medium.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 body {
     margin: 0;
     padding: 0;
@@ -136,11 +160,14 @@ a#save_all_settings {
 }
 
 /*Admin menu*/
+#adminmenu #toplevel_page_sfsi-options div.wp-menu-name {
+    padding: 8px 8px 8px 8px;
+}
 ul#adminmenu li.toplevel_page_sfsi-options div.wp-menu-image {
     display: none;
 }
 #adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
-    padding: 0 0 0 38px;
+    padding: 0 0 0 38px !important;
     font-family: Arial, Helvetica, sans-serif !important;
 
     /* font-family: helveticabold; */
@@ -3553,7 +3580,7 @@ ul.sfsi_tab_3_icns li .radio {
 
 @media screen and (min-width: 1366px) and (max-width: 1366px) {
     .wapper {
-        padding: 40px 40px 40px 10px;
+        padding: 10px 40px 40px 10px;
     }
     .tab9 ul.sfsi_icn_listing8 li.sfsiLocationli .sfsi_right_info {
         width: 100% !important;
@@ -4680,10 +4707,11 @@ input[type="number"] {
 }
 .sfsi-top-banner-higligted-text{
     border: 1px solid green;
-    border-radius:10px;
-    padding:10px!important;
-    background:white;
-    margin:0!important;
+    border-radius: 10px;
+    padding: 14px!important;
+    padding-bottom: 5px !important;
+    background: white;
+    margin: 0!important;
 }
 .sfsi-top-banner-higligted-text a,.sfsi-top-banner-higligted-text span,.sfsi-top-banner-no-decoration{
 text-decoration:none!important;
@@ -4807,3 +4835,167 @@ text-decoration:none!important;
 .usually li{
     font-family: helveticaneue-light;
 }
+/* New intro css */
+/* .sfsi_intro_bg_white{
+    background-color: white;
+} */
+.sfsi_intro_section{
+    font-family:montserrat-medium;
+    background-image: url(images/new_intro_icons/background.png);
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+}
+.sfsi_new_intro{
+    font-size: 17px !important;
+}
+
+.sfsi_intro_sub_heading,.sfsi_intro_section2{
+    font-family: montserrat-extrabold !important;
+}
+#sfsi_new_intro_banner_counter,.sfsi_intro_premium_counter_hours,.sfsi_intro_premium_counter_min,.sfsi_intro_premium_counter_sec{
+    font-family: montserrat-bold;
+}
+.sfsi_intro_sub_heading{
+    margin-bottom: 4px;
+    color: black;
+}
+
+.sfsi_intro_button{
+    background: #8A4983;
+    text-align: center;
+    font-size: 23px;
+    color: #FFF !important;
+    display: block;
+    text-decoration: none;
+}
+.sfsi_intro_button a{
+    color: #ffffff !important;
+    text-decoration: none;
+}
+.sfsi_intro_button a.btn-sm{
+    width: 154px;
+}
+.sfsi_intro_button a.btn-lg{
+    width: 228px;
+}
+#sfsi_new_intro_banner_counter,.sfsi_intro_premium_counter_hours,.sfsi_intro_premium_counter_min,.sfsi_intro_premium_counter_sec{
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 8px;
+
+}
+
+.sfsi_into_time_text_bottom span{
+    font-size: 11px;
+    line-height: 28px;
+    opacity: 0.5;
+}
+.sfsi_intro_sub_text {
+    line-height: 22px;
+}
+.sfsi_intro_text_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sfsi_intro_images{
+    height: 100px;
+}
+.sfsi_intro_btn_go_premium{
+    font-family: montserrat-medium;
+    width: 100%;
+    font-size: 17px;
+    text-decoration: none;
+    border-radius:0 !important;
+}
+.sfsi_intro_btn_go_premium:hover,.sfsi_intro_btn_question:hover,.sfsi_intro_button a:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+.sfsi_intro_btn_question{
+    font-family: montserrat-medium;
+    width:100%;
+    border-radius:0 !important;
+    text-decoration: none;
+    background-color: #717171 !important;
+    border-color: #717171 !important;
+    color: white !important;
+    margin-bottom: 6px;
+}
+.sfsi_intro_bg_question{
+    background-image: url(images/new_intro_icons/any_question.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+.sfsi_intro_tooltip {
+    display: inline;
+    position: relative;
+}
+.sfsi_intro_tooltip:hover:after{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    background: #444;
+    border-radius: 8px;
+    color: #fff;
+    content: attr(title);
+    margin: -230px auto 0;
+    font-size: 12px;
+    padding: 13px;
+    width: 248px;
+}
+.sfsi_intro_tooltip:hover:before{
+    border: solid;
+    border-color: #444 transparent;
+    border-width: 12px 6px 0 6px;
+    content: "";
+    left: 45%;
+    bottom: 14px;
+    position: absolute;
+}
+#sfsi_intro_btn_show_intro_id{
+    cursor: pointer;
+    color:#28a745;
+    font-size:17px;
+    display: inline;
+    font-family: montserrat-medium;
+}
+.sfsi_into_text_bold{
+    font-family: montserrat-extrabold !important;
+}
+.text-success-new{
+    color: #05C680 !important;
+}
+.btn-success-new{
+    color: white !important;
+    background-color: #05C680 !important;
+    border-color: #05C680 !important;
+    margin-bottom: 6px;
+}
+/* End New intro css */
+.sfsi_intro_premium_counter_hours::after,.sfsi_intro_premium_counter_min::after { 
+    content: ":";
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.sfsi_intro_bg_xxl_white{
+    background-color: white;
+}
+@media only screen and (min-width:1350px) {
+    
+    
+}
+
+@media (min-width:950px) and (max-width:1312px) {
+    .sfsi_intro_premium_counter_hours::after,.sfsi_intro_premium_counter_min::after { 
+        content: ":";
+        margin-right: 0px !important;
+        margin-left:  0px !important;
+    }
+    .sfsi_into_time_text_bottom_counter {
+        width: 81px;
+    }
+}
+

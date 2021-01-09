@@ -222,7 +222,7 @@ class Sfsi_Widget extends WP_Widget
 					$jquery .= "window.addEventListener('sfsi_functions_loaded',function(){sfsi_float_widget('" . $top . "')});";
 				}
 			}
-
+ 
 			$extra = 0;
 			if ($sfsi_section3['sfsi_shuffle_icons'] == "yes") {
 				if ($sfsi_section3['sfsi_shuffle_Firstload'] == "yes" && $sfsi_section3['sfsi_shuffle_interval'] == "yes") {
@@ -234,7 +234,7 @@ class Sfsi_Widget extends WP_Widget
 					$shuffle_time = $shuffle_time * 1000;
 					$jquery .= "window.addEventListener('sfsi_functions_loaded',function(){  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setInterval(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })}," . $shuffle_time . "); });";
 				} else {
-					$jquery .= "window.addEventListener('sfsi_functions_loaded',function(){  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setTimeout(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},2000); });";
+					$jquery .= "jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setTimeout(function(){sfsi_shuffle();  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},2000); });";
 				}
 			}
 

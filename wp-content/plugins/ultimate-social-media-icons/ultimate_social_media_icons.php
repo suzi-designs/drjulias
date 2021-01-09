@@ -6,7 +6,7 @@ Description: Easy to use and 100% FREE social media plugin which adds social med
 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.6.0
+Version: 2.6.2
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -16,8 +16,6 @@ analyst_init(array(
     'client-secret' => 'ae93c43c738bdf50f10ef9d4c6d811006b468c74',
     'base-dir' => __FILE__
 ));
-
-
 
 
 sfsi_error_reporting();
@@ -90,11 +88,12 @@ register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.60) {
+if (!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.62) {
     add_action("init", "sfsi_update_plugin");
 }
 /* redirect setting page hook */
 add_action('admin_init', 'sfsi_plugin_redirect');
+
 
 function sfsi_plugin_redirect()
 
@@ -1500,9 +1499,16 @@ function sfsi_admin_notice()
                 update_option('sfsi_banner_global_firsttime_offer', serialize($sfsi_banner_global_firsttime_offer));
                 sfsi_check_banner();
             }
+            if (isset($_REQUEST['sfsi-dismiss-copy-delete-post']) && $_REQUEST['sfsi-dismiss-copy-delete-post'] == 'true') {
+                $sfsi_dismiss_copy_delete_post = array(
+                    'show_banner'     => "no",
+                    'timestamp' => strtotime(date("Y-m-d h:i:s"))
+                );
+                update_option('sfsi_dismiss_copy_delete_post', serialize($sfsi_dismiss_copy_delete_post));
+            }
             if (isset($_REQUEST['sfsi-banner-popups']) && $_REQUEST['sfsi-banner-popups'] == 'true') {
-				update_option('sfsi_banner_popups', "no");
-			}
+                update_option('sfsi_banner_popups', "no");
+            }
         }
         // add_action("admin_init","sfsi_check_banner");
 
@@ -2381,7 +2387,7 @@ function sfsi_plugin_redirect()
             }
             // return false;
         }
-
+ 
         function sfsi_count_media_item()
         {
             $query_img_args = array(
@@ -2469,41 +2475,102 @@ function sfsi_plugin_redirect()
             }
             $check_gallery_plugin_active_is_true = in_array(true, $sfsi_gallery_plugin_active);
             return $check_gallery_plugin_active_is_true;
-        } 
+        }
         function sfsi_sf_instagram_count_fetcher()
-		{
-			$sfsi_SocialHelper = new sfsi_SocialHelper();
-			$feed_id		= sanitize_text_field(get_option('sfsi_feed_id', false));
-			return $sfsi_SocialHelper->SFSI_getFeedSubscriberFetch($feed_id);
+        {
+            $sfsi_SocialHelper = new sfsi_SocialHelper();
+            $feed_id        = sanitize_text_field(get_option('sfsi_feed_id', false));
+            return $sfsi_SocialHelper->SFSI_getFeedSubscriberFetch($feed_id);
         }
         function sfsi_getdomain($url)
-		{
-			$pieces = parse_url($url);
-			$domain = isset($pieces['host']) ? $pieces['host'] : '';
-			if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
-				return $regs['domain'];
-			}
-			return false;
-		}
+        {
+            $pieces = parse_url($url);
+            $domain = isset($pieces['host']) ? $pieces['host'] : '';
+            if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+                return $regs['domain'];
+            }
+            return false;
+        }
         function sfsi_cronstarter_activation()
-		{
-			
-			$domain = sfsi_getdomain(get_site_url());
-			
-			if($domain && strlen($domain)>0){
-				$firstchar = strtolower($domain[0]);
-			}else{
-				$firstchar = "x";
-			}
-			if(!preg_match("/^[a-z]$/i", $firstchar)) {
-				$firstchar = 'x';
-			}
-			$number = ord($firstchar)-96;
-			$time = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d '.$number.':00:00'));
-			// sfsi_plus_write_log(wp_next_scheduled( 'sfsi_plus_sf_instagram_count_fetcher' ));
-			if (!wp_next_scheduled('sfsi_sf_instagram_count_fetcher')) {
-				wp_schedule_event($time, 'daily', 'sfsi_sf_instagram_count_fetcher');
-			}
+        {
+
+            $domain = sfsi_getdomain(get_site_url());
+
+            if ($domain && strlen($domain) > 0) {
+                $firstchar = strtolower($domain[0]);
+            } else {
+                $firstchar = "x";
+            }
+            if (!preg_match("/^[a-z]$/i", $firstchar)) {
+                $firstchar = 'x';
+            }
+            $number = ord($firstchar) - 96;
+            $time = DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d ' . $number . ':00:00'));
+            // sfsi_plus_write_log(wp_next_scheduled( 'sfsi_plus_sf_instagram_count_fetcher' ));
+            if (!wp_next_scheduled('sfsi_sf_instagram_count_fetcher')) {
+                wp_schedule_event($time, 'daily', 'sfsi_sf_instagram_count_fetcher');
+            }
         }
         add_action('wp', 'sfsi_cronstarter_activation');
+        // var_dump('121212',get_option('_wps18472_now_already', false));
+            // die();
+        // Handle install
+        add_action('wp_ajax_wpse1_6817_install', function () {
+           
+            if (get_option('_wps18472_now_already', false)) return;
+            else update_option('_wps18472_now_already', true);
+
+            function is_plugin_installed($slug)
+            {
+                $all_plugins = get_plugins();
+
+                if (!empty($all_plugins[$slug])) return true;
+                else return false;
+            }
+
+            function install_plugin($plugin_zip)
+            {
+                include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+                wp_cache_flush();
+
+                $upgrader = new Plugin_Upgrader();
+                $installed = $upgrader->install($plugin_zip);
+
+                return $installed;
+            }
+
+            function upgrade_plugin($plugin_slug)
+            {
+                include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+                wp_cache_flush();
+
+                $upgrader = new Plugin_Upgrader();
+                $upgraded = $upgrader->upgrade($plugin_slug);
+
+                return $upgraded;
+            }
+
+            $plugin_slug = 'copy-delete-posts/copy-delete-posts.php';
+            $plugin_zip = 'https://downloads.wordpress.org/plugin/copy-delete-posts.latest-stable.zip';
+
+            if (is_plugin_installed($plugin_slug)) {
+                upgrade_plugin($plugin_slug);
+                $installed = true;
+            } else $installed = install_plugin($plugin_zip);
+
+            if (!is_wp_error($installed) && $installed) {
+                $activate = activate_plugin($plugin_slug);
+
+                if (is_null($activate)) {
+                    update_option('_cdp_cool_installation', true);
+                    update_option('_wps18472_installed', true);
+                    update_option('_wps18472_now_already', false);
+                    echo json_encode(array('status' => 'success'));
+                }
+            } else {
+                update_option('_wps18472_only_now', true);
+                update_option('_wps18472_now_already', false);
+                echo json_encode(array('status' => 'fail'));
+            }
+        });
         ?>

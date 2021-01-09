@@ -1,5 +1,6 @@
 window.Manipulator = function(e) {
     "use strict";
+    console.log("random free");
     var t = window.console && typeof window.console.log === "function";
     var n = function(t) {
         var n = this;

@@ -56,6 +56,39 @@ function sfsi_options_updater1()
     echo  json_encode(array("success"));
     exit;
 }
+add_action('wp_ajax_introHide', 'sfsi_new_intro_banner_hide');
+function sfsi_new_intro_banner_hide()
+{
+    if (!wp_verify_nonce($_POST['nonce'], "hide_intro")) {
+        echo  json_encode(array("wrong_nonce"));
+        exit;
+    }
+    $up_hide_option =array(
+        'sfsi_display_section' => true,
+        'sfsi_display_section2' => true,
+    );
+    update_option('sfsi_new_intro_banner_hide_option',  serialize($up_hide_option));
+    header('Content-Type: application/json');
+    echo  json_encode(array("success"));
+    exit;
+}
+
+add_action('wp_ajax_introshow', 'sfsi_new_intro_banner_show');
+function sfsi_new_intro_banner_show()
+{
+    if (!wp_verify_nonce($_POST['nonce'], "show_intro")) {
+        echo  json_encode(array("wrong_nonce"));
+        exit;
+    }
+    $up_hide_option =array(
+        'sfsi_display_section' => $_POST["sfsi_display_section"],
+        'sfsi_display_section2' => true,
+    );
+    update_option('sfsi_new_intro_banner_hide_option',  serialize($up_hide_option));
+    header('Content-Type: application/json');
+    echo  json_encode(array("success"));
+    exit;
+}
 /* save settings for section 2 */
 add_action('wp_ajax_updateSrcn2', 'sfsi_options_updater2');
 function sfsi_options_updater2()
@@ -96,7 +129,7 @@ function sfsi_options_updater2()
     $sfsi_linkedin_page             = isset($_POST["sfsi_linkedin_page"]) ? sanitize_text_field($_POST["sfsi_linkedin_page"]) : 'no';
     $sfsi_linkedin_pageURL          = isset($_POST["sfsi_linkedin_pageURL"]) ? esc_url(trim($_POST["sfsi_linkedin_pageURL"])) : '';
     $sfsi_linkedin_follow           = isset($_POST["sfsi_linkedin_follow"]) ? sanitize_text_field($_POST["sfsi_linkedin_follow"]) : 'no';
-    $sfsi_linkedin_followCompany    = isset($_POST["sfsi_linkedin_followCompany"]) ? sanitize_text_field(trim($_POST["sfsi_linkedin_followCompany"])) : '';
+    $sfsi_linkedin_followCompany    = isset($_POST["sfsi_linkedin_followCompany"]) ? intval(trim($_POST["sfsi_linkedin_followCompany"])) : '';
     $sfsi_linkedin_SharePage        = isset($_POST["sfsi_linkedin_SharePage"]) ? sanitize_text_field($_POST["sfsi_linkedin_SharePage"]) : 'no';
     $sfsi_linkedin_recommendBusines = isset($_POST["sfsi_linkedin_recommendBusines"]) ? sanitize_text_field($_POST["sfsi_linkedin_recommendBusines"]) : 'no';
     $sfsi_linkedin_recommendCompany = isset($_POST["sfsi_linkedin_recommendCompany"]) ? sanitize_text_field(trim($_POST["sfsi_linkedin_recommendCompany"])) : '';

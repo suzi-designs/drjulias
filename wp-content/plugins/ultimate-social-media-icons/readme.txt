@@ -1,11 +1,15 @@
-=== Social Media Share Buttons & Social Sharing Icons ===
+=== Social Media Share Buttons & Pop Up Social Sharing Icons  ===
 Contributors: socialdude, socialtech
-Tags: social media, share, buttons, social widget, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
+Tags: share, pop up, share icons, share buttons, social media, social, social widget, sharing icons, sharing buttons, social share, sharing, social sharing
 Requires at least: 3.5
-Tested up to: 5.5
-Stable tag: 2.6.0
+Tested up to: 5.6
+Stable tag: 2.6.2
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Share buttons and pop up share icons for social media sharing 
+
+== Description ==
 
 Social media plugin which let's you add share icons for RSS, Email, Facebook, Twitter, LinkedIn, Pinterest, Instagram, Youtube, 'Share' (covering 200+ other social media platforms) and upload custom share icons of your choice. 
 
@@ -44,9 +48,9 @@ In case of issues or questions please ask in the [Support forum](https://wordpre
 
 We hope you enjoy the free social media plugin! 
 
-= New Premium Plugin =
+= New premium social share plugin =
 
-We released a Premium Plugin with many more exciting features: 
+We released a premium social share plugin with many more exciting features: 
 
 - **Many more social networks** supported, including Snapchat share buttons, Whatsapp share buttons, Yummly share buttons, Phone button, Yelp share buttons, Soundcloud share buttons, Skype share buttons Flickr share buttons, Blogger share buttons, Reddit share buttons, Vimeo share buttons, Tumblr share buttons, Xing share buttons, Vkontakte share buttons (VK), Telegram share buttons, Amazon share buttons, Goodreads share buttons, Angies list share buttons, Steam share buttons, Twitch share buttons, Spotify share buttons, Odnoklassniki share buttons (OK), Buffer share buttons, Weibo share buttons, Pocket share buttons, Meneame share buttons, Frype share buttons, LiveJournal share buttons, Patreon share buttons, Dloky share buttons, Discord share buttons, Github share buttons, Wordpress buttons, Etsy share buttons, Better Business Bureau share buttons, Digg share buttons, Delicious share buttons, Print share buttons, and many other share buttons!
 - **More design styles** to make your social share icons look really cool & matching the design of your website
@@ -270,6 +274,14 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+= 2.6.2 =
+* Updated to Wordpress 5.6 compatibility
+* Updated to PHP 8 compatibility
+* Pop up feature added
+
+= 2.6.1 =
+* Updated Instagram icons
+
 = 2.6.0 =
 * Added Whatsapp share.
 * Fixed Woocommerce banner dismiss.
@@ -950,5 +962,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 2.6.0 =
+= 2.6.2 =
 Please upgrade

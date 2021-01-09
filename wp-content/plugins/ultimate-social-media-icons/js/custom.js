@@ -126,22 +126,27 @@ function sfsi_float_widget(s) {
     }
 }
 
-
 function sfsi_shuffle() {
-    var s = [];
-    SFSI(".sfsi_wicons ").each(function(i) {
-        SFSI(this).text().match(/^\s*$/) || (s[i] = "<div class='" + SFSI(this).attr("class") + "'>" + SFSI(this).html() + "</div>", 
-        SFSI(this).fadeOut("slow"), SFSI(this).insertBefore(SFSI(this).prev(".sfsi_wicons")), 
-        SFSI(this).fadeIn("slow"));
-    }), s = Shuffle(s), $("#sfsi_wDiv").html("");
-    for (var i = 0; i < testArray.length; i++) $("#sfsi_wDiv").append(s[i]);
-}
-
-function Shuffle(s) {
-    for (var i, e, t = s.length; t; i = parseInt(Math.random() * t), e = s[--t], s[t] = s[i], 
-    s[i] = e) ;
-    return s;
-}
+    var $ = window.jQuery;
+  
+    return SFSI('.sfsi_wDiv').each(function (index, container) {
+      var s = [];
+      s = SFSI(container).find(".sfsi_wicons ");
+      s = Shuffle(s);
+      SFSI(container).html("");
+      for (var i = 0; i < s.length; i++) {
+        SFSI(s[i]).css('transform', 'none');
+        SFSI(s[i]).css('position', 'relative');
+        SFSI(container).append(s[i]);
+      }
+    })
+  
+  }
+  
+  function Shuffle(s) {
+    for (var i, e, t = s.length; t; i = parseInt(Math.random() * t), e = s[--t], s[t] = s[i], s[i] = e);
+    return s
+  }
 
 function sfsi_setCookie(s, i, e) {
     var t = new Date();
@@ -251,7 +256,8 @@ SFSI(document).ready(function(s) {
             opacity:1,
             "z-index":1e3
         }), SFSI(this).parentsUntil("div").siblings("div.sfsi_tool_tip_2").show());
-    }) :SFSI("img.sfsi_wicon").on("mouseenter", function() {
+    }) :SFSI(document).on("mouseenter", "img.sfsi_wicon", function () {
+        console.log('img mouseenter');
         var s = SFSI("#sfsi_floater_sec").val();
         SFSI("div.sfsi_wicons").css("z-index", "0"), SFSI(this).parent().parent().parent().siblings("div.sfsi_wicons").find(".inerCnt").find("div.sfsi_tool_tip_2").hide(), 
         SFSI(this).parent().parent().parent().parent().siblings("li").length > 0 && (SFSI(this).parent().parent().parent().parent().siblings("li").find("div.sfsi_tool_tip_2").css("z-index", "0"), 
@@ -280,7 +286,8 @@ SFSI(document).ready(function(s) {
             opacity:1,
             "z-index":10
         }), SFSI(this).parentsUntil("div").siblings("div.sfsi_tool_tip_2").show());
-    }), SFSI("div.sfsi_wicons").on("mouseleave", function() {
+    }),SFSI(document).on("mouseleave", "div.sfsi_wicons", function (){
+        console.log('img mouseleave');
         SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-effect") && "fade_in" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-effect") && SFSI(this).children("div.inerCnt").find("a.sficn").css("opacity", "0.6"), 
         SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-effect") && "scale" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-effect") && SFSI(this).children("div.inerCnt").find("a.sficn").removeClass("scale"), 
         SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-ffect") && "combo" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("data-effect")/*  && SFSI(this).children("div.inerCnt").find("a.sficn").css("opacity", "0.6"), */
@@ -423,9 +430,8 @@ function sfsi_widget_set(){
     });
 }
 
-SFSI(window).load(function(e) {
+SFSI(window).on('load',function () {
     SFSI('.sfsi_pinterest_sm_click').on('click touchstart', function() {
-        console.log('dsfdsfdsf');
         sfsi_pinterest_modal_images(e);
     });
 });

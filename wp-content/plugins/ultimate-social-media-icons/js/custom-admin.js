@@ -239,6 +239,64 @@ function sfsi_newcustomicon_upload(s, nonce, nonce2) {
         }
     });
 }
+function sfsi_intro_banner_hide() {
+    var nonce = SFSI("#sfsi_intro_btn_show_intro_id").attr("data-nonce");
+    var d = true,
+        I = {
+            action: "introHide",
+            sfsi_display_section: d,
+            nonce: nonce
+        };
+    SFSI.ajax({
+        url: sfsi_icon_ajax_object.ajax_url,
+        type: "post",
+        data: I,
+        async: !0,
+        dataType: "json",
+        success: function (i) {
+            if (i == "wrong_nonce") {
+                showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 1);
+                s = !1;
+                afterLoad();
+            } else {
+                if("success" == i){
+                    SFSI(".sfsi_new_intro").show();
+                    console.log(SFSI("#sfsi_intro_btn_show_intro_id").hide(),'sdnfkndsf');
+                    SFSI("#sfsi_intro_btn_show_intro_id").hide()
+                }  
+            }
+        }
+    });
+}
+function sfsi_intro_banner_show() {
+    var nonce = SFSI("#sfsi_intro_btn_ok_got_it_id").attr("data-nonce");
+    var d = false,
+        I = {
+            action: "introshow",
+            sfsi_display_section: d,
+            nonce: nonce
+        };
+    SFSI.ajax({
+        url: sfsi_icon_ajax_object.ajax_url,
+        type: "post",
+        data: I,
+        async: !0,
+        dataType: "json",
+        success: function (i) {
+            if (i == "wrong_nonce") {
+                showErrorSuc("error", "Unauthorised Request, Try again after refreshing page", 1);
+                s = !1;
+                afterLoad();
+            } else {
+                if("success" == i){
+                    SFSI(".sfsi_intro_section2").show();
+                    SFSI(".sfsi_new_intro").hide();
+                    SFSI("#sfsi_intro_btn_show_intro_id").show();
+                }  
+            }
+        }
+    });
+}
 
 function sfsi_update_step1() {
     var nonce = SFSI("#sfsi_save1").attr("data-nonce");
@@ -1621,7 +1679,7 @@ function showErrorSuc(s, i, e) {
     if ("error" == s) var t = "errorMsg";
     else var t = "sucMsg";
     return SFSI(".tab" + e + ">." + t).html(i), SFSI(".tab" + e + ">." + t).show(),
-        SFSI(".tab" + e + ">." + t).effect("highlight", {}, 5e3), setTimeout(function () {
+        SFSI(".tab" + e + ">." + t), setTimeout(function () {
             SFSI("." + t).slideUp("slow");
         }, 5e3), !1;
 }
@@ -2215,6 +2273,12 @@ SFSI(document).ready(function (s) {
         SFSI("#sfsi_banner_global_upgrade").on("click", function () {
             sfsi_banner_global_upgrade_save();
         }),
+        SFSI("#sfsi_intro_btn_show_intro_id").on("click", function () {
+            sfsi_intro_banner_hide();
+        }),
+        SFSI("#sfsi_intro_btn_ok_got_it_id").on("click", function () {
+            sfsi_intro_banner_show();
+        }),
         SFSI("#save_all_settings").on("click", function () {
             return SFSI("#save_all_settings").text("Saving.."), SFSI(".save_button >a").css("pointer-events", "none"),
                 sfsi_update_step1(), sfsi_update_step8(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Which icons do you want to show on your site?" tab.', 8),
@@ -2353,7 +2417,7 @@ SFSI(document).ready(function (s) {
                 yPos = backgroundPos[1];
 
             var inputName = s.attr('name');
-            var inputChecked = s.attr("checked");
+            var inputChecked = s.prop("checked");
 
             switch (inputName) {
 
@@ -2537,15 +2601,15 @@ SFSI(document).ready(function (s) {
 
             var s = SFSI(this).parent().find("input:radio:first");
 
-            if ("sfsi_icons_floatPosition" == s.attr("name")) {
-                SFSI('input[name="sfsi_icons_floatPosition"]').removeAttr("checked");
-                s.attr("checked", true);
-            }
+            // if ("sfsi_icons_floatPosition" == s.attr("name")) {
+            //     SFSI('input[name="sfsi_icons_floatPosition"]').removeAttr("checked");
+            //     s.attr("checked", true);
+            // }
 
-            if ("sfsi_disable_floaticons" == s.attr("name")) {
-                SFSI('input[name="sfsi_disable_floaticons"]').removeAttr("checked");
-                s.attr("checked", true);
-            }
+            // if ("sfsi_disable_floaticons" == s.attr("name")) {
+            //     SFSI('input[name="sfsi_disable_floaticons"]').removeAttr("checked");
+            //     s.attr("checked", true);
+            // }
 
             "sfsi_popup_border_shadow" == s.attr("name") && sfsi_make_popBox();
         }), /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? SFSI("img.sfsi_wicon").on("click", function (s) {
@@ -3836,4 +3900,3 @@ function sfsi_banner_global_upgrade_save(){
 		}
 	});
 }
-

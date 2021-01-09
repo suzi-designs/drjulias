@@ -9,6 +9,7 @@ function theme_back_enqueue_script()
 			/* include CSS for backend  */
 			wp_enqueue_style('thickbox');
 			wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css');
+			wp_enqueue_style("SFSIWpsesCss", SFSI_PLUGURL . 'wpses/wpse1_6817_notiad.min.css');
 			wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css');
 			wp_enqueue_style("wp-color-picker");
 		}
@@ -21,7 +22,8 @@ function theme_back_enqueue_script()
 	if ($option9['sfsi_disable_floaticons'] == 'yes') {
 		wp_enqueue_style("disable_sfsi", SFSI_PLUGURL . 'css/disable_sfsi.css');
 	}
-
+	wp_register_script('SFSIWpsesJS', SFSI_PLUGURL . 'wpses/wpse1_6817_notiad.min.js', '', '', true);
+	wp_enqueue_script("SFSIWpsesJS");
 	if (isset($_GET['page'])) {
 		if ($_GET['page'] == 'sfsi-options') {
 			wp_enqueue_script('jquery');
@@ -42,6 +44,9 @@ function theme_back_enqueue_script()
 
 			wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom-admin.js', '', '', true);
 			wp_enqueue_script("SFSICustomJs");
+
+			wp_register_script('SFSIWpsesJS', SFSI_PLUGURL . 'wpses/wpse1_6817_notiad.min.js', '', '', true);
+			wp_enqueue_script("SFSIWpsesJS");
 			/* end cusotm js */
 
 			/* initilaize the ajax url in javascript */
@@ -97,6 +102,7 @@ function sfsi_footerFeedbackScript()
 	?>
 	<style>
 		@charset "utf-8";
+
 		@font-face {
 			font-family: helveticabold;
 			src: url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.eot);
@@ -104,13 +110,20 @@ function sfsi_footerFeedbackScript()
 			font-weight: 400;
 			font-style: normal;
 		}
+
 		ul#adminmenu li.toplevel_page_sfsi-options div.wp-menu-image {
 			display: none;
 		}
+
 		#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
 			padding: 0 0 0 38px;
 			font-family: helveticabold;
 		}
+
+		#adminmenu #toplevel_page_sfsi-options div.wp-menu-name {
+			padding: 8px 8px 8px 8px;
+		}
+
 		ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
 			color: #e12522;
 			transition: 0s;
@@ -119,10 +132,12 @@ function sfsi_footerFeedbackScript()
 			color: #fafafa;
 			font-family: Arial, Helvetica, sans-serif;
 		}
+
 		ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
 			background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px -43px no-repeat black;
 			color: #fafafa;
 		}
+
 		ul#adminmenu li.toplevel_page_sfsi-options a.current,
 		ul#adminmenu li.toplevel_page_sfsi-options a.current:hover {
 			background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px 15px no-repeat #000000;
