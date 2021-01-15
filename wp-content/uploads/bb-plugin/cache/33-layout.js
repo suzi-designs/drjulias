@@ -1,3 +1,624 @@
+/*!
+ * Bowser - a browser detector
+ * https://github.com/ded/bowser
+ * MIT License | (c) Dustin Diaz 2015
+ */
+
+!function (name, definition) {
+  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+  else if (typeof define == 'function' && define.amd) define(name, definition)
+  else this[name] = definition()
+}('bowser', function () {
+  /**
+    * See useragents.js for examples of navigator.userAgent
+    */
+
+  var t = true
+
+  function detect(ua) {
+
+    function getFirstMatch(regex) {
+      var match = ua.match(regex);
+      return (match && match.length > 1 && match[1]) || '';
+    }
+
+    function getSecondMatch(regex) {
+      var match = ua.match(regex);
+      return (match && match.length > 1 && match[2]) || '';
+    }
+
+    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
+      , likeAndroid = /like android/i.test(ua)
+      , android = !likeAndroid && /android/i.test(ua)
+      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
+      , chromeos = /CrOS/.test(ua)
+      , silk = /silk/i.test(ua)
+      , sailfish = /sailfish/i.test(ua)
+      , tizen = /tizen/i.test(ua)
+      , webos = /(web|hpw)os/i.test(ua)
+      , windowsphone = /windows phone/i.test(ua)
+      , windows = !windowsphone && /windows/i.test(ua)
+      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
+      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
+      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
+      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
+      , tablet = /tablet/i.test(ua)
+      , mobile = !tablet && /[^-]mobi/i.test(ua)
+      , xbox = /xbox/i.test(ua)
+      , result
+
+    if (/opera|opr|opios/i.test(ua)) {
+      result = {
+        name: 'Opera'
+      , opera: t
+      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/coast/i.test(ua)) {
+      result = {
+        name: 'Opera Coast'
+        , coast: t
+        , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/yabrowser/i.test(ua)) {
+      result = {
+        name: 'Yandex Browser'
+      , yandexbrowser: t
+      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/ucbrowser/i.test(ua)) {
+      result = {
+          name: 'UC Browser'
+        , ucbrowser: t
+        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/mxios/i.test(ua)) {
+      result = {
+        name: 'Maxthon'
+        , maxthon: t
+        , version: getFirstMatch(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/epiphany/i.test(ua)) {
+      result = {
+        name: 'Epiphany'
+        , epiphany: t
+        , version: getFirstMatch(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/puffin/i.test(ua)) {
+      result = {
+        name: 'Puffin'
+        , puffin: t
+        , version: getFirstMatch(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)
+      }
+    }
+    else if (/sleipnir/i.test(ua)) {
+      result = {
+        name: 'Sleipnir'
+        , sleipnir: t
+        , version: getFirstMatch(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/k-meleon/i.test(ua)) {
+      result = {
+        name: 'K-Meleon'
+        , kMeleon: t
+        , version: getFirstMatch(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (windowsphone) {
+      result = {
+        name: 'Windows Phone'
+      , windowsphone: t
+      }
+      if (edgeVersion) {
+        result.msedge = t
+        result.version = edgeVersion
+      }
+      else {
+        result.msie = t
+        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/msie|trident/i.test(ua)) {
+      result = {
+        name: 'Internet Explorer'
+      , msie: t
+      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
+      }
+    } else if (chromeos) {
+      result = {
+        name: 'Chrome'
+      , chromeos: t
+      , chromeBook: t
+      , chrome: t
+      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+      }
+    } else if (/chrome.+? edge/i.test(ua)) {
+      result = {
+        name: 'Microsoft Edge'
+      , msedge: t
+      , version: edgeVersion
+      }
+    }
+    else if (/vivaldi/i.test(ua)) {
+      result = {
+        name: 'Vivaldi'
+        , vivaldi: t
+        , version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+      }
+    }
+    else if (sailfish) {
+      result = {
+        name: 'Sailfish'
+      , sailfish: t
+      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/seamonkey\//i.test(ua)) {
+      result = {
+        name: 'SeaMonkey'
+      , seamonkey: t
+      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/firefox|iceweasel|fxios/i.test(ua)) {
+      result = {
+        name: 'Firefox'
+      , firefox: t
+      , version: getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)
+      }
+      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+        result.firefoxos = t
+      }
+    }
+    else if (silk) {
+      result =  {
+        name: 'Amazon Silk'
+      , silk: t
+      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/phantom/i.test(ua)) {
+      result = {
+        name: 'PhantomJS'
+      , phantom: t
+      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/slimerjs/i.test(ua)) {
+      result = {
+        name: 'SlimerJS'
+        , slimer: t
+        , version: getFirstMatch(/slimerjs\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
+      result = {
+        name: 'BlackBerry'
+      , blackberry: t
+      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (webos) {
+      result = {
+        name: 'WebOS'
+      , webos: t
+      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
+      };
+      if( /touchpad\//i.test(ua) ){
+        result.touchpad = t;
+      }
+    }
+    else if (/bada/i.test(ua)) {
+      result = {
+        name: 'Bada'
+      , bada: t
+      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
+      };
+    }
+    else if (tizen) {
+      result = {
+        name: 'Tizen'
+      , tizen: t
+      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
+      };
+    }
+    else if (/qupzilla/i.test(ua)) {
+      result = {
+        name: 'QupZilla'
+        , qupzilla: t
+        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+      }
+    }
+    else if (/chromium/i.test(ua)) {
+      result = {
+        name: 'Chromium'
+        , chromium: t
+        , version: getFirstMatch(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i) || versionIdentifier
+      }
+    }
+    else if (/chrome|crios|crmo/i.test(ua)) {
+      result = {
+        name: 'Chrome'
+        , chrome: t
+        , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (android) {
+      result = {
+        name: 'Android'
+        , version: versionIdentifier
+      }
+    }
+    else if (/safari|applewebkit/i.test(ua)) {
+      result = {
+        name: 'Safari'
+      , safari: t
+      }
+      if (versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    }
+    else if (iosdevice) {
+      result = {
+        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+      }
+      // WTF: version is not part of user agent in web apps
+      if (versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    }
+    else if(/googlebot/i.test(ua)) {
+      result = {
+        name: 'Googlebot'
+      , googlebot: t
+      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
+      }
+    }
+    else {
+      result = {
+        name: getFirstMatch(/^(.*)\/(.*) /),
+        version: getSecondMatch(/^(.*)\/(.*) /)
+     };
+   }
+
+    // set webkit or gecko flag for browsers based on these engines
+    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
+      if (/(apple)?webkit\/537\.36/i.test(ua)) {
+        result.name = result.name || "Blink"
+        result.blink = t
+      } else {
+        result.name = result.name || "Webkit"
+        result.webkit = t
+      }
+      if (!result.version && versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    } else if (!result.opera && /gecko\//i.test(ua)) {
+      result.name = result.name || "Gecko"
+      result.gecko = t
+      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+    }
+
+    // set OS flags for platforms that have multiple browsers
+    if (!result.msedge && (android || result.silk)) {
+      result.android = t
+    } else if (iosdevice) {
+      result[iosdevice] = t
+      result.ios = t
+    } else if (mac) {
+      result.mac = t
+    } else if (xbox) {
+      result.xbox = t
+    } else if (windows) {
+      result.windows = t
+    } else if (linux) {
+      result.linux = t
+    }
+
+    // OS version extraction
+    var osVersion = '';
+    if (result.windowsphone) {
+      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+    } else if (iosdevice) {
+      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
+      osVersion = osVersion.replace(/[_\s]/g, '.');
+    } else if (android) {
+      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
+    } else if (result.webos) {
+      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
+    } else if (result.blackberry) {
+      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
+    } else if (result.bada) {
+      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
+    } else if (result.tizen) {
+      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
+    }
+    if (osVersion) {
+      result.osversion = osVersion;
+    }
+
+    // device type extraction
+    var osMajorVersion = osVersion.split('.')[0];
+    if (
+         tablet
+      || nexusTablet
+      || iosdevice == 'ipad'
+      || (android && (osMajorVersion == 3 || (osMajorVersion >= 4 && !mobile)))
+      || result.silk
+    ) {
+      result.tablet = t
+    } else if (
+         mobile
+      || iosdevice == 'iphone'
+      || iosdevice == 'ipod'
+      || android
+      || nexusMobile
+      || result.blackberry
+      || result.webos
+      || result.bada
+    ) {
+      result.mobile = t
+    }
+
+    // Graded Browser Support
+    // http://developer.yahoo.com/yui/articles/gbs
+    if (result.msedge ||
+        (result.msie && result.version >= 10) ||
+        (result.yandexbrowser && result.version >= 15) ||
+		    (result.vivaldi && result.version >= 1.0) ||
+        (result.chrome && result.version >= 20) ||
+        (result.firefox && result.version >= 20.0) ||
+        (result.safari && result.version >= 6) ||
+        (result.opera && result.version >= 10.0) ||
+        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
+        (result.blackberry && result.version >= 10.1)
+        || (result.chromium && result.version >= 20)
+        ) {
+      result.a = t;
+    }
+    else if ((result.msie && result.version < 10) ||
+        (result.chrome && result.version < 20) ||
+        (result.firefox && result.version < 20.0) ||
+        (result.safari && result.version < 6) ||
+        (result.opera && result.version < 10.0) ||
+        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+        || (result.chromium && result.version < 20)
+        ) {
+      result.c = t
+    } else result.x = t
+
+    return result
+  }
+
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+
+  bowser.test = function (browserList) {
+    for (var i = 0; i < browserList.length; ++i) {
+      var browserItem = browserList[i];
+      if (typeof browserItem=== 'string') {
+        if (browserItem in bowser) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Get version precisions count
+   *
+   * @example
+   *   getVersionPrecision("1.10.3") // 3
+   *
+   * @param  {string} version
+   * @return {number}
+   */
+  function getVersionPrecision(version) {
+    return version.split(".").length;
+  }
+
+  /**
+   * Array::map polyfill
+   *
+   * @param  {Array} arr
+   * @param  {Function} iterator
+   * @return {Array}
+   */
+  function map(arr, iterator) {
+    var result = [], i;
+    if (Array.prototype.map) {
+      return Array.prototype.map.call(arr, iterator);
+    }
+    for (i = 0; i < arr.length; i++) {
+      result.push(iterator(arr[i]));
+    }
+    return result;
+  }
+
+  /**
+   * Calculate browser version weight
+   *
+   * @example
+   *   compareVersions(['1.10.2.1',  '1.8.2.1.90'])    // 1
+   *   compareVersions(['1.010.2.1', '1.09.2.1.90']);  // 1
+   *   compareVersions(['1.10.2.1',  '1.10.2.1']);     // 0
+   *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
+   *
+   * @param  {Array<String>} versions versions to compare
+   * @return {Number} comparison result
+   */
+  function compareVersions(versions) {
+    // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
+    var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
+    var chunks = map(versions, function (version) {
+      var delta = precision - getVersionPrecision(version);
+
+      // 2) "9" -> "9.0" (for precision = 2)
+      version = version + new Array(delta + 1).join(".0");
+
+      // 3) "9.0" -> ["000000000"", "000000009"]
+      return map(version.split("."), function (chunk) {
+        return new Array(20 - chunk.length).join("0") + chunk;
+      }).reverse();
+    });
+
+    // iterate in reverse order by reversed chunks array
+    while (--precision >= 0) {
+      // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
+      if (chunks[0][precision] > chunks[1][precision]) {
+        return 1;
+      }
+      else if (chunks[0][precision] === chunks[1][precision]) {
+        if (precision === 0) {
+          // all version chunks are same
+          return 0;
+        }
+      }
+      else {
+        return -1;
+      }
+    }
+  }
+
+  /**
+   * Check if browser is unsupported
+   *
+   * @example
+   *   bowser.isUnsupportedBrowser({
+   *     msie: "10",
+   *     firefox: "23",
+   *     chrome: "29",
+   *     safari: "5.1",
+   *     opera: "16",
+   *     phantom: "534"
+   *   });
+   *
+   * @param  {Object}  minVersions map of minimal version to browser
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
+   * @return {Boolean}
+   */
+  function isUnsupportedBrowser(minVersions, strictMode, ua) {
+    var _bowser = bowser;
+
+    // make strictMode param optional with ua param usage
+    if (typeof strictMode === 'string') {
+      ua = strictMode;
+      strictMode = void(0);
+    }
+
+    if (strictMode === void(0)) {
+      strictMode = false;
+    }
+    if (ua) {
+      _bowser = detect(ua);
+    }
+
+    var version = "" + _bowser.version;
+    for (var browser in minVersions) {
+      if (minVersions.hasOwnProperty(browser)) {
+        if (_bowser[browser]) {
+          // browser version and min supported version.
+          return compareVersions([version, minVersions[browser]]) < 0;
+        }
+      }
+    }
+
+    return strictMode; // not found
+  }
+
+  /**
+   * Check if browser is supported
+   *
+   * @param  {Object} minVersions map of minimal version to browser
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
+   * @return {Boolean}
+   */
+  function check(minVersions, strictMode, ua) {
+    return !isUnsupportedBrowser(minVersions, strictMode, ua);
+  }
+
+  bowser.isUnsupportedBrowser = isUnsupportedBrowser;
+  bowser.compareVersions = compareVersions;
+  bowser.check = check;
+
+  /*
+   * Set our detect method to the main bowser object so we can
+   * reuse it to test other user agents.
+   * This is needed to implement future tests.
+   */
+  bowser._detect = detect;
+
+  return bowser
+});
+
+(function($){
+  UABBTrigger = {
+
+      /**
+       * Trigger a hook.
+       *
+       * @since 1.1.0.3
+       * @method triggerHook
+       * @param {String} hook The hook to trigger.
+       * @param {Array} args An array of args to pass to the hook.
+       */
+      triggerHook: function( hook, args )
+      {
+        $( 'body' ).trigger( 'uabb-trigger.' + hook, args );
+      },
+    
+      /**
+       * Add a hook.
+       *
+       * @since 1.1.0.3
+       * @method addHook
+       * @param {String} hook The hook to add.
+       * @param {Function} callback A function to call when the hook is triggered.
+       */
+      addHook: function( hook, callback )
+      {
+        $( 'body' ).on( 'uabb-trigger.' + hook, callback );
+      },
+    
+      /**
+       * Remove a hook.
+       *
+       * @since 1.1.0.3
+       * @method removeHook
+       * @param {String} hook The hook to remove.
+       * @param {Function} callback The callback function to remove.
+       */
+      removeHook: function( hook, callback )
+      {
+        $( 'body' ).off( 'uabb-trigger.' + hook, callback );
+      },
+  };
+})(jQuery);
+
+jQuery(document).ready(function( $ ) {
+
+    if( typeof bowser !== 'undefined' && bowser !== null ) {
+
+      var uabb_browser   = bowser.name,
+          uabb_browser_v = bowser.version,
+          uabb_browser_class = uabb_browser.replace(/\s+/g, '-').toLowerCase(),
+          uabb_browser_v_class = uabb_browser_class + parseInt( uabb_browser_v );
+      
+      $('html').addClass(uabb_browser_class).addClass(uabb_browser_v_class);
+      
+    }
+
+    $('.uabb-row-separator').parents('html').css('overflow-x', 'hidden');
+});
 var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBuilderUrl = 'http://localhost:8888/drjulia/wp-content/plugins/bb-plugin/';var FLBuilderLayoutConfig = {
 	anchorLinkAnimations : {
 		duration 	: 1000,
@@ -1356,28 +1977,612 @@ var wpAjaxUrl = 'http://localhost:8888/drjulia/wp-admin/admin-ajax.php';var flBu
 
 /* End Global JS */
 
-(function($){
-	$('.fl-node-5f1a04c3e1e92 .fl-button-lightbox').magnificPopup({
-		
-				type: 'inline',
-		items: {
-			src: $('.fl-node-5f1a04c3e1e92 .fl-button-lightbox-content')[0]
-		},
-		callbacks: {
-			open: function() {
-				var divWrap = $( $(this.content)[0] ).find('> div');
-				divWrap.css('display', 'block');
 
-				// Triggers select change in we have multiple forms in a page
-				if ( divWrap.find('form select').length > 0 ) {
-					divWrap.find('form select').trigger('change');
+jQuery(document).ready(function( $ ) {
+	if (  ! $('html').hasClass('fl-builder-edit') ){
+
+		$('.uabb-modal-parent-wrapper').each(function(){
+			$(this).appendTo(document.body);
+		});
+	}
+});
+
+(function($) {
+	UABBModalPopup = function( settings )
+	{	
+		this.settings       = settings;
+		this.node           = settings.id;
+		this.modal_on       = settings.modal_on;
+		this.modal_custom   = settings.modal_custom;
+		this.modal_content  = settings.modal_content;
+		this.video_autoplay  = settings.video_autoplay;
+		this.enable_cookies = settings.enable_cookies;
+		this.expire_cookie  = settings.expire_cookie;
+		this.esc_keypress   = settings.esc_keypress;
+		this.overlay_click  = settings.overlay_click;
+		this.responsive_display = settings.responsive_display;
+		this.medium_device = settings.medium_device;
+		this.small_device = settings.small_device;
+	
+		this._initModalPopup();
+		this._initModalPopupVideo();
+
+		var modal_resize = this;
+
+		$( window ).resize(function() {
+			modal_resize._centerModal();
+			modal_resize._resizeModalPopup();
+		});
+
+	};
+
+	UABBModalPopup.prototype = {
+		
+			settings		: {},
+			node   			: '',
+			modal_trigger   : '',
+			overlay         : '',
+			modal_popup		: '',
+			modal_on   		: '',
+			modal_custom 	: '',
+			modal_content 	: '',
+			enable_cookies  : '',
+			expire_cookie   : '',
+			esc_keypress    : '',
+			overlay_click   : '',
+			video_autoplay  : 'no',
+			responsive_display : '',
+			medium_device : '',
+			small_device : '',
+			
+			/**
+			 * Initiate animation.
+			 *
+			 * @since 1.1.0.2
+			 * @access private
+			 * @method _initAnimations
+			 */ 
+
+			_initModalPopup: function() {
+
+				$this = this;
+				$node_module = $( '.fl-node-'+$this.node );
+				$popup_id = $( '.uamodal-'+$this.node );
+				
+				if ( ( $('html').hasClass('uabb-active-live-preview') || ! $('html').hasClass('fl-builder-edit') ) && this.modal_on == 'custom' && this.modal_custom != '' ) {
+					var custom_wrap = $(this.modal_custom);
+					
+					if ( custom_wrap.length ) {
+						custom_wrap.addClass("uabb-modal-action uabb-trigger");
+						var data_modal = 'modal-'+this.node;
+						custom_wrap.attr( 'data-modal', data_modal );
+
+						$this.modal_trigger = custom_wrap;
+						$this.modal_popup   = $( '#modal-' + $this.node );
+					 	var	modal_trigger = custom_wrap,
+						    modal_close   = $popup_id.find( '.uabb-modal-close' ),
+						    modal_popup   = $( '#modal-' + $this.node );
+						
+
+						modal_trigger.bind("click", function(){return false;});
+						modal_trigger.on( "click", $.proxy( $this._showModalPopup, $this ) );
+
+						modal_close.on( "click", $.proxy( $this._removeModalHandler, $this ) );
+
+						$popup_id.find('.uabb-modal').on( "click", function( e ) {
+							if( e.target == this ){
+								modal_close.trigger( "click" );
+							}
+						} );
+					} 
+				}else if( this.modal_on == 'automatic' ) {
+					this.modal_popup = $('#modal-' + this.node );
+
+					var refresh_cookies_name = 'refresh-modal-' + this.node,
+						cookies_status = this.enable_cookies;
+
+						if ( cookies_status != 1 && Cookies.get( refresh_cookies_name ) == 'true' ) {
+					    	Cookies.remove( refresh_cookies_name );
+						}
+				}
+					
+				this.overlay        = $popup_id.find( '.uabb-overlay' );
+
+				$node_module.find( '.uabb-trigger' ).each(function( index ) {
+				 	$this.modal_trigger = $(this);
+					$this.modal_popup   = $( '#modal-' + $this.node );
+				 	var	modal_trigger = $(this),
+					    modal_close   = $popup_id.find( '.uabb-modal-close' ),
+					    modal_popup   = $( '#modal-' + $this.node );
+					
+
+					modal_trigger.bind("click", function(){return false;});
+					modal_trigger.on( "click", $.proxy( $this._showModalPopup, $this ) );
+
+					modal_close.on( "click", $.proxy( $this._removeModalHandler, $this ) )
+
+					$popup_id.find('.uabb-modal').on( "click", function( e ) {
+						if( e.target == this ){
+							modal_close.trigger( "click" );
+						}
+					} );
+						/*function() {
+						$this._showModalPopup( this );
+					});
+					*/
+
+				});
+
+				this._centerModal();
+				this._iphonecursorfix();			
+			},
+			_showAutomaticModalPopup: function() {
+
+				if( ! this._isShowModal() ) {
+					return;
+				}
+				
+				jQuery(".uabb-modal-parent-wrapper.uabb-module-content").find(".uabb-modal.uabb-modal-custom").css("pointer-events", "none");
+				
+				var cookies_name = 'modal-' + this.node,
+					refresh_cookies_name = 'refresh-modal-' + this.node,
+					cookies_status = this.enable_cookies,
+					show_modal = true;
+
+				if ( cookies_status == 1 ) {
+					if ( Cookies.get( cookies_name ) == 'true' ) {
+						show_modal = false;
+					}		
+				}else{
+					if ( Cookies.get( refresh_cookies_name ) == 'true' ) {
+						show_modal = false;
+					}	
+			    	if ( Cookies.get( cookies_name ) == 'true' ) {
+			    		Cookies.remove( cookies_name );
+					}
+				}		
+				
+				if ( show_modal == true ) {
+
+					var parent_wrap = $('.fl-node-' + this.node ),
+						popup_wrap = $('.uamodal-' + this.node ),
+						trigger_args = '.uamodal-' + this.node + ' .uabb-modal-content-data',
+						close = popup_wrap.find('.uabb-modal-close' ),
+						cookies_days = parseInt( $this.expire_cookie ),
+						current_this = this;
+
+					if ( popup_wrap.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+						$('html').addClass('uabb-html-modal');
+						popup_wrap.find('.uabb-modal').addClass('uabb-modal-scroll');
+					}
+
+					var modal = this.modal_popup;
+
+					if( this.modal_content == 'youtube' || this.modal_content == 'vimeo' ) {
+						setTimeout( function() { modal.addClass('uabb-show' ); }, 300 );
+					} else {
+						modal.addClass('uabb-show' );
+					}
+
+					this._videoAutoplay();
+
+				    if ( this.esc_keypress == 1 ) {
+						$(document).on('keyup.uabb-modal',function(e) {
+							if (e.keyCode == 27) { 
+								current_this.modal_popup.removeClass( 'uabb-show' );
+								$('html').removeClass('uabb-html-modal');
+								current_this._stopVideo();
+								$(document).unbind('keyup.uabb-modal');
+								if ( cookies_status == 1 ) {
+									Cookies.set( cookies_name, 'true', { expires: cookies_days });
+								}else{
+									Cookies.set( refresh_cookies_name, 'true' );
+								}
+
+								UABBTrigger.triggerHook( 'uabb-modal-after-close', popup_wrap );
+							}
+						});
+
+				    }
+
+
+				    if ( this.overlay_click == 1 ) {
+
+						this.overlay.on( 'click', function( ev ) {
+							current_this.modal_popup.removeClass( 'uabb-show' );
+							$('html').removeClass('uabb-html-modal');
+							current_this._stopVideo();
+							if ( cookies_status == 1 ) {
+								Cookies.set( cookies_name, 'true', { expires: cookies_days });
+							}else{
+								Cookies.set( refresh_cookies_name, 'true' );
+							}
+							
+							UABBTrigger.triggerHook( 'uabb-modal-after-close', popup_wrap );
+						} );
+
+					}
+					/*$this.overlay.addEventListener( 'click', function( ev ) {
+						classie.remove( $this.modal_popup, 'uabb-show' );
+					});*/
+					
+					close.on( 'click', function( ev ) {
+						ev.preventDefault();
+						current_this.modal_popup.removeClass( 'uabb-show' );
+						current_this._stopVideo();
+
+						if ( popup_wrap.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+							setTimeout(function() {
+								$('html').removeClass('uabb-html-modal');
+								popup_wrap.find('.uabb-modal').removeClass('uabb-modal-scroll');
+							}, 300);
+						}
+						if ( cookies_status == 1 ) {
+							Cookies.set( cookies_name, 'true', { expires: cookies_days });
+						}else{
+							Cookies.set( refresh_cookies_name, 'true' );
+						}
+
+						UABBTrigger.triggerHook( 'uabb-modal-after-close', popup_wrap );
+					} );
+
+					inner_content_close = popup_wrap.find( '.uabb-close-modal' );
+					if ( inner_content_close.length  ) {
+						inner_content_close.on( 'click',function(){
+							current_this.modal_popup.removeClass( 'uabb-show' );
+							current_this._stopVideo();
+							if ( cookies_status == 1 ) {
+								Cookies.set( cookies_name, 'true', { expires: cookies_days });
+							}else{
+								Cookies.set( refresh_cookies_name, 'true' );
+							}
+
+							UABBTrigger.triggerHook( 'uabb-modal-after-close', popup_wrap );
+						});
+					}
+
+					/*close.addEventListener( 'click', function( ev ) {
+						//console.log( hasPerspective );
+						
+						classie.remove( $this.modal_popup, 'uabb-show' );
+						// console.log( 'Close frontend' );
+						
+					
+					});*/
+					UABBTrigger.triggerHook( 'uabb-modal-click', trigger_args );
 				}
 			},
-		},
-				closeBtnInside: true,
-		tLoading: '<i class="fas fa-spinner fa-spin fa-3x fa-fw"></i>',
-	});
+			_showModalPopup: function() {
+
+				if ( $('html').hasClass('fl-builder-edit') && !$('html').hasClass('uabb-active-live-preview') ) {
+					return;
+				}
+
+				if( ! this._isShowModal() ) {
+					return;
+				}
+
+				this._videoAutoplay();
+
+				var active_modal = $('.fl-node-' + this.node ),
+				    active_popup = $('.uamodal-' + this.node ),
+				    trigger_args = '.uamodal-' + this.node + ' .uabb-modal-content-data';
+
+				if ( active_popup.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+					$('html').addClass('uabb-html-modal');					
+					active_popup.find('.uabb-modal').addClass('uabb-modal-scroll');
+				}
+
+				jQuery(".uabb-modal-title-wrap").siblings(".uabb-modal-close").css("top", "0");
+
+				var modal = $( '#modal-' + this.node );
+
+				if( this.modal_content == 'youtube' || this.modal_content == 'vimeo' ) {
+					setTimeout( function() { modal.addClass('uabb-show' ); }, 300 );
+				} else {
+					modal.addClass('uabb-show' );
+				}
+
+				if ( this.overlay_click == 1) {
+					this.overlay.on( 'click',$.proxy( this._removeModalHandler, this ) );
+				}
+				//this.overlay.addEventListener( 'click', this._removeModalHandler );
+				current_this = this;
+				if( this.modal_trigger.hasClass('uabb-setperspective' ) ) {
+					setTimeout( function() {
+						current_this.modal_trigger.addClass('uabb-perspective' );
+					}, 25 );
+				}
+				if ( this.esc_keypress == 1 ) {
+					$(document).on('keyup.uabb-modal',function(e) {
+
+						if ( e.keyCode == 27) { 
+							current_this._removeModalHandler();
+						}
+					});
+				}
+
+				inner_content_close = active_popup.find( '.uabb-close-modal' );
+				if ( inner_content_close.length  ) {
+					inner_content_close.on( 'click',$.proxy( this._removeModalHandler, this ) );
+				}
+
+				UABBTrigger.triggerHook( 'uabb-modal-click', trigger_args );
+			},
+			_removeModal: function( hasPerspective ) {
+				var active_modal = $('.fl-node-' + this.node ),
+				    active_popup = $('.uamodal-' + this.node ) ;
+				
+				this.modal_popup.removeClass('uabb-show' );
+
+				this._stopVideo();
+				/*if ( this.modal_content == 'youtube' || this.modal_content == 'vimeo' || this.modal_content == 'video' ) {
+
+					var modal_iframe 		= active_popup.find( 'iframe' ),
+						modal_src 			= modal_iframe.attr( "src" ).replace("&autoplay=1", "");
+						
+					    modal_iframe.attr( "src", '' );
+					    modal_iframe.attr( "src", modal_src );
+				}*/
+				
+				if( hasPerspective ) {
+					this.modal_trigger.removeClass( 'uabb-perspective' );
+				}
+				
+				setTimeout(function() {
+					$('html').removeClass('uabb-html-modal');
+					active_popup.find('.uabb-modal').removeClass('uabb-modal-scroll');
+				}, 300);
+
+				$(document).unbind('keyup.uabb-modal');
+
+				UABBTrigger.triggerHook( 'uabb-modal-after-close', active_popup );
+
+			},
+			_removeModalHandler: function( ev ) {
+				this._removeModal( this.modal_trigger.hasClass('uabb-setperspective' ) ); 
+			},
+			_resizeModalPopup: function() {
+				var active_modal = $('.fl-node-' + this.node ),
+				    active_popup = $('.uamodal-' + this.node );
+				if (  active_popup.find('.uabb-modal').hasClass('uabb-show') ) {
+					if ( active_popup.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+						$('html').addClass('uabb-html-modal');						
+						active_popup.find('.uabb-modal').addClass('uabb-modal-scroll');
+					}else{
+						$('html').removeClass('uabb-html-modal');
+						active_popup.find('.uabb-modal').removeClass('uabb-modal-scroll');
+					}
+				}
+			},
+			_videoAutoplay: function() {
+				var active_modal = $('.fl-node-' + this.node ),
+				    active_popup = $('.uamodal-' + this.node );
+
+				if ( this.video_autoplay === 'yes' && ( this.modal_content === 'youtube' || this.modal_content === 'vimeo' ) ) {
+
+					var vid_id = $( '#modal-' + this.node ).find( '.uabb-video-player' ).data( 'id' );
+
+					if( 0 === $( '#modal-' + this.node ).find( '.uabb-video-player iframe' ).length ) {
+
+						$( '#modal-' + this.node ).find( '.uabb-video-player div[data-id=' + vid_id + ']' ).trigger( 'click' );
+
+					}
+					else{
+						var modal_iframe 		= active_popup.find( 'iframe' ),
+						modal_src 				= modal_iframe.attr( "src" ) + '&autoplay=1';
+
+						modal_iframe.attr( "src",  modal_src );
+					}
+					
+				}
+				if ( 'iframe' === this.modal_content ) {
+
+					if( active_popup.find( '.uabb-modal-content-data iframe' ).length === 0 ) {
+
+						var src = active_popup.find( '.uabb-modal-content-type-iframe' ).data( 'src' );
+
+						var iframe = document.createElement( "iframe" );
+									iframe.setAttribute( "src", src );
+									iframe.setAttribute( "style", "display:none;" );
+									iframe.setAttribute( "frameborder", "0" );
+									iframe.setAttribute( "allowfullscreen", "1" );
+									iframe.setAttribute( "width", "100%" );
+									iframe.setAttribute( "height", "100%" );
+									iframe.setAttribute( "class", "uael-content-iframe" );
+
+									active_popup.find( '.uabb-modal-content-data' ).html( iframe );
+									active_popup.find( '.uabb-modal-content-data' ).append( '<div class="uabb-loader"><div class="uabb-loader-1"></div><div class="uabb-loader-2"></div><div class="uabb-loader-3"></div></div>' );
+
+						var id = this.node;
+
+						iframe.onload = function() {
+							window.parent.jQuery( document ).find('#modal-' + id + ' .uabb-loader' ).fadeOut();
+							this.style.display='block';
+						};
+
+					}
+				}
+			},
+			_stopVideo: function() {
+				var active_modal = $('.fl-node-' + this.node ),
+				    active_popup = $('.uamodal-' + this.node );
+
+				if ( this.modal_content != 'photo' ) {
+
+					var modal_iframe 		= active_popup.find( 'iframe' ),
+						modal_video_tag 	= active_popup.find( 'video' );
+
+						if ( modal_iframe.length ) {
+							var modal_src 			= modal_iframe.attr( "src" ).replace("&autoplay=1", "");
+							modal_iframe.attr( "src", '' );
+						    modal_iframe.attr( "src", modal_src );
+						}else if ( modal_video_tag.length ) {
+				        	modal_video_tag[0].pause();
+							modal_video_tag[0].currentTime = 0;
+						}
+				}
+			},
+			_isShowModal: function() {
+
+				if ( this.responsive_display != '' ) {
+
+					var current_window_size = $(window).width(),
+                        medium_device = parseInt( this.medium_device ),
+                        small_device = parseInt( this.small_device );
+
+					if ( this.responsive_display == 'desktop' && current_window_size > medium_device ) {
+						
+						return true;
+					}else if( this.responsive_display == 'desktop-medium' && current_window_size > small_device ){
+						
+						return true;
+					}else if( this.responsive_display == 'medium' && current_window_size < medium_device && current_window_size > small_device ){
+
+						return true;
+					}else if( this.responsive_display == 'medium-mobile' && current_window_size < medium_device ){
+
+						return true;
+					}else if( this.responsive_display == 'mobile' && current_window_size < small_device ){
+
+						return true;
+					}else{
+
+						return false;
+					}
+				}
+
+				return true;
+			},
+			_centerModal: function () {
+
+				$this 		 = this;
+				popup_wrap = $('.uamodal-' + this.node );
+				modal_popup  = '#modal-' + $this.node;
+				node 		 = '.uamodal-' + $this.node;
+
+				if ( $( '#modal-' + this.node ).hasClass('uabb-center-modal') ) {
+		        	$( '#modal-' + this.node ).removeClass('uabb-center-modal');
+
+				}
+
+				if( $( '#modal-' + this.node + '.uabb-show' ).outerHeight() != null ) {
+
+					var top_pos  = (($(window).height() - $( '#modal-' + this.node + '.uabb-show' ).outerHeight()) / 2);
+					
+					if ( popup_wrap.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+	   		            $(node).find( modal_popup ).css( 'top', '0' );
+						$(node).find( modal_popup ).css( 'transform', 'none' );
+					} else {
+						$(node).find( modal_popup ).css( 'top', + top_pos +'px' );
+						$(node).find( modal_popup ).css( 'transform', 'none' );
+					}
+					
+				} else {
+					
+					if ( popup_wrap.find( '.uabb-content' ).outerHeight() > $(window).height() ) {
+	   		            $(node).find( modal_popup ).css( 'top', '0' );
+						$(node).find( modal_popup ).css( 'transform', 'none' );
+					} else {
+						$(node).find( modal_popup ).css( 'top', '50%' );
+						$(node).find( modal_popup ).css( 'transform', 'translateY(-50%)' );
+					}
+				}
+
+			},
+			_iphonecursorfix: function () {
+
+				$this 		 = this;
+				popup_wrap = $('.uamodal-' + this.node );
+				modal_popup  = '#modal-' + $this.node;
+				node 		 = '.uamodal-' + $this.node;
+
+				iphone = (( navigator.userAgent.match(/iPhone/i) == 'iPhone' ) ? 'iphone' : '' );
+				ipod = (( navigator.userAgent.match(/iPod/i) == 'iPod' ) ? 'ipod' : '' );
+
+				jQuery('html').addClass(iphone).addClass(ipod);
+				jQuery( 'html.iphone .uabb-modal-action-wrap .uabb-module-content .uabb-button.uabb-trigger, html.ipod .uabb-modal-action-wrap .uabb-module-content .uabb-button.uabb-trigger' ).click ( function() {
+				    jQuery('body').css( 'position', 'fixed' );
+				});
+
+				if( this.overlay_click == 1 ) {
+					jQuery(document).on('click', '.uabb-overlay', function() {  
+					   if( jQuery('html').hasClass('iphone') || jQuery('html').hasClass('ipod') ) {
+					      jQuery('body').css( 'position', 'relative' );
+					   }
+					});
+				}
+
+				jQuery(document).on('click', '.uabb-modal-close', function() {  
+				   if( jQuery('html').hasClass('iphone') || jQuery('html').hasClass('ipod') ) {
+				      jQuery('body').css( 'position', 'relative' );
+				   }
+				});
+			},
+			_initModalPopupVideo : function(){
+
+				var play_icon = 'far fa-play-circle';
+
+				if ( this.modal_content === 'youtube' || this.modal_content === 'vimeo' ) {
+
+					if( 0 === $( '.uabb-video-player iframe' ).length ){
+
+						$( '.uabb-video-player' ).each( function( index, value ) {
+
+							var div = $( "<div/>" );
+								div.attr( 'data-id', $( this ).data( 'id' ) );
+								div.attr( 'data-src', $( this ).data( 'src' ) );
+								div.attr( 'data-append', $( this ).data( 'append' ) );
+								div.html( '<img src="' + $( this ).data( 'thumb' ) + '"><div class="play ' + play_icon + '"></div>' );
+
+								div.on( "click",function(){
+
+									var iframe 	= document.createElement( "iframe" );
+									var src 	= this.dataset.src;
+									var append 	= this.dataset.append;
+        							var url 	= '';
+
+									 if ( 'youtube' === src ) {
+        								url = 'https://www.youtube.com/embed/' + this.dataset.id + this.dataset.append + '&autoplay=1';
+        							} else {
+        								url = 'https://player.vimeo.com/video/' + this.dataset.id + this.dataset.append + '&autoplay=1';
+        							}
+									iframe.setAttribute( "src", url );
+									iframe.setAttribute( "frameborder", "0" );
+									iframe.setAttribute( "allowfullscreen", "1" );
+									this.parentNode.replaceChild( iframe, this );
+								});
+								$( this ).html( div );
+						});
+					}	
+				}
+			}
+	}
+
 })(jQuery);
+
+jQuery(document).ready(function($){
+	if( 'function' === typeof UABBModalPopup ) {
+		var UABBModalPopup_6000c2f1c3135 =  new UABBModalPopup({
+			id: '6000c2f1c3135',
+			modal_on: 'button',
+			modal_custom: '',
+			modal_content: 'saved_modules',
+			video_autoplay: 'no',
+			enable_cookies: '0',
+			expire_cookie: '30',
+			esc_keypress: '0',
+			overlay_click: '1',
+			responsive_display: '',
+			medium_device: '992',
+			small_device: '768',
+		});
+
+		
+		/**/
+		
+			}
+});
 jQuery(function($) {
 	
 		$(function() {

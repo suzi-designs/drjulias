@@ -17,72 +17,6 @@ template: bb-theme
 
 
 
-/*** custom footer styles ***/
-
-ul#menu-footer-nav li{
-	display: inline-block; 
-	padding: 0 10px;
-	
-}
-
-ul#menu-footer-nav {
-	text-align: left;
-}
-
-ul#menu-footer-nav li a {
-	text-transform: uppercase;
-	font-weight: 400;
-	font-size: 12px;
-	letter-spacing: 1px;
-}
-
-h4.fl-widget-title {
-	display: none; 
-}
-
-ul#menu-social-media-nav {
-	text-align: right;
-}
-
-ul#menu-social-media-nav li{
-	display: inline-block; 
-	padding: 0 2px;
-}
-
-ul#menu-social-media-nav i.fab, ul#menu-social-media-nav i.fas {
-	font-size: 1.1em; 
-	color: #ffffff;
-	background-color: #478ba2;
-	border-radius: 50%;
-	border: 1px solid #ffffff;
-	width: 40px;
-	height: 40px; 
-	padding-top: 10px;
-	text-align: center;
-	
-	 }
-	 
-ul#menu-social-media-nav i:hover{
-	background-color: #aeced5;
-	color: #478ba2;
-}
-	 
- .menu-image-title-before.menu-image-title {
-	 padding-right: 0;
- }
-	 
-	 
-@media (min-width: 300px)  {
-
-	
-	ul#menu-social-media-nav li{
-		float: none;
-	}	
-	footer ul.menu {
-		text-align: center;
-		
-	}
-}	
 
 
 /*****  exosome page *****/
@@ -211,43 +145,6 @@ div.wrong-page h3 {
 
 /****** Contact Form Styles ******/
 
-.contact-form {
-    background: #eee;
-    padding: 30px;
-    margin: 0 20px 20px 0; 
-    border-radius: 5px;
-}
-.contact-form .fl-input-group input,
-.contact-form .fl-input-group textarea {
-    border-radius: 0;
-    padding: 12px;
-    height: auto;
-    background: #fff;
-    color: #80b0a0;
-    border-bottom: 2px solid #80b0a0;
-}
-
-.contact-form .fl-input-group input::-webkit-input-placeholder {
-    color: #e0a486;
-}
-.contact-form .fl-input-group textarea::-webkit-input-placeholder {
-    color: #e0a486;
-}
-
-.contact-form .fl-input-group input:focus,
-.contact-form .fl-input-group textarea:focus {
-    border: 1px solid #80b0a0;
-}
-
-.contact-form .fl-input-group {
-    margin-bottom: 20px;
-}
-.contact-form label {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    margin-bottom: 0px;
-}
 
 /****** Clean living archive page ******/
 
