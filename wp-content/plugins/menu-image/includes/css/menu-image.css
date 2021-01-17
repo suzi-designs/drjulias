@@ -21,8 +21,7 @@
 .menu-image-hovered.menu-image-title-before .menu-image-hover-wrapper, .menu-image-title-after.menu-image-title {
     padding-left: 10px;
 }
-
-.menu-image-title.menu-image-title-above, .menu-image-title.menu-image-title-below, .menu-image-title-below, .menu-image-title-above {
+.menu-image-title.menu-image-title-above, .menu-image-title.menu-image-title-below, .menu-image-title-below, .menu-image-title-above, .menu-item a.menu-image-title-above, .menu-item a.menu-image-title-below, .menu-image-title.menu-image-title-above, .menu-image-title.menu-image-title-below {
     text-align: center;
     display: block;
 }
@@ -70,7 +69,7 @@ ul li.menu-item > .menu-image-title-above.menu-link, ul li.menu-item > .menu-ima
     display: contents;
     transition: none;
 }
-.menu-image-title .menu-image-badge {
+.menu-image-badge {
     background-color: rgb(255, 140, 68);
     display: inline;
     font-weight: 700;
@@ -86,7 +85,7 @@ ul li.menu-item > .menu-image-title-above.menu-link, ul li.menu-item > .menu-ima
     border-radius: 5px;
     letter-spacing: .3px;
 }
-.menu-image-title .menu-image-bubble {
+.menu-image-bubble {
     color: #fff;
     font-size: 13px;
     font-weight: 700;
@@ -97,7 +96,4 @@ ul li.menu-item > .menu-image-title-above.menu-link, ul li.menu-item > .menu-ima
     border-radius: 25px;
     padding: 1px 6px 3px 5px;
     text-align: center;
-}
-.menu-image-title-before.elementor-item, .menu-image-title-after.elementor-item, .menu-image-title-above.elementor-item , .menu-image-title-below.elementor-item {
-    display: inline-grid;
 }

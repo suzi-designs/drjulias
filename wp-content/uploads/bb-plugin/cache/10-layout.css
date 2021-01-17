@@ -1195,6 +1195,18 @@ img.mfp-img {
     letter-spacing: .5px;
 }
 
+.fl-form-field #fl-subscribe-form-name::placeholder,
+.lightbox-button #fl-subscribe-form-name::-webkit-input-placeholder {
+      color: #478ba3;
+      font-weight: 500; 
+}
+
+.fl-form-field #fl-subscribe-form-email::placeholder,
+.lightbox-button #fl-subscribe-form-email::-webkit-input-placeholder {
+      color: #478ba3;
+      font-weight: 500; 
+}
+
 /*** font awesome styles ***/
 
 

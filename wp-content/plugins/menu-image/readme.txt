@@ -4,7 +4,7 @@ Tags: menu, navigation, image, icons, nav menu
 Donate link: https://www.buymeacoffee.com/ruiguerreiro
 Requires at least: 4.4.0
 Tested up to: 5.6
-Stable tag: 3.0.1
+Stable tag: 3.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,12 @@ Check this article in the following [link](https://www.wpmenuimage.com/knowledge
 3. Add images to menu item
 
 == Changelog ==
+
+### 3.0.4 ###
+* Fix - Add new CSS style
+
+### 3.0.3 ###
+* Fix - Remove style that was affecting Elementor menus
 
 ### 3.0.2 ###
 * Fix - Load Dashicons when the user isn't logged in
