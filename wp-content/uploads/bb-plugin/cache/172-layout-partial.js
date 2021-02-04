@@ -1246,7 +1246,7 @@ jQuery(function($) {
 		new FLBuilderMenu({
 			id: '5ff8f56fd4248',
 			type: 'horizontal',
-			mobile: 'text',
+			mobile: 'expanded',
 			mobileBelowRow: true,
 			mobileFlyout: false,
 			breakPoints: {
@@ -1266,7 +1266,7 @@ jQuery(function($) {
 		new FLBuilderMenu({
 			id: '6000803f59961',
 			type: 'horizontal',
-			mobile: 'hamburger',
+			mobile: 'expanded',
 			mobileBelowRow: false,
 			mobileFlyout: false,
 			breakPoints: {

@@ -2606,7 +2606,7 @@ jQuery(function($) {
 		autoStart : 1,
 		auto : true,
 		adaptiveHeight: true,
-		pause : 4000,
+		pause : 7500,
 		mode : 'horizontal',
 		autoDirection: 'next',
 		speed : 1000,
