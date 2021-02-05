@@ -136,13 +136,7 @@
 	padding-bottom:0px;
 	padding-left:0px;
 }
-img.mfp-img {
-    padding-bottom: 40px !important;
-}
-@media (max-width: 768px) { /* Mobile Photo */
-.fl-photo-content {
-	width: 100%;
-} }.fl-node-5f19f281e0432 .fl-photo {
+.fl-node-5f19f281e0432 .fl-photo {
 	text-align: center;
 }
 .fl-node-5f19f281e0432 .fl-photo-img, .fl-node-5f19f281e0432 .fl-photo-content {
