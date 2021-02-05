@@ -142,11 +142,14 @@
 .fl-node-5f19f281e0432 .fl-photo-img, .fl-node-5f19f281e0432 .fl-photo-content {
 	width: 75px;
 }
-.fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading a,
+ .fl-node-5f19f281e0432 > .fl-module-content {
+	margin-top:50px;
+}
+@media (max-width: 768px) { .fl-node-5f19f281e0432 > .fl-module-content { margin-top:20px; } }.fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading a,
 .fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text,
 .fl-row .fl-col .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text *,
 .fl-node-5e7fb21f90200 h4.fl-heading .fl-heading-text {
-	color: rgba(242,109,97,0.7);
+	color: #9b3a4d;
 }
 .fl-node-5e7fb21f90200.fl-module-heading .fl-heading {
 	text-align: center;
@@ -2147,7 +2150,10 @@ a.uabb-creative-threed-btn.uabb-animate_right-btn {
 }
 
 
-						
+					.fl-node-5e7fb21f901f0 .fl-row-content {
+				position: inherit;
+			}
+							
 					
 					
 					
